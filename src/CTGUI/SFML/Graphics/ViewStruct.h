@@ -1,7 +1,7 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 //
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// SFML - Simple and Fast Multimedia Library
+// Copyright (C) 2007-2015 Laurent Gomila (laurent@sfml-dev.org)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -20,19 +20,24 @@
 //
 // 3. This notice may not be removed or altered from any source distribution.
 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+#ifndef SFML_VIEWSTRUCT_H
+#define SFML_VIEWSTRUCT_H
+
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
+#include <SFML/Graphics/View.hpp>
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+////////////////////////////////////////////////////////////
+// Internal structure of sfMusic
+////////////////////////////////////////////////////////////
+struct sfView
+{
+    sf::View This;
+};
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
 
-#endif // CTGUI_TYPES_H
-
+#endif // SFML_VIEWSTRUCT_H

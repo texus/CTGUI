@@ -22,42 +22,21 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_RENDERER_STRUCT_H
+#define CTGUI_RENDERER_STRUCT_H
 
-#include <CTGUI/Button.h>
-#include <CTGUI/WidgetStruct.h>
+#include <TGUI/Renderers/WidgetRenderer.hpp>
 
-#include <TGUI/Widgets/Button.hpp>
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiWidget* tguiButton_create(void)
+struct tguiRenderer
 {
-    auto widget = new tguiWidget;
-    widget->This = new tgui::Button;
-    return widget;
-}
+    tgui::WidgetRenderer* This;
+    bool                  AllocatedInWrapper;
 
-tguiWidget* tguiButton_copy(const tguiWidget* widget)
-{
-    auto newWidget = new tguiWidget;
-    newWidget->This = new tgui::Button(*aurora::downcast<tgui::Button*>(widget->This));
-    return newWidget;
-}
+    tguiRenderer(tgui::WidgetRenderer* renderer, bool allocatedInWrapper = true) :
+        This{renderer},
+        AllocatedInWrapper{allocatedInWrapper}
+    {
+    }
+};
 
-void tguiButton_destroy(tguiWidget* widget)
-{
-    delete widget->This;
-    delete widget;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButton_setText(tguiWidget* widget, const sfUint32* text)
-{
-    aurora::downcast<tgui::Button*>(widget->This)->setText(text);
-}
-
-const sfUint32* tguiButton_getText(const tguiWidget* widget)
-{
-    return aurora::downcast<tgui::Button*>(widget->This)->getText().getData();
-}
+#endif // CTGUI_RENDERER_STRUCT_H

@@ -8,6 +8,14 @@ macro(ctgui_set_option var default type docstring)
     set(${var} ${${var}} CACHE ${type} ${docstring} FORCE)
 endmacro()
 
+# Define a macro to add compiler flags
+macro(tgui_add_cxx_flag flag)
+    string(REGEX REPLACE "\\+" "\\\\+" escapedFlag ${flag})
+    if (NOT (${CMAKE_CXX_FLAGS} MATCHES ".*${escapedFlag}.*"))
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}" CACHE STRING "C++ compiler flags" FORCE)
+    endif()
+endmacro()
+
 # Set a default build type and module path if none was provided
 ctgui_set_option(CMAKE_BUILD_TYPE Release STRING "Choose the type of build (Debug or Release)")
 ctgui_set_option(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules" STRING "The path to the cmake modules. This path must contain the FindTGUI.cmake file.")
@@ -52,6 +60,16 @@ if(SFML_OS_WINDOWS)
             endif()
         endforeach()
     endif()
+endif()
+
+# Set some compile flags when using GCC and Clang
+if(SFML_COMPILER_GCC OR SFML_COMPILER_CLANG)
+    tgui_add_cxx_flag(-Wall)
+    tgui_add_cxx_flag(-Wextra)
+    tgui_add_cxx_flag(-Wshadow)
+    tgui_add_cxx_flag(-Wno-long-long)
+    tgui_add_cxx_flag(-pedantic)
+    tgui_add_cxx_flag(-std=c++11)
 endif()
 
 # Add the subdirectories

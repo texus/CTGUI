@@ -23,16 +23,24 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_CONTAINER_H
+#define CTGUI_CONTAINER_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
+#include <SFML/System/Vector2.h>
+#include <stddef.h>
 
-#endif // CTGUI_TYPES_H
+CTGUI_API void tguiContainer_add(tguiWidget* container, tguiWidget* widget, const sfUint32* widgetName);
+CTGUI_API tguiWidget* tguiContainer_get(tguiWidget* container, const sfUint32* widgetName);
+CTGUI_API tguiWidget** tguiContainer_getWidgets(tguiWidget* container, size_t* count);
+CTGUI_API const sfUint32** tguiContainer_getWidgetNames(tguiWidget* container, size_t* count);
+CTGUI_API void tguiContainer_remove(tguiWidget* container, tguiWidget* widget);
+CTGUI_API void tguiContainer_removeAllWidgets(tguiWidget* container);
+
+CTGUI_API sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container);
+
+CTGUI_API void tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, const char** error);
+CTGUI_API void tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename, const char** error);
+
+#endif // CTGUI_CONTAINER_H
 

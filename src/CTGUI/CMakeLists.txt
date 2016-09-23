@@ -23,12 +23,40 @@ include_directories(${TGUI_INCLUDE_DIR})
 set(INCROOT ${CMAKE_SOURCE_DIR}/include/CTGUI)
 set(SRCROOT ${CMAKE_SOURCE_DIR}/src/CTGUI)
 set(SRC
+    ${SRCROOT}/Container.cpp
+    ${INCROOT}/Container.h
+    ${SRCROOT}/ConvertEvent.h
+    ${SRCROOT}/Gui.cpp
+    ${INCROOT}/Gui.h
+    ${SRCROOT}/GuiStruct.h
+    ${SRCROOT}/Layout.cpp
+    ${INCROOT}/Layout.h
+    ${SRCROOT}/LayoutStruct.h
+    ${SRCROOT}/RendererData.cpp
+    ${INCROOT}/RendererData.h
+    ${SRCROOT}/RendererDataStruct.h
+    ${SRCROOT}/Theme.cpp
+    ${INCROOT}/Theme.h
+    ${SRCROOT}/ThemeStruct.h
     ${INCROOT}/Types.h
-    ${INCROOT}/Widget.h
     ${SRCROOT}/Widget.cpp
+    ${INCROOT}/Widget.h
     ${SRCROOT}/WidgetStruct.h
-    ${INCROOT}/Button.h
-    ${SRCROOT}/Button.cpp
+    ${SRCROOT}/Renderers/ButtonRenderer.cpp
+    ${INCROOT}/Renderers/ButtonRenderer.h
+    ${SRCROOT}/Renderers/LabelRenderer.cpp
+    ${INCROOT}/Renderers/LabelRenderer.h
+    ${SRCROOT}/Renderers/WidgetRenderer.cpp
+    ${INCROOT}/Renderers/WidgetRenderer.h
+    ${SRCROOT}/SFML/CallbackStream.h
+    ${SRCROOT}/SFML/Graphics/FontStruct.h
+    ${SRCROOT}/SFML/Graphics/TextureStruct.h
+    ${INCROOT}/Widgets/Button.h
+    ${SRCROOT}/Widgets/Button.cpp
+    ${INCROOT}/Widgets/Label.h
+    ${SRCROOT}/Widgets/Label.cpp
+    ${INCROOT}/Widgets/Picture.h
+    ${SRCROOT}/Widgets/Picture.cpp
 )
 
 # Create the target

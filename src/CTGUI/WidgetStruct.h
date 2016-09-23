@@ -29,7 +29,9 @@
 
 struct tguiWidget
 {
-    tgui::Widget* This;
+    std::shared_ptr<tgui::Widget> This;
+
+    tguiWidget(std::shared_ptr<tgui::Widget> widget) : This{widget} {}
 };
 
 

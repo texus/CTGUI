@@ -23,16 +23,15 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <CTGUI/RendererData.h>
+#include <CTGUI/RendererDataStruct.h>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+tguiRendererData* tguiRendererData_copy(const tguiRendererData* data)
+{
+    return new tguiRendererData(std::make_shared<tgui::RendererData>(*data->This));
+}
 
-#endif // CTGUI_TYPES_H
-
+void tguiRendererData_destroy(tguiRendererData* data)
+{
+    delete data;
+}

@@ -23,16 +23,18 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_OUTLINE_H
+#define CTGUI_OUTLINE_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
 
-#endif // CTGUI_TYPES_H
+typedef struct
+{
+    float left;
+    float top;
+    float right;
+    float bottom;
+} tguiOutline;
+
+#endif // CTGUI_OUTLINE_H
 

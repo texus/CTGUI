@@ -22,17 +22,17 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_RENDERER_DATA_STRUCT_H
+#define CTGUI_RENDERER_DATA_STRUCT_H
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <TGUI/Renderers/WidgetRenderer.hpp>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+struct tguiRendererData
+{
+    std::shared_ptr<tgui::RendererData> This;
 
-#endif // CTGUI_TYPES_H
+    tguiRendererData(std::shared_ptr<tgui::RendererData> data) : This{data} {}
+};
 
+
+#endif // CTGUI_RENDERER_DATA_STRUCT_H

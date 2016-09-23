@@ -23,16 +23,40 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <CTGUI/Widgets/Button.h>
+#include <CTGUI/WidgetStruct.h>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <TGUI/Widgets/Button.hpp>
 
-#endif // CTGUI_TYPES_H
+#define DOWNCAST(x) std::static_pointer_cast<tgui::Button>(x)
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiButton_create(void)
+{
+    return new tguiWidget(std::make_shared<tgui::Button>());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButton_setText(tguiWidget* widget, const sfUint32* text)
+{
+    DOWNCAST(widget->This)->setText(text);
+}
+
+const sfUint32* tguiButton_getText(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getText().getData();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButton_setTextSize(tguiWidget* widget, unsigned int size)
+{
+    DOWNCAST(widget->This)->setTextSize(size);
+}
+
+unsigned int tguiButton_getTextSize(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getTextSize();
+}

@@ -23,16 +23,13 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_RENDERER_DATA_H
+#define CTGUI_RENDERER_DATA_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
 
-#endif // CTGUI_TYPES_H
+CTGUI_API tguiRendererData* tguiRendererData_copy(const tguiRendererData* data);
+CTGUI_API void tguiRendererData_destroy(tguiRendererData* data);
+
+#endif // CTGUI_RENDERER_DATA_H
 

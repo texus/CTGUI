@@ -23,16 +23,27 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <CTGUI/Widgets/Picture.h>
+#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/SFML/Graphics/TextureStruct.h>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <TGUI/Widgets/Picture.hpp>
 
-#endif // CTGUI_TYPES_H
+#define DOWNCAST(x) std::static_pointer_cast<tgui::Picture>(x)
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiPicture_create(void)
+{
+    return new tguiWidget(std::make_shared<tgui::Picture>());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPicture_setTexture(tguiWidget* widget, sfTexture* texture)
+{
+    if (texture->This)
+        DOWNCAST(widget->This)->setTexture(*texture->This);
+    else
+        DOWNCAST(widget->This)->setTexture({});
+}

@@ -23,16 +23,16 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_PICTURE_H
+#define CTGUI_PICTURE_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
+#include <CTGUI/Widget.h>
+#include <SFML/Graphics/Texture.h>
 
-#endif // CTGUI_TYPES_H
+CTGUI_API tguiWidget* tguiPicture_create(void);
+
+CTGUI_API void tguiPicture_setTexture(tguiWidget* widget, sfTexture* texture);
+
+#endif // CTGUI_PICTURE_H
 

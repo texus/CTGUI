@@ -22,17 +22,15 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_THEME_STRUCT_H
+#define CTGUI_THEME_STRUCT_H
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <TGUI/Loading/Theme.hpp>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+struct tguiTheme
+{
+    tgui::Theme This;
+};
 
-#endif // CTGUI_TYPES_H
 
+#endif // CTGUI_THEME_STRUCT_H

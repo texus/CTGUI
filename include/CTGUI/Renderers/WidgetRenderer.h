@@ -23,16 +23,22 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_WIDGET_RENDERER_H
+#define CTGUI_WIDGET_RENDERER_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
+#include <SFML/Graphics/Font.h>
 
-#endif // CTGUI_TYPES_H
+CTGUI_API tguiRenderer* tguiWidgetRenderer_create(void);
+CTGUI_API tguiRenderer* tguiWidgetRenderer_copy(const tguiRenderer* other);
+CTGUI_API void tguiWidgetRenderer_destroy(tguiRenderer* renderer);
+
+CTGUI_API void tguiWidgetRenderer_setOpacity(tguiRenderer* renderer, float alpha);
+CTGUI_API float tguiWidgetRenderer_getOpacity(const tguiRenderer* renderer);
+
+CTGUI_API void tguiWidgetRenderer_setFont(tguiRenderer* renderer, sfFont* font);
+
+CTGUI_API tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* renderer);
+
+#endif // CTGUI_WIDGET_RENDERER_H
 

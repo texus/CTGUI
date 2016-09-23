@@ -1,7 +1,7 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 //
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// SFML - Simple and Fast Multimedia Library
+// Copyright (C) 2007-2015 Laurent Gomila (laurent@sfml-dev.org)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -20,21 +20,29 @@
 //
 // 3. This notice may not be removed or altered from any source distribution.
 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+#ifndef SFML_FONTSTRUCT_H
+#define SFML_FONTSTRUCT_H
+
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
+#include <SFML/Graphics/Font.hpp>
+#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/SFML/CallbackStream.h>
+#include <map>
 
 
-#ifndef CTGUI_BUTTON_H
-#define CTGUI_BUTTON_H
+////////////////////////////////////////////////////////////
+// Internal structure of sfFont
+////////////////////////////////////////////////////////////
+struct sfFont
+{
+    sf::Font This;
+    std::map<unsigned int, sfTexture> Textures;
+    CallbackStream Stream;
+};
 
-#include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
 
-CTGUI_API tguiWidget* tguiButton_create(void);
-CTGUI_API tguiWidget* tguiButton_copy(const tguiWidget* other);
-CTGUI_API void tguiButton_destroy(tguiWidget* widget);
-
-CTGUI_API void tguiButton_setText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiButton_getText(const tguiWidget* widget);
-
-#endif // CTGUI_WIDGET_H
-
+#endif // SFML_FONTSTRUCT_H

@@ -23,16 +23,20 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_THEME_H
+#define CTGUI_THEME_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
 
-#endif // CTGUI_TYPES_H
+CTGUI_API tguiTheme* tguiTheme_create(void);
+CTGUI_API tguiTheme* tguiTheme_copy(const tguiTheme* theme);
+CTGUI_API void tguiTheme_destroy(tguiTheme* theme);
+
+CTGUI_API void tguiTheme_load(tguiTheme* theme, const char* filename, const char** error);
+
+CTGUI_API tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id, const char** error);
+CTGUI_API void tguiTheme_addRenderer(tguiTheme* theme, const char* id, tguiRendererData* renderer);
+CTGUI_API sfBool tguiTheme_removeRenderer(tguiTheme* theme, const char* id);
+
+#endif // CTGUI_THEME_H
 

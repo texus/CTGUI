@@ -23,16 +23,19 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_BUTTON_H
+#define CTGUI_BUTTON_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+#include <CTGUI/Config.h>
+#include <CTGUI/Widget.h>
 
-#endif // CTGUI_TYPES_H
+CTGUI_API tguiWidget* tguiButton_create(void);
+
+CTGUI_API void tguiButton_setText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API const sfUint32* tguiButton_getText(const tguiWidget* widget);
+
+CTGUI_API void tguiButton_setTextSize(tguiWidget* widget, unsigned int size);
+CTGUI_API unsigned int tguiButton_getTextSize(const tguiWidget* widget);
+
+#endif // CTGUI_WIDGET_H
 

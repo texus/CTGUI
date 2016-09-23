@@ -22,17 +22,26 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_LAYOUT_STRUCT_H
+#define CTGUI_LAYOUT_STRUCT_H
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <TGUI/Layout.hpp>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+struct tguiLayout
+{
+    tgui::Layout This;
 
-#endif // CTGUI_TYPES_H
+    tguiLayout(float constant) : This{constant} {}
+    tguiLayout(const char* expression) : This{expression} {}
+};
 
+struct tguiLayout2d
+{
+    tgui::Layout2d This;
+
+    tguiLayout2d(sfVector2f constant) : This{constant.x, constant.y} {}
+    tguiLayout2d(tguiLayout* x, tguiLayout* y) : This{x->This, y->This} {}
+    tguiLayout2d(const char* expression) : This{expression} {}
+};
+
+#endif // CTGUI_LAYOUT_STRUCT_H

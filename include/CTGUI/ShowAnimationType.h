@@ -23,16 +23,24 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#ifndef CTGUI_SHOW_ANIMATION_TYPE_H
+#define CTGUI_SHOW_ANIMATION_TYPE_H
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+typedef enum
+{
+    tguiFade,
+	tguiScale,
+	tguiSlideToRight,
+	tguiSlideToLeft,
+	tguiSlideToBottom,
+	tguiSlideToTop,
 
-#endif // CTGUI_TYPES_H
+	tguiSlideFromLeft = tguiSlideToRight,
+	tguiSlideFromRight = tguiSlideToLeft,
+	tguiSlideFromTop = tguiSlideToBottom,
+	tguiSlideFromBottom = tguiSlideToTop
+
+} tguiShowAnimationType;
+
+#endif // CTGUI_SHOW_ANIMATION_TYPE_H
 

@@ -22,17 +22,17 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_GUI_STRUCT_H
+#define CTGUI_GUI_STRUCT_H
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <TGUI/Gui.hpp>
+#include <CTGUI/SFML/Graphics/ViewStruct.h>
 
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiGui tguiGui;
+struct tguiGui
+{
+    tgui::Gui This;
+    sfView    View;
+};
 
-#endif // CTGUI_TYPES_H
 
+#endif // CTGUI_GUI_STRUCT_H
