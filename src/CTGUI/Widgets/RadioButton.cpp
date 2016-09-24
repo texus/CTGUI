@@ -23,40 +23,69 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Widgets/Button.h>
+#include <CTGUI/Widgets/RadioButton.h>
 #include <CTGUI/WidgetStruct.h>
 
-#include <TGUI/Widgets/Button.hpp>
+#include <TGUI/Widgets/RadioButton.hpp>
 
-#define DOWNCAST(x) std::static_pointer_cast<tgui::Button>(x)
+#define DOWNCAST(x) std::static_pointer_cast<tgui::RadioButton>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiButton_create(void)
+tguiWidget* tguiRadioButton_create(void)
 {
-    return new tguiWidget(tgui::Button::create());
+    return new tguiWidget(tgui::RadioButton::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButton_setText(tguiWidget* widget, const sfUint32* text)
+void tguiRadioButton_check(tguiWidget* widget)
+{
+    DOWNCAST(widget->This)->check();
+}
+
+void tguiRadioButton_uncheck(tguiWidget* widget)
+{
+    DOWNCAST(widget->This)->uncheck();
+}
+
+sfBool tguiRadioButton_isChecked(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isChecked();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiRadioButton_setText(tguiWidget* widget, const sfUint32* text)
 {
     DOWNCAST(widget->This)->setText(text);
 }
 
-const sfUint32* tguiButton_getText(const tguiWidget* widget)
+const sfUint32* tguiRadioButton_getText(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getText().getData();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButton_setTextSize(tguiWidget* widget, unsigned int size)
+void tguiRadioButton_setTextSize(tguiWidget* widget, unsigned int size)
 {
     DOWNCAST(widget->This)->setTextSize(size);
 }
 
-unsigned int tguiButton_getTextSize(const tguiWidget* widget)
+unsigned int tguiRadioButton_getTextSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getTextSize();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable)
+{
+    DOWNCAST(widget->This)->setTextClickable(clickable);
+}
+
+sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isTextClickable();
 }

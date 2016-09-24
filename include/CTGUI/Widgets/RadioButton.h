@@ -23,32 +23,26 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_LABEL_H
-#define CTGUI_LABEL_H
+#ifndef CTGUI_RADIO_BUTTON_H
+#define CTGUI_RADIO_BUTTON_H
 
 #include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
-#include <CTGUI/Alignment.h>
 
-CTGUI_API tguiWidget* tguiLabel_create(void);
+CTGUI_API tguiWidget* tguiRadioButton_create(void);
 
-CTGUI_API void tguiLabel_setText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiLabel_getText(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_check(tguiWidget* widget);
+CTGUI_API void tguiRadioButton_uncheck(tguiWidget* widget);
+CTGUI_API sfBool tguiRadioButton_isChecked(const tguiWidget* widget);
 
-CTGUI_API void tguiLabel_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiLabel_getTextSize(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API const sfUint32* tguiRadioButton_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiLabel_setHorizontalAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment);
-CTGUI_API unsigned int tguiLabel_getHorizontalAlignment(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setTextSize(tguiWidget* widget, unsigned int size);
+CTGUI_API unsigned int tguiRadioButton_getTextSize(const tguiWidget* widget);
 
-CTGUI_API void tguiLabel_setVerticalAlignment(tguiWidget* widget, tguiVerticalAlignment alignment);
-CTGUI_API unsigned int tguiLabel_getVerticalAlignment(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable);
+CTGUI_API sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget);
 
-CTGUI_API void tguiLabel_setAutoSize(tguiWidget* widget, sfBool autoSize);
-CTGUI_API sfBool tguiLabel_getAutoSize(const tguiWidget* widget);
-
-CTGUI_API void tguiLabel_setMaximumTextWidth(tguiWidget* widget, float maximumTextWidth);
-CTGUI_API float tguiLabel_getMaximumTextWidth(const tguiWidget* widget);
-
-#endif // CTGUI_LABEL_H
+#endif // CTGUI_RADIO_BUTTON_H
 

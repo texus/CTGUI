@@ -44,8 +44,14 @@ set(SRC
     ${SRCROOT}/WidgetStruct.h
     ${SRCROOT}/Renderers/ButtonRenderer.cpp
     ${INCROOT}/Renderers/ButtonRenderer.h
+    ${SRCROOT}/Renderers/EditBoxRenderer.cpp
+    ${INCROOT}/Renderers/EditBoxRenderer.h
     ${SRCROOT}/Renderers/LabelRenderer.cpp
     ${INCROOT}/Renderers/LabelRenderer.h
+    ${SRCROOT}/Renderers/PanelRenderer.cpp
+    ${INCROOT}/Renderers/PanelRenderer.h
+    ${SRCROOT}/Renderers/RadioButtonRenderer.cpp
+    ${INCROOT}/Renderers/RadioButtonRenderer.h
     ${SRCROOT}/Renderers/WidgetRenderer.cpp
     ${INCROOT}/Renderers/WidgetRenderer.h
     ${SRCROOT}/SFML/CallbackStream.h
@@ -53,10 +59,20 @@ set(SRC
     ${SRCROOT}/SFML/Graphics/TextureStruct.h
     ${INCROOT}/Widgets/Button.h
     ${SRCROOT}/Widgets/Button.cpp
+    ${INCROOT}/Widgets/CheckBox.h
+    ${SRCROOT}/Widgets/CheckBox.cpp
+    ${INCROOT}/Widgets/ClickableWidget.h
+    ${SRCROOT}/Widgets/ClickableWidget.cpp
+    ${INCROOT}/Widgets/EditBox.h
+    ${SRCROOT}/Widgets/EditBox.cpp
     ${INCROOT}/Widgets/Label.h
     ${SRCROOT}/Widgets/Label.cpp
+    ${INCROOT}/Widgets/Panel.h
+    ${SRCROOT}/Widgets/Panel.cpp
     ${INCROOT}/Widgets/Picture.h
     ${SRCROOT}/Widgets/Picture.cpp
+    ${INCROOT}/Widgets/RadioButton.h
+    ${SRCROOT}/Widgets/RadioButton.cpp
 )
 
 # Create the target
