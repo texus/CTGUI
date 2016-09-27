@@ -116,6 +116,57 @@ void tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*funct
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidget_connect_vector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f), const char** error)
+{
+    try
+    {
+        widget->This->connect(signalName, [function](const sf::Vector2f& vector2f){ function({vector2f.x, vector2f.y}); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        static std::string errorMessage;
+        errorMessage = e.what();
+        *error = errorMessage.c_str();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_connect_string(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*), const char** error)
+{
+    try
+    {
+        widget->This->connect(signalName, [function](const sf::String& str){ function(str.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        static std::string errorMessage;
+        errorMessage = e.what();
+        *error = errorMessage.c_str();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*function)(int), const char** error)
+{
+    try
+    {
+        widget->This->connect(signalName, function);
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        static std::string errorMessage;
+        errorMessage = e.what();
+        *error = errorMessage.c_str();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error)
 {
     try

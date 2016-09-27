@@ -50,8 +50,16 @@ set(SRC
     ${INCROOT}/Renderers/LabelRenderer.h
     ${SRCROOT}/Renderers/PanelRenderer.cpp
     ${INCROOT}/Renderers/PanelRenderer.h
+    ${SRCROOT}/Renderers/ProgressBarRenderer.cpp
+    ${INCROOT}/Renderers/ProgressBarRenderer.h
     ${SRCROOT}/Renderers/RadioButtonRenderer.cpp
     ${INCROOT}/Renderers/RadioButtonRenderer.h
+    ${SRCROOT}/Renderers/ScrollbarRenderer.cpp
+    ${INCROOT}/Renderers/ScrollbarRenderer.h
+    ${SRCROOT}/Renderers/SliderRenderer.cpp
+    ${INCROOT}/Renderers/SliderRenderer.h
+    ${SRCROOT}/Renderers/SpinButtonRenderer.cpp
+    ${INCROOT}/Renderers/SpinButtonRenderer.h
     ${SRCROOT}/Renderers/WidgetRenderer.cpp
     ${INCROOT}/Renderers/WidgetRenderer.h
     ${SRCROOT}/SFML/CallbackStream.h
@@ -71,8 +79,16 @@ set(SRC
     ${SRCROOT}/Widgets/Panel.cpp
     ${INCROOT}/Widgets/Picture.h
     ${SRCROOT}/Widgets/Picture.cpp
+    ${INCROOT}/Widgets/ProgressBar.h
+    ${SRCROOT}/Widgets/ProgressBar.cpp
     ${INCROOT}/Widgets/RadioButton.h
     ${SRCROOT}/Widgets/RadioButton.cpp
+    ${INCROOT}/Widgets/Scrollbar.h
+    ${SRCROOT}/Widgets/Scrollbar.cpp
+    ${INCROOT}/Widgets/Slider.h
+    ${SRCROOT}/Widgets/Slider.cpp
+    ${INCROOT}/Widgets/SpinButton.h
+    ${SRCROOT}/Widgets/SpinButton.cpp
 )
 
 # Create the target

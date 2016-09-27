@@ -46,6 +46,9 @@ CTGUI_API sfVector2f tguiWidget_getSize(const tguiWidget* widget);
 CTGUI_API sfVector2f tguiWidget_getFullSize(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error);
+CTGUI_API void tguiWidget_connect_vector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f), const char** error);
+CTGUI_API void tguiWidget_connect_string(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*), const char** error);
+CTGUI_API void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*function)(int), const char** error);
 
 CTGUI_API void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error);
 CTGUI_API tguiRenderer* tguiWidget_getRenderer(const tguiWidget* widget);
