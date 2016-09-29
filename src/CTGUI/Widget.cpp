@@ -167,6 +167,23 @@ void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*f
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidget_connect_itemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+{
+    try
+    {
+        widget->This->connect(signalName, [function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        static std::string errorMessage;
+        errorMessage = e.what();
+        *error = errorMessage.c_str();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error)
 {
     try

@@ -23,55 +23,69 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Renderers/WidgetRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/RendererDataStruct.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
+#include <CTGUI/Widgets/MenuBar.h>
+#include <CTGUI/WidgetStruct.h>
 
-#include <TGUI/Renderers/WidgetRenderer.hpp>
+#include <TGUI/Widgets/MenuBar.hpp>
+
+#define DOWNCAST(x) std::static_pointer_cast<tgui::MenuBar>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiRenderer* tguiWidgetRenderer_create(void)
+tguiWidget* tguiMenuBar_create(void)
 {
-    return new tguiRenderer(new tgui::WidgetRenderer);
-}
-
-tguiRenderer* tguiWidgetRenderer_copy(const tguiRenderer* renderer)
-{
-    return new tguiRenderer(new tgui::WidgetRenderer(*renderer->This));
-}
-
-void tguiWidgetRenderer_destroy(tguiRenderer* renderer)
-{
-    if (renderer->AllocatedInWrapper)
-        delete renderer->This;
-
-    delete renderer;
+    return new tguiWidget(tgui::MenuBar::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setOpacity(tguiRenderer* renderer, float alpha)
+void tguiMenuBar_addMenu(tguiWidget* widget, const sfUint32* text)
 {
-    renderer->This->setOpacity(alpha);
+    DOWNCAST(widget->This)->addMenu(text);
 }
 
-float tguiWidgetRenderer_getOpacity(const tguiRenderer* renderer)
+sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* text, const sfUint32* menu)
 {
-    return renderer->This->getOpacity();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidgetRenderer_setFont(tguiRenderer* renderer, sfFont* font)
-{
-    renderer->This->setFont(font->This);
+    return DOWNCAST(widget->This)->addMenuItem(text, menu);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* renderer)
+sfBool tguiMenuBar_removeMenu(tguiWidget* widget, const sfUint32* menu)
 {
-    return new tguiRendererData(renderer->This->getData());
+    return DOWNCAST(widget->This)->removeMenu(menu);
+}
+
+sfBool tguiMenuBar_removeMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* menuItem)
+{
+    return DOWNCAST(widget->This)->removeMenuItem(menu, menuItem);
+}
+
+void tguiMenuBar_removeAllMenus(tguiWidget* widget)
+{
+    DOWNCAST(widget->This)->removeAllMenus();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_setTextSize(tguiWidget* widget, unsigned int size)
+{
+    DOWNCAST(widget->This)->setTextSize(size);
+}
+
+unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getTextSize();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, unsigned int minimumWidth)
+{
+    DOWNCAST(widget->This)->setMinimumSubMenuWidth(minimumWidth);
+}
+
+unsigned int tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getMinimumSubMenuWidth();
 }

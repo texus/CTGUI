@@ -111,3 +111,8 @@ void tguiLabelRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyle(style);
 }
+
+sfUint32 tguiLabelRenderer_getTextStyle(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextStyle();
+}

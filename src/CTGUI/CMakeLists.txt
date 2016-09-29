@@ -4,11 +4,6 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 # Set the output directory for CTGUI library
 set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}/lib")
 
-# Disable stupid warnings with Visual C++
-if(SFML_COMPILER_MSVC)
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-endif()
-
 # Find C++ TGUI library
 if(SFML_OS_WINDOWS)
     if (CTGUI_LINK_TGUI_STATICALLY)
@@ -44,10 +39,16 @@ set(SRC
     ${SRCROOT}/WidgetStruct.h
     ${SRCROOT}/Renderers/ButtonRenderer.cpp
     ${INCROOT}/Renderers/ButtonRenderer.h
+    ${SRCROOT}/Renderers/ComboBoxRenderer.cpp
+    ${INCROOT}/Renderers/ComboBoxRenderer.h
     ${SRCROOT}/Renderers/EditBoxRenderer.cpp
     ${INCROOT}/Renderers/EditBoxRenderer.h
     ${SRCROOT}/Renderers/LabelRenderer.cpp
     ${INCROOT}/Renderers/LabelRenderer.h
+    ${SRCROOT}/Renderers/ListBoxRenderer.cpp
+    ${INCROOT}/Renderers/ListBoxRenderer.h
+    ${SRCROOT}/Renderers/MenuBarRenderer.cpp
+    ${INCROOT}/Renderers/MenuBarRenderer.h
     ${SRCROOT}/Renderers/PanelRenderer.cpp
     ${INCROOT}/Renderers/PanelRenderer.h
     ${SRCROOT}/Renderers/ProgressBarRenderer.cpp
@@ -67,14 +68,22 @@ set(SRC
     ${SRCROOT}/SFML/Graphics/TextureStruct.h
     ${INCROOT}/Widgets/Button.h
     ${SRCROOT}/Widgets/Button.cpp
+    ${INCROOT}/Widgets/Canvas.h
+    ${SRCROOT}/Widgets/Canvas.cpp
     ${INCROOT}/Widgets/CheckBox.h
     ${SRCROOT}/Widgets/CheckBox.cpp
     ${INCROOT}/Widgets/ClickableWidget.h
     ${SRCROOT}/Widgets/ClickableWidget.cpp
+    ${INCROOT}/Widgets/ComboBox.h
+    ${SRCROOT}/Widgets/ComboBox.cpp
     ${INCROOT}/Widgets/EditBox.h
     ${SRCROOT}/Widgets/EditBox.cpp
     ${INCROOT}/Widgets/Label.h
     ${SRCROOT}/Widgets/Label.cpp
+    ${INCROOT}/Widgets/ListBox.h
+    ${SRCROOT}/Widgets/ListBox.cpp
+    ${INCROOT}/Widgets/MenuBar.h
+    ${SRCROOT}/Widgets/MenuBar.cpp
     ${INCROOT}/Widgets/Panel.h
     ${SRCROOT}/Widgets/Panel.cpp
     ${INCROOT}/Widgets/Picture.h
