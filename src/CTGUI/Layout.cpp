@@ -33,7 +33,7 @@ tguiLayout* tguiLayout_create(float constant)
     return new tguiLayout(constant);
 }
 
-tguiLayout* tguiLayout_create_fromString(const char* expression)
+tguiLayout* tguiLayout_createFromString(const char* expression)
 {
     return new tguiLayout(expression);
 }
@@ -60,12 +60,12 @@ tguiLayout2d* tguiLayout2d_create(sfVector2f constant)
     return new tguiLayout2d(constant);
 }
 
-tguiLayout2d* tguiLayout2d_create_fromLayouts(tguiLayout* x, tguiLayout* y)
+tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y)
 {
     return new tguiLayout2d(x, y);
 }
 
-tguiLayout2d* tguiLayout2d_create_fromString(const char* expression)
+tguiLayout2d* tguiLayout2d_createFromString(const char* expression)
 {
     return new tguiLayout2d(expression);
 }

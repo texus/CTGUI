@@ -23,34 +23,35 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Renderers/ProgressBarRenderer.h>
+#include <CTGUI/Renderers/TabsRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/RendererDataStruct.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
-#include <TGUI/Renderers/ProgressBarRenderer.hpp>
+#include <TGUI/Renderers/TabsRenderer.hpp>
 
-#define DOWNCAST(x) static_cast<tgui::ProgressBarRenderer*>(x)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiRenderer* tguiProgressBarRenderer_create(void)
-{
-    return new tguiRenderer(new tgui::ProgressBarRenderer);
-}
-
-tguiRenderer* tguiProgressBarRenderer_copy(const tguiRenderer* renderer)
-{
-    return new tguiRenderer(new tgui::ProgressBarRenderer(*DOWNCAST(renderer->This)));
-}
+#define DOWNCAST(x) static_cast<tgui::TabsRenderer*>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+tguiRenderer* tguiTabsRenderer_create(void)
+{
+    return new tguiRenderer(new tgui::TabsRenderer);
+}
+
+tguiRenderer* tguiTabsRenderer_copy(const tguiRenderer* renderer)
+{
+    return new tguiRenderer(new tgui::TabsRenderer(*DOWNCAST(renderer->This)));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabsRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
 {
     DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
 }
 
-tguiOutline tguiProgressBarRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline tguiTabsRenderer_getBorders(const tguiRenderer* renderer)
 {
     tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
     return {borders.left, borders.top, borders.right, borders.bottom};
@@ -58,62 +59,60 @@ tguiOutline tguiProgressBarRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiProgressBarRenderer_getTextColor(const tguiRenderer* renderer)
-{
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
-}
-
-void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTextColorFilled({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* renderer)
-{
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorFilled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
 }
 
-sfColor tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
+sfColor tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
     sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
     return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiProgressBarRenderer_setFillColor(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color)
 {
-    DOWNCAST(renderer->This)->setFillColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setSelectedBackgroundColor({color.r, color.g, color.b, color.a});
 }
 
-sfColor tguiProgressBarRenderer_getFillColor(const tguiRenderer* renderer)
+sfColor tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getFillColor();
+    sf::Color color = DOWNCAST(renderer->This)->getSelectedBackgroundColor();
     return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getTextColor(const tguiRenderer* renderer)
+{
+    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
+    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+}
+
+void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setSelectedTextColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer)
+{
+    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColor();
+    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
 }
 
-sfColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
+sfColor tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer)
 {
     sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
     return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
@@ -121,24 +120,24 @@ sfColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, sfTexture* texture)
 {
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+    DOWNCAST(renderer->This)->setTextureTab(*texture->This);
 }
 
-void tguiProgressBarRenderer_setTextureFill(tguiRenderer* renderer, sfTexture* texture)
+void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, sfTexture* texture)
 {
-    DOWNCAST(renderer->This)->setTextureFill(*texture->This);
+    DOWNCAST(renderer->This)->setTextureSelectedTab(*texture->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
+void tguiTabsRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide)
 {
-    DOWNCAST(renderer->This)->setTextStyle(style);
+    DOWNCAST(renderer->This)->setDistanceToSide(distanceToSide);
 }
 
-sfUint32 tguiProgressBarRenderer_getTextStyle(tguiRenderer* renderer)
+float tguiTabsRenderer_getDistanceToSide(const tguiRenderer* renderer)
 {
-    return DOWNCAST(renderer->This)->getTextStyle();
+    return DOWNCAST(renderer->This)->getDistanceToSide();
 }

@@ -37,7 +37,7 @@ tguiGui* tguiGui_create(void)
     return new tguiGui;
 }
 
-tguiGui* tguiGui_create_fromWindow(sfRenderWindow* window)
+tguiGui* tguiGui_createFromWindow(sfRenderWindow* window)
 {
     tguiGui* gui = tguiGui_create();
     tguiGui_setWindow(gui, window);

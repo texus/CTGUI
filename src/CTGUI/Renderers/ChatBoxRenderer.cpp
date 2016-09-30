@@ -23,71 +23,59 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Renderers/ProgressBarRenderer.h>
+#include <CTGUI/Renderers/ChatBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/RendererDataStruct.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
-#include <TGUI/Renderers/ProgressBarRenderer.hpp>
+#include <TGUI/Renderers/ChatBoxRenderer.hpp>
 
-#define DOWNCAST(x) static_cast<tgui::ProgressBarRenderer*>(x)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiRenderer* tguiProgressBarRenderer_create(void)
-{
-    return new tguiRenderer(new tgui::ProgressBarRenderer);
-}
-
-tguiRenderer* tguiProgressBarRenderer_copy(const tguiRenderer* renderer)
-{
-    return new tguiRenderer(new tgui::ProgressBarRenderer(*DOWNCAST(renderer->This)));
-}
+#define DOWNCAST(x) static_cast<tgui::ChatBoxRenderer*>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+tguiRenderer* tguiChatBoxRenderer_create(void)
+{
+    return new tguiRenderer(new tgui::ChatBoxRenderer);
+}
+
+tguiRenderer* tguiChatBoxRenderer_copy(const tguiRenderer* renderer)
+{
+    return new tguiRenderer(new tgui::ChatBoxRenderer(*DOWNCAST(renderer->This)));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChatBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
 {
     DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
 }
 
-tguiOutline tguiProgressBarRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline tguiChatBoxRenderer_getBorders(const tguiRenderer* renderer)
 {
     tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
     return {borders.left, borders.top, borders.right, borders.bottom};
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiProgressBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
+void tguiChatBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding)
 {
-    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setPadding({padding.left, padding.top, padding.right, padding.bottom});
 }
 
-sfColor tguiProgressBarRenderer_getTextColor(const tguiRenderer* renderer)
+tguiOutline tguiChatBoxRenderer_getPadding(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
-}
-
-void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTextColorFilled({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* renderer)
-{
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorFilled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    tgui::Padding padding = DOWNCAST(renderer->This)->getPadding();
+    return {padding.left, padding.top, padding.right, padding.bottom};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
 }
 
-sfColor tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
+sfColor tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
     sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
     return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
@@ -95,25 +83,12 @@ sfColor tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setFillColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setFillColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiProgressBarRenderer_getFillColor(const tguiRenderer* renderer)
-{
-    sf::Color color = DOWNCAST(renderer->This)->getFillColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiProgressBarRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
+void tguiChatBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
 }
 
-sfColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
+sfColor tguiChatBoxRenderer_getBorderColor(const tguiRenderer* renderer)
 {
     sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
     return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
@@ -121,24 +96,19 @@ sfColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }
 
-void tguiProgressBarRenderer_setTextureFill(tguiRenderer* renderer, sfTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureFill(*texture->This);
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
+void tguiChatBoxRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
 {
-    DOWNCAST(renderer->This)->setTextStyle(style);
+    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
 }
 
-sfUint32 tguiProgressBarRenderer_getTextStyle(tguiRenderer* renderer)
+tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* renderer)
 {
-    return DOWNCAST(renderer->This)->getTextStyle();
+    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
 }

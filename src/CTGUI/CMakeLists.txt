@@ -39,10 +39,14 @@ set(SRC
     ${SRCROOT}/WidgetStruct.h
     ${SRCROOT}/Renderers/ButtonRenderer.cpp
     ${INCROOT}/Renderers/ButtonRenderer.h
+    ${SRCROOT}/Renderers/ChatBoxRenderer.cpp
+    ${INCROOT}/Renderers/ChatBoxRenderer.h
     ${SRCROOT}/Renderers/ComboBoxRenderer.cpp
     ${INCROOT}/Renderers/ComboBoxRenderer.h
     ${SRCROOT}/Renderers/EditBoxRenderer.cpp
     ${INCROOT}/Renderers/EditBoxRenderer.h
+    ${SRCROOT}/Renderers/KnobRenderer.cpp
+    ${INCROOT}/Renderers/KnobRenderer.h
     ${SRCROOT}/Renderers/LabelRenderer.cpp
     ${INCROOT}/Renderers/LabelRenderer.h
     ${SRCROOT}/Renderers/ListBoxRenderer.cpp
@@ -61,6 +65,10 @@ set(SRC
     ${INCROOT}/Renderers/SliderRenderer.h
     ${SRCROOT}/Renderers/SpinButtonRenderer.cpp
     ${INCROOT}/Renderers/SpinButtonRenderer.h
+    ${SRCROOT}/Renderers/TabsRenderer.cpp
+    ${INCROOT}/Renderers/TabsRenderer.h
+    ${SRCROOT}/Renderers/TextBoxRenderer.cpp
+    ${INCROOT}/Renderers/TextBoxRenderer.h
     ${SRCROOT}/Renderers/WidgetRenderer.cpp
     ${INCROOT}/Renderers/WidgetRenderer.h
     ${SRCROOT}/SFML/CallbackStream.h
@@ -70,6 +78,8 @@ set(SRC
     ${SRCROOT}/Widgets/Button.cpp
     ${INCROOT}/Widgets/Canvas.h
     ${SRCROOT}/Widgets/Canvas.cpp
+    ${INCROOT}/Widgets/ChatBox.h
+    ${SRCROOT}/Widgets/ChatBox.cpp
     ${INCROOT}/Widgets/CheckBox.h
     ${SRCROOT}/Widgets/CheckBox.cpp
     ${INCROOT}/Widgets/ClickableWidget.h
@@ -78,6 +88,8 @@ set(SRC
     ${SRCROOT}/Widgets/ComboBox.cpp
     ${INCROOT}/Widgets/EditBox.h
     ${SRCROOT}/Widgets/EditBox.cpp
+    ${INCROOT}/Widgets/Knob.h
+    ${SRCROOT}/Widgets/Knob.cpp
     ${INCROOT}/Widgets/Label.h
     ${SRCROOT}/Widgets/Label.cpp
     ${INCROOT}/Widgets/ListBox.h
@@ -98,6 +110,10 @@ set(SRC
     ${SRCROOT}/Widgets/Slider.cpp
     ${INCROOT}/Widgets/SpinButton.h
     ${SRCROOT}/Widgets/SpinButton.cpp
+    ${INCROOT}/Widgets/Tabs.h
+    ${SRCROOT}/Widgets/Tabs.cpp
+    ${INCROOT}/Widgets/TextBox.h
+    ${SRCROOT}/Widgets/TextBox.cpp
 )
 
 # Create the target

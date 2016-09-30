@@ -31,7 +31,7 @@
 #include <SFML/Window/Event.h>
 
 CTGUI_API tguiGui* tguiGui_create(void);
-CTGUI_API tguiGui* tguiGui_create_fromWindow(sfRenderWindow* window);
+CTGUI_API tguiGui* tguiGui_createFromWindow(sfRenderWindow* window);
 CTGUI_API void tguiGui_destroy(tguiGui* gui);
 
 CTGUI_API void tguiGui_setWindow(tguiGui* gui, sfRenderWindow* window);

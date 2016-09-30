@@ -68,7 +68,9 @@ void tguiEditBox_selectText(tguiWidget* widget, size_t start, size_t length)
 
 const sfUint32* tguiEditBox_getSelectedText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getSelectedText().getData();
+    static sf::String selectedText;
+    selectedText = DOWNCAST(widget->This)->getSelectedText();
+    return selectedText.getData();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

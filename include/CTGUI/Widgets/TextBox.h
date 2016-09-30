@@ -23,31 +23,31 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_LAYOUT_H
-#define CTGUI_LAYOUT_H
+#ifndef CTGUI_TEXT_BOX_H
+#define CTGUI_TEXT_BOX_H
 
 #include <CTGUI/Config.h>
-#include <SFML/System/Vector2.h>
+#include <CTGUI/Widget.h>
+#include <stddef.h>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API tguiWidget* tguiTextBox_create(void);
 
-CTGUI_API tguiLayout* tguiLayout_create(float constant);
-CTGUI_API tguiLayout* tguiLayout_createFromString(const char* expression);
-CTGUI_API tguiLayout* tguiLayout_copy(const tguiLayout* other);
-CTGUI_API void tguiLayout_destroy(tguiLayout* layout);
+CTGUI_API void tguiTextBox_setText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API void tguiTextBox_addText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API const sfUint32* tguiTextBox_getText(const tguiWidget* widget);
+CTGUI_API const sfUint32* tguiTextBox_getSelectedText(const tguiWidget* widget);
 
-CTGUI_API float tguiLayout_getValue(const tguiLayout* layout);
+CTGUI_API void tguiTextBox_setTextSize(tguiWidget* widget, unsigned int size);
+CTGUI_API unsigned int tguiTextBox_getTextSize(const tguiWidget* widget);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API void tguiTextBox_setMaximumCharacters(tguiWidget* widget, size_t maximumCharacters);
+CTGUI_API size_t tguiTextBox_getMaximumCharacters(const tguiWidget* widget);
 
-CTGUI_API tguiLayout2d* tguiLayout2d_create(sfVector2f constant);
-CTGUI_API tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y);
-CTGUI_API tguiLayout2d* tguiLayout2d_createFromString(const char* expression);
-CTGUI_API tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* other);
-CTGUI_API void tguiLayout2d_destroy(tguiLayout2d* layout);
+CTGUI_API void tguiTextBox_setReadOnly(tguiWidget* widget, sfBool readOnly);
+CTGUI_API sfBool tguiTextBox_isReadOnly(const tguiWidget* widget);
 
-CTGUI_API sfVector2f tguiLayout2d_getValue(const tguiLayout2d* layout);
+CTGUI_API void tguiTextBox_setVerticalScrollbarPresent(tguiWidget* widget, sfBool present);
+CTGUI_API sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#endif // CTGUI_TEXT_BOX_H
 
-#endif // CTGUI_LAYOUT_H
