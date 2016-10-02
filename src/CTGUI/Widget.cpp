@@ -99,22 +99,22 @@ sfVector2f tguiWidget_getFullSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error)
+unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error)
 {
     try
     {
-        widget->This->connect(signalName, function);
+        unsigned int id = widget->This->connect(signalName, function);
         *error = nullptr;
+        return id;
     }
     catch (const tgui::Exception& e)
     {
         static std::string errorMessage;
         errorMessage = e.what();
         *error = errorMessage.c_str();
+        return 0;
     }
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiWidget_connect_vector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f), const char** error)
 {
@@ -131,8 +131,6 @@ void tguiWidget_connect_vector2f(tguiWidget* widget, const char* signalName, voi
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiWidget_connect_string(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*), const char** error)
 {
     try
@@ -147,8 +145,6 @@ void tguiWidget_connect_string(tguiWidget* widget, const char* signalName, void 
         *error = errorMessage.c_str();
     }
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*function)(int), const char** error)
 {
@@ -165,8 +161,6 @@ void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*f
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiWidget_connect_itemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*), const char** error)
 {
     try
@@ -180,6 +174,23 @@ void tguiWidget_connect_itemSelected(tguiWidget* widget, const char* signalName,
         errorMessage = e.what();
         *error = errorMessage.c_str();
     }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_disconnect(tguiWidget* widget, unsigned int id)
+{
+    widget->This->disconnect(id);
+}
+
+void tguiWidget_disconnectAll(tguiWidget* widget)
+{
+    widget->This->disconnectAll();
+}
+
+void tguiWidget_disconnectAllBySignalName(tguiWidget* widget, const char* signalName)
+{
+    widget->This->disconnectAll(signalName);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -265,6 +276,25 @@ void tguiWidget_moveToFront(tguiWidget* widget)
 void tguiWidget_moveToBack(tguiWidget* widget)
 {
     widget->This->moveToBack();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_setToolTip(tguiWidget* widget, tguiWidget* toolTip)
+{
+    if (toolTip)
+        widget->This->setToolTip(toolTip->This);
+    else
+        widget->This->setToolTip(nullptr);
+}
+
+tguiWidget* tguiWidget_getToolTip(const tguiWidget* widget)
+{
+    tgui::Widget::Ptr toolTip = widget->This->getToolTip();
+    if (widget)
+        return new tguiWidget(toolTip);
+    else
+        return nullptr;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

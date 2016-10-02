@@ -23,34 +23,13 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_ALIGNMENT_H
-#define CTGUI_ALIGNMENT_H
+#ifndef CTGUI_HORIZONTAL_LAYOUT_H
+#define CTGUI_HORIZONTAL_LAYOUT_H
 
-typedef enum
-{
-	tguiHorizontalAlignmentLeft,
-	tguiHorizontalAlignmentCenter,
-	tguiHorizontalAlignmentRight
-} tguiHorizontalAlignment;
+#include <CTGUI/Config.h>
+#include <CTGUI/Widget.h>
 
-typedef enum
-{
-	tguiVerticalAlignmentTop,
-	tguiVerticalAlignmentCenter,
-	tguiVerticalAlignmentBottom
-} tguiVerticalAlignment;
+CTGUI_API tguiWidget* tguiHorizontalLayout_create(void);
 
-typedef enum
-{
-	tguiAlignmentCenter,
-	tguiAlignmentUpperLeft,
-	tguiAlignmentUp,
-	tguiAlignmentUpperRight,
-	tguiAlignmentRight,
-	tguiAlignmentBottomRight,
-	tguiAlignmentBottom,
-	tguiAlignmentBottomLeft,
-	tguiAlignmentLeft
-} tguiAlignment;
+#endif // CTGUI_HORIZONTAL_LAYOUT_H
 
-#endif // CTGUI_ALIGNMENT_H

@@ -23,34 +23,21 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_ALIGNMENT_H
-#define CTGUI_ALIGNMENT_H
+#ifndef CTGUI_MESSAGE_BOX_H
+#define CTGUI_MESSAGE_BOX_H
 
-typedef enum
-{
-	tguiHorizontalAlignmentLeft,
-	tguiHorizontalAlignmentCenter,
-	tguiHorizontalAlignmentRight
-} tguiHorizontalAlignment;
+#include <CTGUI/Config.h>
+#include <CTGUI/Widget.h>
 
-typedef enum
-{
-	tguiVerticalAlignmentTop,
-	tguiVerticalAlignmentCenter,
-	tguiVerticalAlignmentBottom
-} tguiVerticalAlignment;
+CTGUI_API tguiWidget* tguiMessageBox_create(void);
 
-typedef enum
-{
-	tguiAlignmentCenter,
-	tguiAlignmentUpperLeft,
-	tguiAlignmentUp,
-	tguiAlignmentUpperRight,
-	tguiAlignmentRight,
-	tguiAlignmentBottomRight,
-	tguiAlignmentBottom,
-	tguiAlignmentBottomLeft,
-	tguiAlignmentLeft
-} tguiAlignment;
+CTGUI_API void tguiMessageBox_setText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API const sfUint32* tguiMessageBox_getText(const tguiWidget* widget);
 
-#endif // CTGUI_ALIGNMENT_H
+CTGUI_API void tguiMessageBox_setTextSize(tguiWidget* widget, unsigned int size);
+CTGUI_API unsigned int tguiMessageBox_getTextSize(const tguiWidget* widget);
+
+CTGUI_API void tguiMessageBox_addButton(tguiWidget* widget, const sfUint32* text);
+
+#endif // CTGUI_MESSAGE_BOX_H
+

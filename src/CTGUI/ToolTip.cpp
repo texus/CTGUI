@@ -23,34 +23,30 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_ALIGNMENT_H
-#define CTGUI_ALIGNMENT_H
+#include <CTGUI/ToolTip.h>
+#include <TGUI/ToolTip.hpp>
 
-typedef enum
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiToolTip_setTimeToDisplay(sfTime time)
 {
-	tguiHorizontalAlignmentLeft,
-	tguiHorizontalAlignmentCenter,
-	tguiHorizontalAlignmentRight
-} tguiHorizontalAlignment;
+    tgui::ToolTip::setTimeToDisplay(sf::microseconds(time.microseconds));
+}
 
-typedef enum
+sfTime tguiToolTip_getTimeToDisplay()
 {
-	tguiVerticalAlignmentTop,
-	tguiVerticalAlignmentCenter,
-	tguiVerticalAlignmentBottom
-} tguiVerticalAlignment;
+    return sfMicroseconds(tgui::ToolTip::getTimeToDisplay().asMicroseconds());
+}
 
-typedef enum
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiToolTip_setDistanceToMouse(sfVector2f distance)
 {
-	tguiAlignmentCenter,
-	tguiAlignmentUpperLeft,
-	tguiAlignmentUp,
-	tguiAlignmentUpperRight,
-	tguiAlignmentRight,
-	tguiAlignmentBottomRight,
-	tguiAlignmentBottom,
-	tguiAlignmentBottomLeft,
-	tguiAlignmentLeft
-} tguiAlignment;
+    tgui::ToolTip::setDistanceToMouse({distance.x, distance.y});
+}
 
-#endif // CTGUI_ALIGNMENT_H
+sfVector2f tguiToolTip_getDistanceToMouse()
+{
+    sf::Vector2f distance = tgui::ToolTip::getDistanceToMouse();
+    return {distance.x, distance.y};
+}

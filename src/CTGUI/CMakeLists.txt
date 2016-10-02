@@ -33,6 +33,8 @@ set(SRC
     ${SRCROOT}/Theme.cpp
     ${INCROOT}/Theme.h
     ${SRCROOT}/ThemeStruct.h
+    ${SRCROOT}/ToolTip.cpp
+    ${INCROOT}/ToolTip.h
     ${INCROOT}/Types.h
     ${SRCROOT}/Widget.cpp
     ${INCROOT}/Widget.h
@@ -41,6 +43,8 @@ set(SRC
     ${INCROOT}/Renderers/ButtonRenderer.h
     ${SRCROOT}/Renderers/ChatBoxRenderer.cpp
     ${INCROOT}/Renderers/ChatBoxRenderer.h
+    ${SRCROOT}/Renderers/ChildWindowRenderer.cpp
+    ${INCROOT}/Renderers/ChildWindowRenderer.h
     ${SRCROOT}/Renderers/ComboBoxRenderer.cpp
     ${INCROOT}/Renderers/ComboBoxRenderer.h
     ${SRCROOT}/Renderers/EditBoxRenderer.cpp
@@ -53,6 +57,8 @@ set(SRC
     ${INCROOT}/Renderers/ListBoxRenderer.h
     ${SRCROOT}/Renderers/MenuBarRenderer.cpp
     ${INCROOT}/Renderers/MenuBarRenderer.h
+    ${SRCROOT}/Renderers/MessageBoxRenderer.cpp
+    ${INCROOT}/Renderers/MessageBoxRenderer.h
     ${SRCROOT}/Renderers/PanelRenderer.cpp
     ${INCROOT}/Renderers/PanelRenderer.h
     ${SRCROOT}/Renderers/ProgressBarRenderer.cpp
@@ -74,6 +80,8 @@ set(SRC
     ${SRCROOT}/SFML/CallbackStream.h
     ${SRCROOT}/SFML/Graphics/FontStruct.h
     ${SRCROOT}/SFML/Graphics/TextureStruct.h
+    ${INCROOT}/Widgets/BoxLayout.h
+    ${SRCROOT}/Widgets/BoxLayout.cpp
     ${INCROOT}/Widgets/Button.h
     ${SRCROOT}/Widgets/Button.cpp
     ${INCROOT}/Widgets/Canvas.h
@@ -82,12 +90,18 @@ set(SRC
     ${SRCROOT}/Widgets/ChatBox.cpp
     ${INCROOT}/Widgets/CheckBox.h
     ${SRCROOT}/Widgets/CheckBox.cpp
+    ${INCROOT}/Widgets/ChildWindow.h
+    ${SRCROOT}/Widgets/ChildWindow.cpp
     ${INCROOT}/Widgets/ClickableWidget.h
     ${SRCROOT}/Widgets/ClickableWidget.cpp
     ${INCROOT}/Widgets/ComboBox.h
     ${SRCROOT}/Widgets/ComboBox.cpp
     ${INCROOT}/Widgets/EditBox.h
     ${SRCROOT}/Widgets/EditBox.cpp
+    ${INCROOT}/Widgets/Grid.h
+    ${SRCROOT}/Widgets/Grid.cpp
+    ${INCROOT}/Widgets/HorizontalLayout.h
+    ${SRCROOT}/Widgets/HorizontalLayout.cpp
     ${INCROOT}/Widgets/Knob.h
     ${SRCROOT}/Widgets/Knob.cpp
     ${INCROOT}/Widgets/Label.h
@@ -96,6 +110,8 @@ set(SRC
     ${SRCROOT}/Widgets/ListBox.cpp
     ${INCROOT}/Widgets/MenuBar.h
     ${SRCROOT}/Widgets/MenuBar.cpp
+    ${INCROOT}/Widgets/MessageBox.h
+    ${SRCROOT}/Widgets/MessageBox.cpp
     ${INCROOT}/Widgets/Panel.h
     ${SRCROOT}/Widgets/Panel.cpp
     ${INCROOT}/Widgets/Picture.h
@@ -114,6 +130,8 @@ set(SRC
     ${SRCROOT}/Widgets/Tabs.cpp
     ${INCROOT}/Widgets/TextBox.h
     ${SRCROOT}/Widgets/TextBox.cpp
+    ${INCROOT}/Widgets/VerticalLayout.h
+    ${SRCROOT}/Widgets/VerticalLayout.cpp
 )
 
 # Create the target

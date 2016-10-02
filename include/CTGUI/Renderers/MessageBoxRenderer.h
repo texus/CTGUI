@@ -23,34 +23,20 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_ALIGNMENT_H
-#define CTGUI_ALIGNMENT_H
+#ifndef CTGUI_MESSAGE_BOX_RENDERER_H
+#define CTGUI_MESSAGE_BOX_RENDERER_H
 
-typedef enum
-{
-	tguiHorizontalAlignmentLeft,
-	tguiHorizontalAlignmentCenter,
-	tguiHorizontalAlignmentRight
-} tguiHorizontalAlignment;
+#include <CTGUI/Config.h>
+#include <SFML/Graphics/Color.h>
 
-typedef enum
-{
-	tguiVerticalAlignmentTop,
-	tguiVerticalAlignmentCenter,
-	tguiVerticalAlignmentBottom
-} tguiVerticalAlignment;
+CTGUI_API tguiRenderer* tguiMessageBoxRenderer_create(void);
+CTGUI_API tguiRenderer* tguiMessageBoxRenderer_copy(const tguiRenderer* other);
 
-typedef enum
-{
-	tguiAlignmentCenter,
-	tguiAlignmentUpperLeft,
-	tguiAlignmentUp,
-	tguiAlignmentUpperRight,
-	tguiAlignmentRight,
-	tguiAlignmentBottomRight,
-	tguiAlignmentBottom,
-	tguiAlignmentBottomLeft,
-	tguiAlignmentLeft
-} tguiAlignment;
+CTGUI_API void tguiMessageBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiMessageBoxRenderer_getTextColor(const tguiRenderer* renderer);
 
-#endif // CTGUI_ALIGNMENT_H
+CTGUI_API void tguiMessageBoxRenderer_setButton(tguiRenderer* renderer, tguiRendererData* rendererData);
+CTGUI_API tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* renderer);
+
+#endif // CTGUI_MESSAGE_BOX_RENDERER_H
+

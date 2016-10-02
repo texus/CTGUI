@@ -23,34 +23,18 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_ALIGNMENT_H
-#define CTGUI_ALIGNMENT_H
+#ifndef CTGUI_TOOL_TIP_H
+#define CTGUI_TOOL_TIP_H
 
-typedef enum
-{
-	tguiHorizontalAlignmentLeft,
-	tguiHorizontalAlignmentCenter,
-	tguiHorizontalAlignmentRight
-} tguiHorizontalAlignment;
+#include <CTGUI/Config.h>
+#include <SFML/System/Vector2.h>
+#include <SFML/System/Time.h>
 
-typedef enum
-{
-	tguiVerticalAlignmentTop,
-	tguiVerticalAlignmentCenter,
-	tguiVerticalAlignmentBottom
-} tguiVerticalAlignment;
+CTGUI_API void tguiToolTip_setTimeToDisplay(sfTime time);
+CTGUI_API sfTime tguiToolTip_getTimeToDisplay();
 
-typedef enum
-{
-	tguiAlignmentCenter,
-	tguiAlignmentUpperLeft,
-	tguiAlignmentUp,
-	tguiAlignmentUpperRight,
-	tguiAlignmentRight,
-	tguiAlignmentBottomRight,
-	tguiAlignmentBottom,
-	tguiAlignmentBottomLeft,
-	tguiAlignmentLeft
-} tguiAlignment;
+CTGUI_API void tguiToolTip_setDistanceToMouse(sfVector2f distance);
+CTGUI_API sfVector2f tguiToolTip_getDistanceToMouse();
 
-#endif // CTGUI_ALIGNMENT_H
+#endif // CTGUI_TOOL_TIP_H
+

@@ -45,11 +45,15 @@ CTGUI_API void tguiWidget_setSize_fromLayout(tguiWidget* widget, tguiLayout2d* l
 CTGUI_API sfVector2f tguiWidget_getSize(const tguiWidget* widget);
 CTGUI_API sfVector2f tguiWidget_getFullSize(const tguiWidget* widget);
 
-CTGUI_API void tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error);
+CTGUI_API unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error);
 CTGUI_API void tguiWidget_connect_vector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f), const char** error);
 CTGUI_API void tguiWidget_connect_string(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*), const char** error);
 CTGUI_API void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*function)(int), const char** error);
 CTGUI_API void tguiWidget_connect_itemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*), const char** error);
+
+CTGUI_API void tguiWidget_disconnect(tguiWidget* widget, unsigned int id);
+CTGUI_API void tguiWidget_disconnectAll(tguiWidget* widget);
+CTGUI_API void tguiWidget_disconnectAllBySignalName(tguiWidget* widget, const char* signalName);
 
 CTGUI_API void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error);
 CTGUI_API tguiRenderer* tguiWidget_getRenderer(const tguiWidget* widget);
@@ -68,6 +72,9 @@ CTGUI_API const char* tguiWidget_getWidgetType(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_moveToFront(tguiWidget* widget);
 CTGUI_API void tguiWidget_moveToBack(tguiWidget* widget);
+
+CTGUI_API void tguiWidget_setToolTip(tguiWidget* widget, tguiWidget* toolTip);
+CTGUI_API tguiWidget* tguiWidget_getToolTip(const tguiWidget* widget);
 
 CTGUI_API tguiWidget* tguiWidget_getParent(tguiWidget* widget);
 
