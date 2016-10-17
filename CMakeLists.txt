@@ -37,11 +37,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Add an option for choosing the build type (shared or static)
 ctgui_set_option(BUILD_SHARED_LIBS TRUE BOOL "TRUE to build CTGUI as shared libraries, FALSE to build it as static libraries")
 
-# Add an option for building the API documentation
-ctgui_set_option(CTGUI_BUILD_DOC FALSE BOOL "TRUE to generate the API documentation, FALSE to ignore it")
-
 # Add an option for linking to tgui either statically or dynamically
-ctgui_set_option(CTGUI_LINK_TGUI_STATICALLY TRUE BOOL "TRUE to link to a static version of TGUI, FALSE to link dynamically")
+ctgui_set_option(CTGUI_LINK_DEPENDENCIES_STATICALLY TRUE BOOL "TRUE to link to a static version of TGUI and SFML, FALSE to link dynamically")
 
 # Disable the rpath stuff
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
@@ -72,11 +69,8 @@ if(SFML_COMPILER_GCC OR SFML_COMPILER_CLANG)
     tgui_add_cxx_flag(-std=c++11)
 endif()
 
-# Add the subdirectories
+# Add the subdirectory
 add_subdirectory(src/CTGUI)
-if(CTGUI_BUILD_DOC)
-    add_subdirectory(doc)
-endif()
 
 # Setup the install rules
 install(DIRECTORY include

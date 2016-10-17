@@ -4,15 +4,39 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 # Set the output directory for CTGUI library
 set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}/lib")
 
-# Find C++ TGUI library
+# Define the export symbol
+add_definitions(-DCTGUI_EXPORTS)
+
+# Search for the right SFML and TGUI libraries
 if(SFML_OS_WINDOWS)
-    if (CTGUI_LINK_TGUI_STATICALLY)
+    if (CTGUI_LINK_DEPENDENCIES_STATICALLY)
         set(SFML_STATIC_LIBRARIES TRUE)
         add_definitions(-DSFML_STATIC)
     endif()
 endif()
-find_package(TGUI ${VERSION_MAJOR}.${VERSION_MINOR} REQUIRED)
-include_directories(${TGUI_INCLUDE_DIR})
+
+# Find TGUI library
+find_package(TGUI ${VERSION_MAJOR}.${VERSION_MINOR})
+if (NOT TGUI_FOUND)
+    set(TGUI_ROOT "" CACHE PATH "TGUI root directory")
+    message(FATAL_ERROR "CMake couldn't find TGUI. Set the TGUI_ROOT entry to TGUI's root directory (containing \"include\" and \"lib\" directories).")
+endif()
+
+# Find SFML library
+find_package(SFML 2 COMPONENTS graphics window system)
+if (NOT SFML_FOUND)
+    set(SFML_ROOT "" CACHE PATH "SFML root directory")
+    message(FATAL_ERROR "CMake couldn't find SFML. Set the SFML_ROOT entry to SFML's root directory (containing \"include\" and \"lib\" directories).")
+endif()
+
+# Find the header files of CSFML
+find_package(CSFML ${SFML_VERSION_MAJOR}.${SFML_VERSION_MINOR})
+if (NOT CSFML_INCLUDE_DIR)
+    set(CSFML_INCLUDE_DIR "" CACHE PATH "Path of the CSFML include directory")
+    message(FATAL_ERROR "CMake couldn't find the CSFML header files. Set the CSFML_INCLUDE_DIR entry to SFML's include directory.")
+endif()
+
+include_directories(${TGUI_INCLUDE_DIR} ${SFML_INCLUDE_DIR} ${CSFML_INCLUDE_DIR})
 
 # All source files
 set(INCROOT ${CMAKE_SOURCE_DIR}/include/CTGUI)
@@ -145,7 +169,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES DEFINE_SYMBOL ${NAME_UPPER}_EXP
 if(SFML_OS_WINDOWS)
     # Include the major version number in Windows shared library names (but not import library names)
     set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX -d)
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "-${VERSION_MAJOR}${CMAKE_SHARED_LIBRARY_SUFFIX}")
+    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "-${VERSION_MAJOR}.${VERSION_MINOR}${CMAKE_SHARED_LIBRARY_SUFFIX}")
 else()
     set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX -d)
 endif()
@@ -176,8 +200,12 @@ if(NOT SFML_OS_WINDOWS AND ((SFML_COMPILER_GCC AND NOT SFML_GCC_VERSION VERSION_
     set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS -fvisibility=hidden)
 endif()
 
-# Link the target to its external dependencies (C++ TGUI library)
-target_link_libraries(${PROJECT_NAME} ${TGUI_LIBRARY})
+# Link the target to its external dependencies (C++ TGUI library and SFML)
+set(CTGUI_EXT_LIBS ${TGUI_LIBRARY} ${SFML_LIBRARIES})
+if(CTGUI_LINK_DEPENDENCIES_STATICALLY)
+    set(CTGUI_EXT_LIBS ${CTGUI_EXT_LIBS} ${SFML_DEPENDENCIES})
+endif()
+target_link_libraries(${PROJECT_NAME} ${CTGUI_EXT_LIBS})
 
 # Build dylibs
 if(SFML_OS_MACOSX AND BUILD_SHARED_LIBS)
