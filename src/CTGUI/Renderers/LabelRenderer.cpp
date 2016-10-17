@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/LabelRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 
 #include <TGUI/Renderers/LabelRenderer.hpp>
 
@@ -75,8 +76,7 @@ void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiLabelRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,8 +88,7 @@ void tguiLabelRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiLabelRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,8 +100,7 @@ void tguiLabelRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiLabelRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

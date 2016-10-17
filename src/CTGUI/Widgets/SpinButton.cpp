@@ -77,7 +77,7 @@ int tguiSpinButton_getValue(const tguiWidget* widget)
 
 void tguiSpinButton_setVerticalScroll(tguiWidget* widget, sfBool verticalScroll)
 {
-    DOWNCAST(widget->This)->setVerticalScroll(verticalScroll);
+    DOWNCAST(widget->This)->setVerticalScroll(verticalScroll != 0);
 }
 
 sfBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget)

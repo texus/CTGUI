@@ -80,12 +80,12 @@ unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, unsigned int minimumWidth)
+void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, float minimumWidth)
 {
     DOWNCAST(widget->This)->setMinimumSubMenuWidth(minimumWidth);
 }
 
-unsigned int tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget)
+float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimumSubMenuWidth();
 }

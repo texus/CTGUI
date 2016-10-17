@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/SpinButtonRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/SpinButtonRenderer.hpp>
@@ -77,8 +78,7 @@ void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor c
 
 sfColor tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -88,8 +88,7 @@ void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfCo
 
 sfColor tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,8 +100,7 @@ void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowColor());
 }
 
 void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor color)
@@ -112,8 +110,7 @@ void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor c
 
 sfColor tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,8 +122,7 @@ void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* renderer, sfColor color
 
 sfColor tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -101,7 +101,7 @@ int tguiKnob_getValue(const tguiWidget* widget)
 
 void tguiKnob_setClockwiseTurning(tguiWidget* widget, sfBool clockwise)
 {
-    DOWNCAST(widget->This)->setClockwiseTurning(clockwise);
+    DOWNCAST(widget->This)->setClockwiseTurning(clockwise != 0);
 }
 
 sfBool tguiKnob_getClockwiseTurning(const tguiWidget* widget)

@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/ProgressBarRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/ProgressBarRenderer.hpp>
@@ -65,8 +66,7 @@ void tguiProgressBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiProgressBarRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* renderer, sfColor color)
@@ -76,8 +76,7 @@ void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* renderer, sfColor 
 
 sfColor tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorFilled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorFilled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,8 +88,7 @@ void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor 
 
 sfColor tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,8 +100,7 @@ void tguiProgressBarRenderer_setFillColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiProgressBarRenderer_getFillColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getFillColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getFillColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,8 +112,7 @@ void tguiProgressBarRenderer_setBorderColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

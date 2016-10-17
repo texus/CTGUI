@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/ButtonRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/ButtonRenderer.hpp>
@@ -65,8 +66,7 @@ void tguiButtonRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiButtonRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiButtonRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
@@ -76,8 +76,7 @@ void tguiButtonRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiButtonRenderer_getTextColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorHover());
 }
 
 void tguiButtonRenderer_setTextColorDown(tguiRenderer* renderer, sfColor color)
@@ -87,8 +86,7 @@ void tguiButtonRenderer_setTextColorDown(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiButtonRenderer_getTextColorDown(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorDown();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDown());
 }
 
 void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -98,8 +96,7 @@ void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor col
 
 sfColor tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,8 +108,7 @@ void tguiButtonRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color
 
 sfColor tguiButtonRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -122,8 +118,7 @@ void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor 
 
 sfColor tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
 void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* renderer, sfColor color)
@@ -133,8 +128,7 @@ void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* renderer, sfColor c
 
 sfColor tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorDown();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDown());
 }
 
 void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -144,8 +138,7 @@ void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfCol
 
 sfColor tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -157,8 +150,7 @@ void tguiButtonRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiButtonRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 void tguiButtonRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color)
@@ -168,8 +160,7 @@ void tguiButtonRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiButtonRenderer_getBorderColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
 
 void tguiButtonRenderer_setBorderColorDown(tguiRenderer* renderer, sfColor color)
@@ -179,8 +170,7 @@ void tguiButtonRenderer_setBorderColorDown(tguiRenderer* renderer, sfColor color
 
 sfColor tguiButtonRenderer_getBorderColorDown(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorDown();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorDown());
 }
 
 void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -190,8 +180,7 @@ void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor c
 
 sfColor tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

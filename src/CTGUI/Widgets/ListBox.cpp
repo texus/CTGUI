@@ -210,7 +210,7 @@ unsigned int tguiListBox_getMaximumItems(const tguiWidget* widget)
 
 void tguiListBox_setAutoScroll(tguiWidget* widget, sfBool autoScroll)
 {
-    DOWNCAST(widget->This)->setAutoScroll(autoScroll);
+    DOWNCAST(widget->This)->setAutoScroll(autoScroll != 0);
 }
 
 sfBool tguiListBox_getAutoScroll(const tguiWidget* widget)

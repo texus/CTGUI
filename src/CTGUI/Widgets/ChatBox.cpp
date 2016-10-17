@@ -25,6 +25,7 @@
 
 #include <CTGUI/Widgets/ChatBox.h>
 #include <CTGUI/WidgetStruct.h>
+#include <CTGUI/ColorConverter.h>
 
 #include <TGUI/Widgets/ChatBox.hpp>
 
@@ -60,8 +61,7 @@ const sfUint32* tguiChatBox_getLine(tguiWidget* widget, size_t lineIndex)
 
 sfColor tguiChatBox_getLineColor(const tguiWidget* widget, size_t lineIndex)
 {
-    sf::Color color = DOWNCAST(widget->This)->getLineColor(lineIndex);
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(widget->This)->getLineColor(lineIndex));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,15 +114,14 @@ void tguiChatBox_setTextColor(tguiWidget* widget, sfColor color)
 
 sfColor tguiChatBox_getTextColor(const tguiWidget* widget)
 {
-    sf::Color color = DOWNCAST(widget->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(widget->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiChatBox_setLinesStartFromTop(tguiWidget* widget, sfBool startFromTop)
 {
-    DOWNCAST(widget->This)->setLinesStartFromTop(startFromTop);
+    DOWNCAST(widget->This)->setLinesStartFromTop(startFromTop != 0);
 }
 
 sfBool tguiChatBox_getLinesStartFromTop(tguiWidget* widget)
@@ -134,7 +133,7 @@ sfBool tguiChatBox_getLinesStartFromTop(tguiWidget* widget)
 
 void tguiChatBox_setNewLinesBelowOthers(tguiWidget* widget, sfBool newLinesBelowOthers)
 {
-    DOWNCAST(widget->This)->setNewLinesBelowOthers(newLinesBelowOthers);
+    DOWNCAST(widget->This)->setNewLinesBelowOthers(newLinesBelowOthers != 0);
 }
 
 sfBool tguiChatBox_getNewLinesBelowOthers(tguiWidget* widget)

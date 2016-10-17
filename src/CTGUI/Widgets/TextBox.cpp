@@ -89,7 +89,7 @@ size_t tguiTextBox_getMaximumCharacters(const tguiWidget* widget)
 
 void tguiTextBox_setReadOnly(tguiWidget* widget, sfBool readOnly)
 {
-    DOWNCAST(widget->This)->setReadOnly(readOnly);
+    DOWNCAST(widget->This)->setReadOnly(readOnly != 0);
 }
 
 sfBool tguiTextBox_isReadOnly(const tguiWidget* widget)
@@ -101,7 +101,7 @@ sfBool tguiTextBox_isReadOnly(const tguiWidget* widget)
 
 void tguiTextBox_setVerticalScrollbarPresent(tguiWidget* widget, sfBool present)
 {
-    DOWNCAST(widget->This)->setVerticalScrollbarPresent(present);
+    DOWNCAST(widget->This)->setVerticalScrollbarPresent(present != 0);
 }
 
 sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget)

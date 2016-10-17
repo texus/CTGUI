@@ -125,7 +125,7 @@ unsigned int tguiEditBox_getAlignment(const tguiWidget* widget)
 
 void tguiEditBox_limitTextWidth(tguiWidget* widget, sfBool limitWidth)
 {
-    DOWNCAST(widget->This)->limitTextWidth(limitWidth);
+    DOWNCAST(widget->This)->limitTextWidth(limitWidth != 0);
 }
 
 sfBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget)

@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/ListBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/ListBoxRenderer.hpp>
@@ -77,8 +78,7 @@ void tguiListBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiListBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiListBoxRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -88,8 +88,7 @@ void tguiListBoxRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor
 
 sfColor tguiListBoxRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
 void tguiListBoxRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color)
@@ -99,8 +98,7 @@ void tguiListBoxRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfCo
 
 sfColor tguiListBoxRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
 }
 
 void tguiListBoxRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -110,8 +108,7 @@ void tguiListBoxRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer,
 
 sfColor tguiListBoxRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -123,8 +120,7 @@ void tguiListBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiListBoxRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiListBoxRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
@@ -134,8 +130,7 @@ void tguiListBoxRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color
 
 sfColor tguiListBoxRenderer_getTextColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorHover());
 }
 
 void tguiListBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
@@ -145,8 +140,7 @@ void tguiListBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor co
 
 sfColor tguiListBoxRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
 
 void tguiListBoxRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color)
@@ -156,8 +150,7 @@ void tguiListBoxRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfCol
 
 sfColor tguiListBoxRenderer_getSelectedTextColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,8 +162,7 @@ void tguiListBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiListBoxRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

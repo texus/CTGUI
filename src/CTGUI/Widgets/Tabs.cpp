@@ -41,12 +41,12 @@ tguiWidget* tguiTabs_create(void)
 
 size_t tguiTabs_add(tguiWidget* widget, const sfUint32* text, sfBool select)
 {
-    return DOWNCAST(widget->This)->add(text, select);
+    return DOWNCAST(widget->This)->add(text, select != 0);
 }
 
 void tguiTabs_insert(tguiWidget* widget, size_t index, const sfUint32* text, sfBool select)
 {
-    DOWNCAST(widget->This)->insert(index, text, select);
+    DOWNCAST(widget->This)->insert(index, text, select != 0);
 }
 
 const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t index)

@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/ComboBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/ComboBoxRenderer.hpp>
@@ -77,8 +78,7 @@ void tguiComboBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor col
 
 sfColor tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +90,7 @@ void tguiComboBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiComboBoxRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,8 +102,7 @@ void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* renderer, sfColo
 
 sfColor tguiComboBoxRenderer_getArrowBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColor());
 }
 
 void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -114,8 +112,7 @@ void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, s
 
 sfColor tguiComboBoxRenderer_getArrowBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,8 +124,7 @@ void tguiComboBoxRenderer_setArrowColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiComboBoxRenderer_getArrowColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowColor());
 }
 
 void tguiComboBoxRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor color)
@@ -138,8 +134,7 @@ void tguiComboBoxRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor col
 
 sfColor tguiComboBoxRenderer_getArrowColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,8 +146,7 @@ void tguiComboBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiComboBoxRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -82,7 +82,7 @@ unsigned int tguiRadioButton_getTextSize(const tguiWidget* widget)
 
 void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable)
 {
-    DOWNCAST(widget->This)->setTextClickable(clickable);
+    DOWNCAST(widget->This)->setTextClickable(clickable != 0);
 }
 
 sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget)

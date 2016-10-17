@@ -103,7 +103,7 @@ unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* widget)
 
 void tguiChildWindow_setResizable(tguiWidget* widget, sfBool resizable)
 {
-    DOWNCAST(widget->This)->setResizable(resizable);
+    DOWNCAST(widget->This)->setResizable(resizable != 0);
 }
 
 sfBool tguiChildWindow_isResizable(const tguiWidget* widget)
@@ -115,7 +115,7 @@ sfBool tguiChildWindow_isResizable(const tguiWidget* widget)
 
 void tguiChildWindow_keepInParent(tguiWidget* widget, sfBool keepInParent)
 {
-    DOWNCAST(widget->This)->keepInParent(keepInParent);
+    DOWNCAST(widget->This)->keepInParent(keepInParent != 0);
 }
 
 sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget)

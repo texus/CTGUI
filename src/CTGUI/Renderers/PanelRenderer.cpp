@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/PanelRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 
 #include <TGUI/Renderers/PanelRenderer.hpp>
 
@@ -64,8 +65,7 @@ void tguiPanelRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiPanelRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,6 +77,5 @@ void tguiPanelRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiPanelRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }

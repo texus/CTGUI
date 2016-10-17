@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/ChildWindowRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/ChildWindowRenderer.hpp>
@@ -66,8 +67,7 @@ void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* renderer, sfColor co
 
 sfColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTitleBarColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTitleBarColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,8 +79,7 @@ void tguiChildWindowRenderer_setTitleColor(tguiRenderer* renderer, sfColor color
 
 sfColor tguiChildWindowRenderer_getTitleColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTitleColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTitleColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,8 +91,7 @@ void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor 
 
 sfColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -105,8 +103,7 @@ void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/KnobRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/KnobRenderer.hpp>
@@ -65,8 +66,7 @@ void tguiKnobRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiKnobRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,8 +78,7 @@ void tguiKnobRenderer_setThumbColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiKnobRenderer_getThumbColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getThumbColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getThumbColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,8 +90,7 @@ void tguiKnobRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiKnobRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -87,7 +87,7 @@ unsigned int tguiLabel_getVerticalAlignment(const tguiWidget* widget)
 
 void tguiLabel_setAutoSize(tguiWidget* widget, sfBool autoSize)
 {
-    DOWNCAST(widget->This)->setAutoSize(autoSize);
+    DOWNCAST(widget->This)->setAutoSize(autoSize != 0);
 }
 
 sfBool tguiLabel_getAutoSize(const tguiWidget* widget)

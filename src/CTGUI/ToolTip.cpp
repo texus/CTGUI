@@ -35,7 +35,9 @@ void tguiToolTip_setTimeToDisplay(sfTime time)
 
 sfTime tguiToolTip_getTimeToDisplay()
 {
-    return sfMicroseconds(tgui::ToolTip::getTimeToDisplay().asMicroseconds());
+    sfTime time;
+    time.microseconds = tgui::ToolTip::getTimeToDisplay().asMicroseconds();
+    return time;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

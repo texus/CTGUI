@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/ScrollbarRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/ScrollbarRenderer.hpp>
@@ -52,8 +53,7 @@ void tguiScrollbarRenderer_setTrackColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiScrollbarRenderer_getTrackColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTrackColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTrackColor());
 }
 
 void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* renderer, sfColor color)
@@ -63,8 +63,7 @@ void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* renderer, sfColor co
 
 sfColor tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTrackColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,8 +75,7 @@ void tguiScrollbarRenderer_setThumbColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiScrollbarRenderer_getThumbColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getThumbColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getThumbColor());
 }
 
 void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* renderer, sfColor color)
@@ -87,8 +85,7 @@ void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* renderer, sfColor co
 
 sfColor tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getThumbColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getThumbColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,8 +97,7 @@ void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* renderer, sfCol
 
 sfColor tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColor());
 }
 
 void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -111,8 +107,7 @@ void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, 
 
 sfColor tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,8 +119,7 @@ void tguiScrollbarRenderer_setArrowColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiScrollbarRenderer_getArrowColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowColor());
 }
 
 void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor color)
@@ -135,8 +129,7 @@ void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor co
 
 sfColor tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getArrowColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getArrowColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

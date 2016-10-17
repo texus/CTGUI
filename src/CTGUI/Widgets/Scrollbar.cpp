@@ -89,7 +89,7 @@ unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* widget)
 
 void tguiScrollbar_setAutoHide(tguiWidget* widget, sfBool autoHide)
 {
-    DOWNCAST(widget->This)->setAutoHide(autoHide);
+    DOWNCAST(widget->This)->setAutoHide(autoHide != 0);
 }
 
 sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget)

@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/MessageBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/MessageBoxRenderer.hpp>
@@ -53,8 +54,7 @@ void tguiMessageBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiMessageBoxRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

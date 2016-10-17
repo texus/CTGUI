@@ -23,26 +23,22 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_MENU_BAR_H
-#define CTGUI_MENU_BAR_H
+#ifndef CTGUI_COLOR_CONVERTER_H
+#define CTGUI_COLOR_CONVERTER_H
 
-#include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
+#include <SFML/Graphics/Color.h>
+#include <SFML/Graphics/Color.hpp>
 
-CTGUI_API tguiWidget* tguiMenuBar_create(void);
+inline sfColor convertColor(sf::Color SFMLColor)
+{
+    sfColor color;
 
-CTGUI_API void tguiMenuBar_addMenu(tguiWidget* widget, const sfUint32* text);
-CTGUI_API sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* text, const sfUint32* menu);
+    color.r = SFMLColor.r;
+    color.g = SFMLColor.g;
+    color.b = SFMLColor.b;
+    color.a = SFMLColor.a;
 
-CTGUI_API sfBool tguiMenuBar_removeMenu(tguiWidget* widget, const sfUint32* menu);
-CTGUI_API sfBool tguiMenuBar_removeMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* menuItem);
-CTGUI_API void tguiMenuBar_removeAllMenus(tguiWidget* widget);
+    return color;
+}
 
-CTGUI_API void tguiMenuBar_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget);
-
-CTGUI_API void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, float minimumWidth);
-CTGUI_API float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget);
-
-#endif // CTGUI_MENU_BAR_H
-
+#endif // CTGUI_COLOR_CONVERTER_H

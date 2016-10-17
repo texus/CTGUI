@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/MenuBarRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/MenuBarRenderer.hpp>
@@ -52,8 +53,7 @@ void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color)
@@ -63,8 +63,7 @@ void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfCo
 
 sfColor tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,8 +75,7 @@ void tguiMenuBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
@@ -87,8 +85,7 @@ void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor co
 
 sfColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

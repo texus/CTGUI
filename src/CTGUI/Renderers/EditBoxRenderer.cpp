@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/EditBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/EditBoxRenderer.hpp>
@@ -88,8 +89,7 @@ void tguiEditBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiEditBoxRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor color)
@@ -99,8 +99,7 @@ void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor col
 
 sfColor tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getDefaultTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getDefaultTextColor());
 }
 
 void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -110,8 +109,7 @@ void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor co
 
 sfColor tguiEditBoxRenderer_getTextColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
 void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
@@ -121,8 +119,7 @@ void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor co
 
 sfColor tguiEditBoxRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
 
 void tguiEditBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, sfColor color)
@@ -132,8 +129,7 @@ void tguiEditBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, 
 
 sfColor tguiEditBoxRenderer_getSelectedTextBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,8 +141,7 @@ void tguiEditBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiEditBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -156,8 +151,7 @@ void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor
 
 sfColor tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
 void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -167,8 +161,7 @@ void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfCo
 
 sfColor tguiEditBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -180,8 +173,7 @@ void tguiEditBoxRenderer_setCaretColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiEditBoxRenderer_getCaretColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCaretColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCaretColor());
 }
 
 void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* renderer, sfColor color)
@@ -191,8 +183,7 @@ void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCaretColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCaretColorHover());
 }
 
 void tguiEditBoxRenderer_setCaretColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -202,8 +193,7 @@ void tguiEditBoxRenderer_setCaretColorDisabled(tguiRenderer* renderer, sfColor c
 
 sfColor tguiEditBoxRenderer_getCaretColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCaretColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCaretColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,8 +205,7 @@ void tguiEditBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiEditBoxRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color)
@@ -226,8 +215,7 @@ void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor col
 
 sfColor tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
 
 void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -237,8 +225,7 @@ void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor 
 
 sfColor tguiEditBoxRenderer_getBorderColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

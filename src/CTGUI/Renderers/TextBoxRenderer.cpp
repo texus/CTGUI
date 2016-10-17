@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/TextBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/TextBoxRenderer.hpp>
@@ -77,8 +78,7 @@ void tguiTextBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiTextBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +90,7 @@ void tguiTextBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiTextBoxRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiTextBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
@@ -101,8 +100,7 @@ void tguiTextBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor co
 
 sfColor tguiTextBoxRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
 
 void tguiTextBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, sfColor color)
@@ -112,8 +110,7 @@ void tguiTextBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, 
 
 sfColor tguiTextBoxRenderer_getSelectedTextBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,8 +122,7 @@ void tguiTextBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiTextBoxRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,8 +134,7 @@ void tguiTextBoxRenderer_setCaretColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiTextBoxRenderer_getCaretColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCaretColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCaretColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -55,12 +55,6 @@ void convertEvent(const sfEvent& event, sf::Event& SFMLEvent)
             SFMLEvent.key.system  = event.key.system  ? true : false;
             break;
 
-        case sfEvtMouseWheelMoved :
-            SFMLEvent.mouseWheel.delta = event.mouseWheel.delta;
-            SFMLEvent.mouseWheel.x     = event.mouseWheel.x;
-            SFMLEvent.mouseWheel.y     = event.mouseWheel.y;
-            break;
-
         case sfEvtMouseWheelScrolled :
             SFMLEvent.mouseWheelScroll.wheel = static_cast<sf::Mouse::Wheel>(event.mouseWheelScroll.wheel);
             SFMLEvent.mouseWheelScroll.delta = event.mouseWheelScroll.delta;

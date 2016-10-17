@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/SliderRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/SliderRenderer.hpp>
@@ -65,8 +66,7 @@ void tguiSliderRenderer_setTrackColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiSliderRenderer_getTrackColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTrackColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTrackColor());
 }
 
 void tguiSliderRenderer_setTrackColorHover(tguiRenderer* renderer, sfColor color)
@@ -76,8 +76,7 @@ void tguiSliderRenderer_setTrackColorHover(tguiRenderer* renderer, sfColor color
 
 sfColor tguiSliderRenderer_getTrackColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTrackColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,8 +88,7 @@ void tguiSliderRenderer_setThumbColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiSliderRenderer_getThumbColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getThumbColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getThumbColor());
 }
 
 void tguiSliderRenderer_setThumbColorHover(tguiRenderer* renderer, sfColor color)
@@ -100,8 +98,7 @@ void tguiSliderRenderer_setThumbColorHover(tguiRenderer* renderer, sfColor color
 
 sfColor tguiSliderRenderer_getThumbColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getThumbColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getThumbColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -113,8 +110,7 @@ void tguiSliderRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiSliderRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 void tguiSliderRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color)
@@ -124,8 +120,7 @@ void tguiSliderRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiSliderRenderer_getBorderColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

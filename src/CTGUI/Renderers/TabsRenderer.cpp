@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/TabsRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/TabsRenderer.hpp>
@@ -66,8 +67,7 @@ void tguiTabsRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color)
@@ -77,8 +77,7 @@ void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor
 
 sfColor tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +89,7 @@ void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiTabsRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
@@ -101,8 +99,7 @@ void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color
 
 sfColor tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getSelectedTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,8 +111,7 @@ void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/RadioButtonRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/RadioButtonRenderer.hpp>
@@ -77,8 +78,7 @@ void tguiRadioButtonRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 
 sfColor tguiRadioButtonRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 void tguiRadioButtonRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
@@ -88,8 +88,7 @@ void tguiRadioButtonRenderer_setTextColorHover(tguiRenderer* renderer, sfColor c
 
 sfColor tguiRadioButtonRenderer_getTextColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorHover());
 }
 
 void tguiRadioButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -99,8 +98,7 @@ void tguiRadioButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColo
 
 sfColor tguiRadioButtonRenderer_getTextColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
 void tguiRadioButtonRenderer_setTextColorChecked(tguiRenderer* renderer, sfColor color)
@@ -110,8 +108,7 @@ void tguiRadioButtonRenderer_setTextColorChecked(tguiRenderer* renderer, sfColor
 
 sfColor tguiRadioButtonRenderer_getTextColorChecked(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorChecked();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorChecked());
 }
 
 void tguiRadioButtonRenderer_setTextColorCheckedHover(tguiRenderer* renderer, sfColor color)
@@ -121,8 +118,7 @@ void tguiRadioButtonRenderer_setTextColorCheckedHover(tguiRenderer* renderer, sf
 
 sfColor tguiRadioButtonRenderer_getTextColorCheckedHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorCheckedHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorCheckedHover());
 }
 
 void tguiRadioButtonRenderer_setTextColorCheckedDisabled(tguiRenderer* renderer, sfColor color)
@@ -132,8 +128,7 @@ void tguiRadioButtonRenderer_setTextColorCheckedDisabled(tguiRenderer* renderer,
 
 sfColor tguiRadioButtonRenderer_getTextColorCheckedDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getTextColorCheckedDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getTextColorCheckedDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,8 +140,7 @@ void tguiRadioButtonRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor 
 
 sfColor tguiRadioButtonRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 void tguiRadioButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
@@ -156,8 +150,7 @@ void tguiRadioButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfC
 
 sfColor tguiRadioButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
 void tguiRadioButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -167,8 +160,7 @@ void tguiRadioButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, 
 
 sfColor tguiRadioButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
 }
 
 void tguiRadioButtonRenderer_setBackgroundColorChecked(tguiRenderer* renderer, sfColor color)
@@ -178,8 +170,7 @@ void tguiRadioButtonRenderer_setBackgroundColorChecked(tguiRenderer* renderer, s
 
 sfColor tguiRadioButtonRenderer_getBackgroundColorChecked(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorChecked();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorChecked());
 }
 
 void tguiRadioButtonRenderer_setBackgroundColorCheckedHover(tguiRenderer* renderer, sfColor color)
@@ -189,8 +180,7 @@ void tguiRadioButtonRenderer_setBackgroundColorCheckedHover(tguiRenderer* render
 
 sfColor tguiRadioButtonRenderer_getBackgroundColorCheckedHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorCheckedHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorCheckedHover());
 }
 
 void tguiRadioButtonRenderer_setBackgroundColorCheckedDisabled(tguiRenderer* renderer, sfColor color)
@@ -200,8 +190,7 @@ void tguiRadioButtonRenderer_setBackgroundColorCheckedDisabled(tguiRenderer* ren
 
 sfColor tguiRadioButtonRenderer_getBackgroundColorCheckedDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBackgroundColorCheckedDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorCheckedDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -213,8 +202,7 @@ void tguiRadioButtonRenderer_setBorderColor(tguiRenderer* renderer, sfColor colo
 
 sfColor tguiRadioButtonRenderer_getBorderColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
 void tguiRadioButtonRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color)
@@ -224,8 +212,7 @@ void tguiRadioButtonRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor
 
 sfColor tguiRadioButtonRenderer_getBorderColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
 
 void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -235,8 +222,7 @@ void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfCo
 
 sfColor tguiRadioButtonRenderer_getBorderColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
 }
 
 void tguiRadioButtonRenderer_setBorderColorChecked(tguiRenderer* renderer, sfColor color)
@@ -246,8 +232,7 @@ void tguiRadioButtonRenderer_setBorderColorChecked(tguiRenderer* renderer, sfCol
 
 sfColor tguiRadioButtonRenderer_getBorderColorChecked(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorChecked();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorChecked());
 }
 
 void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* renderer, sfColor color)
@@ -257,8 +242,7 @@ void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* renderer, 
 
 sfColor tguiRadioButtonRenderer_getBorderColorCheckedHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorCheckedHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorCheckedHover());
 }
 
 void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* renderer, sfColor color)
@@ -268,8 +252,7 @@ void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* rendere
 
 sfColor tguiRadioButtonRenderer_getBorderColorCheckedDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getBorderColorCheckedDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorCheckedDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -281,8 +264,7 @@ void tguiRadioButtonRenderer_setCheckColor(tguiRenderer* renderer, sfColor color
 
 sfColor tguiRadioButtonRenderer_getCheckColor(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCheckColor();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCheckColor());
 }
 
 void tguiRadioButtonRenderer_setCheckColorHover(tguiRenderer* renderer, sfColor color)
@@ -292,8 +274,7 @@ void tguiRadioButtonRenderer_setCheckColorHover(tguiRenderer* renderer, sfColor 
 
 sfColor tguiRadioButtonRenderer_getCheckColorHover(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCheckColorHover();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCheckColorHover());
 }
 
 void tguiRadioButtonRenderer_setCheckColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -303,8 +284,7 @@ void tguiRadioButtonRenderer_setCheckColorDisabled(tguiRenderer* renderer, sfCol
 
 sfColor tguiRadioButtonRenderer_getCheckColorDisabled(const tguiRenderer* renderer)
 {
-    sf::Color color = DOWNCAST(renderer->This)->getCheckColorDisabled();
-    return sfColor_fromRGBA(color.r, color.g, color.b, color.a);
+    return convertColor(DOWNCAST(renderer->This)->getCheckColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
