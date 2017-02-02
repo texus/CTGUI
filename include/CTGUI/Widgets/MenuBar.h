@@ -45,5 +45,8 @@ CTGUI_API unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget);
 CTGUI_API void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, float minimumWidth);
 CTGUI_API float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget);
 
+CTGUI_API void tguiMenuBar_setInvertedMenuDirection(tguiWidget* widget, sfBool invertDirection);
+CTGUI_API sfBool tguiMenuBar_getInvertedMenuDirection(const tguiWidget* widget);
+
 #endif // CTGUI_MENU_BAR_H
 

@@ -94,3 +94,15 @@ float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimumSubMenuWidth();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_setInvertedMenuDirection(tguiWidget* widget, sfBool invertDirection)
+{
+    DOWNCAST(widget->This)->setInvertedMenuDirection(invertDirection);
+}
+
+sfBool tguiMenuBar_getInvertedMenuDirection(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getInvertedMenuDirection();
+}
