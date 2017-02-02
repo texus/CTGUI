@@ -87,6 +87,18 @@ size_t tguiTextBox_getMaximumCharacters(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiTextBox_setCaretPosition(tguiWidget* widget, size_t charactersBeforeCaret)
+{
+    DOWNCAST(widget->This)->setCaretPosition(charactersBeforeCaret);
+}
+
+size_t tguiTextBox_getCaretPosition(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getCaretPosition();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiTextBox_setReadOnly(tguiWidget* widget, sfBool readOnly)
 {
     DOWNCAST(widget->This)->setReadOnly(readOnly != 0);
@@ -107,4 +119,11 @@ void tguiTextBox_setVerticalScrollbarPresent(tguiWidget* widget, sfBool present)
 sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isVerticalScrollbarPresent();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiTextBox_getLinesCount(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getLinesCount();
 }

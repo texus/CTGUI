@@ -43,11 +43,16 @@ CTGUI_API unsigned int tguiTextBox_getTextSize(const tguiWidget* widget);
 CTGUI_API void tguiTextBox_setMaximumCharacters(tguiWidget* widget, size_t maximumCharacters);
 CTGUI_API size_t tguiTextBox_getMaximumCharacters(const tguiWidget* widget);
 
+CTGUI_API void tguiTextBox_setCaretPosition(tguiWidget* widget, size_t charactersBeforeCaret);
+CTGUI_API size_t tguiTextBox_getCaretPosition(const tguiWidget* widget);
+
 CTGUI_API void tguiTextBox_setReadOnly(tguiWidget* widget, sfBool readOnly);
 CTGUI_API sfBool tguiTextBox_isReadOnly(const tguiWidget* widget);
 
 CTGUI_API void tguiTextBox_setVerticalScrollbarPresent(tguiWidget* widget, sfBool present);
 CTGUI_API sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget);
+
+CTGUI_API size_t tguiTextBox_getLinesCount(const tguiWidget* widget);
 
 #endif // CTGUI_TEXT_BOX_H
 
