@@ -32,7 +32,8 @@
 CTGUI_API tguiWidget* tguiMenuBar_create(void);
 
 CTGUI_API void tguiMenuBar_addMenu(tguiWidget* widget, const sfUint32* text);
-CTGUI_API sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* text, const sfUint32* menu);
+CTGUI_API sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* text);
+CTGUI_API sfBool tguiMenuBar_addMenuItemToLastMenu(tguiWidget* widget, const sfUint32* text);
 
 CTGUI_API sfBool tguiMenuBar_removeMenu(tguiWidget* widget, const sfUint32* menu);
 CTGUI_API sfBool tguiMenuBar_removeMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* menuItem);

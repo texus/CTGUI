@@ -44,9 +44,14 @@ void tguiMenuBar_addMenu(tguiWidget* widget, const sfUint32* text)
     DOWNCAST(widget->This)->addMenu(text);
 }
 
-sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* text, const sfUint32* menu)
+sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* text)
 {
-    return DOWNCAST(widget->This)->addMenuItem(text, menu);
+    return DOWNCAST(widget->This)->addMenuItem(menu, text);
+}
+
+sfBool tguiMenuBar_addMenuItemToLastMenu(tguiWidget* widget, const sfUint32* text)
+{
+    return DOWNCAST(widget->This)->addMenuItem(text);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
