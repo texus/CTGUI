@@ -16,6 +16,7 @@ find_path(CSFML_INCLUDE_DIR SFML/Config.h
 
 # check the version number
 set(CSFML_VERSION_OK TRUE)
+set(CSFML_FOUND TRUE)
 if (CSFML_FIND_VERSION AND CSFML_INCLUDE_DIR)
     # extract the major and minor version numbers from SFML/Config.h
     set(CSFML_CONFIG_H_INPUT "${CSFML_INCLUDE_DIR}/SFML/Config.h")
