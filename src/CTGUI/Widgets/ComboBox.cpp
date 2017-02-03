@@ -189,7 +189,7 @@ void tguiComboBox_setMaximumItems(tguiWidget* widget, unsigned int maxItems)
     DOWNCAST(widget->This)->setMaximumItems(maxItems);
 }
 
-unsigned int tguiComboBox_getMaximumItems(const tguiWidget* widget)
+size_t tguiComboBox_getMaximumItems(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximumItems();
 }

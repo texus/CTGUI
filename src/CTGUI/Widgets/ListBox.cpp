@@ -196,12 +196,12 @@ unsigned int tguiListBox_getTextSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBox_setMaximumItems(tguiWidget* widget, unsigned int maxItems)
+void tguiListBox_setMaximumItems(tguiWidget* widget, size_t maxItems)
 {
     DOWNCAST(widget->This)->setMaximumItems(maxItems);
 }
 
-unsigned int tguiListBox_getMaximumItems(const tguiWidget* widget)
+size_t tguiListBox_getMaximumItems(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximumItems();
 }
