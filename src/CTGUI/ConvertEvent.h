@@ -111,4 +111,4 @@ void convertEvent(const sfEvent& event, sf::Event& SFMLEvent)
     }
 }
 
-#endif // SFML_CONVERTEVENT_H
+#endif // CTGUI_CONVERT_EVENT_H

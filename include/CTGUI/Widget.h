@@ -68,6 +68,10 @@ CTGUI_API void tguiWidget_enable(tguiWidget* widget);
 CTGUI_API void tguiWidget_disable(tguiWidget* widget);
 CTGUI_API sfBool tguiWidget_isEnabled(const tguiWidget* widget);
 
+CTGUI_API void tguiWidget_focus(tguiWidget* widget);
+CTGUI_API void tguiWidget_unfocus(tguiWidget* widget);
+CTGUI_API sfBool tguiWidget_isFocused(const tguiWidget* widget);
+
 CTGUI_API const char* tguiWidget_getWidgetType(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_moveToFront(tguiWidget* widget);

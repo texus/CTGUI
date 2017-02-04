@@ -261,6 +261,23 @@ sfBool tguiWidget_isEnabled(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidget_focus(tguiWidget* widget)
+{
+    widget->This->focus();
+}
+
+void tguiWidget_unfocus(tguiWidget* widget)
+{
+    widget->This->unfocus();
+}
+
+sfBool tguiWidget_isFocused(const tguiWidget* widget)
+{
+    return widget->This->isFocused();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const char* tguiWidget_getWidgetType(const tguiWidget* widget)
 {
     return widget->This->getWidgetType().c_str();
