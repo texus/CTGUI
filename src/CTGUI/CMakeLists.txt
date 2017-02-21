@@ -73,6 +73,8 @@ set(SRC
     ${INCROOT}/Renderers/ComboBoxRenderer.h
     ${SRCROOT}/Renderers/EditBoxRenderer.cpp
     ${INCROOT}/Renderers/EditBoxRenderer.h
+    ${SRCROOT}/Renderers/GroupRenderer.cpp
+    ${INCROOT}/Renderers/GroupRenderer.h
     ${SRCROOT}/Renderers/KnobRenderer.cpp
     ${INCROOT}/Renderers/KnobRenderer.h
     ${SRCROOT}/Renderers/LabelRenderer.cpp
@@ -124,6 +126,8 @@ set(SRC
     ${SRCROOT}/Widgets/EditBox.cpp
     ${INCROOT}/Widgets/Grid.h
     ${SRCROOT}/Widgets/Grid.cpp
+    ${INCROOT}/Widgets/Group.h
+    ${SRCROOT}/Widgets/Group.cpp
     ${INCROOT}/Widgets/HorizontalLayout.h
     ${SRCROOT}/Widgets/HorizontalLayout.cpp
     ${INCROOT}/Widgets/Knob.h
@@ -144,6 +148,8 @@ set(SRC
     ${SRCROOT}/Widgets/ProgressBar.cpp
     ${INCROOT}/Widgets/RadioButton.h
     ${SRCROOT}/Widgets/RadioButton.cpp
+    ${INCROOT}/Widgets/RadioButtonGroup.h
+    ${SRCROOT}/Widgets/RadioButtonGroup.cpp
     ${INCROOT}/Widgets/Scrollbar.h
     ${SRCROOT}/Widgets/Scrollbar.cpp
     ${INCROOT}/Widgets/Slider.h
