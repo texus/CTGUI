@@ -37,9 +37,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Add an option for choosing the build type (shared or static)
 ctgui_set_option(BUILD_SHARED_LIBS TRUE BOOL "TRUE to build CTGUI as shared libraries, FALSE to build it as static libraries")
 
-# Add an option for linking to tgui either statically or dynamically
-ctgui_set_option(CTGUI_LINK_DEPENDENCIES_STATICALLY TRUE BOOL "TRUE to link to a static version of TGUI and SFML, FALSE to link dynamically")
-
 # Disable the rpath stuff
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
 

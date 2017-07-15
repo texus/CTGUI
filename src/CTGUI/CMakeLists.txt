@@ -7,14 +7,6 @@ set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}/lib")
 # Define the export symbol
 add_definitions(-DCTGUI_EXPORTS)
 
-# Search for the right SFML and TGUI libraries
-if(SFML_OS_WINDOWS)
-    if (CTGUI_LINK_DEPENDENCIES_STATICALLY)
-        set(SFML_STATIC_LIBRARIES TRUE)
-        add_definitions(-DSFML_STATIC)
-    endif()
-endif()
-
 # Find TGUI library
 find_package(TGUI ${VERSION_MAJOR}.${VERSION_MINOR})
 if (NOT TGUI_FOUND)
@@ -217,9 +209,6 @@ endif()
 
 # Link the target to its external dependencies (C++ TGUI library and SFML)
 set(CTGUI_EXT_LIBS ${TGUI_LIBRARY} ${SFML_LIBRARIES})
-if(CTGUI_LINK_DEPENDENCIES_STATICALLY)
-    set(CTGUI_EXT_LIBS ${CTGUI_EXT_LIBS} ${SFML_DEPENDENCIES})
-endif()
 target_link_libraries(${PROJECT_NAME} ${CTGUI_EXT_LIBS})
 
 # Build dylibs
