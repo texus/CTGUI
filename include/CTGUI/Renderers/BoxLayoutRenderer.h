@@ -33,7 +33,7 @@ CTGUI_API tguiRenderer* tguiBoxLayoutRenderer_copy(const tguiRenderer* other);
 
 CTGUI_API void tguiBoxLayoutRenderer_setSpaceBetweenWidgets(tguiRenderer* renderer, float space);
 CTGUI_API void tguiBoxLayoutRenderer_setSpaceBetweenWidgetsFromLayout(tguiWidget* widget, tguiLayout* layout);
-CTGUI_API tguiOutline* tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* renderer);
+CTGUI_API float tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* renderer);
 
 #endif // CTGUI_BOX_LAYOUT_RENDERER_H
 

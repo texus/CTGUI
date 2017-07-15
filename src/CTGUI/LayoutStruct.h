@@ -26,11 +26,13 @@
 #define CTGUI_LAYOUT_STRUCT_H
 
 #include <TGUI/Layout.hpp>
+#include <SFML/System/Vector2.h>
 
 struct tguiLayout
 {
     tgui::Layout This;
 
+    tguiLayout(tgui::Layout layout) : This{std::move(layout)} {}
     tguiLayout(float constant) : This{constant} {}
     tguiLayout(const char* expression) : This{expression} {}
 };
@@ -39,6 +41,7 @@ struct tguiLayout2d
 {
     tgui::Layout2d This;
 
+    tguiLayout2d(tgui::Layout2d layout) : This{std::move(layout)} {}
     tguiLayout2d(sfVector2f constant) : This{constant.x, constant.y} {}
     tguiLayout2d(tguiLayout* x, tguiLayout* y) : This{x->This, y->This} {}
 };

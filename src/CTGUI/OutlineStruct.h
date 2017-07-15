@@ -25,13 +25,13 @@
 #ifndef CTGUI_OUTLINE_STRUCT_H
 #define CTGUI_OUTLINE_STRUCT_H
 
-#include <TGUI/Layout.hpp>
+#include <TGUI/Outline.hpp>
 
 struct tguiOutline
 {
-    tgui::Borders This;
+    tgui::Outline This;
 
-    tguiOutline(tgui::Borders borders) : This{std::move(borders)} {}
+    tguiOutline(tgui::Outline outline) : This{std::move(outline)} {}
     tguiOutline(float left, float top, float right, float bottom) : This{left, top, right, bottom} {}
     tguiOutline(const char* left, const char* top, const char* right, const char* bottom) : This{left, top, right, bottom} {}
 };

@@ -46,7 +46,7 @@ set(SRC
     ${INCROOT}/Container.h
     ${SRCROOT}/ConvertEvent.h
     ${SRCROOT}/Global.cpp
-    ${INCROOT}/Global.h
+    ${SRCROOT}/Global.h
     ${SRCROOT}/Gui.cpp
     ${INCROOT}/Gui.h
     ${SRCROOT}/GuiStruct.h
