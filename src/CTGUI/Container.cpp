@@ -103,9 +103,8 @@ void tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filena
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
@@ -118,8 +117,7 @@ void tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }

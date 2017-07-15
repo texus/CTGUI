@@ -27,15 +27,14 @@
 #define CTGUI_PROGRESS_BAR_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiProgressBarRenderer_create(void);
 CTGUI_API tguiRenderer* tguiProgressBarRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiProgressBarRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiProgressBarRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiProgressBarRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiProgressBarRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiProgressBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiProgressBarRenderer_getTextColor(const tguiRenderer* renderer);

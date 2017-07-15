@@ -23,24 +23,17 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_SLIDER_H
-#define CTGUI_SLIDER_H
+#ifndef CTGUI_BOX_LAYOUT_RENDERER_H
+#define CTGUI_BOX_LAYOUT_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
 
-CTGUI_API tguiWidget* tguiSlider_create(void);
+CTGUI_API tguiRenderer* tguiBoxLayoutRenderer_create(void);
+CTGUI_API tguiRenderer* tguiBoxLayoutRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiSlider_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiSlider_getMinimum(const tguiWidget* widget);
+CTGUI_API void tguiBoxLayoutRenderer_setSpaceBetweenWidgets(tguiRenderer* renderer, float space);
+CTGUI_API void tguiBoxLayoutRenderer_setSpaceBetweenWidgetsFromLayout(tguiWidget* widget, tguiLayout* layout);
+CTGUI_API tguiOutline* tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSlider_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiSlider_getMaximum(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_setValue(tguiWidget* widget, int value);
-CTGUI_API int tguiSlider_getValue(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
-
-#endif // CTGUI_SLIDER_H
+#endif // CTGUI_BOX_LAYOUT_RENDERER_H
 

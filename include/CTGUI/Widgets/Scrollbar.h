@@ -46,5 +46,7 @@ CTGUI_API unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* widget);
 CTGUI_API void tguiScrollbar_setAutoHide(tguiWidget* widget, sfBool autoHide);
 CTGUI_API sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget);
 
+CTGUI_API void tguiScrollbar_connect_onValueChange(tguiWidget* widget, void (*function)(unsigned int), const char** error);
+
 #endif // CTGUI_SCROLLBAR_H
 

@@ -30,25 +30,9 @@
 #include <CTGUI/Widget.h>
 #include <stddef.h>
 
-CTGUI_API sfBool tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, const sfUint32* widgetName);
-
-CTGUI_API void tguiBoxLayout_addSpace(tguiWidget* layout, float ratio);
-
-CTGUI_API sfBool tguiBoxLayout_insertSpace(tguiWidget* layout, size_t index, float ratio);
-
+CTGUI_API void tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, const sfUint32* widgetName);
 CTGUI_API sfBool tguiBoxLayout_removeAtIndex(tguiWidget* layout, size_t index);
-
 CTGUI_API tguiWidget* tguiBoxLayout_getAtIndex(tguiWidget* layout, size_t index);
-
-CTGUI_API sfBool tguiBoxLayout_setRatio(tguiWidget* layout, tguiWidget* widget, float ratio);
-CTGUI_API sfBool tguiBoxLayout_setRatioAtIndex(tguiWidget* layout, size_t index, float ratio);
-CTGUI_API float tguiBoxLayout_getRatio(tguiWidget* layout, tguiWidget* widget);
-CTGUI_API float tguiBoxLayout_getRatioAtIndex(tguiWidget* layout, size_t index);
-
-CTGUI_API sfBool tguiBoxLayout_setFixedSize(tguiWidget* layout, tguiWidget* widget, float size);
-CTGUI_API sfBool tguiBoxLayout_setFixedSizeAtIndex(tguiWidget* layout, size_t index, float size);
-CTGUI_API float tguiBoxLayout_getFixedSize(tguiWidget* layout, tguiWidget* widget);
-CTGUI_API float tguiBoxLayout_getFixedSizeAtIndex(tguiWidget* layout, size_t index);
 
 #endif // CTGUI_BOX_LAYOUT_H
 

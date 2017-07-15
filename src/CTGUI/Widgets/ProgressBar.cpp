@@ -115,3 +115,33 @@ tguiFillDirection tguiProgressBar_getFillDirection(const tguiWidget* widget)
 {
     return static_cast<tguiFillDirection>(DOWNCAST(widget->This)->getFillDirection());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiProgressBar_connect_onValueChange(tguiWidget* widget, void (*function)(unsigned int), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onValueChange->connect(function);
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}
+
+void tguiProgressBar_connect_onFull(tguiWidget* widget, void (*function)(), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onFull->connect(function);
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

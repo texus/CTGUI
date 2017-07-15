@@ -27,17 +27,16 @@
 #define CTGUI_LABEL_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 
 CTGUI_API tguiRenderer* tguiLabelRenderer_create(void);
 CTGUI_API tguiRenderer* tguiLabelRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiLabelRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiLabelRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiLabelRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiLabelRenderer_getBorders(const tguiRenderer* renderer);
 
-CTGUI_API void tguiLabelRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiLabelRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiLabelRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* renderer);
 
 CTGUI_API void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiLabelRenderer_getTextColor(const tguiRenderer* renderer);

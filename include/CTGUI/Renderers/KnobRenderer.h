@@ -27,15 +27,14 @@
 #define CTGUI_LIST_BOX_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiKnobRenderer_create(void);
 CTGUI_API tguiRenderer* tguiKnobRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiKnobRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiKnobRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiKnobRenderer_getBackgroundColor(const tguiRenderer* renderer);

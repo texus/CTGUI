@@ -41,7 +41,6 @@ struct tguiLayout2d
 
     tguiLayout2d(sfVector2f constant) : This{constant.x, constant.y} {}
     tguiLayout2d(tguiLayout* x, tguiLayout* y) : This{x->This, y->This} {}
-    tguiLayout2d(const char* expression) : This{expression} {}
 };
 
 #endif // CTGUI_LAYOUT_STRUCT_H

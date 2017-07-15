@@ -27,7 +27,6 @@
 #define CTGUI_RADIO_BUTTON_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
@@ -37,8 +36,8 @@ CTGUI_API tguiRenderer* tguiRadioButtonRenderer_copy(const tguiRenderer* rendere
 CTGUI_API void tguiRadioButtonRenderer_setTextDistanceRatio(tguiRenderer* renderer, float ratio);
 CTGUI_API float tguiRadioButtonRenderer_getTextDistanceRatio(const tguiRenderer* renderer);
 
-CTGUI_API void tguiRadioButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiRadioButtonRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiRadioButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiRadioButtonRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiRadioButtonRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiRadioButtonRenderer_getTextColor(const tguiRenderer* renderer);

@@ -70,5 +70,10 @@ CTGUI_API size_t tguiListBox_getMaximumItems(const tguiWidget* widget);
 CTGUI_API void tguiListBox_setAutoScroll(tguiWidget* widget, sfBool autoScroll);
 CTGUI_API sfBool tguiListBox_getAutoScroll(const tguiWidget* widget);
 
+CTGUI_API void tguiListBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error);
+CTGUI_API void tguiListBox_connect_onMousePress(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error);
+CTGUI_API void tguiListBox_connect_onMouseRelease(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error);
+CTGUI_API void tguiListBox_connect_onDoubleClick(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error);
+
 #endif // CTGUI_LIST_BOX_H
 

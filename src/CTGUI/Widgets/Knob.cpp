@@ -108,3 +108,19 @@ sfBool tguiKnob_getClockwiseTurning(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getClockwiseTurning();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiKnob_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onValueChange->connect(function);
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

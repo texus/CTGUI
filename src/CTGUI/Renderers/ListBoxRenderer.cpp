@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/ListBoxRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
@@ -47,26 +48,24 @@ tguiRenderer* tguiListBoxRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+void tguiListBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
 {
-    DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(renderer->This)->setBorders(borders->This);
 }
 
-tguiOutline tguiListBoxRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline* tguiListBoxRenderer_getBorders(const tguiRenderer* renderer)
 {
-    tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
-void tguiListBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding)
+void tguiListBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding)
 {
-    DOWNCAST(renderer->This)->setPadding({padding.left, padding.top, padding.right, padding.bottom});
+    DOWNCAST(renderer->This)->setPadding(padding->This);
 }
 
-tguiOutline tguiListBoxRenderer_getPadding(const tguiRenderer* renderer)
+tguiOutline* tguiListBoxRenderer_getPadding(const tguiRenderer* renderer)
 {
-    tgui::Padding padding = DOWNCAST(renderer->This)->getPadding();
-    return {padding.left, padding.top, padding.right, padding.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

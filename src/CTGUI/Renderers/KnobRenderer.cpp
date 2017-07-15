@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/KnobRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
@@ -46,15 +47,14 @@ tguiRenderer* tguiKnobRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnobRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+void tguiKnobRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
 {
-    DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(renderer->This)->setBorders(borders->This);
 }
 
-tguiOutline tguiKnobRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* renderer)
 {
-    tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

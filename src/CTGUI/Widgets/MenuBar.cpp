@@ -106,3 +106,26 @@ sfBool tguiMenuBar_getInvertedMenuDirection(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getInvertedMenuDirection();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_closeMenu(tguiWidget* widget)
+{
+    DOWNCAST(widget->This)->closeMenu();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_connect_onMenuItemClick(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onMenuItemClick->connect([function](const sf::String& str){ function(str.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

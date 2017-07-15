@@ -23,24 +23,12 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_SLIDER_H
-#define CTGUI_SLIDER_H
+#include <CTGUI/Widgets/HorizontalWrap.h>
+#include <CTGUI/WidgetStruct.h>
 
-#include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
+#include <TGUI/Widgets/HorizontalWrap.hpp>
 
-CTGUI_API tguiWidget* tguiSlider_create(void);
-
-CTGUI_API void tguiSlider_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiSlider_getMinimum(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiSlider_getMaximum(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_setValue(tguiWidget* widget, int value);
-CTGUI_API int tguiSlider_getValue(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
-
-#endif // CTGUI_SLIDER_H
-
+tguiWidget* tguiHorizontalWrap_create(void)
+{
+    return new tguiWidget(tgui::HorizontalWrap::create());
+}

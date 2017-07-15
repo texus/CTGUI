@@ -27,17 +27,16 @@
 #define CTGUI_TEXT_BOX_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiTextBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiTextBoxRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiTextBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiTextBoxRenderer_getBorders(const tguiRenderer* renderer);
-CTGUI_API void tguiTextBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiTextBoxRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiTextBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiTextBoxRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiTextBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiTextBoxRenderer_getPadding(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTextBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTextBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);

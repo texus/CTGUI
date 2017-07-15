@@ -34,5 +34,7 @@ CTGUI_API tguiWidget* tguiPicture_create(void);
 
 CTGUI_API void tguiPicture_setTexture(tguiWidget* widget, sfTexture* texture);
 
+CTGUI_API void tguiPicture_connect_onDoubleClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+
 #endif // CTGUI_PICTURE_H
 

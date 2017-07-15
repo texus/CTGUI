@@ -49,5 +49,7 @@ CTGUI_API int tguiKnob_getValue(const tguiWidget* widget);
 CTGUI_API void tguiKnob_setClockwiseTurning(tguiWidget* widget, sfBool clockwise);
 CTGUI_API sfBool tguiKnob_getClockwiseTurning(const tguiWidget* widget);
 
+CTGUI_API void tguiKnob_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
+
 #endif // CTGUI_KNOB_H
 

@@ -27,14 +27,13 @@
 #define CTGUI_PANEL_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 
 CTGUI_API tguiRenderer* tguiPanelRenderer_create(void);
 CTGUI_API tguiRenderer* tguiPanelRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiPanelRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiPanelRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiPanelRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiPanelRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiPanelRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiPanelRenderer_getBackgroundColor(const tguiRenderer* renderer);

@@ -65,11 +65,6 @@ tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y)
     return new tguiLayout2d(x, y);
 }
 
-tguiLayout2d* tguiLayout2d_createFromString(const char* expression)
-{
-    return new tguiLayout2d(expression);
-}
-
 tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* layout)
 {
     return new tguiLayout2d(*layout);

@@ -27,15 +27,14 @@
 #define CTGUI_CHILD_WINDOW_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiChildWindowRenderer_create(void);
 CTGUI_API tguiRenderer* tguiChildWindowRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiChildWindowRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiChildWindowRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* renderer);

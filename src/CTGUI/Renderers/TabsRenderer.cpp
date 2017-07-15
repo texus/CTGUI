@@ -26,6 +26,7 @@
 #include <CTGUI/Renderers/TabsRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
@@ -47,15 +48,14 @@ tguiRenderer* tguiTabsRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabsRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+void tguiTabsRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
 {
-    DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(renderer->This)->setBorders(borders->This);
 }
 
-tguiOutline tguiTabsRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline* tguiTabsRenderer_getBorders(const tguiRenderer* renderer)
 {
-    tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

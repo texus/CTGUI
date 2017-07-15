@@ -205,3 +205,19 @@ unsigned int tguiComboBox_getTextSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getTextSize();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onItemSelect->connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

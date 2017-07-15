@@ -50,7 +50,7 @@ void tguiWidget_setPosition(tguiWidget* widget, sfVector2f position)
     widget->This->setPosition({position.x, position.y});
 }
 
-void tguiWidget_setPosition_fromLayout(tguiWidget* widget, tguiLayout2d* layout)
+void tguiWidget_setPositionFromLayout(tguiWidget* widget, tguiLayout2d* layout)
 {
     widget->This->setPosition(layout->This);
 }
@@ -80,7 +80,7 @@ void tguiWidget_setSize(tguiWidget* widget, sfVector2f size)
     widget->This->setSize({size.x, size.y});
 }
 
-void tguiWidget_setSize_fromLayout(tguiWidget* widget, tguiLayout2d* layout)
+void tguiWidget_setSizeFromLayout(tguiWidget* widget, tguiLayout2d* layout)
 {
     widget->This->setSize(layout->This);
 }
@@ -103,92 +103,110 @@ unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void
 {
     try
     {
-        unsigned int id = widget->This->connect(signalName, function);
+        const unsigned int id = widget->This->connect(signalName, function);
         *error = nullptr;
         return id;
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
         return 0;
     }
 }
 
-void tguiWidget_connect_vector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f), const char** error)
+void tguiWidget_connect_onPositionChange(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
 {
     try
     {
-        widget->This->connect(signalName, [function](const sf::Vector2f& vector2f){ function({vector2f.x, vector2f.y}); });
+        widget->This->onPositionChange->connect([function](const sf::Vector2f& pos){ function({pos.x, pos.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
-void tguiWidget_connect_string(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*), const char** error)
+void tguiWidget_connect_onSizeChange(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
 {
     try
     {
-        widget->This->connect(signalName, [function](const sf::String& str){ function(str.getData()); });
+        widget->This->onSizeChange->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
-void tguiWidget_connect_int(tguiWidget* widget, const char* signalName, void (*function)(int), const char** error)
+void tguiWidget_connect_onMouseEnter(tguiWidget* widget, void (*function)(), const char** error)
 {
     try
     {
-        widget->This->connect(signalName, function);
+        widget->This->onMouseEnter->connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
-void tguiWidget_connect_itemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+void tguiWidget_connect_onMouseLeave(tguiWidget* widget, void (*function)(), const char** error)
 {
     try
     {
-        widget->This->connect(signalName, [function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        widget->This->onMouseLeave->connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}
+
+void tguiWidget_connect_onFocus(tguiWidget* widget, void (*function)(), const char** error)
+{
+    try
+    {
+        widget->This->onFocus->connect(function);
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}
+
+void tguiWidget_connect_onUnfocus(tguiWidget* widget, void (*function)(), const char** error)
+{
+    try
+    {
+        widget->This->onUnfocus->connect(function);
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_disconnect(tguiWidget* widget, unsigned int id)
+void tguiWidget_disconnect(tguiWidget* widget, const char* signalName, unsigned int id)
 {
-    widget->This->disconnect(id);
+    widget->This->disconnect(signalName, id);
 }
 
-void tguiWidget_disconnectAll(tguiWidget* widget)
-{
-    widget->This->disconnectAll();
-}
-
-void tguiWidget_disconnectAllBySignalName(tguiWidget* widget, const char* signalName)
+void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalName)
 {
     widget->This->disconnectAll(signalName);
 }
@@ -204,9 +222,8 @@ void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, cons
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
@@ -323,4 +340,11 @@ tguiWidget* tguiWidget_getParent(tguiWidget* widget)
         return new tguiWidget(parent->shared_from_this());
     else
         return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfBool tguiWidget_mouseOnWidget(tguiWidget* widget, sfVector2f pos)
+{
+    return widget->This->mouseOnWidget({pos.x, pos.y});
 }

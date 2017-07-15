@@ -27,17 +27,16 @@
 #define CTGUI_LIST_BOX_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiListBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiListBoxRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiListBoxRenderer_getBorders(const tguiRenderer* renderer);
-CTGUI_API void tguiListBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiListBoxRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiListBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiListBoxRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiListBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiListBoxRenderer_getPadding(const tguiRenderer* renderer);
 
 CTGUI_API void tguiListBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiListBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);

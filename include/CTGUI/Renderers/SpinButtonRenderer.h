@@ -27,15 +27,14 @@
 #define CTGUI_SPIN_BUTTON_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiSpinButtonRenderer_create(void);
 CTGUI_API tguiRenderer* tguiSpinButtonRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiSpinButtonRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiSpinButtonRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiSpinButtonRenderer_setSpaceBetweenArrows(tguiRenderer* renderer, float spaceBetweenArrows);
 CTGUI_API float tguiSpinButtonRenderer_getSpaceBetweenArrows(const tguiRenderer* renderer);

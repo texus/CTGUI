@@ -27,13 +27,12 @@
 #define CTGUI_GROUP_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 
 CTGUI_API tguiRenderer* tguiGroupRenderer_create(void);
 CTGUI_API tguiRenderer* tguiGroupRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiGroupRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiGroupRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiGroupRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiGroupRenderer_getPadding(const tguiRenderer* renderer);
 
 #endif // CTGUI_GROUP_RENDERER_H
 

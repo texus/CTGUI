@@ -47,3 +47,19 @@ void tguiPicture_setTexture(tguiWidget* widget, sfTexture* texture)
     else
         DOWNCAST(widget->This)->setTexture({});
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPicture_connect_onDoubleClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onDoubleClick->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

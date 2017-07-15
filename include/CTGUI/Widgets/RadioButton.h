@@ -44,5 +44,8 @@ CTGUI_API unsigned int tguiRadioButton_getTextSize(const tguiWidget* widget);
 CTGUI_API void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable);
 CTGUI_API sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget);
 
+CTGUI_API void tguiRadioButton_connect_onCheck(tguiWidget* widget, void (*function)(sfBool), const char** error);
+CTGUI_API void tguiRadioButton_connect_onUncheck(tguiWidget* widget, void (*function)(sfBool), const char** error);
+
 #endif // CTGUI_RADIO_BUTTON_H
 

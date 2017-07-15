@@ -28,6 +28,7 @@
 
 typedef struct tguiLayout tguiLayout;
 typedef struct tguiLayout2d tguiLayout2d;
+typedef struct tguiOutline tguiOutline;
 typedef struct tguiRenderer tguiRenderer;
 typedef struct tguiTheme tguiTheme;
 typedef struct tguiRendererData tguiRendererData;

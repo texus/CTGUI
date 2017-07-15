@@ -27,15 +27,14 @@
 #define CTGUI_TABS_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiTabsRenderer_create(void);
 CTGUI_API tguiRenderer* tguiTabsRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiTabsRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiTabsRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiTabsRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer);

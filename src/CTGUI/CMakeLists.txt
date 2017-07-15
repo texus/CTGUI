@@ -45,12 +45,17 @@ set(SRC
     ${SRCROOT}/Container.cpp
     ${INCROOT}/Container.h
     ${SRCROOT}/ConvertEvent.h
+    ${SRCROOT}/Global.cpp
+    ${INCROOT}/Global.h
     ${SRCROOT}/Gui.cpp
     ${INCROOT}/Gui.h
     ${SRCROOT}/GuiStruct.h
     ${SRCROOT}/Layout.cpp
     ${INCROOT}/Layout.h
     ${SRCROOT}/LayoutStruct.h
+    ${SRCROOT}/Outline.cpp
+    ${INCROOT}/Outline.h
+    ${SRCROOT}/OutlineStruct.h
     ${SRCROOT}/RendererData.cpp
     ${INCROOT}/RendererData.h
     ${SRCROOT}/RendererDataStruct.h
@@ -63,6 +68,8 @@ set(SRC
     ${SRCROOT}/Widget.cpp
     ${INCROOT}/Widget.h
     ${SRCROOT}/WidgetStruct.h
+    ${SRCROOT}/Renderers/BoxLayoutRenderer.cpp
+    ${INCROOT}/Renderers/BoxLayoutRenderer.h
     ${SRCROOT}/Renderers/ButtonRenderer.cpp
     ${INCROOT}/Renderers/ButtonRenderer.h
     ${SRCROOT}/Renderers/ChatBoxRenderer.cpp
@@ -130,6 +137,8 @@ set(SRC
     ${SRCROOT}/Widgets/Group.cpp
     ${INCROOT}/Widgets/HorizontalLayout.h
     ${SRCROOT}/Widgets/HorizontalLayout.cpp
+    ${INCROOT}/Widgets/HorizontalWrap.h
+    ${SRCROOT}/Widgets/HorizontalWrap.cpp
     ${INCROOT}/Widgets/Knob.h
     ${SRCROOT}/Widgets/Knob.cpp
     ${INCROOT}/Widgets/Label.h

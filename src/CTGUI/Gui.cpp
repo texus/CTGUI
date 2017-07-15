@@ -28,6 +28,7 @@
 #include <CTGUI/WidgetStruct.h>
 #include <CTGUI/ConvertEvent.h>
 #include <CTGUI/SFML/Graphics/RenderWindowStruct.h>
+#include <CTGUI/SFML/Graphics/RenderTextureStruct.h>
 #include <CTGUI/SFML/Graphics/FontStruct.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,10 +38,17 @@ tguiGui* tguiGui_create(void)
     return new tguiGui;
 }
 
-tguiGui* tguiGui_createFromWindow(sfRenderWindow* window)
+tguiGui* tguiGui_createFromTargetRenderWindow(sfRenderWindow* target)
 {
     tguiGui* gui = tguiGui_create();
-    tguiGui_setWindow(gui, window);
+    tguiGui_setTargetRenderWindow(gui, target);
+    return gui;
+}
+
+tguiGui* tguiGui_createFromTargetRenderTexture(sfRenderTexture* target)
+{
+    tguiGui* gui = tguiGui_create();
+    tguiGui_setTargetRenderTexture(gui, target);
     return gui;
 }
 
@@ -51,9 +59,16 @@ void tguiGui_destroy(tguiGui* gui)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_setWindow(tguiGui* gui, sfRenderWindow* window)
+void tguiGui_setTargetRenderWindow(tguiGui* gui, sfRenderWindow* window)
 {
-    gui->This.setWindow(window->This);
+    gui->This.setTarget(window->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_setTargetRenderTexture(tguiGui* gui, sfRenderTexture* window)
+{
+    gui->This.setTarget(window->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -170,9 +185,8 @@ void tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, const char*
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
@@ -185,8 +199,7 @@ void tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename, const char** 
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }

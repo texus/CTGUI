@@ -25,6 +25,7 @@
 #ifndef CTGUI_WIDGET_STRUCT_H
 #define CTGUI_WIDGET_STRUCT_H
 
+#include <CTGUI/Global.h>
 #include <TGUI/Widget.hpp>
 
 struct tguiWidget
@@ -34,5 +35,6 @@ struct tguiWidget
     tguiWidget(std::shared_ptr<tgui::Widget> widget) : This{widget} {}
 };
 
+extern std::string errorMessage; // Holds the error when a pointer to it is returned to a binding on top of CTGUI
 
 #endif // CTGUI_WIDGET_STRUCT_H

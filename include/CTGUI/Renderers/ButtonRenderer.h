@@ -27,15 +27,14 @@
 #define CTGUI_BUTTON_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiButtonRenderer_create(void);
 CTGUI_API tguiRenderer* tguiButtonRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiButtonRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiButtonRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiButtonRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiButtonRenderer_getTextColor(const tguiRenderer* renderer);

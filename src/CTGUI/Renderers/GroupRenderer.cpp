@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/GroupRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/OutlineStruct.h>
 
 #include <TGUI/Renderers/GroupRenderer.hpp>
 
@@ -44,13 +45,12 @@ tguiRenderer* tguiGroupRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGroupRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding)
+void tguiGroupRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding)
 {
-    DOWNCAST(renderer->This)->setPadding({padding.left, padding.top, padding.right, padding.bottom});
+    DOWNCAST(renderer->This)->setPadding(padding->This);
 }
 
-tguiOutline tguiGroupRenderer_getPadding(const tguiRenderer* renderer)
+tguiOutline* tguiGroupRenderer_getPadding(const tguiRenderer* renderer)
 {
-    tgui::Padding padding = DOWNCAST(renderer->This)->getPadding();
-    return {padding.left, padding.top, padding.right, padding.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
 }

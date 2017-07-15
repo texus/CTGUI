@@ -58,5 +58,7 @@ CTGUI_API float tguiTabs_getTabHeight(const tguiWidget* widget);
 CTGUI_API void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth);
 CTGUI_API float tguiTabs_getMaximumTabWidth(const tguiWidget* widget);
 
+CTGUI_API void tguiTabs_connect_onTabSelect(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
+
 #endif // CTGUI_TABS_H
 

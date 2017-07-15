@@ -27,17 +27,16 @@
 #define CTGUI_EDIT_BOX_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiEditBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiEditBoxRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiEditBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiEditBoxRenderer_getBorders(const tguiRenderer* renderer);
-CTGUI_API void tguiEditBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiEditBoxRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiEditBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiEditBoxRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiEditBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiEditBoxRenderer_getPadding(const tguiRenderer* renderer);
 
 CTGUI_API void tguiEditBoxRenderer_setCaretWidth(tguiRenderer* renderer, float width);
 CTGUI_API float tguiEditBoxRenderer_getCaretWidth(const tguiRenderer* renderer);

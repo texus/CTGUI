@@ -31,5 +31,9 @@
 
 CTGUI_API tguiWidget* tguiPanel_create(void);
 
+CTGUI_API void tguiPanel_connect_onMousePress(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+CTGUI_API void tguiPanel_connect_onMouseRelease(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+CTGUI_API void tguiPanel_connect_onClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+
 #endif // CTGUI_PANEL_H
 

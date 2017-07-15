@@ -28,19 +28,18 @@
 
 #include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
-#include <CTGUI/Outline.h>
 #include <CTGUI/Alignment.h>
 #include <stddef.h>
 
 CTGUI_API tguiWidget* tguiGrid_create(void);
 
-CTGUI_API void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline borders, tguiAlignment alignment);
+CTGUI_API void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* borders, tguiAlignment alignment);
 CTGUI_API tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col);
 
-CTGUI_API void tguiGrid_setWidgetBorders(tguiWidget* grid, tguiWidget* widget, tguiOutline borders);
-CTGUI_API void tguiGrid_setWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline borders);
-CTGUI_API tguiOutline tguiGrid_getWidgetBorders(tguiWidget* grid, tguiWidget* widget);
-CTGUI_API tguiOutline tguiGrid_getWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col);
+CTGUI_API void tguiGrid_setWidgetBorders(tguiWidget* grid, tguiWidget* widget, tguiOutline* borders);
+CTGUI_API void tguiGrid_setWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiGrid_getWidgetBorders(tguiWidget* grid, tguiWidget* widget);
+CTGUI_API tguiOutline* tguiGrid_getWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col);
 
 CTGUI_API void tguiGrid_setWidgetAlignment(tguiWidget* grid, tguiWidget* widget, tguiAlignment alignment);
 CTGUI_API void tguiGrid_setWidgetAlignmentByCell(tguiWidget* grid, size_t row, size_t col, tguiAlignment alignment);

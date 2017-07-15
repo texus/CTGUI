@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/PanelRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
 
 #include <TGUI/Renderers/PanelRenderer.hpp>
@@ -45,15 +46,14 @@ tguiRenderer* tguiPanelRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+void tguiPanelRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
 {
-    DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(renderer->This)->setBorders(borders->This);
 }
 
-tguiOutline tguiPanelRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline* tguiPanelRenderer_getBorders(const tguiRenderer* renderer)
 {
-    tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

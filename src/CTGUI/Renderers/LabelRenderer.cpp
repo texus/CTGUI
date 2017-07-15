@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/LabelRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
 
 #include <TGUI/Renderers/LabelRenderer.hpp>
@@ -45,26 +46,24 @@ tguiRenderer* tguiLabelRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders)
+void tguiLabelRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
 {
-    DOWNCAST(renderer->This)->setBorders({borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(renderer->This)->setBorders(borders->This);
 }
 
-tguiOutline tguiLabelRenderer_getBorders(const tguiRenderer* renderer)
+tguiOutline* tguiLabelRenderer_getBorders(const tguiRenderer* renderer)
 {
-    tgui::Borders borders = DOWNCAST(renderer->This)->getBorders();
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
-void tguiLabelRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding)
+void tguiLabelRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding)
 {
-    DOWNCAST(renderer->This)->setPadding({padding.left, padding.top, padding.right, padding.bottom});
+    DOWNCAST(renderer->This)->setPadding(padding->This);
 }
 
-tguiOutline tguiLabelRenderer_getPadding(const tguiRenderer* renderer)
+tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* renderer)
 {
-    tgui::Padding padding = DOWNCAST(renderer->This)->getPadding();
-    return {padding.left, padding.top, padding.right, padding.bottom};
+    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

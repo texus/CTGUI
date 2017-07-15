@@ -32,21 +32,9 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, const sfUint32* widgetName)
+void tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, const sfUint32* widgetName)
 {
-    return DOWNCAST(layout->This)->insert(index, widget->This, widgetName);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiBoxLayout_addSpace(tguiWidget* layout, float ratio)
-{
-    DOWNCAST(layout->This)->addSpace(ratio);
-}
-
-sfBool tguiBoxLayout_insertSpace(tguiWidget* layout, size_t index, float ratio)
-{
-    return DOWNCAST(layout->This)->insertSpace(index, ratio);
+    DOWNCAST(layout->This)->insert(index, widget->This, widgetName);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,48 +53,4 @@ tguiWidget* tguiBoxLayout_getAtIndex(tguiWidget* layout, size_t index)
         return new tguiWidget(widget);
     else
         return nullptr;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-sfBool tguiBoxLayout_setRatio(tguiWidget* layout, tguiWidget* widget, float ratio)
-{
-    return DOWNCAST(layout->This)->setRatio(widget->This, ratio);
-}
-
-sfBool tguiBoxLayout_setRatioAtIndex(tguiWidget* layout, size_t index, float ratio)
-{
-    return DOWNCAST(layout->This)->setRatio(index, ratio);
-}
-
-float tguiBoxLayout_getRatio(tguiWidget* layout, tguiWidget* widget)
-{
-    return DOWNCAST(layout->This)->getRatio(widget->This);
-}
-
-float tguiBoxLayout_getRatioAtIndex(tguiWidget* layout, size_t index)
-{
-    return DOWNCAST(layout->This)->getRatio(index);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-sfBool tguiBoxLayout_setFixedSize(tguiWidget* layout, tguiWidget* widget, float size)
-{
-    return DOWNCAST(layout->This)->setFixedSize(widget->This, size);
-}
-
-sfBool tguiBoxLayout_setFixedSizeAtIndex(tguiWidget* layout, size_t index, float size)
-{
-    return DOWNCAST(layout->This)->setFixedSize(index, size);
-}
-
-float tguiBoxLayout_getFixedSize(tguiWidget* layout, tguiWidget* widget)
-{
-    return DOWNCAST(layout->This)->getFixedSize(widget->This);
-}
-
-float tguiBoxLayout_getFixedSizeAtIndex(tguiWidget* layout, size_t index)
-{
-    return DOWNCAST(layout->This)->getFixedSize(index);
 }

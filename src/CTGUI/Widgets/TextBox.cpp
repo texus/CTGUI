@@ -127,3 +127,19 @@ size_t tguiTextBox_getLinesCount(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getLinesCount();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextBox_connect_onTextChange(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onTextChange->connect([function](const sf::String& str){ function(str.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

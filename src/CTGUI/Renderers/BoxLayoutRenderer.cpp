@@ -23,24 +23,39 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_SLIDER_H
-#define CTGUI_SLIDER_H
+#include <CTGUI/Renderers/BoxLayoutRenderer.h>
+#include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/LayoutStruct.h>
 
-#include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
+#include <TGUI/Renderers/BoxLayoutRenderer.hpp>
 
-CTGUI_API tguiWidget* tguiSlider_create(void);
+#define DOWNCAST(x) static_cast<tgui::BoxLayoutRenderer*>(x)
 
-CTGUI_API void tguiSlider_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiSlider_getMinimum(const tguiWidget* widget);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API void tguiSlider_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiSlider_getMaximum(const tguiWidget* widget);
+tguiRenderer* tguiBoxLayoutRenderer_create(void)
+{
+    return new tguiRenderer(new tgui::BoxLayoutRenderer);
+}
 
-CTGUI_API void tguiSlider_setValue(tguiWidget* widget, int value);
-CTGUI_API int tguiSlider_getValue(const tguiWidget* widget);
+tguiRenderer* tguiBoxLayoutRenderer_copy(const tguiRenderer* renderer)
+{
+    return new tguiRenderer(new tgui::BoxLayoutRenderer(*DOWNCAST(renderer->This)));
+}
 
-CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#endif // CTGUI_SLIDER_H
+void tguiBoxLayoutRenderer_setSpaceBetweenWidgets(tguiRenderer* renderer, float space)
+{
+    DOWNCAST(renderer->This)->setSpaceBetweenWidgets(space);
+}
 
+void tguiBoxLayoutRenderer_setSpaceBetweenWidgetsFromLayout(tguiRenderer* renderer, tguiLayout* layout)
+{
+    DOWNCAST(renderer->This)->setSpaceBetweenWidgets(layout->This);
+}
+
+float tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getSpaceBetweenWidgets(space);
+}

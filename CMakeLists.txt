@@ -66,7 +66,7 @@ if(SFML_COMPILER_GCC OR SFML_COMPILER_CLANG)
     tgui_add_cxx_flag(-Wshadow)
     tgui_add_cxx_flag(-Wno-long-long)
     tgui_add_cxx_flag(-pedantic)
-    tgui_add_cxx_flag(-std=c++11)
+    tgui_add_cxx_flag(-std=c++14)
 endif()
 
 # Add the subdirectory

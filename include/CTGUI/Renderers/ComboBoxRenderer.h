@@ -27,17 +27,16 @@
 #define CTGUI_COMBO_BOX_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiComboBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiComboBoxRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiComboBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiComboBoxRenderer_getBorders(const tguiRenderer* renderer);
-CTGUI_API void tguiComboBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiComboBoxRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiComboBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiComboBoxRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiComboBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiComboBoxRenderer_getPadding(const tguiRenderer* renderer);
 
 CTGUI_API void tguiComboBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);

@@ -23,24 +23,47 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_SLIDER_H
-#define CTGUI_SLIDER_H
+#include <CTGUI/Outline.h>
+#include <CTGUI/OutlineStruct.h>
 
-#include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API tguiWidget* tguiSlider_create(void);
+tguiOutline* tguiOutline_create(float left, float top, float right, float bottom)
+{
+    return new tguiOutline(left, top, right, bottom);
+}
 
-CTGUI_API void tguiSlider_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiSlider_getMinimum(const tguiWidget* widget);
+tguiOutline* tguiOutline_createFromStrings(const char* left, const char* top, const char* right, const char* bottom)
+{
+    return new tguiOutline(left, top, right, bottom);
+}
 
-CTGUI_API void tguiSlider_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiSlider_getMaximum(const tguiWidget* widget);
+tguiOutline* tguiOutline_copy(const tguiOutline* outline)
+{
+    return new tguiOutline(*outline);
+}
 
-CTGUI_API void tguiSlider_setValue(tguiWidget* widget, int value);
-CTGUI_API int tguiSlider_getValue(const tguiWidget* widget);
+void tguiOutline_destroy(tguiOutline* outline)
+{
+    delete outline;
+}
 
-CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
+float tguiOutline_getLeft(const tguiOutline* outline)
+{
+    return outline->This.getLeft();
+}
 
-#endif // CTGUI_SLIDER_H
+float tguiOutline_getTop(const tguiOutline* outline)
+{
+    return outline->This.getTop();
+}
 
+float tguiOutline_getRight(const tguiOutline* outline)
+{
+    return outline->This.getRight();
+}
+
+float tguiOutline_getBottom(const tguiOutline* outline)
+{
+    return outline->This.getBottom();
+}

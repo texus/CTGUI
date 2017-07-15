@@ -22,25 +22,18 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_OUTLINE_STRUCT_H
+#define CTGUI_OUTLINE_STRUCT_H
 
-#ifndef CTGUI_SLIDER_H
-#define CTGUI_SLIDER_H
+#include <TGUI/Layout.hpp>
 
-#include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
+struct tguiOutline
+{
+    tgui::Borders This;
 
-CTGUI_API tguiWidget* tguiSlider_create(void);
+    tguiOutline(tgui::Borders borders) : This{std::move(borders)} {}
+    tguiOutline(float left, float top, float right, float bottom) : This{left, top, right, bottom} {}
+    tguiOutline(const char* left, const char* top, const char* right, const char* bottom) : This{left, top, right, bottom} {}
+};
 
-CTGUI_API void tguiSlider_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiSlider_getMinimum(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiSlider_getMaximum(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_setValue(tguiWidget* widget, int value);
-CTGUI_API int tguiSlider_getValue(const tguiWidget* widget);
-
-CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
-
-#endif // CTGUI_SLIDER_H
-
+#endif // CTGUI_OUTLINE_STRUCT_H

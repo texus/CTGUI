@@ -25,6 +25,7 @@
 
 #include <CTGUI/Widgets/Grid.h>
 #include <CTGUI/WidgetStruct.h>
+#include <CTGUI/OutlineStruct.h>
 
 #include <TGUI/Widgets/Grid.hpp>
 
@@ -39,11 +40,9 @@ tguiWidget* tguiGrid_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline borders, tguiAlignment alignment)
+void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* borders, tguiAlignment alignment)
 {
-    DOWNCAST(grid->This)->addWidget(widget->This, row, col,
-                                    {borders.left, borders.top, borders.right, borders.bottom},
-                                    static_cast<tgui::Grid::Alignment>(alignment));
+    DOWNCAST(grid->This)->addWidget(widget->This, row, col, borders->This, static_cast<tgui::Grid::Alignment>(alignment));
 }
 
 tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col)
@@ -57,26 +56,24 @@ tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGrid_setWidgetBorders(tguiWidget* grid, tguiWidget* widget, tguiOutline borders)
+void tguiGrid_setWidgetBorders(tguiWidget* grid, tguiWidget* widget, tguiOutline* borders)
 {
-    DOWNCAST(grid->This)->setWidgetBorders(widget->This, {borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(grid->This)->setWidgetBorders(widget->This, borders->This);
 }
 
-void tguiGrid_setWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline borders)
+void tguiGrid_setWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline* borders)
 {
-    DOWNCAST(grid->This)->setWidgetBorders(row, col, {borders.left, borders.top, borders.right, borders.bottom});
+    DOWNCAST(grid->This)->setWidgetBorders(row, col, borders->This);
 }
 
-tguiOutline tguiGrid_getWidgetBorders(tguiWidget* grid, tguiWidget* widget)
+tguiOutline* tguiGrid_getWidgetBorders(tguiWidget* grid, tguiWidget* widget)
 {
-    tgui::Borders borders = DOWNCAST(grid->This)->getWidgetBorders(widget->This);
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(grid->This)->getWidgetBorders(widget->This));
 }
 
-tguiOutline tguiGrid_getWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col)
+tguiOutline* tguiGrid_getWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col)
 {
-    tgui::Borders borders = DOWNCAST(grid->This)->getWidgetBorders(row, col);
-    return {borders.left, borders.top, borders.right, borders.bottom};
+    return new tguiOutline(DOWNCAST(grid->This)->getWidgetBorders(row, col));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

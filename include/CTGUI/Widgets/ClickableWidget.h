@@ -31,5 +31,9 @@
 
 CTGUI_API tguiWidget* tguiClickableWidget_create(void);
 
+CTGUI_API void tguiClickableWidget_connect_onMousePress(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+CTGUI_API void tguiClickableWidget_connect_onMouseRelease(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+CTGUI_API void tguiClickableWidget_connect_onClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+
 #endif // CTGUI_CLICKABLE_WIDGET_H
 

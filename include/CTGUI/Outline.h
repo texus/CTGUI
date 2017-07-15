@@ -28,13 +28,20 @@
 
 #include <CTGUI/Config.h>
 
-typedef struct
-{
-    float left;
-    float top;
-    float right;
-    float bottom;
-} tguiOutline;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CTGUI_API tguiOutline* tguiOutline_create(float left, float top, float right, float bottom);
+CTGUI_API tguiOutline* tguiOutline_createFromStrings(const char* left, const char* top, const char* right, const char* bottom);
+
+CTGUI_API tguiOutline* tguiOutline_copy(const tguiOutline* other);
+CTGUI_API void tguiOutline_destroy(tguiOutline* outline);
+
+CTGUI_API float tguiOutline_getLeft(const tguiOutline* outline);
+CTGUI_API float tguiOutline_getTop(const tguiOutline* outline);
+CTGUI_API float tguiOutline_getRight(const tguiOutline* outline);
+CTGUI_API float tguiOutline_getBottom(const tguiOutline* outline);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #endif // CTGUI_OUTLINE_H
 

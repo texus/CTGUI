@@ -53,5 +53,10 @@ CTGUI_API sfBool tguiChildWindow_isResizable(const tguiWidget* widget);
 CTGUI_API void tguiChildWindow_keepInParent(tguiWidget* widget, sfBool keepInParent);
 CTGUI_API sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget);
 
+CTGUI_API void tguiChildWindow_connect_onMousePress(tguiWidget* widget, void (*function)(), const char** error);
+CTGUI_API void tguiChildWindow_connect_onClose(tguiWidget* widget, void (*function)(), const char** error);
+CTGUI_API void tguiChildWindow_connect_onMinimize(tguiWidget* widget, void (*function)(), const char** error);
+CTGUI_API void tguiChildWindow_connect_onMaximize(tguiWidget* widget, void (*function)(), const char** error);
+
 #endif // CTGUI_CHILD_WINDOW_H
 

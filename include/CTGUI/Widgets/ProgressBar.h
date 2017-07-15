@@ -59,5 +59,8 @@ CTGUI_API unsigned int tguiProgressBar_getTextSize(const tguiWidget* widget);
 CTGUI_API void tguiProgressBar_setFillDirection(tguiWidget* widget, tguiFillDirection fillDirection);
 CTGUI_API tguiFillDirection tguiProgressBar_getFillDirection(const tguiWidget* widget);
 
+CTGUI_API void tguiProgressBar_connect_onValueChange(tguiWidget* widget, void (*function)(unsigned int), const char** error);
+CTGUI_API void tguiProgressBar_connect_onFull(tguiWidget* widget, void (*function)(), const char** error);
+
 #endif // CTGUI_PROGRESS_BAR_H
 

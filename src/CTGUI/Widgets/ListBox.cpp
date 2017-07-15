@@ -217,3 +217,61 @@ sfBool tguiListBox_getAutoScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoScroll();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onItemSelect->connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}
+
+void tguiListBox_connect_onMousePress(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onMousePress->connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}
+
+void tguiListBox_connect_onMouseRelease(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onMouseRelease->connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}
+
+void tguiListBox_connect_onDoubleClick(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
+{
+    try
+    {
+        DOWNCAST(widget->This)->onDoubleClick->connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        *error = nullptr;
+    }
+    catch (const tgui::Exception& e)
+    {
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
+    }
+}

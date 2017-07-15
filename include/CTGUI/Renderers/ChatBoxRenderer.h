@@ -27,17 +27,16 @@
 #define CTGUI_CHAT_BOX_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiChatBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiChatBoxRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChatBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiChatBoxRenderer_getBorders(const tguiRenderer* renderer);
-CTGUI_API void tguiChatBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline padding);
-CTGUI_API tguiOutline tguiChatBoxRenderer_getPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiChatBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiChatBoxRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiChatBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiChatBoxRenderer_getPadding(const tguiRenderer* renderer);
 
 CTGUI_API void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);

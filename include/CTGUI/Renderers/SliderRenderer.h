@@ -27,15 +27,14 @@
 #define CTGUI_SLIDER_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Outline.h>
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiSliderRenderer_create(void);
 CTGUI_API tguiRenderer* tguiSliderRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSliderRenderer_setBorders(tguiRenderer* renderer, tguiOutline borders);
-CTGUI_API tguiOutline tguiSliderRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiSliderRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
+CTGUI_API tguiOutline* tguiSliderRenderer_getBorders(const tguiRenderer* renderer);
 
 CTGUI_API void tguiSliderRenderer_setTrackColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiSliderRenderer_getTrackColor(const tguiRenderer* renderer);

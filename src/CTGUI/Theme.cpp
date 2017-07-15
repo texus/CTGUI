@@ -26,6 +26,7 @@
 #include <CTGUI/Theme.h>
 #include <CTGUI/ThemeStruct.h>
 #include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/Global.h>
 
 #include <TGUI/Exception.hpp>
 
@@ -57,9 +58,8 @@ void tguiTheme_load(tguiTheme* theme, const char* filename, const char** error)
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
     }
 }
 
@@ -75,9 +75,8 @@ tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id, const 
     }
     catch (const tgui::Exception& e)
     {
-        static std::string errorMessage;
-        errorMessage = e.what();
-        *error = errorMessage.c_str();
+        tguiErrorMessage = e.what();
+        *error = tguiErrorMessage.c_str();
         return nullptr;
     }
 }

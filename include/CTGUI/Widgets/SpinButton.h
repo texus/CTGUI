@@ -43,5 +43,7 @@ CTGUI_API int tguiSpinButton_getValue(const tguiWidget* widget);
 CTGUI_API void tguiSpinButton_setVerticalScroll(tguiWidget* widget, sfBool verticalScroll);
 CTGUI_API sfBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget);
 
+CTGUI_API void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
+
 #endif // CTGUI_SPIN_BUTTON_H
 

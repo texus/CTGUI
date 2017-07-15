@@ -28,16 +28,19 @@
 
 #include <CTGUI/Config.h>
 #include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Graphics/RenderTexture.h>
 #include <SFML/Window/Event.h>
 
 CTGUI_API tguiGui* tguiGui_create(void);
-CTGUI_API tguiGui* tguiGui_createFromWindow(sfRenderWindow* window);
+CTGUI_API tguiGui* tguiGui_createFromTargetRenderWindow(sfRenderWindow* target);
+CTGUI_API tguiGui* tguiGui_createFromTargetRenderTexture(sfRenderTexture* target);
 CTGUI_API void tguiGui_destroy(tguiGui* gui);
 
-CTGUI_API void tguiGui_setWindow(tguiGui* gui, sfRenderWindow* window);
+CTGUI_API void tguiGui_setTargetRenderWindow(tguiGui* gui, sfRenderWindow* target);
+CTGUI_API void tguiGui_setTargetRenderTexture(tguiGui* gui, sfRenderTexture* target);
 
 CTGUI_API void tguiGui_setView(tguiGui* gui, const sfView* view);
-CTGUI_API const sfView* tguiGui_getWindow(const tguiGui* gui);
+CTGUI_API const sfView* tguiGui_getView(const tguiGui* gui);
 
 CTGUI_API void tguiGui_handleEvent(tguiGui* gui, sfEvent event);
 
