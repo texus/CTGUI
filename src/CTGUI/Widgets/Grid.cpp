@@ -40,6 +40,18 @@ tguiWidget* tguiGrid_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiGrid_setAutoSize(tguiWidget* widget, sfBool autoSize)
+{
+    DOWNCAST(widget->This)->setAutoSize(autoSize != 0);
+}
+
+sfBool tguiGrid_getAutoSize(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getAutoSize();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* borders, tguiAlignment alignment)
 {
     DOWNCAST(grid->This)->addWidget(widget->This, row, col, borders->This, static_cast<tgui::Grid::Alignment>(alignment));

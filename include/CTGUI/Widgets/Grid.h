@@ -33,6 +33,9 @@
 
 CTGUI_API tguiWidget* tguiGrid_create(void);
 
+CTGUI_API void tguiGrid_setAutoSize(tguiWidget* widget, sfBool autoSize);
+CTGUI_API sfBool tguiGrid_getAutoSize(const tguiWidget* widget);
+
 CTGUI_API void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* borders, tguiAlignment alignment);
 CTGUI_API tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col);
 
