@@ -38,13 +38,21 @@ CTGUI_API tguiOutline* tguiTabsRenderer_getBorders(const tguiRenderer* renderer)
 
 CTGUI_API void tguiTabsRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTabsRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
 CTGUI_API void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTabsRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTabsRenderer_getTextColorHover(const tguiRenderer* renderer);
 CTGUI_API void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTabsRenderer_getSelectedTextColorHover(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer);

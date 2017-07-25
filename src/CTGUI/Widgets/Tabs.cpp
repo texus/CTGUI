@@ -39,6 +39,18 @@ tguiWidget* tguiTabs_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiTabs_setAutoSize(tguiWidget* widget, sfBool autoSize)
+{
+    DOWNCAST(widget->This)->setAutoSize(autoSize != 0);
+}
+
+sfBool tguiTabs_getAutoSize(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getAutoSize();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 size_t tguiTabs_add(tguiWidget* widget, const sfUint32* text, sfBool select)
 {
     return DOWNCAST(widget->This)->add(text, select != 0);
@@ -125,18 +137,6 @@ unsigned int tguiTabs_getTextSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_setTabHeight(tguiWidget* widget, float tabHeight)
-{
-    DOWNCAST(widget->This)->setTabHeight(tabHeight);
-}
-
-float tguiTabs_getTabHeight(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTabHeight();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth)
 {
     DOWNCAST(widget->This)->setMaximumTabWidth(maximumTabWidth);
@@ -145,6 +145,18 @@ void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth)
 float tguiTabs_getMaximumTabWidth(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximumTabWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabs_setMinimumTabWidth(tguiWidget* widget, float minimumTabWidth)
+{
+    DOWNCAST(widget->This)->setMinimumTabWidth(minimumTabWidth);
+}
+
+float tguiTabs_getMinimumTabWidth(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getMinimumTabWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

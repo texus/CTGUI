@@ -32,6 +32,9 @@
 
 CTGUI_API tguiWidget* tguiTabs_create(void);
 
+CTGUI_API void tguiTabs_setAutoSize(tguiWidget* widget, sfBool autoSize);
+CTGUI_API sfBool tguiTabs_getAutoSize(const tguiWidget* widget);
+
 CTGUI_API size_t tguiTabs_add(tguiWidget* widget, const sfUint32* text, sfBool select);
 CTGUI_API void tguiTabs_insert(tguiWidget* widget, size_t index, const sfUint32* text, sfBool select);
 CTGUI_API const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t index);
@@ -52,11 +55,11 @@ CTGUI_API size_t tguiTabs_getTabsCount(const tguiWidget* widget);
 CTGUI_API void tguiTabs_setTextSize(tguiWidget* widget, unsigned int textSize);
 CTGUI_API unsigned int tguiTabs_getTextSize(const tguiWidget* widget);
 
-CTGUI_API void tguiTabs_setTabHeight(tguiWidget* widget, float tabHeight);
-CTGUI_API float tguiTabs_getTabHeight(const tguiWidget* widget);
-
 CTGUI_API void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth);
 CTGUI_API float tguiTabs_getMaximumTabWidth(const tguiWidget* widget);
+
+CTGUI_API void tguiTabs_setMinimumTabWidth(tguiWidget* widget, float minimumTabWidth);
+CTGUI_API float tguiTabs_getMinimumTabWidth(const tguiWidget* widget);
 
 CTGUI_API void tguiTabs_connect_onTabSelect(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
 

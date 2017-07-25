@@ -70,6 +70,16 @@ sfColor tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
+void tguiTabsRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorHover({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
+}
+
 void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setSelectedBackgroundColor({color.r, color.g, color.b, color.a});
@@ -78,6 +88,16 @@ void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor
 sfColor tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
+}
+
+void tguiTabsRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setSelectedBackgroundColorHover({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,6 +112,16 @@ sfColor tguiTabsRenderer_getTextColor(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
+void tguiTabsRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColorHover({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getTextColorHover(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextColorHover());
+}
+
 void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setSelectedTextColor({color.r, color.g, color.b, color.a});
@@ -100,6 +130,16 @@ void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color
 sfColor tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
+}
+
+void tguiTabsRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setSelectedTextColorHover({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getSelectedTextColorHover(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
