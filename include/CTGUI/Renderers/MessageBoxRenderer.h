@@ -36,7 +36,7 @@ CTGUI_API void tguiMessageBoxRenderer_setTextColor(tguiRenderer* renderer, sfCol
 CTGUI_API sfColor tguiMessageBoxRenderer_getTextColor(const tguiRenderer* renderer);
 
 CTGUI_API void tguiMessageBoxRenderer_setButton(tguiRenderer* renderer, tguiRendererData* rendererData);
-CTGUI_API tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* renderer);
+CTGUI_API tguiRendererData* tguiMessageBoxRenderer_getButton(const tguiRenderer* renderer);
 
 #endif // CTGUI_MESSAGE_BOX_RENDERER_H
 

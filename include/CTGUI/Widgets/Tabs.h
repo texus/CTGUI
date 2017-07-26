@@ -39,6 +39,8 @@ CTGUI_API size_t tguiTabs_add(tguiWidget* widget, const sfUint32* text, sfBool s
 CTGUI_API void tguiTabs_insert(tguiWidget* widget, size_t index, const sfUint32* text, sfBool select);
 CTGUI_API const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t index);
 
+CTGUI_API sfBool tguiTabs_changeText(tguiWidget* widget, size_t index, const sfUint32* text);
+
 CTGUI_API void tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API void tguiTabs_selectByIndex(tguiWidget* widget, size_t index);
 CTGUI_API void tguiTabs_deselect(tguiWidget* widget);

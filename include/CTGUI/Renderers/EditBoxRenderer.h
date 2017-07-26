@@ -78,9 +78,9 @@ CTGUI_API void tguiEditBoxRenderer_setTextureHover(tguiRenderer* renderer, sfTex
 CTGUI_API void tguiEditBoxRenderer_setTextureDisabled(tguiRenderer* renderer, sfTexture* texture);
 
 CTGUI_API void tguiEditBoxRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style);
-CTGUI_API sfUint32 tguiEditBoxRenderer_getTextStyle(tguiRenderer* renderer);
+CTGUI_API sfUint32 tguiEditBoxRenderer_getTextStyle(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setDefaultTextStyle(tguiRenderer* renderer, sfUint32 style);
-CTGUI_API sfUint32 tguiEditBoxRenderer_getDefaultTextStyle(tguiRenderer* renderer);
+CTGUI_API sfUint32 tguiEditBoxRenderer_getDefaultTextStyle(const tguiRenderer* renderer);
 
 #endif // CTGUI_EDIT_BOX_RENDERER_H
 

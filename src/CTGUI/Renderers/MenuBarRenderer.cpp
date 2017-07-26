@@ -90,29 +90,29 @@ sfColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }
 
-void tguiRadioButtonRenderer_setTextureItemBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureItemBackground(*texture->This);
 }
 
-void tguiRadioButtonRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureSelectedItemBackground(*texture->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide)
+void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide)
 {
     DOWNCAST(renderer->This)->setDistanceToSide(distanceToSide);
 }
 
-float tguiRadioButtonRenderer_getDistanceToSide(const tguiRenderer* renderer)
+float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getDistanceToSide();
 }

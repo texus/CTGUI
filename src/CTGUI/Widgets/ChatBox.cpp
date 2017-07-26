@@ -52,7 +52,7 @@ void tguiChatBox_addLineWithColor(tguiWidget* widget, const sfUint32* text, sfCo
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const sfUint32* tguiChatBox_getLine(tguiWidget* widget, size_t lineIndex)
+const sfUint32* tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex)
 {
     static sf::String line;
     line = DOWNCAST(widget->This)->getLine(lineIndex);
@@ -78,7 +78,7 @@ void tguiChatBox_removeAllLines(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiChatBox_getLineAmount(tguiWidget* widget)
+size_t tguiChatBox_getLineAmount(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getLineAmount();
 }
@@ -90,7 +90,7 @@ void tguiChatBox_setLineLimit(tguiWidget* widget, size_t maxLines)
     DOWNCAST(widget->This)->setLineLimit(maxLines);
 }
 
-size_t tguiChatBox_getLineLimit(tguiWidget* widget)
+size_t tguiChatBox_getLineLimit(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getLineLimit();
 }
@@ -102,7 +102,7 @@ void tguiChatBox_setTextSize(tguiWidget* widget, unsigned int textSize)
     DOWNCAST(widget->This)->setTextSize(textSize);
 }
 
-unsigned int tguiChatBox_getTextSize(tguiWidget* widget)
+unsigned int tguiChatBox_getTextSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getTextSize();
 }
@@ -124,7 +124,7 @@ void tguiChatBox_setLinesStartFromTop(tguiWidget* widget, sfBool startFromTop)
     DOWNCAST(widget->This)->setLinesStartFromTop(startFromTop != 0);
 }
 
-sfBool tguiChatBox_getLinesStartFromTop(tguiWidget* widget)
+sfBool tguiChatBox_getLinesStartFromTop(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getLinesStartFromTop();
 }
@@ -136,7 +136,7 @@ void tguiChatBox_setNewLinesBelowOthers(tguiWidget* widget, sfBool newLinesBelow
     DOWNCAST(widget->This)->setNewLinesBelowOthers(newLinesBelowOthers != 0);
 }
 
-sfBool tguiChatBox_getNewLinesBelowOthers(tguiWidget* widget)
+sfBool tguiChatBox_getNewLinesBelowOthers(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getNewLinesBelowOthers();
 }

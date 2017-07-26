@@ -69,7 +69,7 @@ tguiOutline* tguiEditBoxRenderer_getPadding(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setCaretWidth(const tguiRenderer* renderer, float width)
+void tguiEditBoxRenderer_setCaretWidth(tguiRenderer* renderer, float width)
 {
     DOWNCAST(renderer->This)->setCaretWidth(width);
 }
@@ -251,7 +251,7 @@ void tguiEditBoxRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
     DOWNCAST(renderer->This)->setTextStyle(style);
 }
 
-sfUint32 tguiEditBoxRenderer_getTextStyle(tguiRenderer* renderer)
+sfUint32 tguiEditBoxRenderer_getTextStyle(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
 }
@@ -261,7 +261,7 @@ void tguiEditBoxRenderer_setDefaultTextStyle(tguiRenderer* renderer, sfUint32 st
     DOWNCAST(renderer->This)->setDefaultTextStyle(style);
 }
 
-sfUint32 tguiEditBoxRenderer_getTextStyleDisabled(tguiRenderer* renderer)
+sfUint32 tguiEditBoxRenderer_getDefaultTextStyle(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getDefaultTextStyle();
 }

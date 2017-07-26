@@ -43,12 +43,12 @@ CTGUI_API sfColor tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer)
 CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiRadioButtonRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiRadioButtonRenderer_setTextureItemBackground(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiRadioButtonRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, sfTexture* texture);
 
-CTGUI_API void tguiRadioButtonRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide);
-CTGUI_API float tguiRadioButtonRenderer_getDistanceToSide(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide);
+CTGUI_API float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* renderer);
 
 #endif // CTGUI_MENU_BAR_RENDERER_H
 
