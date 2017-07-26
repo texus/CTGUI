@@ -64,13 +64,9 @@ CTGUI_API void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer,
 CTGUI_API sfColor tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* renderer);
 
 CTGUI_API void tguiButtonRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API sfTexture* tguiButtonRenderer_getTexture(const tguiRenderer* renderer);
 CTGUI_API void tguiButtonRenderer_setTextureHover(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API sfTexture* tguiButtonRenderer_getTextureHover(const tguiRenderer* renderer);
 CTGUI_API void tguiButtonRenderer_setTextureDown(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API sfTexture* tguiButtonRenderer_getTextureDown(const tguiRenderer* renderer);
 CTGUI_API void tguiButtonRenderer_setTextureDisabled(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API sfTexture* tguiButtonRenderer_getTextureDisabled(const tguiRenderer* renderer);
 
 CTGUI_API void tguiButtonRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style);
 CTGUI_API sfUint32 tguiButtonRenderer_getTextStyle(tguiRenderer* renderer);
