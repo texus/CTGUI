@@ -68,7 +68,7 @@ void tguiLabel_setHorizontalAlignment(tguiWidget* widget, tguiHorizontalAlignmen
     DOWNCAST(widget->This)->setHorizontalAlignment(static_cast<tgui::Label::HorizontalAlignment>(alignment));
 }
 
-unsigned int tguiLabel_getHorizontalAlignment(const tguiWidget* widget)
+tguiHorizontalAlignment tguiLabel_getHorizontalAlignment(const tguiWidget* widget)
 {
     return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getHorizontalAlignment());
 }
@@ -78,7 +78,7 @@ void tguiLabel_setVerticalAlignment(tguiWidget* widget, tguiVerticalAlignment al
     DOWNCAST(widget->This)->setVerticalAlignment(static_cast<tgui::Label::VerticalAlignment>(alignment));
 }
 
-unsigned int tguiLabel_getVerticalAlignment(const tguiWidget* widget)
+tguiVerticalAlignment tguiLabel_getVerticalAlignment(const tguiWidget* widget)
 {
     return static_cast<tguiVerticalAlignment>(DOWNCAST(widget->This)->getVerticalAlignment());
 }

@@ -52,7 +52,7 @@ CTGUI_API void tguiEditBox_setMaximumCharacters(tguiWidget* widget, unsigned int
 CTGUI_API unsigned int tguiEditBox_getMaximumCharacters(const tguiWidget* widget);
 
 CTGUI_API void tguiEditBox_setAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment);
-CTGUI_API unsigned int tguiEditBox_getAlignment(const tguiWidget* widget);
+CTGUI_API tguiHorizontalAlignment tguiEditBox_getAlignment(const tguiWidget* widget);
 
 CTGUI_API void tguiEditBox_limitTextWidth(tguiWidget* widget, sfBool limitWidth);
 CTGUI_API sfBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget);

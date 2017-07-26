@@ -116,7 +116,7 @@ void tguiEditBox_setAlignment(tguiWidget* widget, tguiHorizontalAlignment alignm
     DOWNCAST(widget->This)->setAlignment(static_cast<tgui::EditBox::Alignment>(alignment));
 }
 
-unsigned int tguiEditBox_getAlignment(const tguiWidget* widget)
+tguiHorizontalAlignment tguiEditBox_getAlignment(const tguiWidget* widget)
 {
     return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getAlignment());
 }
