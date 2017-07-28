@@ -50,12 +50,7 @@ void tguiBoxLayoutRenderer_setSpaceBetweenWidgets(tguiRenderer* renderer, float 
     DOWNCAST(renderer->This)->setSpaceBetweenWidgets(space);
 }
 
-void tguiBoxLayoutRenderer_setSpaceBetweenWidgetsFromLayout(tguiRenderer* renderer, tguiLayout* layout)
-{
-    DOWNCAST(renderer->This)->setSpaceBetweenWidgets(layout->This);
-}
-
 float tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* renderer)
 {
-    return DOWNCAST(renderer->This)->getSpaceBetweenWidgets().getValue();
+    return DOWNCAST(renderer->This)->getSpaceBetweenWidgets();
 }
