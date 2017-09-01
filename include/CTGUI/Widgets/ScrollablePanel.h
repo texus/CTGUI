@@ -23,31 +23,16 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_LAYOUT_H
-#define CTGUI_LAYOUT_H
+#ifndef CTGUI_SCROLLABLE_PANEL_H
+#define CTGUI_SCROLLABLE_PANEL_H
 
 #include <CTGUI/Config.h>
-#include <SFML/System/Vector2.h>
+#include <CTGUI/Widget.h>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API tguiWidget* tguiScrollablePanel_create(void);
 
-CTGUI_API tguiLayout* tguiLayout_create(float constant);
-CTGUI_API tguiLayout* tguiLayout_createFromString(const char* expression);
-CTGUI_API tguiLayout* tguiLayout_copy(const tguiLayout* other);
-CTGUI_API void tguiLayout_destroy(tguiLayout* layout);
+CTGUI_API void tguiScrollablePanel_setContentSize(tguiWidget* widget, sfVector2f contentSize);
+CTGUI_API sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget);
 
-CTGUI_API float tguiLayout_getValue(const tguiLayout* layout);
+#endif // CTGUI_SCROLLABLE_PANEL_H
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-CTGUI_API tguiLayout2d* tguiLayout2d_create(sfVector2f constant);
-CTGUI_API tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y);
-CTGUI_API tguiLayout2d* tguiLayout2d_createFromString(const char* expression);
-CTGUI_API tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* other);
-CTGUI_API void tguiLayout2d_destroy(tguiLayout2d* layout);
-
-CTGUI_API sfVector2f tguiLayout2d_getValue(const tguiLayout2d* layout);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#endif // CTGUI_LAYOUT_H

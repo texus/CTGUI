@@ -172,7 +172,7 @@ void tguiTabs_connect_onTabSelect(tguiWidget* widget, void (*function)(const sfU
 {
     try
     {
-        DOWNCAST(widget->This)->onTabSelect->connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onTabSelect.connect([function](const sf::String& str){ function(str.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

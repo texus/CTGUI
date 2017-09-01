@@ -96,7 +96,7 @@ void tguiRadioButton_connect_onCheck(tguiWidget* widget, void (*function)(sfBool
 {
     try
     {
-        DOWNCAST(widget->This)->onCheck->connect(function);
+        DOWNCAST(widget->This)->onCheck.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -110,7 +110,7 @@ void tguiRadioButton_connect_onUncheck(tguiWidget* widget, void (*function)(sfBo
 {
     try
     {
-        DOWNCAST(widget->This)->onUncheck->connect(function);
+        DOWNCAST(widget->This)->onUncheck.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

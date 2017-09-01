@@ -119,7 +119,7 @@ void tguiWidget_connect_onPositionChange(tguiWidget* widget, void (*function)(sf
 {
     try
     {
-        widget->This->onPositionChange->connect([function](const sf::Vector2f& pos){ function({pos.x, pos.y}); });
+        widget->This->onPositionChange.connect([function](const sf::Vector2f& pos){ function({pos.x, pos.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -133,7 +133,7 @@ void tguiWidget_connect_onSizeChange(tguiWidget* widget, void (*function)(sfVect
 {
     try
     {
-        widget->This->onSizeChange->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
+        widget->This->onSizeChange.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -147,7 +147,7 @@ void tguiWidget_connect_onMouseEnter(tguiWidget* widget, void (*function)(), con
 {
     try
     {
-        widget->This->onMouseEnter->connect(function);
+        widget->This->onMouseEnter.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -161,7 +161,7 @@ void tguiWidget_connect_onMouseLeave(tguiWidget* widget, void (*function)(), con
 {
     try
     {
-        widget->This->onMouseLeave->connect(function);
+        widget->This->onMouseLeave.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -175,7 +175,7 @@ void tguiWidget_connect_onFocus(tguiWidget* widget, void (*function)(), const ch
 {
     try
     {
-        widget->This->onFocus->connect(function);
+        widget->This->onFocus.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -189,7 +189,7 @@ void tguiWidget_connect_onUnfocus(tguiWidget* widget, void (*function)(), const 
 {
     try
     {
-        widget->This->onUnfocus->connect(function);
+        widget->This->onUnfocus.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -201,14 +201,17 @@ void tguiWidget_connect_onUnfocus(tguiWidget* widget, void (*function)(), const 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_disconnect(tguiWidget* widget, const char* signalName, unsigned int id)
+void tguiWidget_disconnect(tguiWidget* widget, unsigned int id)
 {
-    widget->This->disconnect(signalName, id);
+    widget->This->disconnect(id);
 }
 
 void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalName)
 {
-    widget->This->disconnectAll(signalName);
+    if (signalName != NULL)
+        widget->This->disconnectAll(signalName);
+    else
+        widget->This->disconnectAll();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

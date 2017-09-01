@@ -57,6 +57,9 @@ CTGUI_API tguiHorizontalAlignment tguiEditBox_getAlignment(const tguiWidget* wid
 CTGUI_API void tguiEditBox_limitTextWidth(tguiWidget* widget, sfBool limitWidth);
 CTGUI_API sfBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget);
 
+CTGUI_API void tguiEditBox_setReadOnly(tguiWidget* widget, sfBool readOnly);
+CTGUI_API sfBool tguiEditBox_isReadOnly(const tguiWidget* widget);
+
 CTGUI_API void tguiEditBox_setCaretPosition(tguiWidget* widget, size_t caretPosition);
 CTGUI_API size_t tguiEditBox_getCaretPosition(const tguiWidget* widget);
 

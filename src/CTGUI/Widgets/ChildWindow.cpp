@@ -129,7 +129,7 @@ void tguiChildWindow_connect_onMousePress(tguiWidget* widget, void (*function)()
 {
     try
     {
-        DOWNCAST(widget->This)->onMousePress->connect(function);
+        DOWNCAST(widget->This)->onMousePress.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -143,7 +143,7 @@ void tguiChildWindow_connect_onClose(tguiWidget* widget, void (*function)(), con
 {
     try
     {
-        DOWNCAST(widget->This)->onClose->connect(function);
+        DOWNCAST(widget->This)->onClose.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -157,7 +157,7 @@ void tguiChildWindow_connect_onMinimize(tguiWidget* widget, void (*function)(), 
 {
     try
     {
-        DOWNCAST(widget->This)->onMinimize->connect(function);
+        DOWNCAST(widget->This)->onMinimize.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -171,7 +171,7 @@ void tguiChildWindow_connect_onMaximize(tguiWidget* widget, void (*function)(), 
 {
     try
     {
-        DOWNCAST(widget->This)->onMaximize->connect(function);
+        DOWNCAST(widget->This)->onMaximize.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

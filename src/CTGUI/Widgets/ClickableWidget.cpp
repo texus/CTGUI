@@ -43,7 +43,7 @@ void tguiClickableWidget_connect_onMousePress(tguiWidget* widget, void (*functio
 {
     try
     {
-        DOWNCAST(widget->This)->onMousePress->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
+        DOWNCAST(widget->This)->onMousePress.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -57,7 +57,7 @@ void tguiClickableWidget_connect_onMouseRelease(tguiWidget* widget, void (*funct
 {
     try
     {
-        DOWNCAST(widget->This)->onMouseRelease->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
+        DOWNCAST(widget->This)->onMouseRelease.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -71,7 +71,7 @@ void tguiClickableWidget_connect_onClick(tguiWidget* widget, void (*function)(sf
 {
     try
     {
-        DOWNCAST(widget->This)->onClick->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
+        DOWNCAST(widget->This)->onClick.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

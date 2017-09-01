@@ -23,56 +23,36 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Widgets/Button.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/Renderers/ScrollablePanelRenderer.h>
+#include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/RendererDataStruct.h>
+#include <CTGUI/OutlineStruct.h>
+#include <CTGUI/ColorConverter.h>
 
-#include <TGUI/Widgets/Button.hpp>
+#include <TGUI/Renderers/ScrollablePanelRenderer.hpp>
 
-#define DOWNCAST(x) std::static_pointer_cast<tgui::Button>(x)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiWidget* tguiButton_create(void)
-{
-    return new tguiWidget(tgui::Button::create());
-}
+#define DOWNCAST(x) static_cast<tgui::ScrollablePanelRenderer*>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButton_setText(tguiWidget* widget, const sfUint32* text)
+tguiRenderer* tguiScrollablePanelRenderer_create(void)
 {
-    DOWNCAST(widget->This)->setText(text);
+    return new tguiRenderer(new tgui::ScrollablePanelRenderer);
 }
 
-const sfUint32* tguiButton_getText(const tguiWidget* widget)
+tguiRenderer* tguiScrollablePanelRenderer_copy(const tguiRenderer* renderer)
 {
-    return DOWNCAST(widget->This)->getText().getData();
+    return new tguiRenderer(new tgui::ScrollablePanelRenderer(*DOWNCAST(renderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButton_setTextSize(tguiWidget* widget, unsigned int size)
+void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
 {
-    DOWNCAST(widget->This)->setTextSize(size);
+    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
 }
 
-unsigned int tguiButton_getTextSize(const tguiWidget* widget)
+tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* renderer)
 {
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButton_connect_onPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onPress.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
 }

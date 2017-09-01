@@ -134,7 +134,7 @@ void tguiTextBox_connect_onTextChange(tguiWidget* widget, void (*function)(const
 {
     try
     {
-        DOWNCAST(widget->This)->onTextChange->connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onTextChange.connect([function](const sf::String& str){ function(str.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

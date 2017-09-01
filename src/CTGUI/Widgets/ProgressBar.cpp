@@ -122,7 +122,7 @@ void tguiProgressBar_connect_onValueChange(tguiWidget* widget, void (*function)(
 {
     try
     {
-        DOWNCAST(widget->This)->onValueChange->connect(function);
+        DOWNCAST(widget->This)->onValueChange.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -136,7 +136,7 @@ void tguiProgressBar_connect_onFull(tguiWidget* widget, void (*function)(), cons
 {
     try
     {
-        DOWNCAST(widget->This)->onFull->connect(function);
+        DOWNCAST(widget->This)->onFull.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

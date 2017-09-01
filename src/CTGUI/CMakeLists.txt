@@ -90,6 +90,10 @@ set(SRC
     ${INCROOT}/Renderers/ProgressBarRenderer.h
     ${SRCROOT}/Renderers/RadioButtonRenderer.cpp
     ${INCROOT}/Renderers/RadioButtonRenderer.h
+    ${SRCROOT}/Renderers/RangeSliderRenderer.cpp
+    ${INCROOT}/Renderers/RangeSliderRenderer.h
+    ${SRCROOT}/Renderers/ScrollablePanelRenderer.cpp
+    ${INCROOT}/Renderers/ScrollablePanelRenderer.h
     ${SRCROOT}/Renderers/ScrollbarRenderer.cpp
     ${INCROOT}/Renderers/ScrollbarRenderer.h
     ${SRCROOT}/Renderers/SliderRenderer.cpp
@@ -151,6 +155,10 @@ set(SRC
     ${SRCROOT}/Widgets/RadioButton.cpp
     ${INCROOT}/Widgets/RadioButtonGroup.h
     ${SRCROOT}/Widgets/RadioButtonGroup.cpp
+    ${INCROOT}/Widgets/RangeSlider.h
+    ${SRCROOT}/Widgets/RangeSlider.cpp
+    ${INCROOT}/Widgets/ScrollablePanel.h
+    ${SRCROOT}/Widgets/ScrollablePanel.cpp
     ${INCROOT}/Widgets/Scrollbar.h
     ${SRCROOT}/Widgets/Scrollbar.cpp
     ${INCROOT}/Widgets/Slider.h

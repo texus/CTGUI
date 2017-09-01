@@ -23,31 +23,27 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_LAYOUT_H
-#define CTGUI_LAYOUT_H
+#ifndef CTGUI_RANGE_SLIDER_H
+#define CTGUI_RANGE_SLIDER_H
 
 #include <CTGUI/Config.h>
-#include <SFML/System/Vector2.h>
+#include <CTGUI/Widget.h>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API tguiWidget* tguiRangeSlider_create(void);
 
-CTGUI_API tguiLayout* tguiLayout_create(float constant);
-CTGUI_API tguiLayout* tguiLayout_createFromString(const char* expression);
-CTGUI_API tguiLayout* tguiLayout_copy(const tguiLayout* other);
-CTGUI_API void tguiLayout_destroy(tguiLayout* layout);
+CTGUI_API void tguiRangeSlider_setMinimum(tguiWidget* widget, int minimum);
+CTGUI_API int tguiRangeSlider_getMinimum(const tguiWidget* widget);
 
-CTGUI_API float tguiLayout_getValue(const tguiLayout* layout);
+CTGUI_API void tguiRangeSlider_setMaximum(tguiWidget* widget, int maximum);
+CTGUI_API int tguiRangeSlider_getMaximum(const tguiWidget* widget);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API void tguiRangeSlider_setSelectionStart(tguiWidget* widget, int value);
+CTGUI_API int tguiRangeSlider_getSelectionStart(const tguiWidget* widget);
 
-CTGUI_API tguiLayout2d* tguiLayout2d_create(sfVector2f constant);
-CTGUI_API tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y);
-CTGUI_API tguiLayout2d* tguiLayout2d_createFromString(const char* expression);
-CTGUI_API tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* other);
-CTGUI_API void tguiLayout2d_destroy(tguiLayout2d* layout);
+CTGUI_API void tguiRangeSlider_setSelectionEnd(tguiWidget* widget, int value);
+CTGUI_API int tguiRangeSlider_getSelectionEnd(const tguiWidget* widget);
 
-CTGUI_API sfVector2f tguiLayout2d_getValue(const tguiLayout2d* layout);
+CTGUI_API void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(int, int), const char** error);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#endif // CTGUI_RANGE_SLIDER_H
 
-#endif // CTGUI_LAYOUT_H

@@ -79,7 +79,7 @@ void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int),
 {
     try
     {
-        DOWNCAST(widget->This)->onValueChange->connect(function);
+        DOWNCAST(widget->This)->onValueChange.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

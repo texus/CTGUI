@@ -113,7 +113,7 @@ void tguiLabel_connect_onDoubleClick(tguiWidget* widget, void (*function)(const 
 {
     try
     {
-        DOWNCAST(widget->This)->onDoubleClick->connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onDoubleClick.connect([function](const sf::String& str){ function(str.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

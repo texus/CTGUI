@@ -53,7 +53,7 @@ CTGUI_API void tguiWidget_connect_onMouseLeave(tguiWidget* widget, void (*functi
 CTGUI_API void tguiWidget_connect_onFocus(tguiWidget* widget, void (*function)(), const char** error);
 CTGUI_API void tguiWidget_connect_onUnfocus(tguiWidget* widget, void (*function)(), const char** error);
 
-CTGUI_API void tguiWidget_disconnect(tguiWidget* widget, const char* signalName, unsigned int id);
+CTGUI_API void tguiWidget_disconnect(tguiWidget* widget, unsigned int id);
 CTGUI_API void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalName);
 
 CTGUI_API void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error);

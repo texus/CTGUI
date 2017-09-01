@@ -23,65 +23,27 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Layout.h>
-#include <CTGUI/LayoutStruct.h>
+#include <CTGUI/Widgets/ScrollablePanel.h>
+#include <CTGUI/WidgetStruct.h>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <TGUI/Widgets/ScrollablePanel.hpp>
 
-tguiLayout* tguiLayout_create(float constant)
+#define DOWNCAST(x) std::static_pointer_cast<tgui::ScrollablePanel>(x)
+
+tguiWidget* tguiScrollablePanel_create(void)
 {
-    return new tguiLayout(constant);
-}
-
-tguiLayout* tguiLayout_createFromString(const char* expression)
-{
-    return new tguiLayout(expression);
-}
-
-tguiLayout* tguiLayout_copy(const tguiLayout* layout)
-{
-    return new tguiLayout(*layout);
-}
-
-void tguiLayout_destroy(tguiLayout* layout)
-{
-    delete layout;
-}
-
-float tguiLayout_getValue(const tguiLayout* layout)
-{
-    return layout->This.getValue();
+    return new tguiWidget(tgui::ScrollablePanel::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiLayout2d* tguiLayout2d_create(sfVector2f constant)
+void tguiScrollablePanel_setContentSize(tguiWidget* widget, sfVector2f contentSize)
 {
-    return new tguiLayout2d(constant);
+    DOWNCAST(widget->This)->setContentSize({contentSize.x, contentSize.y});
 }
 
-tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y)
+sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget)
 {
-    return new tguiLayout2d(x, y);
-}
-
-tguiLayout2d* tguiLayout2d_createFromString(const char* expression)
-{
-    return new tguiLayout2d(expression);
-}
-
-tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* layout)
-{
-    return new tguiLayout2d(*layout);
-}
-
-void tguiLayout2d_destroy(tguiLayout2d* layout)
-{
-    delete layout;
-}
-
-sfVector2f tguiLayout2d_getValue(const tguiLayout2d* layout)
-{
-    sf::Vector2f value = layout->This.getValue();
-    return {value.x, value.y};
+    sf::Vector2f contentSize = DOWNCAST(widget->This)->getContentSize();
+    return {contentSize.x, contentSize.y};
 }

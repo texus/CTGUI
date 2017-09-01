@@ -135,6 +135,18 @@ sfBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiEditBox_setReadOnly(tguiWidget* widget, sfBool readOnly)
+{
+    DOWNCAST(widget->This)->setReadOnly(readOnly != 0);
+}
+
+sfBool tguiEditBox_isReadOnly(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isReadOnly();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiEditBox_setCaretPosition(tguiWidget* widget, size_t caretPosition)
 {
     DOWNCAST(widget->This)->setCaretPosition(caretPosition);
@@ -163,7 +175,7 @@ void tguiEditBox_connect_onTextChange(tguiWidget* widget, void (*function)(const
 {
     try
     {
-        DOWNCAST(widget->This)->onTextChange->connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onTextChange.connect([function](const sf::String& str){ function(str.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
@@ -177,7 +189,7 @@ void tguiEditBox_connect_onReturnKeyPress(tguiWidget* widget, void (*function)(c
 {
     try
     {
-        DOWNCAST(widget->This)->onReturnKeyPress->connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onReturnKeyPress.connect([function](const sf::String& str){ function(str.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

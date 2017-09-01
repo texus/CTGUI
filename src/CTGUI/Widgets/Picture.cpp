@@ -54,7 +54,7 @@ void tguiPicture_connect_onDoubleClick(tguiWidget* widget, void (*function)(sfVe
 {
     try
     {
-        DOWNCAST(widget->This)->onDoubleClick->connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
+        DOWNCAST(widget->This)->onDoubleClick.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

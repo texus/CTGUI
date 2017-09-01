@@ -120,7 +120,7 @@ void tguiMenuBar_connect_onMenuItemClick(tguiWidget* widget, void (*function)(co
 {
     try
     {
-        DOWNCAST(widget->This)->onMenuItemClick->connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onMenuItemClick.connect([function](const sf::String& str){ function(str.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

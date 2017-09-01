@@ -212,7 +212,7 @@ void tguiComboBox_connect_onItemSelect(tguiWidget* widget, void (*function)(cons
 {
     try
     {
-        DOWNCAST(widget->This)->onItemSelect->connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
+        DOWNCAST(widget->This)->onItemSelect.connect([function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
         *error = nullptr;
     }
     catch (const tgui::Exception& e)

@@ -23,58 +23,75 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Widgets/MessageBox.h>
+#include <CTGUI/Widgets/RangeSlider.h>
 #include <CTGUI/WidgetStruct.h>
 
-#include <TGUI/Widgets/MessageBox.hpp>
+#include <TGUI/Widgets/RangeSlider.hpp>
 
-#define DOWNCAST(x) std::static_pointer_cast<tgui::MessageBox>(x)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiWidget* tguiMessageBox_create(void)
-{
-    return new tguiWidget(tgui::MessageBox::create());
-}
+#define DOWNCAST(x) std::static_pointer_cast<tgui::RangeSlider>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_setText(tguiWidget* widget, const sfUint32* text)
+tguiWidget* tguiRangeSlider_create(void)
 {
-    DOWNCAST(widget->This)->setText(text);
-}
-
-const sfUint32* tguiMessageBox_getText(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getText().getData();
+    return new tguiWidget(tgui::RangeSlider::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_setTextSize(tguiWidget* widget, unsigned int size)
+void tguiRangeSlider_setMinimum(tguiWidget* widget, int minimum)
 {
-    DOWNCAST(widget->This)->setTextSize(size);
+    DOWNCAST(widget->This)->setMinimum(minimum);
 }
 
-unsigned int tguiMessageBox_getTextSize(const tguiWidget* widget)
+int tguiRangeSlider_getMinimum(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMessageBox_addButton(tguiWidget* widget, const sfUint32* text)
-{
-    DOWNCAST(widget->This)->addButton(text);
+    return DOWNCAST(widget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_connect_onButtonPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
+void tguiRangeSlider_setMaximum(tguiWidget* widget, int maximum)
+{
+    DOWNCAST(widget->This)->setMaximum(maximum);
+}
+
+int tguiRangeSlider_getMaximum(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getMaximum();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiRangeSlider_setSelectionStart(tguiWidget* widget, int value)
+{
+    DOWNCAST(widget->This)->setSelectionStart(value);
+}
+
+int tguiRangeSlider_getSelectionStart(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getSelectionStart();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiRangeSlider_setSelectionEnd(tguiWidget* widget, int value)
+{
+    DOWNCAST(widget->This)->setSelectionEnd(value);
+}
+
+int tguiRangeSlider_getSelectionEnd(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getSelectionEnd();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(int, int), const char** error)
 {
     try
     {
-        DOWNCAST(widget->This)->onButtonPress.connect([function](const sf::String& str){ function(str.getData()); });
+        DOWNCAST(widget->This)->onRangeChange.connect(function);
         *error = nullptr;
     }
     catch (const tgui::Exception& e)
