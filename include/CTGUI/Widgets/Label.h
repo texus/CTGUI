@@ -50,6 +50,9 @@ CTGUI_API sfBool tguiLabel_getAutoSize(const tguiWidget* widget);
 CTGUI_API void tguiLabel_setMaximumTextWidth(tguiWidget* widget, float maximumTextWidth);
 CTGUI_API float tguiLabel_getMaximumTextWidth(const tguiWidget* widget);
 
+CTGUI_API void tguiLabel_ignoreMouseEvents(tguiWidget* widget, sfBool ignore);
+CTGUI_API sfBool tguiLabel_isIgnoringMouseEvents(const tguiWidget* widget);
+
 CTGUI_API void tguiLabel_connect_onDoubleClick(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
 
 #endif // CTGUI_LABEL_H

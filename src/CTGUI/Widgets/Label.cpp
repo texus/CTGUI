@@ -109,6 +109,18 @@ float tguiLabel_getMaximumTextWidth(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiLabel_ignoreMouseEvents(tguiWidget* widget, sfBool ignore)
+{
+    DOWNCAST(widget->This)->ignoreMouseEvents(ignore != 0);
+}
+
+sfBool tguiLabel_isIgnoringMouseEvents(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isIgnoringMouseEvents();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiLabel_connect_onDoubleClick(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
 {
     try

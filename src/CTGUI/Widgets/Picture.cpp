@@ -50,6 +50,18 @@ void tguiPicture_setTexture(tguiWidget* widget, sfTexture* texture)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiPicture_ignoreMouseEvents(tguiWidget* widget, sfBool ignore)
+{
+    DOWNCAST(widget->This)->ignoreMouseEvents(ignore != 0);
+}
+
+sfBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isIgnoringMouseEvents();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiPicture_connect_onDoubleClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
 {
     try
