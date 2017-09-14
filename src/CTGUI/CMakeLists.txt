@@ -113,6 +113,8 @@ set(SRC
     ${SRCROOT}/SFML/Graphics/TextureStruct.h
     ${INCROOT}/Widgets/BoxLayout.h
     ${SRCROOT}/Widgets/BoxLayout.cpp
+    ${INCROOT}/Widgets/BoxLayoutRatios.h
+    ${SRCROOT}/Widgets/BoxLayoutRatios.cpp
     ${INCROOT}/Widgets/Button.h
     ${SRCROOT}/Widgets/Button.cpp
     ${INCROOT}/Widgets/Canvas.h
