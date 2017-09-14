@@ -23,45 +23,41 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Widgets/Picture.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/Renderers/PictureRenderer.h>
+#include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/SFML/Graphics/TextureStruct.h>
 
-#include <TGUI/Widgets/Picture.hpp>
+#include <TGUI/Renderers/PictureRenderer.hpp>
 
-#define DOWNCAST(x) std::static_pointer_cast<tgui::Picture>(x)
+#define DOWNCAST(x) static_cast<tgui::PictureRenderer*>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiPicture_create(void)
+tguiRenderer* tguiPictureRenderer_create(void)
 {
-    return new tguiWidget(tgui::Picture::create());
+    return new tguiRenderer(new tgui::PictureRenderer);
+}
+
+tguiRenderer* tguiPictureRenderer_copy(const tguiRenderer* renderer)
+{
+    return new tguiRenderer(new tgui::PictureRenderer(*DOWNCAST(renderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPicture_ignoreMouseEvents(tguiWidget* widget, sfBool ignore)
+void tguiPictureRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture)
 {
-    DOWNCAST(widget->This)->ignoreMouseEvents(ignore != 0);
-}
-
-sfBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->isIgnoringMouseEvents();
+    DOWNCAST(renderer->This)->setTexture(*texture->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPicture_connect_onDoubleClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
+void tguiPictureRenderer_setIgnoreTransparentParts(tguiRenderer* renderer, sfBool ignore)
 {
-    try
-    {
-        DOWNCAST(widget->This)->onDoubleClick.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    DOWNCAST(renderer->This)->setIgnoreTransparentParts(ignore != 0);
+}
+
+sfBool tguiPictureRenderer_getIgnoreTransparentParts(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getIgnoreTransparentParts();
 }

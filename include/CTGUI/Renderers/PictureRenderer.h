@@ -23,19 +23,20 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_PICTURE_H
-#define CTGUI_PICTURE_H
+#ifndef CTGUI_PICTURE_RENDERER_H
+#define CTGUI_PICTURE_RENDERER_H
 
 #include <CTGUI/Config.h>
-#include <CTGUI/Widget.h>
+#include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Texture.h>
 
-CTGUI_API tguiWidget* tguiPicture_create(void);
+CTGUI_API tguiRenderer* tguiPictureRenderer_create(void);
+CTGUI_API tguiRenderer* tguiPictureRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiPicture_ignoreMouseEvents(tguiWidget* widget, sfBool ignore);
-CTGUI_API sfBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget);
+CTGUI_API void tguiPictureRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture);
 
-CTGUI_API void tguiPicture_connect_onDoubleClick(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
+CTGUI_API void tguiPictureRenderer_setIgnoreTransparentParts(tguiRenderer* renderer, sfBool ignore);
+CTGUI_API sfBool tguiPictureRenderer_getIgnoreTransparentParts(tguiRenderer* renderer);
 
-#endif // CTGUI_PICTURE_H
+#endif // CTGUI_PICTURE_RENDERER_H
 

@@ -86,6 +86,8 @@ set(SRC
     ${INCROOT}/Renderers/MessageBoxRenderer.h
     ${SRCROOT}/Renderers/PanelRenderer.cpp
     ${INCROOT}/Renderers/PanelRenderer.h
+    ${SRCROOT}/Renderers/PictureRenderer.cpp
+    ${INCROOT}/Renderers/PictureRenderer.h
     ${SRCROOT}/Renderers/ProgressBarRenderer.cpp
     ${INCROOT}/Renderers/ProgressBarRenderer.h
     ${SRCROOT}/Renderers/RadioButtonRenderer.cpp
