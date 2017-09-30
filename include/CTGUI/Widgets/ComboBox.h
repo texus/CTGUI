@@ -30,6 +30,12 @@
 #include <CTGUI/Widget.h>
 #include <stddef.h>
 
+typedef enum
+{
+	tguiExpandDirectionDown,
+	tguiExpandDirectionUp
+} tguiExpandDirection;
+
 CTGUI_API tguiWidget* tguiComboBox_create(void);
 
 CTGUI_API void tguiComboBox_setItemsToDisplay(tguiWidget* widget, size_t itemsToDisplay);
@@ -66,6 +72,9 @@ CTGUI_API size_t tguiComboBox_getMaximumItems(const tguiWidget* widget);
 
 CTGUI_API void tguiComboBox_setTextSize(tguiWidget* widget, unsigned int size);
 CTGUI_API unsigned int tguiComboBox_getTextSize(const tguiWidget* widget);
+
+CTGUI_API void tguiComboBox_setExpandDirection(tguiWidget* widget, tguiExpandDirection expandDirection);
+CTGUI_API tguiExpandDirection tguiComboBox_getExpandDirection(const tguiWidget* widget);
 
 CTGUI_API void tguiComboBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error);
 

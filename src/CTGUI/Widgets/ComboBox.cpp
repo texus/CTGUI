@@ -208,6 +208,18 @@ unsigned int tguiComboBox_getTextSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiComboBox_setExpandDirection(tguiWidget* widget, tguiExpandDirection expandDirection)
+{
+    DOWNCAST(widget->This)->setExpandDirection(static_cast<tgui::ComboBox::ExpandDirection>(expandDirection));
+}
+
+tguiExpandDirection tguiComboBox_getExpandDirection(const tguiWidget* widget)
+{
+    return static_cast<tguiExpandDirection>(DOWNCAST(widget->This)->getExpandDirection());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiComboBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
 {
     try
