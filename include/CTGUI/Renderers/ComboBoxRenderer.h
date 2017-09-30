@@ -58,10 +58,8 @@ CTGUI_API void tguiComboBoxRenderer_setBorderColor(tguiRenderer* renderer, sfCol
 CTGUI_API sfColor tguiComboBoxRenderer_getBorderColor(const tguiRenderer* renderer);
 
 CTGUI_API void tguiComboBoxRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiComboBoxRenderer_setTextureArrowUp(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiComboBoxRenderer_setTextureArrowUpHover(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiComboBoxRenderer_setTextureArrowDown(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiComboBoxRenderer_setTextureArrowDownHover(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiComboBoxRenderer_setTextureArrow(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiComboBoxRenderer_setTextureArrowHover(tguiRenderer* renderer, sfTexture* texture);
 
 CTGUI_API void tguiComboBoxRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style);
 CTGUI_API sfUint32 tguiComboBoxRenderer_getTextStyle(const tguiRenderer* renderer);

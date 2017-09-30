@@ -155,24 +155,14 @@ void tguiComboBoxRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }
 
-void tguiComboBoxRenderer_setTextureArrowUp(tguiRenderer* renderer, sfTexture* texture)
+void tguiComboBoxRenderer_setTextureArrow(tguiRenderer* renderer, sfTexture* texture)
 {
-    DOWNCAST(renderer->This)->setTextureArrowUp(*texture->This);
+    DOWNCAST(renderer->This)->setTextureArrow(*texture->This);
 }
 
-void tguiComboBoxRenderer_setTextureArrowUpHover(tguiRenderer* renderer, sfTexture* texture)
+void tguiComboBoxRenderer_setTextureArrowHover(tguiRenderer* renderer, sfTexture* texture)
 {
-    DOWNCAST(renderer->This)->setTextureArrowUpHover(*texture->This);
-}
-
-void tguiComboBoxRenderer_setTextureArrowDown(tguiRenderer* renderer, sfTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureArrowDown(*texture->This);
-}
-
-void tguiComboBoxRenderer_setTextureArrowDownHover(tguiRenderer* renderer, sfTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureArrowDownHover(*texture->This);
+    DOWNCAST(renderer->This)->setTextureArrowHover(*texture->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
