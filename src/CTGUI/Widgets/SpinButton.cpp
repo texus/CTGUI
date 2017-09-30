@@ -75,18 +75,6 @@ int tguiSpinButton_getValue(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_setVerticalScroll(tguiWidget* widget, sfBool verticalScroll)
-{
-    DOWNCAST(widget->This)->setVerticalScroll(verticalScroll != 0);
-}
-
-sfBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getVerticalScroll();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error)
 {
     try
