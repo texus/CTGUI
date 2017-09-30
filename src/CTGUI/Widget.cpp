@@ -235,6 +235,11 @@ tguiRenderer* tguiWidget_getRenderer(const tguiWidget* widget)
     return new tguiRenderer(widget->This->getRenderer(), false);
 }
 
+tguiRenderer* tguiWidget_getSharedRenderer(const tguiWidget* widget)
+{
+    return new tguiRenderer(widget->This->getSharedRenderer(), false);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiWidget_show(tguiWidget* widget)

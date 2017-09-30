@@ -58,6 +58,7 @@ CTGUI_API void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalNa
 
 CTGUI_API void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error);
 CTGUI_API tguiRenderer* tguiWidget_getRenderer(const tguiWidget* widget);
+CTGUI_API tguiRenderer* tguiWidget_getSharedRenderer(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_show(tguiWidget* widget);
 CTGUI_API void tguiWidget_showWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time);

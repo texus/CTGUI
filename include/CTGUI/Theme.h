@@ -38,5 +38,8 @@ CTGUI_API tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* 
 CTGUI_API void tguiTheme_addRenderer(tguiTheme* theme, const char* id, tguiRendererData* renderer);
 CTGUI_API sfBool tguiTheme_removeRenderer(tguiTheme* theme, const char* id);
 
+CTGUI_API void tguiTheme_setDefault(tguiTheme* defaultTheme);
+CTGUI_API tguiTheme* tguiTheme_getDefault(void);
+
 #endif // CTGUI_THEME_H
 
