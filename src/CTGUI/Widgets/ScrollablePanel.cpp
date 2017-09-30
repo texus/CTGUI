@@ -47,3 +47,11 @@ sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget)
     sf::Vector2f contentSize = DOWNCAST(widget->This)->getContentSize();
     return {contentSize.x, contentSize.y};
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget)
+{
+    sf::Vector2f contentOffset = DOWNCAST(widget->This)->getContentOffset();
+    return {contentOffset.x, contentOffset.y};
+}

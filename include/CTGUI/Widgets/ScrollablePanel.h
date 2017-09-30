@@ -34,5 +34,7 @@ CTGUI_API tguiWidget* tguiScrollablePanel_create(void);
 CTGUI_API void tguiScrollablePanel_setContentSize(tguiWidget* widget, sfVector2f contentSize);
 CTGUI_API sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget);
 
+CTGUI_API sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget);
+
 #endif // CTGUI_SCROLLABLE_PANEL_H
 
