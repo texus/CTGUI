@@ -32,6 +32,8 @@
 #include <CTGUI/RendererData.h>
 #include <CTGUI/ToolTip.h>
 
+#include <CTGUI/Widgets/BoxLayout.h>
+#include <CTGUI/Widgets/BoxLayoutRatios.h>
 #include <CTGUI/Widgets/Button.h>
 #include <CTGUI/Widgets/Canvas.h>
 #include <CTGUI/Widgets/ChatBox.h>
@@ -41,7 +43,9 @@
 #include <CTGUI/Widgets/ComboBox.h>
 #include <CTGUI/Widgets/EditBox.h>
 #include <CTGUI/Widgets/Grid.h>
+#include <CTGUI/Widgets/Group.h>
 #include <CTGUI/Widgets/HorizontalLayout.h>
+#include <CTGUI/Widgets/HorizontalWrap.h>
 #include <CTGUI/Widgets/Knob.h>
 #include <CTGUI/Widgets/Label.h>
 #include <CTGUI/Widgets/ListBox.h>
@@ -51,6 +55,9 @@
 #include <CTGUI/Widgets/Picture.h>
 #include <CTGUI/Widgets/ProgressBar.h>
 #include <CTGUI/Widgets/RadioButton.h>
+#include <CTGUI/Widgets/RadioButtonGroup.h>
+#include <CTGUI/Widgets/RangeSlider.h>
+#include <CTGUI/Widgets/ScrollablePanel.h>
 #include <CTGUI/Widgets/Scrollbar.h>
 #include <CTGUI/Widgets/Slider.h>
 #include <CTGUI/Widgets/SpinButton.h>
@@ -58,23 +65,29 @@
 #include <CTGUI/Widgets/TextBox.h>
 #include <CTGUI/Widgets/VerticalLayout.h>
 
+#include <CTGUI/Renderers/BoxLayoutRenderer.h>
 #include <CTGUI/Renderers/ButtonRenderer.h>
 #include <CTGUI/Renderers/ChatBoxRenderer.h>
 #include <CTGUI/Renderers/ChildWindowRenderer.h>
 #include <CTGUI/Renderers/ComboBoxRenderer.h>
 #include <CTGUI/Renderers/EditBoxRenderer.h>
+#include <CTGUI/Renderers/GroupRenderer.h>
 #include <CTGUI/Renderers/KnobRenderer.h>
 #include <CTGUI/Renderers/LabelRenderer.h>
 #include <CTGUI/Renderers/ListBoxRenderer.h>
 #include <CTGUI/Renderers/MenuBarRenderer.h>
 #include <CTGUI/Renderers/MessageBoxRenderer.h>
 #include <CTGUI/Renderers/PanelRenderer.h>
+#include <CTGUI/Renderers/PictureRenderer.h>
 #include <CTGUI/Renderers/ProgressBarRenderer.h>
 #include <CTGUI/Renderers/RadioButtonRenderer.h>
+#include <CTGUI/Renderers/RangeSliderRenderer.h>
+#include <CTGUI/Renderers/ScrollablePanelRenderer.h>
 #include <CTGUI/Renderers/ScrollbarRenderer.h>
 #include <CTGUI/Renderers/SliderRenderer.h>
 #include <CTGUI/Renderers/SpinButtonRenderer.h>
 #include <CTGUI/Renderers/TabsRenderer.h>
 #include <CTGUI/Renderers/TextBoxRenderer.h>
+#include <CTGUI/Renderers/WidgetRenderer.h>
 
 #endif // CTGUI_CTGUI_HPP
