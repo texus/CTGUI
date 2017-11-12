@@ -39,43 +39,55 @@ tguiWidget* tguiSlider_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setMinimum(tguiWidget* widget, int minimum)
+void tguiSlider_setMinimum(tguiWidget* widget, float minimum)
 {
     DOWNCAST(widget->This)->setMinimum(minimum);
 }
 
-int tguiSlider_getMinimum(const tguiWidget* widget)
+float tguiSlider_getMinimum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setMaximum(tguiWidget* widget, int maximum)
+void tguiSlider_setMaximum(tguiWidget* widget, float maximum)
 {
     DOWNCAST(widget->This)->setMaximum(maximum);
 }
 
-int tguiSlider_getMaximum(const tguiWidget* widget)
+float tguiSlider_getMaximum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setValue(tguiWidget* widget, int value)
+void tguiSlider_setValue(tguiWidget* widget, float value)
 {
     DOWNCAST(widget->This)->setValue(value);
 }
 
-int tguiSlider_getValue(const tguiWidget* widget)
+float tguiSlider_getValue(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error)
+void tguiSlider_setFrequency(tguiWidget* widget, float frequency)
+{
+    DOWNCAST(widget->This)->setFrequency(frequency);
+}
+
+float tguiSlider_getFrequency(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getFrequency();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error)
 {
     try
     {
