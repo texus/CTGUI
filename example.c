@@ -12,7 +12,7 @@ void main()
     sfVideoMode videoMode = {400, 300, 32};
     sfRenderWindow* window = sfRenderWindow_create(videoMode, "CTGUI example", sfDefaultStyle, NULL);
 
-    tguiGui* gui = tguiGui_createFromWindow(window);
+    tguiGui* gui = tguiGui_createFromTargetRenderWindow(window);
 
     tguiWidget* button = tguiButton_create();
     tguiGui_add(gui, button, U"MyButton");
