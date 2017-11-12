@@ -50,6 +50,42 @@ sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiScrollablePanel_setScrollbarWidth(tguiWidget* widget, float width)
+{
+    DOWNCAST(widget->This)->setScrollbarWidth(width);
+}
+
+float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getScrollbarWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+{
+    DOWNCAST(widget->This)->setVerticalScrollbarPolicy(static_cast<tgui::ScrollablePanel::ScrollbarPolicy>(policy));
+}
+
+tguiScrollbarPolicy tguiScrollablePanel_getVerticalScrollbarPolicy(const tguiWidget* widget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getVerticalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::ScrollablePanel::ScrollbarPolicy>(policy));
+}
+
+tguiScrollbarPolicy tguiScrollablePanel_getHorizontalScrollbarPolicy(const tguiWidget* widget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getHorizontalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget)
 {
     sf::Vector2f contentOffset = DOWNCAST(widget->This)->getContentOffset();

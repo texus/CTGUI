@@ -29,10 +29,26 @@
 #include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 
+typedef enum
+{
+    tguiScrollbarPolicyAutomatic,
+    tguiScrollbarPolicyAlways,
+    tguiScrollbarPolicyNever
+} tguiScrollbarPolicy;
+
 CTGUI_API tguiWidget* tguiScrollablePanel_create(void);
 
 CTGUI_API void tguiScrollablePanel_setContentSize(tguiWidget* widget, sfVector2f contentSize);
 CTGUI_API sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget);
+
+CTGUI_API void tguiScrollablePanel_setScrollbarWidth(tguiWidget* widget, float width);
+CTGUI_API float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* widget);
+
+CTGUI_API void tguiScrollablePanel_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
+CTGUI_API tguiScrollbarPolicy tguiScrollablePanel_getVerticalScrollbarPolicy(const tguiWidget* widget);
+
+CTGUI_API void tguiScrollablePanel_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
+CTGUI_API tguiScrollbarPolicy tguiScrollablePanel_getHorizontalScrollbarPolicy(const tguiWidget* widget);
 
 CTGUI_API sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget);
 
