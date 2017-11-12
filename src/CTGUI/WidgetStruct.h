@@ -27,6 +27,7 @@
 
 #include <CTGUI/Global.h>
 #include <TGUI/Widget.hpp>
+#include <TGUI/SignalImpl.hpp>
 
 struct tguiWidget
 {
