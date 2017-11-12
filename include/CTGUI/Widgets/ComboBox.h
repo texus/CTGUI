@@ -76,6 +76,9 @@ CTGUI_API unsigned int tguiComboBox_getTextSize(const tguiWidget* widget);
 CTGUI_API void tguiComboBox_setExpandDirection(tguiWidget* widget, tguiExpandDirection expandDirection);
 CTGUI_API tguiExpandDirection tguiComboBox_getExpandDirection(const tguiWidget* widget);
 
+CTGUI_API sfBool tguiComboBox_contains(tguiWidget* widget, const sfUint32* item);
+CTGUI_API sfBool tguiComboBox_containsId(tguiWidget* widget, const sfUint32* id);
+
 CTGUI_API void tguiComboBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error);
 
 #endif // CTGUI_COMBO_BOX_H

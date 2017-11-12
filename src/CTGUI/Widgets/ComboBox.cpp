@@ -220,6 +220,19 @@ tguiExpandDirection tguiComboBox_getExpandDirection(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+sfBool tguiComboBox_contains(tguiWidget* widget, const sfUint32* item)
+{
+    return DOWNCAST(widget->This)->contains(item);
+}
+
+sfBool tguiComboBox_containsId(tguiWidget* widget, const sfUint32* id)
+{
+    return DOWNCAST(widget->This)->containsId(id);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiComboBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
 {
     try

@@ -220,6 +220,18 @@ sfBool tguiListBox_getAutoScroll(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+sfBool tguiListBox_contains(tguiWidget* widget, const sfUint32* item)
+{
+    return DOWNCAST(widget->This)->contains(item);
+}
+
+sfBool tguiListBox_containsId(tguiWidget* widget, const sfUint32* id)
+{
+    return DOWNCAST(widget->This)->containsId(id);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListBox_connect_onItemSelect(tguiWidget* widget, void (*function)(const sfUint32*, const sfUint32*), const char** error)
 {
     try
