@@ -38,10 +38,12 @@ set(SRC
     ${INCROOT}/Container.h
     ${SRCROOT}/ConvertEvent.h
     ${SRCROOT}/Global.cpp
-    ${SRCROOT}/Global.h
+    ${INCROOT}/Global.h
     ${SRCROOT}/Gui.cpp
     ${INCROOT}/Gui.h
     ${SRCROOT}/GuiStruct.h
+    ${SRCROOT}/InternalGlobal.cpp
+    ${SRCROOT}/InternalGlobal.h
     ${SRCROOT}/Layout.cpp
     ${INCROOT}/Layout.h
     ${SRCROOT}/LayoutStruct.h
@@ -111,6 +113,8 @@ set(SRC
     ${SRCROOT}/SFML/CallbackStream.h
     ${SRCROOT}/SFML/Graphics/FontStruct.h
     ${SRCROOT}/SFML/Graphics/TextureStruct.h
+    ${INCROOT}/Widgets/BitmapButton.h
+    ${SRCROOT}/Widgets/BitmapButton.cpp
     ${INCROOT}/Widgets/BoxLayout.h
     ${SRCROOT}/Widgets/BoxLayout.cpp
     ${INCROOT}/Widgets/BoxLayoutRatios.h

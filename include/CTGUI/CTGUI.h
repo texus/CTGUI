@@ -25,6 +25,7 @@
 #ifndef CTGUI_CTGUI_HPP
 #define CTGUI_CTGUI_HPP
 
+#include <CTGUI/Global.h>
 #include <CTGUI/Container.h>
 #include <CTGUI/Gui.h>
 #include <CTGUI/Widget.h>

@@ -41,6 +41,9 @@ CTGUI_API sfVector2f tguiChildWindow_getMinimumSize(const tguiWidget* widget);
 CTGUI_API void tguiChildWindow_setTitle(tguiWidget* widget, const sfUint32* text);
 CTGUI_API const sfUint32* tguiChildWindow_getTitle(const tguiWidget* widget);
 
+CTGUI_API void tguiChildWindow_setTitleTextSize(tguiWidget* widget, unsigned int textSize);
+CTGUI_API unsigned int tguiChildWindow_getTitleTextSize(const tguiWidget* widget);
+
 CTGUI_API void tguiChildWindow_setTitleAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment);
 CTGUI_API tguiHorizontalAlignment tguiChildWindow_getTitleAlignment(const tguiWidget* widget);
 

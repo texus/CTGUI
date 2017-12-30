@@ -22,11 +22,6 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef CTGUI_GLOBAL_H
-#define CTGUI_GLOBAL_H
+#include <CTGUI/InternalGlobal.h>
 
-#include <string>
-
-extern std::string tguiErrorMessage; // Holds the error when a pointer to it is returned to a binding on top of CTGUI
-
-#endif // CTGUI_GLOBAL_H
+std::string tguiErrorMessage; // Holds the error when a pointer to it is returned to a binding on top of CTGUI

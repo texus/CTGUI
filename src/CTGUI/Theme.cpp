@@ -26,7 +26,7 @@
 #include <CTGUI/Theme.h>
 #include <CTGUI/ThemeStruct.h>
 #include <CTGUI/RendererDataStruct.h>
-#include <CTGUI/Global.h>
+#include <CTGUI/InternalGlobal.h>
 
 #include <TGUI/Exception.hpp>
 

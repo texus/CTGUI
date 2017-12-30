@@ -23,25 +23,37 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Global.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
-#include <TGUI/Global.hpp>
+#include <CTGUI/Widgets/BitmapButton.h>
+#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/SFML/Graphics/TextureStruct.h>
+
+#include <TGUI/Widgets/BitmapButton.hpp>
+
+#define DOWNCAST(x) std::static_pointer_cast<tgui::BitmapButton>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tgui_setGlobalFont(const sfFont* font)
+tguiWidget* tguiBitmapButton_create(void)
 {
-    tgui::setGlobalFont(font->This);
+    return new tguiWidget(tgui::BitmapButton::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tgui_setGlobalTextSize(unsigned int textSize)
+void tguiBitmapButton_setImage(tguiWidget* widget, sfTexture* image)
 {
-    tgui::setGlobalTextSize(textSize);
+    DOWNCAST(widget->This)->setImage(*image->This);
 }
 
-unsigned int tgui_getGlobalTextSize()
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiBitmapButton_setImageScaling(tguiWidget* widget, float imageScaling)
 {
-    return tgui::getGlobalTextSize();
+    DOWNCAST(widget->This)->setImageScaling(imageScaling);
 }
+
+float tguiBitmapButton_getImageScaling(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getImageScaling();
+}
+

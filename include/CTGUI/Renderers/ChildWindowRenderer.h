@@ -57,6 +57,9 @@ CTGUI_API float tguiChildWindowRenderer_getDistanceToSide(tguiRenderer* renderer
 CTGUI_API void tguiChildWindowRenderer_setPaddingBetweenButtons(tguiRenderer* renderer, float padding);
 CTGUI_API float tguiChildWindowRenderer_getPaddingBetweenButtons(tguiRenderer* renderer);
 
+CTGUI_API void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, sfBool showTitle);
+CTGUI_API sfBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer);
+
 CTGUI_API void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, sfTexture* texture);
 
 CTGUI_API void tguiChildWindowRenderer_setCloseButton(tguiRenderer* renderer, tguiRendererData* rendererData);

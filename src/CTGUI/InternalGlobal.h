@@ -22,26 +22,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_INTERNAL_GLOBAL_H
+#define CTGUI_INTERNAL_GLOBAL_H
 
-#include <CTGUI/Global.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
-#include <TGUI/Global.hpp>
+#include <string>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+extern std::string tguiErrorMessage; // Holds the error when a pointer to it is returned to a binding on top of CTGUI
 
-void tgui_setGlobalFont(const sfFont* font)
-{
-    tgui::setGlobalFont(font->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tgui_setGlobalTextSize(unsigned int textSize)
-{
-    tgui::setGlobalTextSize(textSize);
-}
-
-unsigned int tgui_getGlobalTextSize()
-{
-    return tgui::getGlobalTextSize();
-}
+#endif // CTGUI_INTERNAL_GLOBAL_H

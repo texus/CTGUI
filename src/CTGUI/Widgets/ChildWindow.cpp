@@ -77,6 +77,18 @@ const sfUint32* tguiChildWindow_getTitle(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindow_setTitleTextSize(tguiWidget* widget, unsigned int textSize)
+{
+    DOWNCAST(widget->This)->setTitleTextSize(textSize);
+}
+
+unsigned int tguiChildWindow_getTitleTextSize(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getTitleTextSize();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindow_setTitleAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment)
 {
     DOWNCAST(widget->This)->setTitleAlignment(static_cast<tgui::ChildWindow::TitleAlignment>(alignment));

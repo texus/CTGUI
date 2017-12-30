@@ -23,25 +23,19 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Global.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
-#include <TGUI/Global.hpp>
+#ifndef CTGUI_BITMAP_BUTTON_H
+#define CTGUI_BITMAP_BUTTON_H
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <CTGUI/Config.h>
+#include <CTGUI/Widget.h>
+#include <SFML/Graphics/Texture.h>
 
-void tgui_setGlobalFont(const sfFont* font)
-{
-    tgui::setGlobalFont(font->This);
-}
+CTGUI_API tguiWidget* tguiBitmapButton_create(void);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API void tguiBitmapButton_setImage(tguiWidget* widget, sfTexture* image);
 
-void tgui_setGlobalTextSize(unsigned int textSize)
-{
-    tgui::setGlobalTextSize(textSize);
-}
+CTGUI_API void tguiBitmapButton_setImageScaling(tguiWidget* widget, float imageScaling);
+CTGUI_API float tguiBitmapButton_getImageScaling(const tguiWidget* widget);
 
-unsigned int tgui_getGlobalTextSize()
-{
-    return tgui::getGlobalTextSize();
-}
+#endif // CTGUI_BITMAP_BUTTON_H
+

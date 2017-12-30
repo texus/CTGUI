@@ -39,5 +39,5 @@ CTGUI_API unsigned int tguiButton_getTextSize(const tguiWidget* widget);
 
 CTGUI_API void tguiButton_connect_onPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
 
-#endif // CTGUI_WIDGET_H
+#endif // CTGUI_BUTTON_H
 

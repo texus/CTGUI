@@ -23,25 +23,16 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <CTGUI/Global.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
-#include <TGUI/Global.hpp>
+#ifndef CTGUI_GLOBAL_H
+#define CTGUI_GLOBAL_H
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <CTGUI/Config.h>
+#include <SFML/Graphics/Font.h>
 
-void tgui_setGlobalFont(const sfFont* font)
-{
-    tgui::setGlobalFont(font->This);
-}
+CTGUI_API void tgui_setGlobalFont(const sfFont* font);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CTGUI_API void tgui_setGlobalTextSize(unsigned int textSize);
+CTGUI_API unsigned int tgui_getGlobalTextSize();
 
-void tgui_setGlobalTextSize(unsigned int textSize)
-{
-    tgui::setGlobalTextSize(textSize);
-}
+#endif // CTGUI_GLOBAL_H
 
-unsigned int tgui_getGlobalTextSize()
-{
-    return tgui::getGlobalTextSize();
-}

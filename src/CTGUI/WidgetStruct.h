@@ -25,7 +25,7 @@
 #ifndef CTGUI_WIDGET_STRUCT_H
 #define CTGUI_WIDGET_STRUCT_H
 
-#include <CTGUI/Global.h>
+#include <CTGUI/InternalGlobal.h>
 #include <TGUI/Widget.hpp>
 #include <TGUI/SignalImpl.hpp>
 

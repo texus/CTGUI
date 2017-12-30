@@ -144,6 +144,18 @@ float tguiChildWindowRenderer_getPaddingBetweenButtons(tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, sfBool showTitle)
+{
+    DOWNCAST(renderer->This)->setShowTextOnTitleButtons(showTitle);
+}
+
+sfBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getShowTextOnTitleButtons();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureTitleBar(*texture->This);
