@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -31,16 +31,19 @@
 
 CTGUI_API tguiWidget* tguiSpinButton_create(void);
 
-CTGUI_API void tguiSpinButton_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiSpinButton_getMinimum(const tguiWidget* widget);
+CTGUI_API void tguiSpinButton_setMinimum(tguiWidget* widget, float minimum);
+CTGUI_API float tguiSpinButton_getMinimum(const tguiWidget* widget);
 
-CTGUI_API void tguiSpinButton_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiSpinButton_getMaximum(const tguiWidget* widget);
+CTGUI_API void tguiSpinButton_setMaximum(tguiWidget* widget, float maximum);
+CTGUI_API float tguiSpinButton_getMaximum(const tguiWidget* widget);
 
-CTGUI_API void tguiSpinButton_setValue(tguiWidget* widget, int value);
-CTGUI_API int tguiSpinButton_getValue(const tguiWidget* widget);
+CTGUI_API void tguiSpinButton_setValue(tguiWidget* widget, float value);
+CTGUI_API float tguiSpinButton_getValue(const tguiWidget* widget);
 
-CTGUI_API void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error);
+CTGUI_API void tguiSpinButton_setStep(tguiWidget* widget, float step);
+CTGUI_API float tguiSpinButton_getStep(const tguiWidget* widget);
+
+CTGUI_API void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error);
 
 #endif // CTGUI_SPIN_BUTTON_H
 

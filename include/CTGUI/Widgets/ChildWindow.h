@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -53,7 +53,7 @@ CTGUI_API unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* widget)
 CTGUI_API void tguiChildWindow_setResizable(tguiWidget* widget, sfBool resizable);
 CTGUI_API sfBool tguiChildWindow_isResizable(const tguiWidget* widget);
 
-CTGUI_API void tguiChildWindow_keepInParent(tguiWidget* widget, sfBool keepInParent);
+CTGUI_API void tguiChildWindow_setKeepInParent(tguiWidget* widget, sfBool keepInParent);
 CTGUI_API sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget);
 
 CTGUI_API void tguiChildWindow_connect_onMousePress(tguiWidget* widget, void (*function)(), const char** error);

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -45,6 +45,8 @@ CTGUI_API void tguiEditBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor 
 CTGUI_API sfColor tguiEditBoxRenderer_getTextColor(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiEditBoxRenderer_setTextColorFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiEditBoxRenderer_getTextColorFocused(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getTextColorDisabled(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
@@ -56,6 +58,8 @@ CTGUI_API void tguiEditBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sf
 CTGUI_API sfColor tguiEditBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiEditBoxRenderer_setBackgroundColorFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiEditBoxRenderer_getBackgroundColorFocused(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer);
 
@@ -63,18 +67,21 @@ CTGUI_API void tguiEditBoxRenderer_setCaretColor(tguiRenderer* renderer, sfColor
 CTGUI_API sfColor tguiEditBoxRenderer_getCaretColor(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* renderer);
-CTGUI_API void tguiEditBoxRenderer_setCaretColorDisabled(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiEditBoxRenderer_getCaretColorDisabled(const tguiRenderer* renderer);
+CTGUI_API void tguiEditBoxRenderer_setCaretColorFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiEditBoxRenderer_getCaretColorFocused(const tguiRenderer* renderer);
 
 CTGUI_API void tguiEditBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getBorderColor(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiEditBoxRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiEditBoxRenderer_getBorderColorFocused(const tguiRenderer* renderer);
 CTGUI_API void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiEditBoxRenderer_getBorderColorDisabled(const tguiRenderer* renderer);
 
 CTGUI_API void tguiEditBoxRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiEditBoxRenderer_setTextureHover(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiEditBoxRenderer_setTextureFocused(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiEditBoxRenderer_setTextureDisabled(tguiRenderer* renderer, sfTexture* texture);
 
 CTGUI_API void tguiEditBoxRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style);

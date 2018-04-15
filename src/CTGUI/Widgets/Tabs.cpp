@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -128,6 +128,30 @@ int tguiTabs_getSelectedIndex(const tguiWidget* widget)
 size_t tguiTabs_getTabsCount(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getTabsCount();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabs_setTabVisible(tguiWidget* widget, size_t index, sfBool visible)
+{
+    DOWNCAST(widget->This)->setTabVisible(index, visible != 0);
+}
+
+sfBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(widget->This)->getTabVisible(index);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, sfBool enabled)
+{
+    DOWNCAST(widget->This)->setTabEnabled(index, enabled != 0);
+}
+
+sfBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(widget->This)->getTabEnabled(index);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

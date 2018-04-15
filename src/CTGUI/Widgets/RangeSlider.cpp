@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -39,55 +39,67 @@ tguiWidget* tguiRangeSlider_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSlider_setMinimum(tguiWidget* widget, int minimum)
+void tguiRangeSlider_setMinimum(tguiWidget* widget, float minimum)
 {
     DOWNCAST(widget->This)->setMinimum(minimum);
 }
 
-int tguiRangeSlider_getMinimum(const tguiWidget* widget)
+float tguiRangeSlider_getMinimum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSlider_setMaximum(tguiWidget* widget, int maximum)
+void tguiRangeSlider_setMaximum(tguiWidget* widget, float maximum)
 {
     DOWNCAST(widget->This)->setMaximum(maximum);
 }
 
-int tguiRangeSlider_getMaximum(const tguiWidget* widget)
+float tguiRangeSlider_getMaximum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSlider_setSelectionStart(tguiWidget* widget, int value)
+void tguiRangeSlider_setSelectionStart(tguiWidget* widget, float value)
 {
     DOWNCAST(widget->This)->setSelectionStart(value);
 }
 
-int tguiRangeSlider_getSelectionStart(const tguiWidget* widget)
+float tguiRangeSlider_getSelectionStart(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getSelectionStart();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSlider_setSelectionEnd(tguiWidget* widget, int value)
+void tguiRangeSlider_setSelectionEnd(tguiWidget* widget, float value)
 {
     DOWNCAST(widget->This)->setSelectionEnd(value);
 }
 
-int tguiRangeSlider_getSelectionEnd(const tguiWidget* widget)
+float tguiRangeSlider_getSelectionEnd(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getSelectionEnd();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(int, int), const char** error)
+void tguiRangeSlider_setStep(tguiWidget* widget, float step)
+{
+    DOWNCAST(widget->This)->setStep(step);
+}
+
+float tguiRangeSlider_getStep(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getStep();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(float, float), const char** error)
 {
     try
     {

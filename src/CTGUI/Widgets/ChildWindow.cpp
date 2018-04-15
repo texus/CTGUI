@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -125,9 +125,9 @@ sfBool tguiChildWindow_isResizable(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_keepInParent(tguiWidget* widget, sfBool keepInParent)
+void tguiChildWindow_setKeepInParent(tguiWidget* widget, sfBool keepInParent)
 {
-    DOWNCAST(widget->This)->keepInParent(keepInParent != 0);
+    DOWNCAST(widget->This)->setKeepInParent(keepInParent != 0);
 }
 
 sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget)

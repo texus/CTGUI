@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -53,6 +53,12 @@ CTGUI_API const sfUint32* tguiTabs_getSelected(const tguiWidget* widget);
 CTGUI_API int tguiTabs_getSelectedIndex(const tguiWidget* widget);
 
 CTGUI_API size_t tguiTabs_getTabsCount(const tguiWidget* widget);
+
+CTGUI_API void tguiTabs_setTabVisible(tguiWidget* widget, size_t index, sfBool visible);
+CTGUI_API sfBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index);
+
+CTGUI_API void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, sfBool enabled);
+CTGUI_API sfBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index);
 
 CTGUI_API void tguiTabs_setTextSize(tguiWidget* widget, unsigned int textSize);
 CTGUI_API unsigned int tguiTabs_getTextSize(const tguiWidget* widget);

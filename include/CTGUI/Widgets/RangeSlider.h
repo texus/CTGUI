@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -31,19 +31,22 @@
 
 CTGUI_API tguiWidget* tguiRangeSlider_create(void);
 
-CTGUI_API void tguiRangeSlider_setMinimum(tguiWidget* widget, int minimum);
-CTGUI_API int tguiRangeSlider_getMinimum(const tguiWidget* widget);
+CTGUI_API void tguiRangeSlider_setMinimum(tguiWidget* widget, float minimum);
+CTGUI_API float tguiRangeSlider_getMinimum(const tguiWidget* widget);
 
-CTGUI_API void tguiRangeSlider_setMaximum(tguiWidget* widget, int maximum);
-CTGUI_API int tguiRangeSlider_getMaximum(const tguiWidget* widget);
+CTGUI_API void tguiRangeSlider_setMaximum(tguiWidget* widget, float maximum);
+CTGUI_API float tguiRangeSlider_getMaximum(const tguiWidget* widget);
 
-CTGUI_API void tguiRangeSlider_setSelectionStart(tguiWidget* widget, int value);
-CTGUI_API int tguiRangeSlider_getSelectionStart(const tguiWidget* widget);
+CTGUI_API void tguiRangeSlider_setSelectionStart(tguiWidget* widget, float value);
+CTGUI_API float tguiRangeSlider_getSelectionStart(const tguiWidget* widget);
 
-CTGUI_API void tguiRangeSlider_setSelectionEnd(tguiWidget* widget, int value);
-CTGUI_API int tguiRangeSlider_getSelectionEnd(const tguiWidget* widget);
+CTGUI_API void tguiRangeSlider_setSelectionEnd(tguiWidget* widget, float value);
+CTGUI_API float tguiRangeSlider_getSelectionEnd(const tguiWidget* widget);
 
-CTGUI_API void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(int, int), const char** error);
+CTGUI_API void tguiRangeSlider_setStep(tguiWidget* widget, float step);
+CTGUI_API float tguiRangeSlider_getStep(const tguiWidget* widget);
+
+CTGUI_API void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(float, float), const char** error);
 
 #endif // CTGUI_RANGE_SLIDER_H
 

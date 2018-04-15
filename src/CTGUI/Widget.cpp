@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -242,24 +242,9 @@ tguiRenderer* tguiWidget_getSharedRenderer(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_show(tguiWidget* widget)
+void tguiWidget_setVisible(tguiWidget* widget, sfBool visible)
 {
-    widget->This->show();
-}
-
-void tguiWidget_showWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time)
-{
-    widget->This->showWithEffect(static_cast<tgui::ShowAnimationType>(type), sf::microseconds(time.microseconds));
-}
-
-void tguiWidget_hide(tguiWidget* widget)
-{
-    widget->This->hide();
-}
-
-void tguiWidget_hideWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time)
-{
-    widget->This->hideWithEffect(static_cast<tgui::ShowAnimationType>(type), sf::microseconds(time.microseconds));
+    widget->This->setVisible(visible != 0);
 }
 
 sfBool tguiWidget_isVisible(const tguiWidget* widget)
@@ -267,16 +252,21 @@ sfBool tguiWidget_isVisible(const tguiWidget* widget)
     return widget->This->isVisible();
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidget_enable(tguiWidget* widget)
+void tguiWidget_showWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time)
 {
-    widget->This->enable();
+    widget->This->showWithEffect(static_cast<tgui::ShowAnimationType>(type), sf::microseconds(time.microseconds));
 }
 
-void tguiWidget_disable(tguiWidget* widget)
+void tguiWidget_hideWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time)
 {
-    widget->This->disable();
+    widget->This->hideWithEffect(static_cast<tgui::ShowAnimationType>(type), sf::microseconds(time.microseconds));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_setEnabled(tguiWidget* widget, sfBool enabled)
+{
+    widget->This->setEnabled(enabled != 0);
 }
 
 sfBool tguiWidget_isEnabled(const tguiWidget* widget)
@@ -286,14 +276,9 @@ sfBool tguiWidget_isEnabled(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_focus(tguiWidget* widget)
+void tguiWidget_setFocused(tguiWidget* widget, sfBool focused)
 {
-    widget->This->focus();
-}
-
-void tguiWidget_unfocus(tguiWidget* widget)
-{
-    widget->This->unfocus();
+    widget->This->setFocused(focused != 0);
 }
 
 sfBool tguiWidget_isFocused(const tguiWidget* widget)

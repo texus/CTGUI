@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -60,18 +60,16 @@ CTGUI_API void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* rend
 CTGUI_API tguiRenderer* tguiWidget_getRenderer(const tguiWidget* widget);
 CTGUI_API tguiRenderer* tguiWidget_getSharedRenderer(const tguiWidget* widget);
 
-CTGUI_API void tguiWidget_show(tguiWidget* widget);
-CTGUI_API void tguiWidget_showWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time);
-CTGUI_API void tguiWidget_hide(tguiWidget* widget);
-CTGUI_API void tguiWidget_hideWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time);
+CTGUI_API void tguiWidget_setVisible(tguiWidget* widget, sfBool visible);
 CTGUI_API sfBool tguiWidget_isVisible(const tguiWidget* widget);
 
-CTGUI_API void tguiWidget_enable(tguiWidget* widget);
-CTGUI_API void tguiWidget_disable(tguiWidget* widget);
+CTGUI_API void tguiWidget_showWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time);
+CTGUI_API void tguiWidget_hideWithEffect(tguiWidget* widget, tguiShowAnimationType type, sfTime time);
+
+CTGUI_API void tguiWidget_setEnabled(tguiWidget* widget, sfBool enabled);
 CTGUI_API sfBool tguiWidget_isEnabled(const tguiWidget* widget);
 
-CTGUI_API void tguiWidget_focus(tguiWidget* widget);
-CTGUI_API void tguiWidget_unfocus(tguiWidget* widget);
+CTGUI_API void tguiWidget_setFocused(tguiWidget* widget, sfBool focused);
 CTGUI_API sfBool tguiWidget_isFocused(const tguiWidget* widget);
 
 CTGUI_API const char* tguiWidget_getWidgetType(const tguiWidget* widget);

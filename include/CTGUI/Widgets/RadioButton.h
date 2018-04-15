@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -31,8 +31,7 @@
 
 CTGUI_API tguiWidget* tguiRadioButton_create(void);
 
-CTGUI_API void tguiRadioButton_check(tguiWidget* widget);
-CTGUI_API void tguiRadioButton_uncheck(tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setChecked(tguiWidget* widget, sfBool checked);
 CTGUI_API sfBool tguiRadioButton_isChecked(const tguiWidget* widget);
 
 CTGUI_API void tguiRadioButton_setText(tguiWidget* widget, const sfUint32* text);

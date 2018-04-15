@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -89,6 +89,16 @@ sfColor tguiButtonRenderer_getTextColorDown(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getTextColorDown());
 }
 
+void tguiButtonRenderer_setTextColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiButtonRenderer_getTextColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextColorFocused());
+}
+
 void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
@@ -129,6 +139,16 @@ void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* renderer, sfColor c
 sfColor tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDown());
+}
+
+void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorFocused());
 }
 
 void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
@@ -173,6 +193,16 @@ sfColor tguiButtonRenderer_getBorderColorDown(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getBorderColorDown());
 }
 
+void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBorderColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+}
+
 void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBorderColorDisabled({color.r, color.g, color.b, color.a});
@@ -198,6 +228,11 @@ void tguiButtonRenderer_setTextureHover(tguiRenderer* renderer, sfTexture* textu
 void tguiButtonRenderer_setTextureDown(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureDown(*texture->This);
+}
+
+void tguiButtonRenderer_setTextureFocused(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureFocused(*texture->This);
 }
 
 void tguiButtonRenderer_setTextureDisabled(tguiRenderer* renderer, sfTexture* texture)
@@ -235,6 +270,16 @@ void tguiButtonRenderer_setTextStyleDown(tguiRenderer* renderer, sfUint32 style)
 sfUint32 tguiButtonRenderer_getTextStyleDown(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyleDown();
+}
+
+void tguiButtonRenderer_setTextStyleFocused(tguiRenderer* renderer, sfUint32 style)
+{
+    DOWNCAST(renderer->This)->setTextStyleFocused(style);
+}
+
+sfUint32 tguiButtonRenderer_getTextStyleFocused(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextStyleFocused();
 }
 
 void tguiButtonRenderer_setTextStyleDisabled(tguiRenderer* renderer, sfUint32 style)

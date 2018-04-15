@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -215,6 +215,16 @@ sfColor tguiRadioButtonRenderer_getBorderColorHover(const tguiRenderer* renderer
     return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
 
+void tguiRadioButtonRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBorderColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiRadioButtonRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+}
+
 void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBorderColorDisabled({color.r, color.g, color.b, color.a});
@@ -243,6 +253,16 @@ void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* renderer, 
 sfColor tguiRadioButtonRenderer_getBorderColorCheckedHover(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getBorderColorCheckedHover());
+}
+
+void tguiRadioButtonRenderer_setBorderColorCheckedFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBorderColorCheckedFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiRadioButtonRenderer_getBorderColorCheckedFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorCheckedFocused());
 }
 
 void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* renderer, sfColor color)
@@ -307,6 +327,16 @@ void tguiRadioButtonRenderer_setTextureUncheckedHover(tguiRenderer* renderer, sf
 void tguiRadioButtonRenderer_setTextureCheckedHover(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureCheckedHover(*texture->This);
+}
+
+void tguiRadioButtonRenderer_setTextureUncheckedFocused(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureUncheckedFocused(*texture->This);
+}
+
+void tguiRadioButtonRenderer_setTextureCheckedFocused(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureCheckedFocused(*texture->This);
 }
 
 void tguiRadioButtonRenderer_setTextureUncheckedDisabled(tguiRenderer* renderer, sfTexture* texture)

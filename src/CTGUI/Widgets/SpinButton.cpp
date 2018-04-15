@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -39,43 +39,55 @@ tguiWidget* tguiSpinButton_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_setMinimum(tguiWidget* widget, int minimum)
+void tguiSpinButton_setMinimum(tguiWidget* widget, float minimum)
 {
     DOWNCAST(widget->This)->setMinimum(minimum);
 }
 
-int tguiSpinButton_getMinimum(const tguiWidget* widget)
+float tguiSpinButton_getMinimum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_setMaximum(tguiWidget* widget, int maximum)
+void tguiSpinButton_setMaximum(tguiWidget* widget, float maximum)
 {
     DOWNCAST(widget->This)->setMaximum(maximum);
 }
 
-int tguiSpinButton_getMaximum(const tguiWidget* widget)
+float tguiSpinButton_getMaximum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_setValue(tguiWidget* widget, int value)
+void tguiSpinButton_setValue(tguiWidget* widget, float value)
 {
     DOWNCAST(widget->This)->setValue(value);
 }
 
-int tguiSpinButton_getValue(const tguiWidget* widget)
+float tguiSpinButton_getValue(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(int), const char** error)
+void tguiSpinButton_setStep(tguiWidget* widget, float step)
+{
+    DOWNCAST(widget->This)->setStep(step);
+}
+
+float tguiSpinButton_getStep(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getStep();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error)
 {
     try
     {

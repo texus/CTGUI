@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -36,6 +36,9 @@ CTGUI_API tguiWidget** tguiContainer_getWidgets(tguiWidget* container, size_t* c
 CTGUI_API const sfUint32** tguiContainer_getWidgetNames(tguiWidget* container, size_t* count);
 CTGUI_API void tguiContainer_remove(tguiWidget* container, tguiWidget* widget);
 CTGUI_API void tguiContainer_removeAllWidgets(tguiWidget* container);
+
+CTGUI_API sfBool tguiContainer_focusNextWidget(tguiWidget* container);
+CTGUI_API sfBool tguiContainer_focusPreviousWidget(tguiWidget* container);
 
 CTGUI_API sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container);
 

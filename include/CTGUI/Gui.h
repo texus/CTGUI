@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -50,6 +50,10 @@ CTGUI_API tguiWidget** tguiGui_getWidgets(tguiGui* gui, size_t* count);
 CTGUI_API const sfUint32** tguiGui_getWidgetNames(tguiGui* gui, size_t* count);
 CTGUI_API void tguiGui_remove(tguiGui* gui, tguiWidget* widget);
 CTGUI_API void tguiGui_removeAllWidgets(tguiGui* gui);
+
+CTGUI_API void tguiGui_enableTabKeyUsage(tguiGui* gui);
+CTGUI_API void tguiGui_disableTabKeyUsage(tguiGui* gui);
+CTGUI_API sfBool tguiGui_isTabKeyUsageEnabled(tguiGui* gui);
 
 CTGUI_API void tguiGui_draw(tguiGui* gui);
 

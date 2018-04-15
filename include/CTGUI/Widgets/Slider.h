@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -40,8 +40,11 @@ CTGUI_API float tguiSlider_getMaximum(const tguiWidget* widget);
 CTGUI_API void tguiSlider_setValue(tguiWidget* widget, float value);
 CTGUI_API float tguiSlider_getValue(const tguiWidget* widget);
 
-CTGUI_API void tguiSlider_setFrequency(tguiWidget* widget, float frequency);
-CTGUI_API float tguiSlider_getFrequency(const tguiWidget* widget);
+CTGUI_API void tguiSlider_setStep(tguiWidget* widget, float step);
+CTGUI_API float tguiSlider_getStep(const tguiWidget* widget);
+
+CTGUI_API void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirection);
+CTGUI_API sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget);
 
 CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error);
 

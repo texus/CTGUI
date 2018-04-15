@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -69,12 +69,16 @@ CTGUI_API void tguiRadioButtonRenderer_setBorderColor(tguiRenderer* renderer, sf
 CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColor(const tguiRenderer* renderer);
 CTGUI_API void tguiRadioButtonRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiRadioButtonRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorFocused(const tguiRenderer* renderer);
 CTGUI_API void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorDisabled(const tguiRenderer* renderer);
 CTGUI_API void tguiRadioButtonRenderer_setBorderColorChecked(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorChecked(const tguiRenderer* renderer);
 CTGUI_API void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorCheckedHover(const tguiRenderer* renderer);
+CTGUI_API void tguiRadioButtonRenderer_setBorderColorCheckedFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorCheckedFocused(const tguiRenderer* renderer);
 CTGUI_API void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiRadioButtonRenderer_getBorderColorCheckedDisabled(const tguiRenderer* renderer);
 
@@ -89,6 +93,8 @@ CTGUI_API void tguiRadioButtonRenderer_setTextureUnchecked(tguiRenderer* rendere
 CTGUI_API void tguiRadioButtonRenderer_setTextureChecked(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiRadioButtonRenderer_setTextureUncheckedHover(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiRadioButtonRenderer_setTextureCheckedHover(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiRadioButtonRenderer_setTextureUncheckedFocused(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiRadioButtonRenderer_setTextureCheckedFocused(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiRadioButtonRenderer_setTextureUncheckedDisabled(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiRadioButtonRenderer_setTextureCheckedDisabled(tguiRenderer* renderer, sfTexture* texture);
 

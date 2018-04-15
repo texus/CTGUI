@@ -1,38 +1,5 @@
-# Add the CTGUI sources path
-include_directories(${CMAKE_SOURCE_DIR}/src)
-
-# Set the output directory for CTGUI library
-set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}/lib")
-
-# Define the export symbol
-add_definitions(-DCTGUI_EXPORTS)
-
-# Find TGUI library
-find_package(TGUI ${VERSION_MAJOR}.${VERSION_MINOR})
-if (NOT TGUI_FOUND)
-    set(TGUI_ROOT "" CACHE PATH "TGUI root directory")
-    message(FATAL_ERROR "CMake couldn't find TGUI. Set the TGUI_ROOT entry to TGUI's root directory (containing \"include\" and \"lib\" directories).")
-endif()
-
-# Find SFML library
-find_package(SFML 2 COMPONENTS graphics window system)
-if (NOT SFML_FOUND)
-    set(SFML_ROOT "" CACHE PATH "SFML root directory")
-    message(FATAL_ERROR "CMake couldn't find SFML. Set the SFML_ROOT entry to SFML's root directory (containing \"include\" and \"lib\" directories).")
-endif()
-
-# Find the header files of CSFML
-find_package(CSFML ${SFML_VERSION_MAJOR}.${SFML_VERSION_MINOR})
-if (NOT CSFML_INCLUDE_DIR)
-    set(CSFML_INCLUDE_DIR "" CACHE PATH "Path of the CSFML include directory")
-    message(FATAL_ERROR "CMake couldn't find the CSFML header files. Set the CSFML_INCLUDE_DIR entry to SFML's include directory.")
-endif()
-
-include_directories(${TGUI_INCLUDE_DIR} ${SFML_INCLUDE_DIR} ${CSFML_INCLUDE_DIR})
-
-# All source files
-set(INCROOT ${CMAKE_SOURCE_DIR}/include/CTGUI)
-set(SRCROOT ${CMAKE_SOURCE_DIR}/src/CTGUI)
+set(INCROOT ${PROJECT_SOURCE_DIR}/include/CTGUI)
+set(SRCROOT ${PROJECT_SOURCE_DIR}/src/CTGUI)
 set(SRC
     ${SRCROOT}/Container.cpp
     ${INCROOT}/Container.h
@@ -181,62 +148,98 @@ set(SRC
     ${SRCROOT}/Widgets/VerticalLayout.cpp
 )
 
-# Create the target
-add_library(${PROJECT_NAME} ${SRC})
+add_library(ctgui ${SRC})
 
-# Define the export symbol of the module
-string(REPLACE "-" "_" NAME_UPPER "${PROJECT_NAME}")
-string(TOUPPER "${NAME_UPPER}" NAME_UPPER)
-set_target_properties(${PROJECT_NAME} PROPERTIES DEFINE_SYMBOL ${NAME_UPPER}_EXPORTS)
+target_include_directories(ctgui PUBLIC ${CSFML_INCLUDE_DIR})
+target_include_directories(ctgui PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_include_directories(ctgui PRIVATE "${PROJECT_SOURCE_DIR}/src")
 
-if(SFML_OS_WINDOWS)
-    # Include the major version number in Windows shared library names (but not import library names)
-    set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX -d)
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "-${VERSION_MAJOR}.${VERSION_MINOR}${CMAKE_SHARED_LIBRARY_SUFFIX}")
-else()
-    set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX -d)
-endif()
-if (SFML_OS_WINDOWS AND SFML_COMPILER_GCC)
-    # On Windows/gcc get rid of "lib" prefix for shared libraries and transform the ".dll.a" suffix into ".a" for import libraries
-    set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
-    set_target_properties(${PROJECT_NAME} PROPERTIES IMPORT_SUFFIX ".a")
+set_target_properties(ctgui PROPERTIES DEFINE_SYMBOL CTGUI_EXPORTS)
+
+# Set some compile flags when using GCC and Clang
+if(TGUI_COMPILER_GCC OR TGUI_COMPILER_CLANG)
+    target_compile_options(ctgui PRIVATE -Wall)
+    target_compile_options(ctgui PRIVATE -Wextra)
+    target_compile_options(ctgui PRIVATE -Wshadow)
+    target_compile_options(ctgui PRIVATE -Wno-long-long)
+    target_compile_options(ctgui PRIVATE -pedantic)
+
+    set_target_properties(ctgui PROPERTIES CXX_STANDARD_REQUIRED ON)
+    set_target_properties(ctgui PROPERTIES CXX_EXTENSIONS OFF)
+    set_target_properties(ctgui PROPERTIES CXX_STANDARD 14)
 endif()
 
 # Set the version and soversion of the target (for compatible systems -- mostly Linuxes)
-set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${VERSION_MAJOR}.${VERSION_MINOR})
-set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
+set_target_properties(ctgui PROPERTIES SOVERSION ${CTGUI_VERSION_MAJOR}.${CTGUI_VERSION_MINOR})
+set_target_properties(ctgui PROPERTIES VERSION ${CTGUI_VERSION_MAJOR}.${CTGUI_VERSION_MINOR}.${CTGUI_VERSION_PATCH})
 
 # Set the target's folder (for IDEs that support it, e.g. Visual Studio)
-set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER "CTGUI")
+set_target_properties(ctgui PROPERTIES FOLDER "CTGUI")
 
-# For gcc >= 4.0 on Windows, apply the SFML_USE_STATIC_STD_LIBS option if it is enabled
-if(SFML_OS_WINDOWS AND SFML_COMPILER_GCC AND NOT SFML_GCC_VERSION VERSION_LESS "4")
-    if(SFML_USE_STATIC_STD_LIBS AND NOT SFML_COMPILER_GCC_TDM)
-        set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-static-libgcc -static-libstdc++")
-    elseif(NOT SFML_USE_STATIC_STD_LIBS AND SFML_COMPILER_GCC_TDM)
-        set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-shared-libgcc -shared-libstdc++")
+if(TGUI_OS_WINDOWS)
+    # Include the major version number in Windows shared library names (but not import library names)
+    set_target_properties(ctgui PROPERTIES DEBUG_POSTFIX -d)
+    set_target_properties(ctgui PROPERTIES SUFFIX "-${CTGUI_VERSION_MAJOR}.${CTGUI_VERSION_MINOR}${CMAKE_SHARED_LIBRARY_SUFFIX}")
+else()
+    set_target_properties(ctgui PROPERTIES DEBUG_POSTFIX -d)
+endif()
+
+if (TGUI_OS_WINDOWS AND TGUI_COMPILER_GCC)
+    # On Windows/gcc get rid of "lib" prefix for shared libraries and transform the ".dll.a" suffix into ".a" for import libraries
+    set_target_properties(ctgui PROPERTIES PREFIX "")
+    set_target_properties(ctgui PROPERTIES IMPORT_SUFFIX ".a")
+endif()
+
+# Use libc++ on macOS
+if(TGUI_OS_MACOSX)
+    if(${CMAKE_GENERATOR} MATCHES "Xcode")
+        set_property(TARGET ctgui PROPERTY XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+    else()
+        target_compile_options(ctgui PRIVATE "-stdlib=libc++")
+        target_link_libraries(ctgui PRIVATE "-stdlib=libc++")
     endif()
 endif()
 
-# If using gcc >= 4.0 or clang >= 3.0 on a non-Windows platform, we must hide public symbols by default (exported ones are explicitely marked)
-if(NOT SFML_OS_WINDOWS AND ((SFML_COMPILER_GCC AND NOT SFML_GCC_VERSION VERSION_LESS "4") OR (SFML_COMPILER_CLANG AND NOT SFML_CLANG_VERSION VERSION_LESS "3")))
-    set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS -fvisibility=hidden)
+# Apply the TGUI_USE_STATIC_STD_LIBS option on windows
+if(TGUI_OS_WINDOWS)
+    if(TGUI_COMPILER_MSVC AND TGUI_USE_STATIC_STD_LIBS)
+        foreach(flag
+                CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
+                CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+            if(${flag} MATCHES "/MD")
+                string(REGEX REPLACE "/MD" "/MT" ${flag} "${${flag}}")
+            endif()
+        endforeach()
+    elseif(TGUI_COMPILER_GCC)
+        if(TGUI_USE_STATIC_STD_LIBS AND NOT TGUI_COMPILER_GCC_TDM)
+            target_link_libraries(ctgui PRIVATE "-static-libgcc" "-static-libstdc++")
+        elseif(NOT TGUI_USE_STATIC_STD_LIBS AND TGUI_COMPILER_GCC_TDM)
+            target_link_libraries(ctgui PRIVATE "-shared-libgcc" "-shared-libstdc++")
+        endif()
+    endif()
 endif()
 
-# Link the target to its external dependencies (C++ TGUI library and SFML)
-set(CTGUI_EXT_LIBS ${TGUI_LIBRARY} ${SFML_LIBRARIES})
-target_link_libraries(${PROJECT_NAME} ${CTGUI_EXT_LIBS})
-
-# Build dylibs
-if(SFML_OS_MACOSX AND BUILD_SHARED_LIBS)
-    # Adapt install directory to allow distributing dylibs in user’s application bundle
-    set_target_properties(${PROJECT_NAME} PROPERTIES
-                          BUILD_WITH_INSTALL_RPATH 1
-                          INSTALL_NAME_DIR "@rpath")
+# Hide public symbols by default (exported ones are explicitly marked)
+if(NOT TGUI_OS_WINDOWS)
+    target_compile_options(ctgui PRIVATE -fvisibility=hidden)
 endif()
 
-# Add the install rule
-install(TARGETS ${PROJECT_NAME}
-        RUNTIME DESTINATION bin COMPONENT bin
+# Link the target to its external dependencies
+target_link_libraries(ctgui PUBLIC tgui sfml-graphics)
+
+# Build dylibs on macOS
+if(TGUI_OS_MACOSX AND BUILD_SHARED_LIBS)
+    # Adapt install directory to allow distributing dylibs/frameworks in user’s frameworks/application bundle but only if cmake rpath options aren't set
+    if(NOT CMAKE_SKIP_RPATH AND NOT CMAKE_SKIP_INSTALL_RPATH AND NOT CMAKE_INSTALL_RPATH AND NOT CMAKE_INSTALL_RPATH_USE_LINK_PATH AND NOT CMAKE_INSTALL_NAME_DIR)
+        set_target_properties(ctgui PROPERTIES INSTALL_NAME_DIR "@rpath")
+        if(NOT CMAKE_SKIP_BUILD_RPATH)
+            set_target_properties(ctgui PROPERTIES BUILD_WITH_INSTALL_NAME_DIR TRUE)
+        endif()
+    endif()
+endif()
+
+# Install the binaries to the lib folder
+install(TARGETS ctgui
+        RUNTIME DESTINATION lib COMPONENT bin
         LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT bin 
         ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT devel)

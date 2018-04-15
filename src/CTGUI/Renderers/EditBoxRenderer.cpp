@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -101,6 +101,16 @@ sfColor tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getDefaultTextColor());
 }
 
+void tguiEditBoxRenderer_setTextColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiEditBoxRenderer_getTextColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextColorFocused());
+}
+
 void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
@@ -153,6 +163,16 @@ sfColor tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* renderer
     return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
+void tguiEditBoxRenderer_setBackgroundColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiEditBoxRenderer_getBackgroundColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorFocused());
+}
+
 void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBackgroundColorDisabled({color.r, color.g, color.b, color.a});
@@ -185,14 +205,14 @@ sfColor tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getCaretColorHover());
 }
 
-void tguiEditBoxRenderer_setCaretColorDisabled(tguiRenderer* renderer, sfColor color)
+void tguiEditBoxRenderer_setCaretColorFocused(tguiRenderer* renderer, sfColor color)
 {
-    DOWNCAST(renderer->This)->setCaretColorDisabled({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setCaretColorFocused({color.r, color.g, color.b, color.a});
 }
 
-sfColor tguiEditBoxRenderer_getCaretColorDisabled(const tguiRenderer* renderer)
+sfColor tguiEditBoxRenderer_getCaretColorFocused(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getCaretColorDisabled());
+    return convertColor(DOWNCAST(renderer->This)->getCaretColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -217,6 +237,16 @@ sfColor tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
 
+void tguiEditBoxRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBorderColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiEditBoxRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+}
+
 void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setBorderColorDisabled({color.r, color.g, color.b, color.a});
@@ -237,6 +267,11 @@ void tguiEditBoxRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture)
 void tguiEditBoxRenderer_setTextureHover(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureHover(*texture->This);
+}
+
+void tguiEditBoxRenderer_setTextureFocused(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureFocused(*texture->This);
 }
 
 void tguiEditBoxRenderer_setTextureDisabled(tguiRenderer* renderer, sfTexture* texture)

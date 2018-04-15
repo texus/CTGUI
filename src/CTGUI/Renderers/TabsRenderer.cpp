@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -100,6 +100,16 @@ sfColor tguiTabsRenderer_getSelectedBackgroundColorHover(const tguiRenderer* ren
     return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColorHover());
 }
 
+void tguiTabsRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
@@ -142,6 +152,16 @@ sfColor tguiTabsRenderer_getSelectedTextColorHover(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getSelectedTextColorHover());
 }
 
+void tguiTabsRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTabsRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
@@ -164,6 +184,11 @@ void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, sfTexture* texture)
 void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureSelectedTab(*texture->This);
+}
+
+void tguiTabsRenderer_setTextureDisabledTab(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureDisabledTab(*texture->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

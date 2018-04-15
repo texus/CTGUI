@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2016 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2018 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -44,6 +44,8 @@ CTGUI_API void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* rendere
 CTGUI_API sfColor tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
 CTGUI_API void tguiTabsRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTabsRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getTextColor(const tguiRenderer* renderer);
@@ -53,12 +55,15 @@ CTGUI_API void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfC
 CTGUI_API sfColor tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer);
 CTGUI_API void tguiTabsRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getSelectedTextColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiTabsRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTabsRenderer_getTextColorDisabled(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiTabsRenderer_setTextureDisabledTab(tguiRenderer* renderer, sfTexture* texture);
 
 CTGUI_API void tguiTabsRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide);
 CTGUI_API float tguiTabsRenderer_getDistanceToSide(const tguiRenderer* renderer);
