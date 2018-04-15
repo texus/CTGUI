@@ -240,6 +240,6 @@ endif()
 
 # Install the binaries to the lib folder
 install(TARGETS ctgui
-        RUNTIME DESTINATION lib COMPONENT bin
+        RUNTIME DESTINATION bin COMPONENT bin
         LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT bin 
         ARCHIVE DESTINATION lib${LIB_SUFFIX} COMPONENT devel)
