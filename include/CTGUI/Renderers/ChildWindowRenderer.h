@@ -48,6 +48,9 @@ CTGUI_API sfColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer*
 CTGUI_API void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer);
 
+CTGUI_API void tguiChildWindowRenderer_setBorderBelowTitleBar(tguiRenderer* renderer, float border);
+CTGUI_API float tguiChildWindowRenderer_getBorderBelowTitleBar(tguiRenderer* renderer);
+
 CTGUI_API void tguiChildWindowRenderer_setTitleBarHeight(tguiRenderer* renderer, float height);
 CTGUI_API float tguiChildWindowRenderer_getTitleBarHeight(tguiRenderer* renderer);
 
@@ -56,6 +59,9 @@ CTGUI_API float tguiChildWindowRenderer_getDistanceToSide(tguiRenderer* renderer
 
 CTGUI_API void tguiChildWindowRenderer_setPaddingBetweenButtons(tguiRenderer* renderer, float padding);
 CTGUI_API float tguiChildWindowRenderer_getPaddingBetweenButtons(tguiRenderer* renderer);
+
+CTGUI_API void tguiChildWindowRenderer_setMinimumResizableBorderWidth(tguiRenderer* renderer, float minimumBorderWidth);
+CTGUI_API float tguiChildWindowRenderer_getMinimumResizableBorderWidth(tguiRenderer* renderer);
 
 CTGUI_API void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, sfBool showTitle);
 CTGUI_API sfBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer);

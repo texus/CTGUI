@@ -49,15 +49,3 @@ void tguiPictureRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTexture(*texture->This);
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiPictureRenderer_setIgnoreTransparentParts(tguiRenderer* renderer, sfBool ignore)
-{
-    DOWNCAST(renderer->This)->setIgnoreTransparentParts(ignore != 0);
-}
-
-sfBool tguiPictureRenderer_getIgnoreTransparentParts(tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getIgnoreTransparentParts();
-}

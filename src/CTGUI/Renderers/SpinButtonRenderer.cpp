@@ -59,14 +59,14 @@ tguiOutline* tguiSpinButtonRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setSpaceBetweenArrows(tguiRenderer* renderer, float spaceBetweenArrows)
+void tguiSpinButtonRenderer_setBorderBetweenArrows(tguiRenderer* renderer, float border)
 {
-    DOWNCAST(renderer->This)->setSpaceBetweenArrows(spaceBetweenArrows);
+    DOWNCAST(renderer->This)->setBorderBetweenArrows(border);
 }
 
-float tguiSpinButtonRenderer_getSpaceBetweenArrows(const tguiRenderer* renderer)
+float tguiSpinButtonRenderer_getBorderBetweenArrows(const tguiRenderer* renderer)
 {
-    return DOWNCAST(renderer->This)->getSpaceBetweenArrows();
+    return DOWNCAST(renderer->This)->getBorderBetweenArrows();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

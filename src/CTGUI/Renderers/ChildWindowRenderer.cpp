@@ -108,6 +108,18 @@ sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindowRenderer_setBorderBelowTitleBar(tguiRenderer* renderer, float border)
+{
+    DOWNCAST(renderer->This)->setBorderBelowTitleBar(border);
+}
+
+float tguiChildWindowRenderer_getBorderBelowTitleBar(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getBorderBelowTitleBar();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindowRenderer_setTitleBarHeight(tguiRenderer* renderer, float height)
 {
     DOWNCAST(renderer->This)->setTitleBarHeight(height);
@@ -140,6 +152,18 @@ void tguiChildWindowRenderer_setPaddingBetweenButtons(tguiRenderer* renderer, fl
 float tguiChildWindowRenderer_getPaddingBetweenButtons(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getPaddingBetweenButtons();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindowRenderer_setMinimumResizableBorderWidth(tguiRenderer* renderer, float minimumBorderWidth)
+{
+    DOWNCAST(renderer->This)->setMinimumResizableBorderWidth(minimumBorderWidth);
+}
+
+float tguiChildWindowRenderer_getMinimumResizableBorderWidth(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getMinimumResizableBorderWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

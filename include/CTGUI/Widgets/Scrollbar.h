@@ -31,8 +31,8 @@
 
 CTGUI_API tguiWidget* tguiScrollbar_create(void);
 
-CTGUI_API void tguiScrollbar_setLowValue(tguiWidget* widget, unsigned int lowValue);
-CTGUI_API unsigned int tguiScrollbar_getLowValue(const tguiWidget* widget);
+CTGUI_API void tguiScrollbar_setViewportSize(tguiWidget* widget, unsigned int viewport);
+CTGUI_API unsigned int tguiScrollbar_getViewportSize(const tguiWidget* widget);
 
 CTGUI_API void tguiScrollbar_setMaximum(tguiWidget* widget, unsigned int maximum);
 CTGUI_API unsigned int tguiScrollbar_getMaximum(const tguiWidget* widget);

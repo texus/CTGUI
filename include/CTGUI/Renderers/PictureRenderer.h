@@ -35,8 +35,5 @@ CTGUI_API tguiRenderer* tguiPictureRenderer_copy(const tguiRenderer* other);
 
 CTGUI_API void tguiPictureRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture);
 
-CTGUI_API void tguiPictureRenderer_setIgnoreTransparentParts(tguiRenderer* renderer, sfBool ignore);
-CTGUI_API sfBool tguiPictureRenderer_getIgnoreTransparentParts(tguiRenderer* renderer);
-
 #endif // CTGUI_PICTURE_RENDERER_H
 

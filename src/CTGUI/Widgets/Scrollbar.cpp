@@ -39,14 +39,14 @@ tguiWidget* tguiScrollbar_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbar_setLowValue(tguiWidget* widget, unsigned int lowValue)
+void tguiScrollbar_setViewportSize(tguiWidget* widget, unsigned int viewport)
 {
-    DOWNCAST(widget->This)->setLowValue(lowValue);
+    DOWNCAST(widget->This)->setViewportSize(viewport);
 }
 
-unsigned int tguiScrollbar_getLowValue(const tguiWidget* widget)
+unsigned int tguiScrollbar_getViewportSize(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getLowValue();
+    return DOWNCAST(widget->This)->getViewportSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

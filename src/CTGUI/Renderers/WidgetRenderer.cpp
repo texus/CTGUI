@@ -71,6 +71,18 @@ void tguiWidgetRenderer_setFont(tguiRenderer* renderer, sfFont* font)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidgetRenderer_setTransparentTexture(tguiRenderer* renderer, sfBool ignoreTransparentParts)
+{
+    renderer->This->setTransparentTexture(ignoreTransparentParts != 0);
+}
+
+sfBool tguiWidgetRenderer_getTransparentTexture(tguiRenderer* renderer)
+{
+    return renderer->This->getTransparentTexture();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* renderer)
 {
     return new tguiRendererData(renderer->This->getData());
