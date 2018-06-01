@@ -24,4 +24,4 @@
 
 #include <CTGUI/InternalGlobal.h>
 
-std::string tguiErrorMessage; // Holds the error when a pointer to it is returned to a binding on top of CTGUI
+std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()

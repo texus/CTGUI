@@ -69,7 +69,5 @@ CTGUI_API float tguiTabs_getMaximumTabWidth(const tguiWidget* widget);
 CTGUI_API void tguiTabs_setMinimumTabWidth(tguiWidget* widget, float minimumTabWidth);
 CTGUI_API float tguiTabs_getMinimumTabWidth(const tguiWidget* widget);
 
-CTGUI_API void tguiTabs_connect_onTabSelect(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
-
 #endif // CTGUI_TABS_H
 

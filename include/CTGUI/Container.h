@@ -42,8 +42,8 @@ CTGUI_API sfBool tguiContainer_focusPreviousWidget(tguiWidget* container);
 
 CTGUI_API sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container);
 
-CTGUI_API void tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, const char** error);
-CTGUI_API void tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename, const char** error);
+CTGUI_API sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename);
+CTGUI_API sfBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename);
 
 #endif // CTGUI_CONTAINER_H
 

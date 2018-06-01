@@ -46,7 +46,5 @@ CTGUI_API float tguiSlider_getStep(const tguiWidget* widget);
 CTGUI_API void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirection);
 CTGUI_API sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget);
 
-CTGUI_API void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error);
-
 #endif // CTGUI_SLIDER_H
 

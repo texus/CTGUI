@@ -49,34 +49,32 @@ void tguiTheme_destroy(tguiTheme* theme)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTheme_load(tguiTheme* theme, const char* filename, const char** error)
+sfBool tguiTheme_load(tguiTheme* theme, const char* filename)
 {
     try
     {
         theme->This.load(filename);
-        *error = nullptr;
+        return true;
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
+        return false;
     }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id, const char** error)
+tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id)
 {
     try
     {
         std::shared_ptr<tgui::RendererData> data = theme->This.getRenderer(id);
-        *error = nullptr;
         return new tguiRendererData(data);
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
         return nullptr;
     }
 }

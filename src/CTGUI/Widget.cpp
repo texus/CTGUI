@@ -99,104 +99,58 @@ sfVector2f tguiWidget_getFullSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error)
+template <typename Func>
+static unsigned int connectSignal(tguiWidget* widget, const char* signalName, Func&& func)
 {
     try
     {
-        const unsigned int id = widget->This->connect(signalName, function);
-        *error = nullptr;
-        return id;
+        return widget->This->connect(signalName, func);
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
         return 0;
     }
 }
 
-void tguiWidget_connect_onPositionChange(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
+unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)())
 {
-    try
-    {
-        widget->This->onPositionChange.connect([function](const sf::Vector2f& pos){ function({pos.x, pos.y}); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return connectSignal(widget, signalName, function);
 }
 
-void tguiWidget_connect_onSizeChange(tguiWidget* widget, void (*function)(sfVector2f), const char** error)
+unsigned int tguiWidget_connectVector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f))
 {
-    try
-    {
-        widget->This->onSizeChange.connect([function](const sf::Vector2f& size){ function({size.x, size.y}); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return connectSignal(widget, signalName, function);
 }
 
-void tguiWidget_connect_onMouseEnter(tguiWidget* widget, void (*function)(), const char** error)
+unsigned int tguiWidget_connectString(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*))
 {
-    try
-    {
-        widget->This->onMouseEnter.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return connectSignal(widget, signalName, function);
 }
 
-void tguiWidget_connect_onMouseLeave(tguiWidget* widget, void (*function)(), const char** error)
+unsigned int tguiWidget_connectInt(tguiWidget* widget, const char* signalName, void (*function)(int))
 {
-    try
-    {
-        widget->This->onMouseLeave.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return connectSignal(widget, signalName, function);
 }
 
-void tguiWidget_connect_onFocus(tguiWidget* widget, void (*function)(), const char** error)
+unsigned int tguiWidget_connectUInt(tguiWidget* widget, const char* signalName, void (*function)(unsigned int))
 {
-    try
-    {
-        widget->This->onFocus.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return connectSignal(widget, signalName, function);
 }
 
-void tguiWidget_connect_onUnfocus(tguiWidget* widget, void (*function)(), const char** error)
+unsigned int tguiWidget_connectFloat(tguiWidget* widget, const char* signalName, void (*function)(float))
 {
-    try
-    {
-        widget->This->onUnfocus.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
+    return connectSignal(widget, signalName, function);
+}
+
+unsigned int tguiWidget_connectRange(tguiWidget* widget, const char* signalName, void (*function)(float, float))
+{
+    return connectSignal(widget, signalName, function);
+}
+
+unsigned int tguiWidget_connectItemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*))
+{
+    return connectSignal(widget, signalName, function);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -216,17 +170,17 @@ void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalName)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error)
+sfBool tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer)
 {
     try
     {
         widget->This->setRenderer(renderer->This);
-        *error = nullptr;
+        return true;
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
+        return false;
     }
 }
 

@@ -193,30 +193,30 @@ float tguiGui_getOpacity(const tguiGui* gui)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, const char** error)
+sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename)
 {
     try
     {
         gui->This.loadWidgetsFromFile(filename);
-        *error = nullptr;
+        return true;
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
+        return false;
     }
 }
 
-void tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename, const char** error)
+sfBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename)
 {
     try
     {
         gui->This.saveWidgetsToFile(filename);
-        *error = nullptr;
+        return true;
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
+        return false;
     }
 }

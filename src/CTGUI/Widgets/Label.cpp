@@ -118,19 +118,3 @@ sfBool tguiLabel_isIgnoringMouseEvents(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isIgnoringMouseEvents();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabel_connect_onDoubleClick(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onDoubleClick.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

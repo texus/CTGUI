@@ -39,7 +39,5 @@ CTGUI_API unsigned int tguiMessageBox_getTextSize(const tguiWidget* widget);
 
 CTGUI_API void tguiMessageBox_addButton(tguiWidget* widget, const sfUint32* text);
 
-CTGUI_API void tguiMessageBox_connect_onButtonPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
-
 #endif // CTGUI_MESSAGE_BOX_H
 

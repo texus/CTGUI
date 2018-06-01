@@ -60,19 +60,3 @@ unsigned int tguiButton_getTextSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getTextSize();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButton_connect_onPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onPress.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

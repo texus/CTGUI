@@ -96,19 +96,3 @@ sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoHide();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiScrollbar_connect_onValueChange(tguiWidget* widget, void (*function)(unsigned int), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onValueChange.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

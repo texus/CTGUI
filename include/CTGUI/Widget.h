@@ -45,18 +45,19 @@ CTGUI_API void tguiWidget_setSizeFromLayout(tguiWidget* widget, tguiLayout2d* la
 CTGUI_API sfVector2f tguiWidget_getSize(const tguiWidget* widget);
 CTGUI_API sfVector2f tguiWidget_getFullSize(const tguiWidget* widget);
 
-CTGUI_API unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)(), const char** error);
-CTGUI_API void tguiWidget_connect_onPositionChange(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
-CTGUI_API void tguiWidget_connect_onSizeChange(tguiWidget* widget, void (*function)(sfVector2f), const char** error);
-CTGUI_API void tguiWidget_connect_onMouseEnter(tguiWidget* widget, void (*function)(), const char** error);
-CTGUI_API void tguiWidget_connect_onMouseLeave(tguiWidget* widget, void (*function)(), const char** error);
-CTGUI_API void tguiWidget_connect_onFocus(tguiWidget* widget, void (*function)(), const char** error);
-CTGUI_API void tguiWidget_connect_onUnfocus(tguiWidget* widget, void (*function)(), const char** error);
+CTGUI_API unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)());
+CTGUI_API unsigned int tguiWidget_connectVector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f));
+CTGUI_API unsigned int tguiWidget_connectString(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*));
+CTGUI_API unsigned int tguiWidget_connectInt(tguiWidget* widget, const char* signalName, void (*function)(int));
+CTGUI_API unsigned int tguiWidget_connectUInt(tguiWidget* widget, const char* signalName, void (*function)(unsigned int));
+CTGUI_API unsigned int tguiWidget_connectFloat(tguiWidget* widget, const char* signalName, void (*function)(float));
+CTGUI_API unsigned int tguiWidget_connectRange(tguiWidget* widget, const char* signalName, void (*function)(float, float));
+CTGUI_API unsigned int tguiWidget_connectItemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*));
 
 CTGUI_API void tguiWidget_disconnect(tguiWidget* widget, unsigned int id);
 CTGUI_API void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalName);
 
-CTGUI_API void tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer, const char** error);
+CTGUI_API sfBool tguiWidget_setRenderer(tguiWidget* widget, tguiRendererData* renderer);
 CTGUI_API tguiRenderer* tguiWidget_getRenderer(const tguiWidget* widget);
 CTGUI_API tguiRenderer* tguiWidget_getSharedRenderer(const tguiWidget* widget);
 

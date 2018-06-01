@@ -32,9 +32,9 @@ CTGUI_API tguiTheme* tguiTheme_create(void);
 CTGUI_API tguiTheme* tguiTheme_copy(const tguiTheme* theme);
 CTGUI_API void tguiTheme_destroy(tguiTheme* theme);
 
-CTGUI_API void tguiTheme_load(tguiTheme* theme, const char* filename, const char** error);
+CTGUI_API sfBool tguiTheme_load(tguiTheme* theme, const char* filename);
 
-CTGUI_API tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id, const char** error);
+CTGUI_API tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id);
 CTGUI_API void tguiTheme_addRenderer(tguiTheme* theme, const char* id, tguiRendererData* renderer);
 CTGUI_API sfBool tguiTheme_removeRenderer(tguiTheme* theme, const char* id);
 

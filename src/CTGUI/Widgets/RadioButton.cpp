@@ -84,33 +84,3 @@ sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isTextClickable();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRadioButton_connect_onCheck(tguiWidget* widget, void (*function)(sfBool), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onCheck.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}
-
-void tguiRadioButton_connect_onUncheck(tguiWidget* widget, void (*function)(sfBool), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onUncheck.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

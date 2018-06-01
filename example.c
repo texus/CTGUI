@@ -1,5 +1,4 @@
 #include <CTGUI/CTGUI.h>
-#include <assert.h>
 #include <stdio.h>
 
 void func()
@@ -25,9 +24,7 @@ void main()
     sfVector2f size = {200, 40};
     tguiWidget_setSize(button, size);
 
-    const char* error;
-    tguiWidget_connect(button, "pressed", func, &error);
-    assert(error == NULL);
+    tguiWidget_connect(button, "pressed", func);
 
     while (sfRenderWindow_isOpen(window))
     {

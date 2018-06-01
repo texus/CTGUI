@@ -96,19 +96,3 @@ sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getInvertedDirection();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSlider_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onValueChange.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

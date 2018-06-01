@@ -168,33 +168,3 @@ const char* tguiEditBox_getInputValidator(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getInputValidator().c_str();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBox_connect_onTextChange(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onTextChange.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}
-
-void tguiEditBox_connect_onReturnKeyPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onReturnKeyPress.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

@@ -96,19 +96,3 @@ float tguiRangeSlider_getStep(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getStep();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(float, float), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onRangeChange.connect(function);
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

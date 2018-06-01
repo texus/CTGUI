@@ -54,7 +54,5 @@ CTGUI_API sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget
 
 CTGUI_API size_t tguiTextBox_getLinesCount(const tguiWidget* widget);
 
-CTGUI_API void tguiTextBox_connect_onTextChange(tguiWidget* widget, void (*function)(const sfUint32*), const char** error);
-
 #endif // CTGUI_TEXT_BOX_H
 

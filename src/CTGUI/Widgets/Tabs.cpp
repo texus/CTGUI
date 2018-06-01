@@ -189,19 +189,3 @@ float tguiTabs_getMinimumTabWidth(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimumTabWidth();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTabs_connect_onTabSelect(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onTabSelect.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

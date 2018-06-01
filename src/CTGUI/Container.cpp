@@ -106,30 +106,30 @@ sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, const char** error)
+sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename)
 {
     try
     {
         DOWNCAST(container->This)->loadWidgetsFromFile(filename);
-        *error = nullptr;
+        return true;
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
+        return false;
     }
 }
 
-void tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename, const char** error)
+sfBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename)
 {
     try
     {
         DOWNCAST(container->This)->saveWidgetsToFile(filename);
-        *error = nullptr;
+        return true;
     }
     catch (const tgui::Exception& e)
     {
         tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
+        return false;
     }
 }

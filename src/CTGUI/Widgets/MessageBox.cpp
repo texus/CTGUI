@@ -67,19 +67,3 @@ void tguiMessageBox_addButton(tguiWidget* widget, const sfUint32* text)
 {
     DOWNCAST(widget->This)->addButton(text);
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMessageBox_connect_onButtonPress(tguiWidget* widget, void (*function)(const sfUint32*), const char** error)
-{
-    try
-    {
-        DOWNCAST(widget->This)->onButtonPress.connect([function](const sf::String& str){ function(str.getData()); });
-        *error = nullptr;
-    }
-    catch (const tgui::Exception& e)
-    {
-        tguiErrorMessage = e.what();
-        *error = tguiErrorMessage.c_str();
-    }
-}

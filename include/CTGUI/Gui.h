@@ -62,8 +62,8 @@ CTGUI_API void tguiGui_setFont(tguiGui* gui, sfFont* font);
 CTGUI_API void tguiGui_setOpacity(tguiGui* gui, float alpha);
 CTGUI_API float tguiGui_getOpacity(const tguiGui* gui);
 
-CTGUI_API void tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, const char** error);
-CTGUI_API void tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename, const char** error);
+CTGUI_API sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename);
+CTGUI_API sfBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename);
 
 #endif // CTGUI_GUI_H
 

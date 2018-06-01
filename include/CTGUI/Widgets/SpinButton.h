@@ -43,7 +43,5 @@ CTGUI_API float tguiSpinButton_getValue(const tguiWidget* widget);
 CTGUI_API void tguiSpinButton_setStep(tguiWidget* widget, float step);
 CTGUI_API float tguiSpinButton_getStep(const tguiWidget* widget);
 
-CTGUI_API void tguiSpinButton_connect_onValueChange(tguiWidget* widget, void (*function)(float), const char** error);
-
 #endif // CTGUI_SPIN_BUTTON_H
 

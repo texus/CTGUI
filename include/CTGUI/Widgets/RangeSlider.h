@@ -46,7 +46,5 @@ CTGUI_API float tguiRangeSlider_getSelectionEnd(const tguiWidget* widget);
 CTGUI_API void tguiRangeSlider_setStep(tguiWidget* widget, float step);
 CTGUI_API float tguiRangeSlider_getStep(const tguiWidget* widget);
 
-CTGUI_API void tguiRangeSlider_connect_onRangeChange(tguiWidget* widget, void (*function)(float, float), const char** error);
-
 #endif // CTGUI_RANGE_SLIDER_H
 
