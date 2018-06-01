@@ -52,9 +52,9 @@ sfBool tguiGrid_getAutoSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* borders, tguiAlignment alignment)
+void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* padding, tguiAlignment alignment)
 {
-    DOWNCAST(grid->This)->addWidget(widget->This, row, col, borders->This, static_cast<tgui::Grid::Alignment>(alignment));
+    DOWNCAST(grid->This)->addWidget(widget->This, row, col, padding->This, static_cast<tgui::Grid::Alignment>(alignment));
 }
 
 tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col)
@@ -68,24 +68,24 @@ tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGrid_setWidgetBorders(tguiWidget* grid, tguiWidget* widget, tguiOutline* borders)
+void tguiGrid_setWidgetPadding(tguiWidget* grid, tguiWidget* widget, tguiOutline* padding)
 {
-    DOWNCAST(grid->This)->setWidgetBorders(widget->This, borders->This);
+    DOWNCAST(grid->This)->setWidgetPadding(widget->This, padding->This);
 }
 
-void tguiGrid_setWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline* borders)
+void tguiGrid_setWidgetPaddingByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline* padding)
 {
-    DOWNCAST(grid->This)->setWidgetBorders(row, col, borders->This);
+    DOWNCAST(grid->This)->setWidgetPadding(row, col, padding->This);
 }
 
-tguiOutline* tguiGrid_getWidgetBorders(tguiWidget* grid, tguiWidget* widget)
+tguiOutline* tguiGrid_getWidgetPadding(tguiWidget* grid, tguiWidget* widget)
 {
-    return new tguiOutline(DOWNCAST(grid->This)->getWidgetBorders(widget->This));
+    return new tguiOutline(DOWNCAST(grid->This)->getWidgetPadding(widget->This));
 }
 
-tguiOutline* tguiGrid_getWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col)
+tguiOutline* tguiGrid_getWidgetPaddingByCell(tguiWidget* grid, size_t row, size_t col)
 {
-    return new tguiOutline(DOWNCAST(grid->This)->getWidgetBorders(row, col));
+    return new tguiOutline(DOWNCAST(grid->This)->getWidgetPadding(row, col));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

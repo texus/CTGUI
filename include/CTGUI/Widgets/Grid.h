@@ -36,13 +36,13 @@ CTGUI_API tguiWidget* tguiGrid_create(void);
 CTGUI_API void tguiGrid_setAutoSize(tguiWidget* widget, sfBool autoSize);
 CTGUI_API sfBool tguiGrid_getAutoSize(const tguiWidget* widget);
 
-CTGUI_API void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* borders, tguiAlignment alignment);
+CTGUI_API void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* padding, tguiAlignment alignment);
 CTGUI_API tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col);
 
-CTGUI_API void tguiGrid_setWidgetBorders(tguiWidget* grid, tguiWidget* widget, tguiOutline* borders);
-CTGUI_API void tguiGrid_setWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline* borders);
-CTGUI_API tguiOutline* tguiGrid_getWidgetBorders(tguiWidget* grid, tguiWidget* widget);
-CTGUI_API tguiOutline* tguiGrid_getWidgetBordersByCell(tguiWidget* grid, size_t row, size_t col);
+CTGUI_API void tguiGrid_setWidgetPadding(tguiWidget* grid, tguiWidget* widget, tguiOutline* padding);
+CTGUI_API void tguiGrid_setWidgetPaddingByCell(tguiWidget* grid, size_t row, size_t col, tguiOutline* padding);
+CTGUI_API tguiOutline* tguiGrid_getWidgetPadding(tguiWidget* grid, tguiWidget* widget);
+CTGUI_API tguiOutline* tguiGrid_getWidgetPaddingByCell(tguiWidget* grid, size_t row, size_t col);
 
 CTGUI_API void tguiGrid_setWidgetAlignment(tguiWidget* grid, tguiWidget* widget, tguiAlignment alignment);
 CTGUI_API void tguiGrid_setWidgetAlignmentByCell(tguiWidget* grid, size_t row, size_t col, tguiAlignment alignment);
