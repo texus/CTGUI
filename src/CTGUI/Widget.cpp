@@ -120,12 +120,12 @@ unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void
 
 unsigned int tguiWidget_connectVector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f))
 {
-    return connectSignal(widget, signalName, function);
+    return connectSignal(widget, signalName, [function](const sf::Vector2f& pos){ function({pos.x, pos.y}); });
 }
 
 unsigned int tguiWidget_connectString(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*))
 {
-    return connectSignal(widget, signalName, function);
+    return connectSignal(widget, signalName, [function](const sf::String& str){ function(str.getData()); });
 }
 
 unsigned int tguiWidget_connectInt(tguiWidget* widget, const char* signalName, void (*function)(int))
@@ -150,7 +150,7 @@ unsigned int tguiWidget_connectRange(tguiWidget* widget, const char* signalName,
 
 unsigned int tguiWidget_connectItemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*))
 {
-    return connectSignal(widget, signalName, function);
+    return connectSignal(widget, signalName, [function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
