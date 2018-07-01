@@ -181,9 +181,19 @@ void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, sfTexture* texture)
     DOWNCAST(renderer->This)->setTextureTab(*texture->This);
 }
 
+void tguiTabsRenderer_setTextureTabHover(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureTabHover(*texture->This);
+}
+
 void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureSelectedTab(*texture->This);
+}
+
+void tguiTabsRenderer_setTextureSelectedTabHover(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureSelectedTabHover(*texture->This);
 }
 
 void tguiTabsRenderer_setTextureDisabledTab(tguiRenderer* renderer, sfTexture* texture)

@@ -62,7 +62,9 @@ CTGUI_API void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor c
 CTGUI_API sfColor tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiTabsRenderer_setTextureTabHover(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiTabsRenderer_setTextureSelectedTabHover(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiTabsRenderer_setTextureDisabledTab(tguiRenderer* renderer, sfTexture* texture);
 
 CTGUI_API void tguiTabsRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide);

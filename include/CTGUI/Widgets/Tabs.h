@@ -41,12 +41,12 @@ CTGUI_API const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t inde
 
 CTGUI_API sfBool tguiTabs_changeText(tguiWidget* widget, size_t index, const sfUint32* text);
 
-CTGUI_API void tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API void tguiTabs_selectByIndex(tguiWidget* widget, size_t index);
+CTGUI_API sfBool tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API sfBool tguiTabs_selectByIndex(tguiWidget* widget, size_t index);
 CTGUI_API void tguiTabs_deselect(tguiWidget* widget);
 
-CTGUI_API void tguiTabs_removeByText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API void tguiTabs_removeByIndex(tguiWidget* widget, size_t index);
+CTGUI_API sfBool tguiTabs_removeByText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API sfBool tguiTabs_removeByIndex(tguiWidget* widget, size_t index);
 CTGUI_API void tguiTabs_removeAll(tguiWidget* widget);
 
 CTGUI_API const sfUint32* tguiTabs_getSelected(const tguiWidget* widget);

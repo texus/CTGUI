@@ -96,3 +96,10 @@ sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoHide();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+float tguiScrollbar_getDefaultWidth(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getDefaultWidth();
+}

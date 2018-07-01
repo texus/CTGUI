@@ -49,5 +49,8 @@ CTGUI_API void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* renderer, 
 CTGUI_API void tguiChatBoxRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* renderer);
 
+CTGUI_API void tguiChatBoxRenderer_setScrollbarWidth(tguiRenderer* renderer, float width);
+CTGUI_API float tguiChatBoxRenderer_getScrollbarWidth(const tguiRenderer* renderer);
+
 #endif // CTGUI_CHAT_BOX_RENDERER_H
 

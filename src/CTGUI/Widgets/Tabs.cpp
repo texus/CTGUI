@@ -77,14 +77,14 @@ sfBool tguiTabs_changeText(tguiWidget* widget, size_t index, const sfUint32* tex
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text)
+sfBool tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text)
 {
-    DOWNCAST(widget->This)->select(text);
+    return DOWNCAST(widget->This)->select(text);
 }
 
-void tguiTabs_selectByIndex(tguiWidget* widget, size_t index)
+sfBool tguiTabs_selectByIndex(tguiWidget* widget, size_t index)
 {
-    DOWNCAST(widget->This)->select(index);
+    return DOWNCAST(widget->This)->select(index);
 }
 
 void tguiTabs_deselect(tguiWidget* widget)
@@ -94,14 +94,14 @@ void tguiTabs_deselect(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_removeByText(tguiWidget* widget, const sfUint32* text)
+sfBool tguiTabs_removeByText(tguiWidget* widget, const sfUint32* text)
 {
-    DOWNCAST(widget->This)->remove(text);
+    return DOWNCAST(widget->This)->remove(text);
 }
 
-void tguiTabs_removeByIndex(tguiWidget* widget, size_t index)
+sfBool tguiTabs_removeByIndex(tguiWidget* widget, size_t index)
 {
-    DOWNCAST(widget->This)->remove(index);
+    return DOWNCAST(widget->This)->remove(index);
 }
 
 void tguiTabs_removeAll(tguiWidget* widget)

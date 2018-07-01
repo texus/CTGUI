@@ -62,5 +62,8 @@ CTGUI_API float tguiTextBoxRenderer_getCaretWidth(const tguiRenderer* renderer);
 CTGUI_API void tguiTextBoxRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiTextBoxRenderer_getScrollbar(const tguiRenderer* renderer);
 
+CTGUI_API void tguiTextBoxRenderer_setScrollbarWidth(tguiRenderer* renderer, float width);
+CTGUI_API float tguiTextBoxRenderer_getScrollbarWidth(const tguiRenderer* renderer);
+
 #endif // CTGUI_TEXT_BOX_RENDERER_H
 

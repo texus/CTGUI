@@ -69,5 +69,8 @@ CTGUI_API sfUint32 tguiListBoxRenderer_getSelectedTextStyle(const tguiRenderer* 
 CTGUI_API void tguiListBoxRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* renderer);
 
+CTGUI_API void tguiListBoxRenderer_setScrollbarWidth(tguiRenderer* renderer, float width);
+CTGUI_API float tguiListBoxRenderer_getScrollbarWidth(const tguiRenderer* renderer);
+
 #endif // CTGUI_LIST_BOX_RENDERER_H
 

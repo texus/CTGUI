@@ -166,3 +166,15 @@ tguiRendererData* tguiTextBoxRenderer_getScrollbar(const tguiRenderer* renderer)
 {
     return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextBoxRenderer_setScrollbarWidth(tguiRenderer* renderer, float width)
+{
+    DOWNCAST(renderer->This)->setScrollbarWidth(width);
+}
+
+float tguiTextBoxRenderer_getScrollbarWidth(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getScrollbarWidth();
+}
