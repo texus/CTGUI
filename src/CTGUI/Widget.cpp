@@ -153,6 +153,11 @@ unsigned int tguiWidget_connectItemSelected(tguiWidget* widget, const char* sign
     return connectSignal(widget, signalName, [function](const sf::String& item, const sf::String& id){ function(item.getData(), id.getData()); });
 }
 
+unsigned int tguiWidget_connectAnimation(tguiWidget* widget, const char* signalName, void (*function)(tguiShowAnimationType, sfBool))
+{
+    return connectSignal(widget, signalName, [function](tgui::ShowAnimationType type, bool visible){ function(static_cast<tguiShowAnimationType>(type), visible); });
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiWidget_disconnect(tguiWidget* widget, unsigned int id)

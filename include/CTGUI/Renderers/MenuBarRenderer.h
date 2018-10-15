@@ -42,6 +42,8 @@ CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* renderer, sfColor 
 CTGUI_API sfColor tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer);
 CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* renderer);
 
 CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
 CTGUI_API void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, sfTexture* texture);

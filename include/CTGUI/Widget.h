@@ -53,6 +53,7 @@ CTGUI_API unsigned int tguiWidget_connectUInt(tguiWidget* widget, const char* si
 CTGUI_API unsigned int tguiWidget_connectFloat(tguiWidget* widget, const char* signalName, void (*function)(float));
 CTGUI_API unsigned int tguiWidget_connectRange(tguiWidget* widget, const char* signalName, void (*function)(float, float));
 CTGUI_API unsigned int tguiWidget_connectItemSelected(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*, const sfUint32*));
+CTGUI_API unsigned int tguiWidget_connectAnimation(tguiWidget* widget, const char* signalName, void (*function)(tguiShowAnimationType, sfBool));
 
 CTGUI_API void tguiWidget_disconnect(tguiWidget* widget, unsigned int id);
 CTGUI_API void tguiWidget_disconnectAll(tguiWidget* widget, const char* signalName);

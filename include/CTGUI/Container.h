@@ -34,12 +34,13 @@ CTGUI_API void tguiContainer_add(tguiWidget* container, tguiWidget* widget, cons
 CTGUI_API tguiWidget* tguiContainer_get(tguiWidget* container, const sfUint32* widgetName);
 CTGUI_API tguiWidget** tguiContainer_getWidgets(tguiWidget* container, size_t* count);
 CTGUI_API const sfUint32** tguiContainer_getWidgetNames(tguiWidget* container, size_t* count);
-CTGUI_API void tguiContainer_remove(tguiWidget* container, tguiWidget* widget);
+CTGUI_API sfBool tguiContainer_remove(tguiWidget* container, tguiWidget* widget);
 CTGUI_API void tguiContainer_removeAllWidgets(tguiWidget* container);
 
 CTGUI_API sfBool tguiContainer_focusNextWidget(tguiWidget* container);
 CTGUI_API sfBool tguiContainer_focusPreviousWidget(tguiWidget* container);
 
+CTGUI_API sfVector2f tguiContainer_getInnerSize(tguiWidget* container);
 CTGUI_API sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container);
 
 CTGUI_API sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename);

@@ -56,5 +56,8 @@ CTGUI_API sfBool tguiChildWindow_isResizable(const tguiWidget* widget);
 CTGUI_API void tguiChildWindow_setKeepInParent(tguiWidget* widget, sfBool keepInParent);
 CTGUI_API sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget);
 
+CTGUI_API void tguiChildWindow_setPositionLocked(tguiWidget* widget, sfBool positionLocked);
+CTGUI_API sfBool tguiChildWindow_isPositionLocked(const tguiWidget* widget);
+
 #endif // CTGUI_CHILD_WINDOW_H
 

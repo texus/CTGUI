@@ -34,10 +34,19 @@ CTGUI_API tguiWidget* tguiMenuBar_create(void);
 CTGUI_API void tguiMenuBar_addMenu(tguiWidget* widget, const sfUint32* text);
 CTGUI_API sfBool tguiMenuBar_addMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* text);
 CTGUI_API sfBool tguiMenuBar_addMenuItemToLastMenu(tguiWidget* widget, const sfUint32* text);
+CTGUI_API sfBool tguiMenuBar_addMenuItemHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool createParents);
 
 CTGUI_API sfBool tguiMenuBar_removeMenu(tguiWidget* widget, const sfUint32* menu);
 CTGUI_API sfBool tguiMenuBar_removeMenuItem(tguiWidget* widget, const sfUint32* menu, const sfUint32* menuItem);
+CTGUI_API sfBool tguiMenuBar_removeMenuItemHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool removeParentsWhenEmpty);
 CTGUI_API void tguiMenuBar_removeAllMenus(tguiWidget* widget);
+
+CTGUI_API sfBool tguiMenuBar_setMenuEnabled(tguiWidget* widget, const sfUint32* text, sfBool enabled);
+CTGUI_API sfBool tguiMenuBar_getMenuEnabled(tguiWidget* widget, const sfUint32* text);
+CTGUI_API sfBool tguiMenuBar_setMenuItemEnabled(tguiWidget* widget, const sfUint32* menu, const sfUint32* text, sfBool enabled);
+CTGUI_API sfBool tguiMenuBar_getMenuItemEnabled(tguiWidget* widget, const sfUint32* menu, const sfUint32* text);
+CTGUI_API sfBool tguiMenuBar_setMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool enabled);
+CTGUI_API sfBool tguiMenuBar_getMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength);
 
 CTGUI_API void tguiMenuBar_setTextSize(tguiWidget* widget, unsigned int size);
 CTGUI_API unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget);

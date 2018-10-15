@@ -134,3 +134,15 @@ sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isKeptInParent();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setPositionLocked(tguiWidget* widget, sfBool positionLocked)
+{
+    DOWNCAST(widget->This)->setPositionLocked(positionLocked != 0);
+}
+
+sfBool tguiChildWindow_isPositionLocked(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isPositionLocked();
+}

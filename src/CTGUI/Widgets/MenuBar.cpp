@@ -54,6 +54,16 @@ sfBool tguiMenuBar_addMenuItemToLastMenu(tguiWidget* widget, const sfUint32* tex
     return DOWNCAST(widget->This)->addMenuItem(text);
 }
 
+sfBool tguiMenuBar_addMenuItemHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool createParents)
+{
+    std::vector<sf::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (unsigned int i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(hierarcy[i]);
+
+    return DOWNCAST(widget->This)->addMenuItem(convertedHierarchy, createParents != 0);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 sfBool tguiMenuBar_removeMenu(tguiWidget* widget, const sfUint32* menu)
@@ -66,9 +76,61 @@ sfBool tguiMenuBar_removeMenuItem(tguiWidget* widget, const sfUint32* menu, cons
     return DOWNCAST(widget->This)->removeMenuItem(menu, menuItem);
 }
 
+sfBool tguiMenuBar_removeMenuItemHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool removeParentsWhenEmpty)
+{
+    std::vector<sf::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (unsigned int i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(hierarcy[i]);
+
+    return DOWNCAST(widget->This)->addMenuItem(convertedHierarchy, removeParentsWhenEmpty != 0);
+}
+
 void tguiMenuBar_removeAllMenus(tguiWidget* widget)
 {
     DOWNCAST(widget->This)->removeAllMenus();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfBool tguiMenuBar_setMenuEnabled(tguiWidget* widget, const sfUint32* menu, sfBool enabled)
+{
+    return DOWNCAST(widget->This)->setMenuEnabled(menu, enabled != 0);
+}
+
+sfBool tguiMenuBar_getMenuEnabled(tguiWidget* widget, const sfUint32* menu)
+{
+    return DOWNCAST(widget->This)->getMenuEnabled(menu);
+}
+
+sfBool tguiMenuBar_setMenuItemEnabled(tguiWidget* widget, const sfUint32* menu, const sfUint32* menuItem, sfBool enabled)
+{
+    return DOWNCAST(widget->This)->setMenuItemEnabled(menu, menuItem, enabled != 0);
+}
+
+sfBool tguiMenuBar_getMenuItemEnabled(tguiWidget* widget, const sfUint32* menu, const sfUint32* menuItem)
+{
+    return DOWNCAST(widget->This)->getMenuItemEnabled(menu, menuItem);
+}
+
+sfBool tguiMenuBar_setMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool enabled)
+{
+    std::vector<sf::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (unsigned int i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(hierarcy[i]);
+
+    return DOWNCAST(widget->This)->setMenuItemEnabled(convertedHierarchy, enabled != 0);
+}
+
+sfBool tguiMenuBar_getMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength)
+{
+    std::vector<sf::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (unsigned int i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(hierarcy[i]);
+
+    return DOWNCAST(widget->This)->getMenuItemEnabled(convertedHierarchy);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

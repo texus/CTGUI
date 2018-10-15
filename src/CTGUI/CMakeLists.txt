@@ -4,6 +4,9 @@ set(SRC
     ${SRCROOT}/Container.cpp
     ${INCROOT}/Container.h
     ${SRCROOT}/ConvertEvent.h
+    ${SRCROOT}/CustomWidgetForBindings.cpp
+    ${INCROOT}/CustomWidgetForBindings.h
+    ${SRCROOT}/CustomWidgetForBindingsStruct.h
     ${SRCROOT}/Global.cpp
     ${INCROOT}/Global.h
     ${SRCROOT}/Gui.cpp

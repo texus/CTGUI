@@ -88,6 +88,16 @@ sfColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
 
+void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)

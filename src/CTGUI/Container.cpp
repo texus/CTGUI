@@ -74,9 +74,9 @@ const sfUint32** tguiContainer_getWidgetNames(tguiWidget* container, size_t* cou
     return cNames.data();
 }
 
-void tguiContainer_remove(tguiWidget* container, tguiWidget* widget)
+sfBool tguiContainer_remove(tguiWidget* container, tguiWidget* widget)
 {
-    DOWNCAST(container->This)->remove(widget->This);
+    return DOWNCAST(container->This)->remove(widget->This);
 }
 
 void tguiContainer_removeAllWidgets(tguiWidget* container)
@@ -97,6 +97,12 @@ sfBool tguiContainer_focusPreviousWidget(tguiWidget* container)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfVector2f tguiContainer_getInnerSize(tguiWidget* container)
+{
+    const sf::Vector2f offset = DOWNCAST(container->This)->getInnerSize();
+    return {offset.x, offset.y};
+}
 
 sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container)
 {
