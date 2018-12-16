@@ -78,6 +78,8 @@ set(SRC
     ${INCROOT}/Renderers/TabsRenderer.h
     ${SRCROOT}/Renderers/TextBoxRenderer.cpp
     ${INCROOT}/Renderers/TextBoxRenderer.h
+    ${SRCROOT}/Renderers/TreeViewRenderer.cpp
+    ${INCROOT}/Renderers/TreeViewRenderer.h
     ${SRCROOT}/Renderers/WidgetRenderer.cpp
     ${INCROOT}/Renderers/WidgetRenderer.h
     ${SRCROOT}/SFML/CallbackStream.h
@@ -147,6 +149,8 @@ set(SRC
     ${SRCROOT}/Widgets/Tabs.cpp
     ${INCROOT}/Widgets/TextBox.h
     ${SRCROOT}/Widgets/TextBox.cpp
+    ${INCROOT}/Widgets/TreeView.h
+    ${SRCROOT}/Widgets/TreeView.cpp
     ${INCROOT}/Widgets/VerticalLayout.h
     ${SRCROOT}/Widgets/VerticalLayout.cpp
 )

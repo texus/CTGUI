@@ -35,9 +35,11 @@ CTGUI_API tguiWidget* tguiChatBox_create(void);
 
 CTGUI_API void tguiChatBox_addLine(tguiWidget* widget, const sfUint32* text);
 CTGUI_API void tguiChatBox_addLineWithColor(tguiWidget* widget, const sfUint32* text, sfColor color);
+CTGUI_API void tguiChatBox_addLineWithColorAndStyle(tguiWidget* widget, const sfUint32* text, sfColor color, sfUint32 style);
 
 CTGUI_API const sfUint32* tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex);
 CTGUI_API sfColor tguiChatBox_getLineColor(const tguiWidget* widget, size_t lineIndex);
+CTGUI_API sfUint32 tguiChatBox_getLineTextStyle(const tguiWidget* widget, size_t lineIndex);
 
 CTGUI_API sfBool tguiChatBox_removeLine(tguiWidget* widget, size_t lineIndex);
 CTGUI_API void tguiChatBox_removeAllLines(tguiWidget* widget);
@@ -52,6 +54,9 @@ CTGUI_API unsigned int tguiChatBox_getTextSize(const tguiWidget* widget);
 
 CTGUI_API void tguiChatBox_setTextColor(tguiWidget* widget, sfColor color);
 CTGUI_API sfColor tguiChatBox_getTextColor(const tguiWidget* widget);
+
+CTGUI_API void tguiChatBox_setTextStyle(tguiWidget* widget, sfUint32 style);
+CTGUI_API sfUint32 tguiChatBox_getTextStyle(const tguiWidget* widget);
 
 CTGUI_API void tguiChatBox_setLinesStartFromTop(tguiWidget* widget, sfBool startFromTop);
 CTGUI_API sfBool tguiChatBox_getLinesStartFromTop(const tguiWidget* widget);

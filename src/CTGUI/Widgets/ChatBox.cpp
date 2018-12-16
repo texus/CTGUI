@@ -50,6 +50,11 @@ void tguiChatBox_addLineWithColor(tguiWidget* widget, const sfUint32* text, sfCo
     DOWNCAST(widget->This)->addLine(text, {color.r, color.g, color.b, color.a});
 }
 
+void tguiChatBox_addLineWithColorAndStyle(tguiWidget* widget, const sfUint32* text, sfColor color, sfUint32 style)
+{
+    DOWNCAST(widget->This)->addLine(text, {color.r, color.g, color.b, color.a}, style);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const sfUint32* tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex)
@@ -62,6 +67,11 @@ const sfUint32* tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex)
 sfColor tguiChatBox_getLineColor(const tguiWidget* widget, size_t lineIndex)
 {
     return convertColor(DOWNCAST(widget->This)->getLineColor(lineIndex));
+}
+
+sfUint32 tguiChatBox_getLineTextStyle(const tguiWidget* widget, size_t lineIndex)
+{
+    return DOWNCAST(widget->This)->getLineTextStyle(lineIndex);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,6 +125,16 @@ void tguiChatBox_setTextColor(tguiWidget* widget, sfColor color)
 sfColor tguiChatBox_getTextColor(const tguiWidget* widget)
 {
     return convertColor(DOWNCAST(widget->This)->getTextColor());
+}
+
+void tguiChatBox_setTextStyle(tguiWidget* widget, sfUint32 style)
+{
+    DOWNCAST(widget->This)->setTextStyle(style);
+}
+
+sfUint32 tguiChatBox_getTextStyle(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getTextStyle();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
