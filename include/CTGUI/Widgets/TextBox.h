@@ -28,6 +28,7 @@
 
 #include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
+#include <CTGUI/ScrollbarPolicy.h>
 #include <stddef.h>
 
 CTGUI_API tguiWidget* tguiTextBox_create(void);
@@ -51,6 +52,13 @@ CTGUI_API sfBool tguiTextBox_isReadOnly(const tguiWidget* widget);
 
 CTGUI_API void tguiTextBox_setVerticalScrollbarPresent(tguiWidget* widget, sfBool present);
 CTGUI_API sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget);
+
+CTGUI_API void tguiTextBox_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
+CTGUI_API tguiScrollbarPolicy tguiTextBox_getVerticalScrollbarPolicy(const tguiWidget* widget);
+
+CTGUI_API void tguiTextBox_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
+CTGUI_API tguiScrollbarPolicy tguiTextBox_getHorizontalScrollbarPolicy(const tguiWidget* widget);
+
 
 CTGUI_API size_t tguiTextBox_getLinesCount(const tguiWidget* widget);
 

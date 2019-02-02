@@ -168,3 +168,15 @@ const char* tguiEditBox_getInputValidator(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getInputValidator().c_str();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBox_setSuffix(tguiWidget* widget, const sfUint32* suffix)
+{
+    DOWNCAST(widget->This)->setSuffix(suffix);
+}
+
+const sfUint32* tguiEditBox_getSuffix(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getSuffix().getData();
+}

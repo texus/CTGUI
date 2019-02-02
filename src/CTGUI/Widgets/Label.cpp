@@ -118,3 +118,15 @@ sfBool tguiLabel_isIgnoringMouseEvents(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isIgnoringMouseEvents();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabel_setScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+{
+    DOWNCAST(widget->This)->setScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
+}
+
+tguiScrollbarPolicy tguiLabel_getScrollbarPolicy(const tguiWidget* widget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getScrollbarPolicy());
+}

@@ -13,7 +13,7 @@ ctgui_set_option(CMAKE_BUILD_TYPE Release STRING "Choose the type of build (Debu
 ctgui_set_option(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules" STRING "The path to the cmake modules. This path must contain the FindCSFML.cmake file.")
 
 # Project name and version
-project(CTGUI VERSION 0.8.2)
+project(CTGUI VERSION 0.8.3)
 
 # Include the configuration file
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/Config.cmake)

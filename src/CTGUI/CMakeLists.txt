@@ -52,6 +52,8 @@ set(SRC
     ${INCROOT}/Renderers/LabelRenderer.h
     ${SRCROOT}/Renderers/ListBoxRenderer.cpp
     ${INCROOT}/Renderers/ListBoxRenderer.h
+    ${SRCROOT}/Renderers/ListViewRenderer.cpp
+    ${INCROOT}/Renderers/ListViewRenderer.h
     ${SRCROOT}/Renderers/MenuBarRenderer.cpp
     ${INCROOT}/Renderers/MenuBarRenderer.h
     ${SRCROOT}/Renderers/MessageBoxRenderer.cpp
@@ -121,6 +123,8 @@ set(SRC
     ${SRCROOT}/Widgets/Label.cpp
     ${INCROOT}/Widgets/ListBox.h
     ${SRCROOT}/Widgets/ListBox.cpp
+    ${INCROOT}/Widgets/ListView.h
+    ${SRCROOT}/Widgets/ListView.cpp
     ${INCROOT}/Widgets/MenuBar.h
     ${SRCROOT}/Widgets/MenuBar.cpp
     ${INCROOT}/Widgets/MessageBox.h
@@ -162,6 +166,9 @@ target_include_directories(ctgui PUBLIC "${PROJECT_SOURCE_DIR}/include")
 target_include_directories(ctgui PRIVATE "${PROJECT_SOURCE_DIR}/src")
 
 set_target_properties(ctgui PROPERTIES DEFINE_SYMBOL CTGUI_EXPORTS)
+
+# Ignore warnings about deprecated TGUI code as we must keep it in CTGUI
+target_compile_definitions(ctgui PUBLIC TGUI_NO_DEPRECATED_WARNINGS)
 
 # Set some compile flags when using GCC and Clang
 if(TGUI_COMPILER_GCC OR TGUI_COMPILER_CLANG)

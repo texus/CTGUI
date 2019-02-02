@@ -123,6 +123,30 @@ sfBool tguiTextBox_isVerticalScrollbarPresent(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiTextBox_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+{
+    DOWNCAST(widget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
+}
+
+tguiScrollbarPolicy tguiTextBox_getVerticalScrollbarPolicy(const tguiWidget* widget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getVerticalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextBox_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
+}
+
+tguiScrollbarPolicy tguiTextBox_getHorizontalScrollbarPolicy(const tguiWidget* widget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getHorizontalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 size_t tguiTextBox_getLinesCount(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getLinesCount();

@@ -28,13 +28,7 @@
 
 #include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
-
-typedef enum
-{
-    tguiScrollbarPolicyAutomatic,
-    tguiScrollbarPolicyAlways,
-    tguiScrollbarPolicyNever
-} tguiScrollbarPolicy;
+#include <CTGUI/ScrollbarPolicy.h>
 
 CTGUI_API tguiWidget* tguiScrollablePanel_create(void);
 

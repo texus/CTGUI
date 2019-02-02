@@ -64,6 +64,18 @@ float tguiWidgetRenderer_getOpacity(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidgetRenderer_setOpacityDisabled(tguiRenderer* renderer, float alpha)
+{
+    renderer->This->setOpacityDisabled(alpha);
+}
+
+float tguiWidgetRenderer_getOpacityDisabled(const tguiRenderer* renderer)
+{
+    return renderer->This->getOpacityDisabled();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiWidgetRenderer_setFont(tguiRenderer* renderer, sfFont* font)
 {
     renderer->This->setFont(font->This);

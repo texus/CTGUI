@@ -66,5 +66,8 @@ CTGUI_API size_t tguiEditBox_getCaretPosition(const tguiWidget* widget);
 CTGUI_API void tguiEditBox_setInputValidator(tguiWidget* widget, const char* validator);
 CTGUI_API const char* tguiEditBox_getInputValidator(const tguiWidget* widget);
 
+CTGUI_API void tguiEditBox_setSuffix(tguiWidget* widget, const sfUint32* suffix);
+CTGUI_API const sfUint32* tguiEditBox_getSuffix(const tguiWidget* widget);
+
 #endif // CTGUI_EDIT_BOX_H
 

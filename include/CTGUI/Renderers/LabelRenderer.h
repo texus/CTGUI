@@ -50,5 +50,11 @@ CTGUI_API sfColor tguiLabelRenderer_getBorderColor(const tguiRenderer* renderer)
 CTGUI_API void tguiLabelRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style);
 CTGUI_API sfUint32 tguiLabelRenderer_getTextStyle(tguiRenderer* renderer);
 
+CTGUI_API void tguiLabelRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
+CTGUI_API tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* renderer);
+
+CTGUI_API void tguiLabelRenderer_setScrollbarWidth(tguiRenderer* renderer, float width);
+CTGUI_API float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* renderer);
+
 #endif // CTGUI_LABEL_RENDERER_H
 

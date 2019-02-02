@@ -64,7 +64,7 @@ float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* widget)
 
 void tguiScrollablePanel_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
 {
-    DOWNCAST(widget->This)->setVerticalScrollbarPolicy(static_cast<tgui::ScrollablePanel::ScrollbarPolicy>(policy));
+    DOWNCAST(widget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
 }
 
 tguiScrollbarPolicy tguiScrollablePanel_getVerticalScrollbarPolicy(const tguiWidget* widget)
@@ -76,7 +76,7 @@ tguiScrollbarPolicy tguiScrollablePanel_getVerticalScrollbarPolicy(const tguiWid
 
 void tguiScrollablePanel_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
 {
-    DOWNCAST(widget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::ScrollablePanel::ScrollbarPolicy>(policy));
+    DOWNCAST(widget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
 }
 
 tguiScrollbarPolicy tguiScrollablePanel_getHorizontalScrollbarPolicy(const tguiWidget* widget)

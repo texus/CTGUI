@@ -25,6 +25,7 @@
 
 #include <CTGUI/Renderers/LabelRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.h>
+#include <CTGUI/RendererDataStruct.h>
 #include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
 
@@ -112,4 +113,28 @@ void tguiLabelRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
 sfUint32 tguiLabelRenderer_getTextStyle(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
+{
+    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
+}
+
+tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* renderer)
+{
+    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setScrollbarWidth(tguiRenderer* renderer, float width)
+{
+    DOWNCAST(renderer->This)->setScrollbarWidth(width);
+}
+
+float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getScrollbarWidth();
 }

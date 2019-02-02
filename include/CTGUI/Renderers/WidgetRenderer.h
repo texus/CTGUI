@@ -36,6 +36,9 @@ CTGUI_API void tguiWidgetRenderer_destroy(tguiRenderer* renderer);
 CTGUI_API void tguiWidgetRenderer_setOpacity(tguiRenderer* renderer, float alpha);
 CTGUI_API float tguiWidgetRenderer_getOpacity(const tguiRenderer* renderer);
 
+CTGUI_API void tguiWidgetRenderer_setOpacityDisabled(tguiRenderer* renderer, float alpha);
+CTGUI_API float tguiWidgetRenderer_getOpacityDisabled(const tguiRenderer* renderer);
+
 CTGUI_API void tguiWidgetRenderer_setFont(tguiRenderer* renderer, sfFont* font);
 
 CTGUI_API void tguiWidgetRenderer_setTransparentTexture(tguiRenderer* renderer, sfBool ignoreTransparentParts);

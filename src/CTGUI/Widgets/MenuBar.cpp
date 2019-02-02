@@ -61,7 +61,7 @@ sfBool tguiMenuBar_addMenuItemHierarchy(tguiWidget* widget, const sfUint32** hie
     for (unsigned int i = 0; i < hierarchyLength; ++i)
         convertedHierarchy.push_back(hierarcy[i]);
 
-    return DOWNCAST(widget->This)->addMenuItem(convertedHierarchy, createParents != 0);
+    return DOWNCAST(widget->This)->addMenuItem(std::move(convertedHierarchy), createParents != 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

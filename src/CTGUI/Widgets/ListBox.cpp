@@ -144,7 +144,7 @@ size_t tguiListBox_getItemCount(const tguiWidget* widget)
 
 const sfUint32** tguiListBox_getItems(const tguiWidget* widget, size_t* count)
 {
-    auto items = DOWNCAST(widget->This)->getItems();
+    const auto& items = DOWNCAST(widget->This)->getItems();
 
     static std::vector<const sfUint32*> cItems;
     cItems.resize(items.size());
@@ -158,7 +158,7 @@ const sfUint32** tguiListBox_getItems(const tguiWidget* widget, size_t* count)
 
 const sfUint32** tguiListBox_getItemIds(const tguiWidget* widget, size_t* count)
 {
-    auto ids = DOWNCAST(widget->This)->getItemIds();
+    const auto& ids = DOWNCAST(widget->This)->getItemIds();
 
     static std::vector<const sfUint32*> cIds;
     cIds.resize(ids.size());
