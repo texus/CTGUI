@@ -200,6 +200,18 @@ sfColor tguiListViewRenderer_getSeparatorColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiListViewRenderer_setGridLinesColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setGridLinesColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiListViewRenderer_getGridLinesColor(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getGridLinesColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListViewRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
 {
     DOWNCAST(renderer->This)->setScrollbar(rendererData->This);

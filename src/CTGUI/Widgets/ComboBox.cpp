@@ -208,6 +208,18 @@ unsigned int tguiComboBox_getTextSize(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+CTGUI_API void tguiComboBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
+{
+    DOWNCAST(widget->This)->setDefaultText(text);
+}
+
+CTGUI_API const sfUint32* tguiComboBox_getDefaultText(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getDefaultText().getData();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiComboBox_setExpandDirection(tguiWidget* widget, tguiExpandDirection expandDirection)
 {
     DOWNCAST(widget->This)->setExpandDirection(static_cast<tgui::ComboBox::ExpandDirection>(expandDirection));
@@ -228,4 +240,16 @@ sfBool tguiComboBox_contains(tguiWidget* widget, const sfUint32* item)
 sfBool tguiComboBox_containsId(tguiWidget* widget, const sfUint32* id)
 {
     return DOWNCAST(widget->This)->containsId(id);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBox_setChangeItemOnScroll(tguiWidget* widget, sfBool changeOnScroll)
+{
+    DOWNCAST(widget->This)->setChangeItemOnScroll(changeOnScroll != 0);
+}
+
+sfBool tguiComboBox_getChangeItemOnScroll(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getChangeItemOnScroll();
 }

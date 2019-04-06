@@ -54,6 +54,13 @@ const sfUint32* tguiTextBox_getText(const tguiWidget* widget)
     return DOWNCAST(widget->This)->getText().getData();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextBox_setSelectedText(const tguiWidget* widget, size_t selectionStartIndex, size_t selectionEndIndex)
+{
+    DOWNCAST(widget->This)->setSelectedText(selectionStartIndex, selectionEndIndex);
+}
+
 const sfUint32* tguiTextBox_getSelectedText(const tguiWidget* widget)
 {
     static sf::String selectedText;

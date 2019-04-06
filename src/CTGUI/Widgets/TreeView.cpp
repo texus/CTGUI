@@ -85,6 +85,18 @@ void tguiTreeView_collapseAll(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+sfBool tguiTreeView_selectItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength)
+{
+    std::vector<sf::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (unsigned int i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(hierarcy[i]);
+
+    return DOWNCAST(widget->This)->selectItem(convertedHierarchy);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfBool tguiTreeView_removeItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool removeParentsWhenEmpty)
 {
     std::vector<sf::String> convertedHierarchy;

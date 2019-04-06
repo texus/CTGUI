@@ -39,6 +39,8 @@ CTGUI_API void tguiTreeView_collapse(tguiWidget* widget, const sfUint32** hierar
 CTGUI_API void tguiTreeView_expandAll(tguiWidget* widget);
 CTGUI_API void tguiTreeView_collapseAll(tguiWidget* widget);
 
+CTGUI_API sfBool tguiTreeView_selectItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength);
+
 CTGUI_API sfBool tguiTreeView_removeItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool removeParentsWhenEmpty);
 CTGUI_API void tguiTreeView_removeAllItems(tguiWidget* widget);
 

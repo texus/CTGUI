@@ -107,6 +107,11 @@ float tguiListView_getHeaderHeight(tguiWidget* widget)
     return DOWNCAST(widget->This)->getHeaderHeight();
 }
 
+float tguiListView_getCurrentHeaderHeight(tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getCurrentHeaderHeight();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiListView_setHeaderVisible(tguiWidget* widget, sfBool showHeader)
@@ -126,7 +131,7 @@ size_t tguiListView_addItem(tguiWidget* widget, const sfUint32* text)
     return DOWNCAST(widget->This)->addItem(text);
 }
 
-size_t tguiListView_addItemRow(const tguiWidget* widget, const sfUint32** item, unsigned int itemLength)
+size_t tguiListView_addItemRow(tguiWidget* widget, const sfUint32** item, unsigned int itemLength)
 {
     std::vector<sf::String> convertedItem;
     convertedItem.reserve(itemLength);
@@ -134,6 +139,23 @@ size_t tguiListView_addItemRow(const tguiWidget* widget, const sfUint32** item, 
         convertedItem.push_back(item[i]);
 
     return DOWNCAST(widget->This)->addItem(std::move(convertedItem));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfBool tguiListView_changeItem(tguiWidget* widget, size_t index, const sfUint32** item, unsigned int itemLength)
+{
+    std::vector<sf::String> convertedItem;
+    convertedItem.reserve(itemLength);
+    for (unsigned int i = 0; i < itemLength; ++i)
+        convertedItem.push_back(item[i]);
+
+    return DOWNCAST(widget->This)->changeItem(index, std::move(convertedItem));
+}
+
+sfBool tguiListView_changeSubItem(tguiWidget* widget, size_t index, size_t column, const sfUint32* text)
+{
+    return DOWNCAST(widget->This)->changeSubItem(index, column, text);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,6 +286,30 @@ unsigned int tguiListView_getSeparatorWidth(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiListView_setHeaderSeparatorHeight(tguiWidget* widget, unsigned int height)
+{
+    DOWNCAST(widget->This)->setHeaderSeparatorHeight(height);
+}
+
+unsigned int tguiListView_getHeaderSeparatorHeight(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getHeaderSeparatorHeight();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setGridLinesWidth(tguiWidget* widget, unsigned int width)
+{
+    DOWNCAST(widget->This)->setGridLinesWidth(width);
+}
+
+unsigned int tguiListView_getGridLinesWidth(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getGridLinesWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListView_setAutoScroll(tguiWidget* widget, sfBool autoScroll)
 {
     DOWNCAST(widget->This)->setAutoScroll(autoScroll != 0);
@@ -272,6 +318,42 @@ void tguiListView_setAutoScroll(tguiWidget* widget, sfBool autoScroll)
 sfBool tguiListView_getAutoScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoScroll();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setShowVerticalGridLines(tguiWidget* widget, sfBool showGridLines)
+{
+    DOWNCAST(widget->This)->setShowVerticalGridLines(showGridLines != 0);
+}
+
+sfBool tguiListView_getShowVerticalGridLines(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getShowVerticalGridLines();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setShowHorizontalGridLines(tguiWidget* widget, sfBool showGridLines)
+{
+    DOWNCAST(widget->This)->setShowHorizontalGridLines(showGridLines != 0);
+}
+
+sfBool tguiListView_getShowHorizontalGridLines(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getShowHorizontalGridLines();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setExpandLastColumn(tguiWidget* widget, sfBool expand)
+{
+    DOWNCAST(widget->This)->setExpandLastColumn(expand != 0);
+}
+
+sfBool tguiListView_getExpandLastColumn(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getExpandLastColumn();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

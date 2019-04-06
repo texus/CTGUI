@@ -44,6 +44,9 @@ CTGUI_API sfColor tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* re
 CTGUI_API void tguiComboBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiComboBoxRenderer_getTextColor(const tguiRenderer* renderer);
 
+CTGUI_API void tguiComboBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiComboBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer);
+
 CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiComboBoxRenderer_getArrowBackgroundColor(const tguiRenderer* renderer);
 CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, sfColor color);
@@ -63,6 +66,9 @@ CTGUI_API void tguiComboBoxRenderer_setTextureArrowHover(tguiRenderer* renderer,
 
 CTGUI_API void tguiComboBoxRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style);
 CTGUI_API sfUint32 tguiComboBoxRenderer_getTextStyle(const tguiRenderer* renderer);
+
+CTGUI_API void tguiComboBoxRenderer_setDefaultTextStyle(tguiRenderer* renderer, sfUint32 style);
+CTGUI_API sfUint32 tguiComboBoxRenderer_getDefaultTextStyle(const tguiRenderer* renderer);
 
 CTGUI_API void tguiComboBoxRenderer_setListBox(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* renderer);

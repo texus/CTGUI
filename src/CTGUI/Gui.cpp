@@ -149,14 +149,9 @@ void tguiGui_removeAllWidgets(tguiGui* gui)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_enableTabKeyUsage(tguiGui* gui)
+void tguiGui_setTabKeyUsageEnabled(tguiGui* gui, sfBool enabled)
 {
-    gui->This.enableTabKeyUsage();
-}
-
-void tguiGui_disableTabKeyUsage(tguiGui* gui)
-{
-    gui->This.disableTabKeyUsage();
+    gui->This.setTabKeyUsageEnabled(enabled != 0);
 }
 
 sfBool tguiGui_isTabKeyUsageEnabled(tguiGui* gui)

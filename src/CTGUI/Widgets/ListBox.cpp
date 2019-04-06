@@ -51,6 +51,13 @@ const sfUint32* tguiListBox_getItemById(const tguiWidget* widget, const sfUint32
     return item.getData();
 }
 
+const sfUint32* tguiListBox_getItemByIndex(const tguiWidget* widget, size_t index)
+{
+    static sf::String item;
+    item = DOWNCAST(widget->This)->getItemByIndex(index);
+    return item.getData();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 sfBool tguiListBox_setSelectedItem(tguiWidget* widget, const sfUint32* item)

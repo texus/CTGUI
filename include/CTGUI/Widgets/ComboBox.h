@@ -33,7 +33,8 @@
 typedef enum
 {
 	tguiExpandDirectionDown,
-	tguiExpandDirectionUp
+	tguiExpandDirectionUp,
+	tguiExpandDirectionAutomatic
 } tguiExpandDirection;
 
 CTGUI_API tguiWidget* tguiComboBox_create(void);
@@ -73,11 +74,17 @@ CTGUI_API size_t tguiComboBox_getMaximumItems(const tguiWidget* widget);
 CTGUI_API void tguiComboBox_setTextSize(tguiWidget* widget, unsigned int size);
 CTGUI_API unsigned int tguiComboBox_getTextSize(const tguiWidget* widget);
 
+CTGUI_API void tguiComboBox_setDefaultText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API const sfUint32* tguiComboBox_getDefaultText(const tguiWidget* widget);
+
 CTGUI_API void tguiComboBox_setExpandDirection(tguiWidget* widget, tguiExpandDirection expandDirection);
 CTGUI_API tguiExpandDirection tguiComboBox_getExpandDirection(const tguiWidget* widget);
 
 CTGUI_API sfBool tguiComboBox_contains(tguiWidget* widget, const sfUint32* item);
 CTGUI_API sfBool tguiComboBox_containsId(tguiWidget* widget, const sfUint32* id);
+
+CTGUI_API void tguiComboBox_setChangeItemOnScroll(tguiWidget* widget, sfBool changeOnScroll);
+CTGUI_API sfBool tguiComboBox_getChangeItemOnScroll(const tguiWidget* widget);
 
 #endif // CTGUI_COMBO_BOX_H
 

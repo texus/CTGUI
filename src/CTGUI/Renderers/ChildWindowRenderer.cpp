@@ -108,6 +108,18 @@ sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBorderColorFocused({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindowRenderer_setBorderBelowTitleBar(tguiRenderer* renderer, float border)
 {
     DOWNCAST(renderer->This)->setBorderBelowTitleBar(border);

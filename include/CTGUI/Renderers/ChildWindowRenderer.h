@@ -48,6 +48,9 @@ CTGUI_API sfColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer*
 CTGUI_API void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer);
 
+CTGUI_API void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* renderer);
+
 CTGUI_API void tguiChildWindowRenderer_setBorderBelowTitleBar(tguiRenderer* renderer, float border);
 CTGUI_API float tguiChildWindowRenderer_getBorderBelowTitleBar(tguiRenderer* renderer);
 

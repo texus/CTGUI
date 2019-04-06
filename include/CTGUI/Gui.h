@@ -51,8 +51,7 @@ CTGUI_API const sfUint32** tguiGui_getWidgetNames(tguiGui* gui, size_t* count);
 CTGUI_API void tguiGui_remove(tguiGui* gui, tguiWidget* widget);
 CTGUI_API void tguiGui_removeAllWidgets(tguiGui* gui);
 
-CTGUI_API void tguiGui_enableTabKeyUsage(tguiGui* gui);
-CTGUI_API void tguiGui_disableTabKeyUsage(tguiGui* gui);
+CTGUI_API void tguiGui_setTabKeyUsageEnabled(tguiGui* gui, sfBool enabled);
 CTGUI_API sfBool tguiGui_isTabKeyUsageEnabled(tguiGui* gui);
 
 CTGUI_API void tguiGui_draw(tguiGui* gui);

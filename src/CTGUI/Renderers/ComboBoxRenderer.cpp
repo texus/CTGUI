@@ -94,6 +94,18 @@ sfColor tguiComboBoxRenderer_getTextColor(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiComboBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setDefaultTextColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiComboBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getDefaultTextColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setArrowBackgroundColor({color.r, color.g, color.b, color.a});
@@ -175,6 +187,18 @@ void tguiComboBoxRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
 sfUint32 tguiComboBoxRenderer_getTextStyle(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setDefaultTextStyle(tguiRenderer* renderer, sfUint32 style)
+{
+    DOWNCAST(renderer->This)->setDefaultTextStyle(style);
+}
+
+sfUint32 tguiComboBoxRenderer_getDefaultTextStyle(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getDefaultTextStyle();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

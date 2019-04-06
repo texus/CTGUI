@@ -52,12 +52,16 @@ CTGUI_API size_t tguiListView_getColumnCount(const tguiWidget* widget);
 
 CTGUI_API void tguiListView_setHeaderHeight(tguiWidget* widget, float height);
 CTGUI_API float tguiListView_getHeaderHeight(tguiWidget* widget);
+CTGUI_API float tguiListView_getCurrentHeaderHeight(tguiWidget* widget);
 
 CTGUI_API void tguiListView_setHeaderVisible(tguiWidget* widget, sfBool showHeader);
 CTGUI_API sfBool tguiListView_getHeaderVisible(tguiWidget* widget);
 
 CTGUI_API size_t tguiListView_addItem(tguiWidget* widget, const sfUint32* text);
-CTGUI_API size_t tguiListView_addItemRow(const tguiWidget* widget, const sfUint32** item, unsigned int itemLength);
+CTGUI_API size_t tguiListView_addItemRow(tguiWidget* widget, const sfUint32** item, unsigned int itemLength);
+
+CTGUI_API sfBool tguiListView_changeItem(tguiWidget* widget, size_t index, const sfUint32** item, unsigned int itemLength);
+CTGUI_API sfBool tguiListView_changeSubItem(tguiWidget* widget, size_t index, size_t column, const sfUint32* text);
 
 CTGUI_API sfBool tguiListView_removeItem(tguiWidget* widget, size_t index);
 CTGUI_API void tguiListView_removeAllItems(tguiWidget* widget);
@@ -86,8 +90,23 @@ CTGUI_API unsigned int tguiListView_getHeaderTextSize(const tguiWidget* widget);
 CTGUI_API void tguiListView_setSeparatorWidth(tguiWidget* widget, unsigned int width);
 CTGUI_API unsigned int tguiListView_getSeparatorWidth(const tguiWidget* widget);
 
+CTGUI_API void tguiListView_setHeaderSeparatorHeight(tguiWidget* widget, unsigned int height);
+CTGUI_API unsigned int tguiListView_getHeaderSeparatorHeight(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_setGridLinesWidth(tguiWidget* widget, unsigned int width);
+CTGUI_API unsigned int tguiListView_getGridLinesWidth(const tguiWidget* widget);
+
 CTGUI_API void tguiListView_setAutoScroll(tguiWidget* widget, sfBool autoScroll);
 CTGUI_API sfBool tguiListView_getAutoScroll(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_setShowVerticalGridLines(tguiWidget* widget, sfBool showGridLines);
+CTGUI_API sfBool tguiListView_getShowVerticalGridLines(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_setShowHorizontalGridLines(tguiWidget* widget, sfBool showGridLines);
+CTGUI_API sfBool tguiListView_getShowHorizontalGridLines(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_setExpandLastColumn(tguiWidget* widget, sfBool expand);
+CTGUI_API sfBool tguiListView_getExpandLastColumn(const tguiWidget* widget);
 
 CTGUI_API void tguiListView_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
 CTGUI_API tguiScrollbarPolicy tguiListView_getVerticalScrollbarPolicy(const tguiWidget* widget);

@@ -63,8 +63,12 @@ CTGUI_API sfColor tguiListViewRenderer_getHeaderTextColor(const tguiRenderer* re
 
 CTGUI_API void tguiListViewRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiListViewRenderer_getBorderColor(const tguiRenderer* renderer);
+
 CTGUI_API void tguiListViewRenderer_setSeparatorColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiListViewRenderer_getSeparatorColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiListViewRenderer_setGridLinesColor(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiListViewRenderer_getGridLinesColor(const tguiRenderer* renderer);
 
 CTGUI_API void tguiListViewRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* renderer);
