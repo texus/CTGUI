@@ -28,6 +28,7 @@
 
 #include <CTGUI/Config.h>
 #include <SFML/Graphics/Color.h>
+#include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiPanelRenderer_create(void);
 CTGUI_API tguiRenderer* tguiPanelRenderer_copy(const tguiRenderer* other);
@@ -40,6 +41,8 @@ CTGUI_API sfColor tguiPanelRenderer_getBackgroundColor(const tguiRenderer* rende
 
 CTGUI_API void tguiPanelRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiPanelRenderer_getBorderColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiPanelRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
 
 #endif // CTGUI_LABEL_RENDERER_H
 

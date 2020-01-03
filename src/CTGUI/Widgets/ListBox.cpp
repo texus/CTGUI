@@ -227,6 +227,18 @@ sfBool tguiListBox_getAutoScroll(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiListBox_setScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setScrollbarValue(value);
+}
+
+unsigned int tguiListBox_getScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfBool tguiListBox_contains(tguiWidget* widget, const sfUint32* item)
 {
     return DOWNCAST(widget->This)->contains(item);

@@ -43,8 +43,14 @@ CTGUI_API float tguiSlider_getValue(const tguiWidget* widget);
 CTGUI_API void tguiSlider_setStep(tguiWidget* widget, float step);
 CTGUI_API float tguiSlider_getStep(const tguiWidget* widget);
 
+CTGUI_API void tguiSlider_setVerticalScroll(tguiWidget* widget, sfBool vertical);
+CTGUI_API sfBool tguiSlider_getVerticalScroll(const tguiWidget* widget);
+
 CTGUI_API void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirection);
 CTGUI_API sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget);
+
+CTGUI_API void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, sfBool changeValueOnScroll);
+CTGUI_API sfBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget);
 
 #endif // CTGUI_SLIDER_H
 

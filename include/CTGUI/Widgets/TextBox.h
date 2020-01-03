@@ -39,6 +39,8 @@ CTGUI_API const sfUint32* tguiTextBox_getText(const tguiWidget* widget);
 
 CTGUI_API void tguiTextBox_setSelectedText(const tguiWidget* widget, size_t selectionStartIndex, size_t selectionEndIndex);
 CTGUI_API const sfUint32* tguiTextBox_getSelectedText(const tguiWidget* widget);
+CTGUI_API size_t tguiTextBox_getSelectionStart(const tguiWidget* widget);
+CTGUI_API size_t tguiTextBox_getSelectionEnd(const tguiWidget* widget);
 
 CTGUI_API void tguiTextBox_setTextSize(tguiWidget* widget, unsigned int size);
 CTGUI_API unsigned int tguiTextBox_getTextSize(const tguiWidget* widget);
@@ -61,6 +63,11 @@ CTGUI_API tguiScrollbarPolicy tguiTextBox_getVerticalScrollbarPolicy(const tguiW
 CTGUI_API void tguiTextBox_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
 CTGUI_API tguiScrollbarPolicy tguiTextBox_getHorizontalScrollbarPolicy(const tguiWidget* widget);
 
+CTGUI_API void tguiTextBox_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value);
+CTGUI_API unsigned int tguiTextBox_getVerticalScrollbarValue(const tguiWidget* widget);
+
+CTGUI_API void tguiTextBox_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value);
+CTGUI_API unsigned int tguiTextBox_getHorizontalScrollbarValue(const tguiWidget* widget);
 
 CTGUI_API size_t tguiTextBox_getLinesCount(const tguiWidget* widget);
 

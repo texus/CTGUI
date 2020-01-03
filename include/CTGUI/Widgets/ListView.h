@@ -67,14 +67,20 @@ CTGUI_API sfBool tguiListView_removeItem(tguiWidget* widget, size_t index);
 CTGUI_API void tguiListView_removeAllItems(tguiWidget* widget);
 
 CTGUI_API void tguiListView_setSelectedItem(tguiWidget* widget, size_t index);
+CTGUI_API void tguiListView_setSelectedItems(tguiWidget* widget, const size_t* indices, unsigned int indicesLength);
 CTGUI_API int tguiListView_getSelectedItemIndex(const tguiWidget* widget);
-CTGUI_API void tguiListView_deselectItem(tguiWidget* widget);
+CTGUI_API const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* widget, size_t* count);
+CTGUI_API void tguiListView_deselectItems(tguiWidget* widget);
+
+CTGUI_API void tguiListView_setMultiSelect(tguiWidget* widget, sfBool multiSelect);
+CTGUI_API sfBool tguiListView_getMultiSelect(const tguiWidget* widget);
 
 CTGUI_API void tguiListView_setItemIcon(tguiWidget* widget, size_t index, sfTexture* texture);
 
 CTGUI_API size_t tguiListView_getItemCount(const tguiWidget* widget);
 
 CTGUI_API const sfUint32* tguiListView_getItem(tguiWidget* widget, size_t index);
+CTGUI_API const sfUint32* tguiListView_getItemCell(tguiWidget* widget, size_t rowIndex, size_t columnIndex);
 CTGUI_API const sfUint32** tguiListView_getItemRow(const tguiWidget* widget, size_t index, size_t* count);
 CTGUI_API const sfUint32** tguiListView_getItems(const tguiWidget* widget, size_t* count);
 
@@ -113,6 +119,14 @@ CTGUI_API tguiScrollbarPolicy tguiListView_getVerticalScrollbarPolicy(const tgui
 
 CTGUI_API void tguiListView_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
 CTGUI_API tguiScrollbarPolicy tguiListView_getHorizontalScrollbarPolicy(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value);
+CTGUI_API unsigned int tguiListView_getVerticalScrollbarValue(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value);
+CTGUI_API unsigned int tguiListView_getHorizontalScrollbarValue(const tguiWidget* widget);
+
+CTGUI_API void tguiListView_sort(tguiWidget* widget, size_t index, sfBool (*function)(const sfUint32*, const sfUint32*));
 
 #endif // CTGUI_LIST_VIEW_H
 

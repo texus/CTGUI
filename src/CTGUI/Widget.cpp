@@ -247,6 +247,18 @@ sfBool tguiWidget_isFocused(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidget_setFocusable(tguiWidget* widget, sfBool focusable)
+{
+    widget->This->setFocusable(focusable != 0);
+}
+
+sfBool tguiWidget_isFocusable(const tguiWidget* widget)
+{
+    return widget->This->isFocusable();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const char* tguiWidget_getWidgetType(const tguiWidget* widget)
 {
     return widget->This->getWidgetType().c_str();
@@ -299,4 +311,20 @@ tguiWidget* tguiWidget_getParent(tguiWidget* widget)
 sfBool tguiWidget_mouseOnWidget(tguiWidget* widget, sfVector2f pos)
 {
     return widget->This->mouseOnWidget({pos.x, pos.y});
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfBool tguiWidget_setSignalEnabled(tguiWidget* widget, const char* signalName, sfBool enabled)
+{
+    try
+    {
+        widget->This->getSignal(signalName).setEnabled(enabled != 0);
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        // No signal exists with the given name
+        return false;
+    }
 }

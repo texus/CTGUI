@@ -50,7 +50,7 @@ struct tguiCustomWidgetForBindings : tguiWidget
     void (*textEntered)(sfUint32) = nullptr;
     sfBool (*mouseWheelScrolled)(float, sfVector2f) = nullptr;
     void (*mouseNoLongerOnWidget)(void) = nullptr;
-    void (*mouseNoLongerDown)(void) = nullptr;
+    void (*leftMouseButtonNoLongerDown)(void) = nullptr;
     void (*mouseEnteredWidget)(void) = nullptr;
     void (*mouseLeftWidget)(void) = nullptr;
     sfBool (*rendererChanged)(const char*) = nullptr;

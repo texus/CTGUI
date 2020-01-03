@@ -143,3 +143,26 @@ unsigned int tguiTreeView_getTextSize(const tguiWidget* widget)
     return DOWNCAST(widget->This)->getTextSize();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeView_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
+}
+
+unsigned int tguiTreeView_getVerticalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeView_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollbarValue(value);
+}
+
+unsigned int tguiTreeView_getHorizontalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getHorizontalScrollbarValue();
+}

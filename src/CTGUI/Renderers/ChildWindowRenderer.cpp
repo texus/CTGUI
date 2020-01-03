@@ -199,6 +199,13 @@ void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, sfTextur
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindowRenderer_setCloseButton(tguiRenderer* renderer, tguiRendererData* rendererData)
 {
     DOWNCAST(renderer->This)->setCloseButton(rendererData->This);

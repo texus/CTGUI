@@ -43,5 +43,8 @@ CTGUI_API float tguiSpinButton_getValue(const tguiWidget* widget);
 CTGUI_API void tguiSpinButton_setStep(tguiWidget* widget, float step);
 CTGUI_API float tguiSpinButton_getStep(const tguiWidget* widget);
 
+CTGUI_API void tguiSpinButton_setVerticalScroll(tguiWidget* widget, sfBool vertical);
+CTGUI_API sfBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget);
+
 #endif // CTGUI_SPIN_BUTTON_H
 

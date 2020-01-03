@@ -86,5 +86,11 @@ CTGUI_API sfUint32 tguiButtonRenderer_getTextStyleFocused(tguiRenderer* renderer
 CTGUI_API void tguiButtonRenderer_setTextStyleDisabled(tguiRenderer* renderer, sfUint32 style);
 CTGUI_API sfUint32 tguiButtonRenderer_getTextStyleDisabled(tguiRenderer* renderer);
 
+CTGUI_API void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiButtonRenderer_setTextOutlineThickness(tguiRenderer* renderer, float thickness);
+CTGUI_API float tguiButtonRenderer_getTextOutlineThickness(const tguiRenderer* renderer);
+
 #endif // CTGUI_BUTTON_RENDERER_H
 

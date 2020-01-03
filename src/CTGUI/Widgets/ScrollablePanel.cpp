@@ -86,6 +86,54 @@ tguiScrollbarPolicy tguiScrollablePanel_getHorizontalScrollbarPolicy(const tguiW
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiScrollablePanel_setVerticalScrollAmount(tguiWidget* widget, unsigned int scrollAmount)
+{
+    DOWNCAST(widget->This)->setVerticalScrollAmount(scrollAmount);
+}
+
+unsigned int tguiScrollablePanel_getVerticalScrollAmount(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScrollAmount();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setHorizontalScrollAmount(tguiWidget* widget, unsigned int scrollAmount)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollAmount(scrollAmount);
+}
+
+unsigned int tguiScrollablePanel_getHorizontalScrollAmount(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getHorizontalScrollAmount();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
+}
+
+unsigned int tguiScrollablePanel_getVerticalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollbarValue(value);
+}
+
+unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getHorizontalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget)
 {
     sf::Vector2f contentOffset = DOWNCAST(widget->This)->getContentOffset();

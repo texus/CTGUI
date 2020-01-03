@@ -160,3 +160,15 @@ sfBool tguiChatBox_getNewLinesBelowOthers(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getNewLinesBelowOthers();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChatBox_setScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setScrollbarValue(value);
+}
+
+unsigned int tguiChatBox_getScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getScrollbarValue();
+}

@@ -177,14 +177,48 @@ void tguiListView_setSelectedItem(tguiWidget* widget, size_t index)
     DOWNCAST(widget->This)->setSelectedItem(index);
 }
 
+void tguiListView_setSelectedItems(tguiWidget* widget, const size_t* indices, unsigned int indicesLength)
+{
+    std::set<size_t> convertedIndices;
+    for (unsigned int i = 0; i < indicesLength; ++i)
+        convertedIndices.insert(indices[i]);
+
+    return DOWNCAST(widget->This)->setSelectedItems(std::move(convertedIndices));
+}
+
 int tguiListView_getSelectedItemIndex(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getSelectedItemIndex();
 }
 
-void tguiListView_deselectItem(tguiWidget* widget)
+const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* widget, size_t* count)
 {
-    DOWNCAST(widget->This)->deselectItem();
+    const auto& indices = DOWNCAST(widget->This)->getSelectedItemIndices();
+
+    static std::vector<size_t> cIndices;
+    cIndices.reserve(indices.size());
+    for (const size_t index : indices)
+        cIndices.push_back(index);
+
+    *count = cIndices.size();
+    return cIndices.data();
+}
+
+void tguiListView_deselectItems(tguiWidget* widget)
+{
+    DOWNCAST(widget->This)->deselectItems();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setMultiSelect(tguiWidget* widget, sfBool multiSelect)
+{
+    DOWNCAST(widget->This)->setMultiSelect(multiSelect != 0);
+}
+
+sfBool tguiListView_getMultiSelect(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getMultiSelect();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -206,6 +240,11 @@ size_t tguiListView_getItemCount(const tguiWidget* widget)
 const sfUint32* tguiListView_getItem(tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->getItem(index).getData();
+}
+
+const sfUint32* tguiListView_getItemCell(tguiWidget* widget, size_t rowIndex, size_t columnIndex)
+{
+    return DOWNCAST(widget->This)->getItemCell(rowIndex, columnIndex).getData();
 }
 
 const sfUint32** tguiListView_getItemRow(const tguiWidget* widget, size_t index, size_t* count)
@@ -378,4 +417,37 @@ void tguiListView_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbar
 tguiScrollbarPolicy tguiListView_getHorizontalScrollbarPolicy(const tguiWidget* widget)
 {
     return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getHorizontalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
+}
+
+unsigned int tguiListView_getVerticalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollbarValue(value);
+}
+
+unsigned int tguiListView_getHorizontalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getHorizontalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_sort(tguiWidget* widget, size_t index, sfBool (*comp)(const sfUint32*, const sfUint32*))
+{
+    DOWNCAST(widget->This)->sort(index, [&comp](const sf::String& str1, const sf::String& str2){
+        return comp(str1.getData(), str2.getData()) != 0;
+    });
 }

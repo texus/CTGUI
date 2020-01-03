@@ -64,5 +64,8 @@ CTGUI_API sfBool tguiChatBox_getLinesStartFromTop(const tguiWidget* widget);
 CTGUI_API void tguiChatBox_setNewLinesBelowOthers(tguiWidget* widget, sfBool newLinesBelowOthers);
 CTGUI_API sfBool tguiChatBox_getNewLinesBelowOthers(const tguiWidget* widget);
 
+CTGUI_API void tguiChatBox_setScrollbarValue(tguiWidget* widget, unsigned int value);
+CTGUI_API unsigned int tguiChatBox_getScrollbarValue(const tguiWidget* widget);
+
 #endif // CTGUI_CHAT_BOX_H
 

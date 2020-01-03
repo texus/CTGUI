@@ -46,6 +46,9 @@ CTGUI_API unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* widget);
 CTGUI_API void tguiScrollbar_setAutoHide(tguiWidget* widget, sfBool autoHide);
 CTGUI_API sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget);
 
+CTGUI_API void tguiScrollbar_setVerticalScroll(tguiWidget* widget, sfBool vertical);
+CTGUI_API sfBool tguiScrollbar_getVerticalScroll(const tguiWidget* widget);
+
 CTGUI_API float tguiScrollbar_getDefaultWidth(const tguiWidget* widget);
 
 #endif // CTGUI_SCROLLBAR_H

@@ -99,6 +99,18 @@ sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiScrollbar_setVerticalScroll(tguiWidget* widget, sfBool vertical)
+{
+    DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
+}
+
+sfBool tguiScrollbar_getVerticalScroll(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScroll();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 float tguiScrollbar_getDefaultWidth(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getDefaultWidth();

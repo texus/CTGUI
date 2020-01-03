@@ -57,7 +57,7 @@ CTGUI_API void tguiCustomWidgetForBindings_setKeyPressedCallback(tguiCustomWidge
 CTGUI_API void tguiCustomWidgetForBindings_setTextEnteredCallback(tguiCustomWidgetForBindings* widget, void (*function)(sfUint32));
 CTGUI_API void tguiCustomWidgetForBindings_setMouseWheelScrolledCallback(tguiCustomWidgetForBindings* widget, sfBool (*function)(float, sfVector2f));
 CTGUI_API void tguiCustomWidgetForBindings_setMouseNoLongerOnWidgetCallback(tguiCustomWidgetForBindings* widget, void (*function)(void));
-CTGUI_API void tguiCustomWidgetForBindings_setMouseNoLongerDownCallback(tguiCustomWidgetForBindings* widget, void (*function)(void));
+CTGUI_API void tguiCustomWidgetForBindings_setLeftMouseButtonNoLongerDownCallback(tguiCustomWidgetForBindings* widget, void (*function)(void));
 CTGUI_API void tguiCustomWidgetForBindings_setMouseEnteredWidgetCallback(tguiCustomWidgetForBindings* widget, void (*function)(void));
 CTGUI_API void tguiCustomWidgetForBindings_setMouseLeftWidgetCallback(tguiCustomWidgetForBindings* widget, void (*function)(void));
 CTGUI_API void tguiCustomWidgetForBindings_setRendererChangedCallback(tguiCustomWidgetForBindings* widget, sfBool (*function)(const char*));

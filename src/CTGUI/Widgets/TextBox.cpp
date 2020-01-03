@@ -68,6 +68,16 @@ const sfUint32* tguiTextBox_getSelectedText(const tguiWidget* widget)
     return selectedText.getData();
 }
 
+size_t tguiTextBox_getSelectionStart(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getSelectionStart();
+}
+
+size_t tguiTextBox_getSelectionEnd(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getSelectionEnd();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiTextBox_setTextSize(tguiWidget* widget, unsigned int size)
@@ -150,6 +160,30 @@ void tguiTextBox_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarP
 tguiScrollbarPolicy tguiTextBox_getHorizontalScrollbarPolicy(const tguiWidget* widget)
 {
     return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getHorizontalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextBox_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
+}
+
+unsigned int tguiTextBox_getVerticalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextBox_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setHorizontalScrollbarValue(value);
+}
+
+unsigned int tguiTextBox_getHorizontalScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getHorizontalScrollbarValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

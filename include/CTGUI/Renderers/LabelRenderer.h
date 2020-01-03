@@ -28,6 +28,7 @@
 
 #include <CTGUI/Config.h>
 #include <SFML/Graphics/Color.h>
+#include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiRenderer* tguiLabelRenderer_create(void);
 CTGUI_API tguiRenderer* tguiLabelRenderer_copy(const tguiRenderer* other);
@@ -40,6 +41,12 @@ CTGUI_API tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* renderer
 
 CTGUI_API void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiLabelRenderer_getTextColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiLabelRenderer_setTextOutlineThickness(tguiRenderer* renderer, float thickness);
+CTGUI_API float tguiLabelRenderer_getTextOutlineThickness(const tguiRenderer* renderer);
 
 CTGUI_API void tguiLabelRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiLabelRenderer_getBackgroundColor(const tguiRenderer* renderer);
@@ -55,6 +62,8 @@ CTGUI_API tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* r
 
 CTGUI_API void tguiLabelRenderer_setScrollbarWidth(tguiRenderer* renderer, float width);
 CTGUI_API float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* renderer);
+
+CTGUI_API void tguiLabelRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
 
 #endif // CTGUI_LABEL_RENDERER_H
 

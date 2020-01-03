@@ -84,3 +84,15 @@ float tguiSpinButton_getStep(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getStep();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButton_setVerticalScroll(tguiWidget* widget, sfBool vertical)
+{
+    DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
+}
+
+sfBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScroll();
+}

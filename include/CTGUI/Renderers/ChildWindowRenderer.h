@@ -71,6 +71,8 @@ CTGUI_API sfBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer*
 
 CTGUI_API void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, sfTexture* texture);
 
+CTGUI_API void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
+
 CTGUI_API void tguiChildWindowRenderer_setCloseButton(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiChildWindowRenderer_getCloseButton(const tguiRenderer* renderer);
 CTGUI_API void tguiChildWindowRenderer_setMaximizeButton(tguiRenderer* renderer, tguiRendererData* rendererData);

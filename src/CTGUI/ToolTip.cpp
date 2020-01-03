@@ -28,15 +28,15 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiToolTip_setTimeToDisplay(sfTime time)
+void tguiToolTip_setInitialDelay(sfTime time)
 {
-    tgui::ToolTip::setTimeToDisplay(sf::microseconds(time.microseconds));
+    tgui::ToolTip::setInitialDelay(sf::microseconds(time.microseconds));
 }
 
-sfTime tguiToolTip_getTimeToDisplay()
+sfTime tguiToolTip_getInitialDelay()
 {
     sfTime time;
-    time.microseconds = tgui::ToolTip::getTimeToDisplay().asMicroseconds();
+    time.microseconds = tgui::ToolTip::getInitialDelay().asMicroseconds();
     return time;
 }
 

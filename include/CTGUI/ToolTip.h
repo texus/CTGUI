@@ -30,8 +30,8 @@
 #include <SFML/System/Vector2.h>
 #include <SFML/System/Time.h>
 
-CTGUI_API void tguiToolTip_setTimeToDisplay(sfTime time);
-CTGUI_API sfTime tguiToolTip_getTimeToDisplay();
+CTGUI_API void tguiToolTip_setInitialDelay(sfTime time);
+CTGUI_API sfTime tguiToolTip_getInitialDelay();
 
 CTGUI_API void tguiToolTip_setDistanceToMouse(sfVector2f distance);
 CTGUI_API sfVector2f tguiToolTip_getDistanceToMouse();

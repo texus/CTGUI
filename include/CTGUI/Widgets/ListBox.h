@@ -71,6 +71,9 @@ CTGUI_API size_t tguiListBox_getMaximumItems(const tguiWidget* widget);
 CTGUI_API void tguiListBox_setAutoScroll(tguiWidget* widget, sfBool autoScroll);
 CTGUI_API sfBool tguiListBox_getAutoScroll(const tguiWidget* widget);
 
+CTGUI_API void tguiListBox_setScrollbarValue(tguiWidget* widget, unsigned int value);
+CTGUI_API unsigned int tguiListBox_getScrollbarValue(const tguiWidget* widget);
+
 CTGUI_API sfBool tguiListBox_contains(tguiWidget* widget, const sfUint32* item);
 CTGUI_API sfBool tguiListBox_containsId(tguiWidget* widget, const sfUint32* id);
 

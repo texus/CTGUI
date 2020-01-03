@@ -27,6 +27,7 @@
 #include <CTGUI/Renderers/RendererStruct.h>
 #include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
+#include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/PanelRenderer.hpp>
 
@@ -78,4 +79,11 @@ void tguiPanelRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
 sfColor tguiPanelRenderer_getBorderColor(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPanelRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }

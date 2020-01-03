@@ -291,3 +291,27 @@ sfUint32 tguiButtonRenderer_getTextStyleDisabled(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyleDisabled();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextOutlineColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextOutlineColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButtonRenderer_setTextOutlineThickness(tguiRenderer* renderer, float thickness)
+{
+    DOWNCAST(renderer->This)->setTextOutlineThickness(thickness);
+}
+
+float tguiButtonRenderer_getTextOutlineThickness(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextOutlineThickness();
+}

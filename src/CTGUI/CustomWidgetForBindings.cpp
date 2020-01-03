@@ -83,7 +83,7 @@ tguiCustomWidgetForBindings* tguiCustomWidgetForBindings_create(void)
             widget->updateFunction(csfmlTime);
         };
     DOWNCAST(widget->This)->implMouseNoLongerOnWidget = [widget](){ widget->mouseNoLongerOnWidget(); };
-    DOWNCAST(widget->This)->implMouseNoLongerDown = [widget](){ widget->mouseNoLongerDown(); };
+    DOWNCAST(widget->This)->implLeftMouseButtonNoLongerDown = [widget](){ widget->leftMouseButtonNoLongerDown(); };
     DOWNCAST(widget->This)->implMouseEnteredWidget = [widget](){ widget->mouseEnteredWidget(); };
     DOWNCAST(widget->This)->implMouseLeftWidget = [widget](){ widget->mouseLeftWidget(); };
     DOWNCAST(widget->This)->implMouseOnWidget = [widget](sf::Vector2f pos){ return (widget->mouseOnWidget({pos.x, pos.y}) != 0); };
@@ -223,9 +223,9 @@ void tguiCustomWidgetForBindings_setMouseNoLongerOnWidgetCallback(tguiCustomWidg
     widget->mouseNoLongerOnWidget = function;
 }
 
-void tguiCustomWidgetForBindings_setMouseNoLongerDownCallback(tguiCustomWidgetForBindings* widget, void (*function)(void))
+void tguiCustomWidgetForBindings_setLeftMouseButtonNoLongerDownCallback(tguiCustomWidgetForBindings* widget, void (*function)(void))
 {
-    widget->mouseNoLongerDown = function;
+    widget->leftMouseButtonNoLongerDown = function;
 }
 
 void tguiCustomWidgetForBindings_setMouseEnteredWidgetCallback(tguiCustomWidgetForBindings* widget, void (*function)(void))

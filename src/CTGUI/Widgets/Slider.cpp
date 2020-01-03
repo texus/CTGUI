@@ -87,6 +87,18 @@ float tguiSlider_getStep(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiSlider_setVerticalScroll(tguiWidget* widget, sfBool vertical)
+{
+    DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
+}
+
+sfBool tguiSlider_getVerticalScroll(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getVerticalScroll();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirection)
 {
     DOWNCAST(widget->This)->setInvertedDirection(invertedDirection != 0);
@@ -95,4 +107,16 @@ void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirectio
 sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getInvertedDirection();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, sfBool changeValueOnScroll)
+{
+    DOWNCAST(widget->This)->setChangeValueOnScroll(changeValueOnScroll != 0);
+}
+
+sfBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getChangeValueOnScroll();
 }

@@ -74,6 +74,9 @@ CTGUI_API sfBool tguiWidget_isEnabled(const tguiWidget* widget);
 CTGUI_API void tguiWidget_setFocused(tguiWidget* widget, sfBool focused);
 CTGUI_API sfBool tguiWidget_isFocused(const tguiWidget* widget);
 
+CTGUI_API void tguiWidget_setFocusable(tguiWidget* widget, sfBool focusable);
+CTGUI_API sfBool tguiWidget_isFocusable(const tguiWidget* widget);
+
 CTGUI_API const char* tguiWidget_getWidgetType(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_moveToFront(tguiWidget* widget);
@@ -85,6 +88,8 @@ CTGUI_API tguiWidget* tguiWidget_getToolTip(const tguiWidget* widget);
 CTGUI_API tguiWidget* tguiWidget_getParent(tguiWidget* widget);
 
 CTGUI_API sfBool tguiWidget_mouseOnWidget(tguiWidget* widget, sfVector2f pos);
+
+CTGUI_API sfBool tguiWidget_setSignalEnabled(tguiWidget* widget, const char* signalName, sfBool enabled);
 
 #endif // CTGUI_WIDGET_H
 

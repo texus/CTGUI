@@ -28,6 +28,7 @@
 #include <CTGUI/RendererDataStruct.h>
 #include <CTGUI/OutlineStruct.h>
 #include <CTGUI/ColorConverter.h>
+#include <CTGUI/SFML/Graphics/TextureStruct.h>
 
 #include <TGUI/Renderers/LabelRenderer.hpp>
 
@@ -77,6 +78,30 @@ void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 sfColor tguiLabelRenderer_getTextColor(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getTextColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextOutlineColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextOutlineColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setTextOutlineThickness(tguiRenderer* renderer, float thickness)
+{
+    DOWNCAST(renderer->This)->setTextOutlineThickness(thickness);
+}
+
+float tguiLabelRenderer_getTextOutlineThickness(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextOutlineThickness();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -137,4 +162,11 @@ void tguiLabelRenderer_setScrollbarWidth(tguiRenderer* renderer, float width)
 float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getScrollbarWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }
