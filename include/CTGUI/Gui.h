@@ -42,7 +42,7 @@ CTGUI_API void tguiGui_setTargetRenderTexture(tguiGui* gui, sfRenderTexture* tar
 CTGUI_API void tguiGui_setView(tguiGui* gui, const sfView* view);
 CTGUI_API const sfView* tguiGui_getView(const tguiGui* gui);
 
-CTGUI_API void tguiGui_handleEvent(tguiGui* gui, sfEvent event);
+CTGUI_API sfBool tguiGui_handleEvent(tguiGui* gui, sfEvent event);
 
 CTGUI_API void tguiGui_add(tguiGui* gui, tguiWidget* widget, const sfUint32* widgetName);
 CTGUI_API tguiWidget* tguiGui_get(tguiGui* gui, const sfUint32* widgetName);
