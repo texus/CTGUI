@@ -112,11 +112,11 @@ sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename)
+sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, sfBool replaceExisting)
 {
     try
     {
-        DOWNCAST(container->This)->loadWidgetsFromFile(filename);
+        DOWNCAST(container->This)->loadWidgetsFromFile(filename, replaceExisting);
         return true;
     }
     catch (const tgui::Exception& e)

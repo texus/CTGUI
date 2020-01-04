@@ -188,11 +188,11 @@ float tguiGui_getOpacity(const tguiGui* gui)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename)
+sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, sfBool replaceExisting)
 {
     try
     {
-        gui->This.loadWidgetsFromFile(filename);
+        gui->This.loadWidgetsFromFile(filename, replaceExisting);
         return true;
     }
     catch (const tgui::Exception& e)

@@ -87,6 +87,8 @@ CTGUI_API tguiWidget* tguiWidget_getToolTip(const tguiWidget* widget);
 
 CTGUI_API tguiWidget* tguiWidget_getParent(tguiWidget* widget);
 
+CTGUI_API sfBool tguiWidget_isAnimationPlaying(const tguiWidget* widget);
+
 CTGUI_API sfBool tguiWidget_mouseOnWidget(tguiWidget* widget, sfVector2f pos);
 
 CTGUI_API sfBool tguiWidget_setSignalEnabled(tguiWidget* widget, const char* signalName, sfBool enabled);

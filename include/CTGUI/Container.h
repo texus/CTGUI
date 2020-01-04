@@ -43,7 +43,7 @@ CTGUI_API sfBool tguiContainer_focusPreviousWidget(tguiWidget* container);
 CTGUI_API sfVector2f tguiContainer_getInnerSize(tguiWidget* container);
 CTGUI_API sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container);
 
-CTGUI_API sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename);
+CTGUI_API sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, sfBool replaceExisting);
 CTGUI_API sfBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename);
 
 #endif // CTGUI_CONTAINER_H
