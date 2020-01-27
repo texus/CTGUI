@@ -128,6 +128,11 @@ unsigned int tguiWidget_connectString(tguiWidget* widget, const char* signalName
     return connectSignal(widget, signalName, [function](const sf::String& str){ function(str.getData()); });
 }
 
+unsigned int tguiWidget_connectBool(tguiWidget* widget, const char* signalName, void (*function)(sfBool))
+{
+    return connectSignal(widget, signalName, [function](bool b){ function(b); });
+}
+
 unsigned int tguiWidget_connectInt(tguiWidget* widget, const char* signalName, void (*function)(int))
 {
     return connectSignal(widget, signalName, function);

@@ -48,6 +48,7 @@ CTGUI_API sfVector2f tguiWidget_getFullSize(const tguiWidget* widget);
 CTGUI_API unsigned int tguiWidget_connect(tguiWidget* widget, const char* signalName, void (*function)());
 CTGUI_API unsigned int tguiWidget_connectVector2f(tguiWidget* widget, const char* signalName, void (*function)(sfVector2f));
 CTGUI_API unsigned int tguiWidget_connectString(tguiWidget* widget, const char* signalName, void (*function)(const sfUint32*));
+CTGUI_API unsigned int tguiWidget_connectBool(tguiWidget* widget, const char* signalName, void (*function)(sfBool));
 CTGUI_API unsigned int tguiWidget_connectInt(tguiWidget* widget, const char* signalName, void (*function)(int));
 CTGUI_API unsigned int tguiWidget_connectUInt(tguiWidget* widget, const char* signalName, void (*function)(unsigned int));
 CTGUI_API unsigned int tguiWidget_connectFloat(tguiWidget* widget, const char* signalName, void (*function)(float));
