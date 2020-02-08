@@ -37,13 +37,13 @@ CTGUI_API void tguiTextBox_setText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API void tguiTextBox_addText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API const sfUint32* tguiTextBox_getText(const tguiWidget* widget);
 
+CTGUI_API void tguiTextBox_setDefaultText(tguiWidget* widget, const sfUint32* text);
+CTGUI_API const sfUint32* tguiTextBox_getDefaultText(const tguiWidget* widget);
+
 CTGUI_API void tguiTextBox_setSelectedText(const tguiWidget* widget, size_t selectionStartIndex, size_t selectionEndIndex);
 CTGUI_API const sfUint32* tguiTextBox_getSelectedText(const tguiWidget* widget);
 CTGUI_API size_t tguiTextBox_getSelectionStart(const tguiWidget* widget);
 CTGUI_API size_t tguiTextBox_getSelectionEnd(const tguiWidget* widget);
-
-CTGUI_API void tguiTextBox_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiTextBox_getTextSize(const tguiWidget* widget);
 
 CTGUI_API void tguiTextBox_setMaximumCharacters(tguiWidget* widget, size_t maximumCharacters);
 CTGUI_API size_t tguiTextBox_getMaximumCharacters(const tguiWidget* widget);

@@ -156,18 +156,6 @@ sfBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_setTextSize(tguiWidget* widget, unsigned int textSize)
-{
-    DOWNCAST(widget->This)->setTextSize(textSize);
-}
-
-unsigned int tguiTabs_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth)
 {
     DOWNCAST(widget->This)->setMaximumTabWidth(maximumTabWidth);

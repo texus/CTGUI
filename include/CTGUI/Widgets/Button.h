@@ -34,8 +34,5 @@ CTGUI_API tguiWidget* tguiButton_create(void);
 CTGUI_API void tguiButton_setText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API const sfUint32* tguiButton_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiButton_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiButton_getTextSize(const tguiWidget* widget);
-
 #endif // CTGUI_BUTTON_H
 

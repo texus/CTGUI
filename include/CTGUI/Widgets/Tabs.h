@@ -60,9 +60,6 @@ CTGUI_API sfBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index);
 CTGUI_API void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, sfBool enabled);
 CTGUI_API sfBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index);
 
-CTGUI_API void tguiTabs_setTextSize(tguiWidget* widget, unsigned int textSize);
-CTGUI_API unsigned int tguiTabs_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth);
 CTGUI_API float tguiTabs_getMaximumTabWidth(const tguiWidget* widget);
 

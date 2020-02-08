@@ -48,9 +48,6 @@ CTGUI_API sfBool tguiMenuBar_getMenuItemEnabled(tguiWidget* widget, const sfUint
 CTGUI_API sfBool tguiMenuBar_setMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool enabled);
 CTGUI_API sfBool tguiMenuBar_getMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength);
 
-CTGUI_API void tguiMenuBar_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, float minimumWidth);
 CTGUI_API float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget);
 

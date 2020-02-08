@@ -107,16 +107,6 @@ size_t tguiChatBox_getLineLimit(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_setTextSize(tguiWidget* widget, unsigned int textSize)
-{
-    DOWNCAST(widget->This)->setTextSize(textSize);
-}
-
-unsigned int tguiChatBox_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
 void tguiChatBox_setTextColor(tguiWidget* widget, sfColor color)
 {
     DOWNCAST(widget->This)->setTextColor({color.r, color.g, color.b, color.a});

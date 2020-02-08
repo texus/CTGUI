@@ -51,18 +51,6 @@ const sfUint32* tguiMessageBox_getText(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiMessageBox_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiMessageBox_addButton(tguiWidget* widget, const sfUint32* text)
 {
     DOWNCAST(widget->This)->addButton(text);

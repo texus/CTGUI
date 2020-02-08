@@ -53,9 +53,6 @@ CTGUI_API unsigned int tguiProgressBar_incrementValue(const tguiWidget* widget);
 CTGUI_API void tguiProgressBar_setText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API const sfUint32* tguiProgressBar_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiProgressBar_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiProgressBar_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiProgressBar_setFillDirection(tguiWidget* widget, tguiFillDirection fillDirection);
 CTGUI_API tguiFillDirection tguiProgressBar_getFillDirection(const tguiWidget* widget);
 

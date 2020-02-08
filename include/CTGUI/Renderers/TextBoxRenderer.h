@@ -43,6 +43,8 @@ CTGUI_API sfColor tguiTextBoxRenderer_getBackgroundColor(const tguiRenderer* ren
 
 CTGUI_API void tguiTextBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTextBoxRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTextBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor color);
+CTGUI_API sfColor tguiTextBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer);
 CTGUI_API void tguiTextBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
 CTGUI_API sfColor tguiTextBoxRenderer_getSelectedTextColor(const tguiRenderer* renderer);
 CTGUI_API void tguiTextBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, sfColor color);

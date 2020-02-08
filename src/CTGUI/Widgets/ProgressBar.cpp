@@ -94,18 +94,6 @@ const sfUint32* tguiProgressBar_getText(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBar_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiProgressBar_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiProgressBar_setFillDirection(tguiWidget* widget, tguiFillDirection fillDirection)
 {
     DOWNCAST(widget->This)->setFillDirection(static_cast<tgui::ProgressBar::FillDirection>(fillDirection));

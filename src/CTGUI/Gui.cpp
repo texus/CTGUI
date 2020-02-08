@@ -137,14 +137,38 @@ const sfUint32** tguiGui_getWidgetNames(tguiGui* gui, size_t* count)
     return cNames.data();
 }
 
-void tguiGui_remove(tguiGui* gui, tguiWidget* widget)
+sfBool tguiGui_remove(tguiGui* gui, tguiWidget* widget)
 {
-    gui->This.remove(widget->This);
+    return gui->This.remove(widget->This);
 }
 
 void tguiGui_removeAllWidgets(tguiGui* gui)
 {
     gui->This.removeAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_moveWidgetToFront(tguiGui* gui, tguiWidget* widget)
+{
+    gui->This.moveWidgetToFront(widget->This);
+}
+
+void tguiGui_moveWidgetToBack(tguiGui* gui, tguiWidget* widget)
+{
+    gui->This.moveWidgetToBack(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sfBool tguiGui_focusNextWidget(tguiGui* gui)
+{
+    return gui->This.focusNextWidget();
+}
+
+sfBool tguiGui_focusPreviousWidget(tguiGui* gui)
+{
+    return gui->This.focusPreviousWidget();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,6 +209,17 @@ float tguiGui_getOpacity(const tguiGui* gui)
     return gui->This.getOpacity();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_setTextSize(tguiGui* gui, unsigned int size)
+{
+    gui->This.setTextSize(size);
+}
+
+unsigned int tguiGui_getTextSize(const tguiGui* gui)
+{
+    return gui->This.getTextSize();
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

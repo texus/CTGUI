@@ -86,6 +86,18 @@ void tguiContainer_removeAllWidgets(tguiWidget* container)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiContainer_moveWidgetToFront(tguiWidget* container, tguiWidget* widget)
+{
+    DOWNCAST(container->This)->moveWidgetToFront(widget->This);
+}
+
+void tguiContainer_moveWidgetToBack(tguiWidget* container, tguiWidget* widget)
+{
+    DOWNCAST(container->This)->moveWidgetToBack(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfBool tguiContainer_focusNextWidget(tguiWidget* container)
 {
     return DOWNCAST(container->This)->focusNextWidget();

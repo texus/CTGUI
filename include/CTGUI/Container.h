@@ -37,6 +37,9 @@ CTGUI_API const sfUint32** tguiContainer_getWidgetNames(tguiWidget* container, s
 CTGUI_API sfBool tguiContainer_remove(tguiWidget* container, tguiWidget* widget);
 CTGUI_API void tguiContainer_removeAllWidgets(tguiWidget* container);
 
+CTGUI_API void tguiContainer_moveWidgetToFront(tguiWidget* container, tguiWidget* widget);
+CTGUI_API void tguiContainer_moveWidgetToBack(tguiWidget* container, tguiWidget* widget);
+
 CTGUI_API sfBool tguiContainer_focusNextWidget(tguiWidget* container);
 CTGUI_API sfBool tguiContainer_focusPreviousWidget(tguiWidget* container);
 

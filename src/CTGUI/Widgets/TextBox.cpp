@@ -56,6 +56,18 @@ const sfUint32* tguiTextBox_getText(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiTextBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
+{
+    DOWNCAST(widget->This)->setDefaultText(text);
+}
+
+const sfUint32* tguiTextBox_getDefaultText(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getDefaultText().getData();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiTextBox_setSelectedText(const tguiWidget* widget, size_t selectionStartIndex, size_t selectionEndIndex)
 {
     DOWNCAST(widget->This)->setSelectedText(selectionStartIndex, selectionEndIndex);
@@ -76,18 +88,6 @@ size_t tguiTextBox_getSelectionStart(const tguiWidget* widget)
 size_t tguiTextBox_getSelectionEnd(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getSelectionEnd();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextBox_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiTextBox_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

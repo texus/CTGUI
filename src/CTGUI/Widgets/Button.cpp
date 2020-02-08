@@ -48,15 +48,3 @@ const sfUint32* tguiButton_getText(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getText().getData();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButton_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiButton_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}

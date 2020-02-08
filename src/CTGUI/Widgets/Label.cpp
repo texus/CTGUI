@@ -51,18 +51,6 @@ const sfUint32* tguiLabel_getText(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabel_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiLabel_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiLabel_setHorizontalAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment)
 {
     DOWNCAST(widget->This)->setHorizontalAlignment(static_cast<tgui::Label::HorizontalAlignment>(alignment));

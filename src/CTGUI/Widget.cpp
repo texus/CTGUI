@@ -320,6 +320,30 @@ sfBool tguiWidget_isAnimationPlaying(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidget_setTextSize(tguiWidget* widget, unsigned int size)
+{
+    widget->This->setTextSize(size);
+}
+
+unsigned int tguiWidget_getTextSize(const tguiWidget* widget)
+{
+    return widget->This->getTextSize();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_setName(tguiWidget* widget, const sfUint32* name)
+{
+    widget->This->setWidgetName(name);
+}
+
+const sfUint32* tguiWidget_getName(const tguiWidget* widget)
+{
+    return widget->This->getWidgetName().getData();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfBool tguiWidget_mouseOnWidget(tguiWidget* widget, sfVector2f pos)
 {
     return widget->This->mouseOnWidget({pos.x, pos.y});

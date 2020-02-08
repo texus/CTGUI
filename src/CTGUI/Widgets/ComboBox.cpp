@@ -196,18 +196,6 @@ size_t tguiComboBox_getMaximumItems(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBox_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiComboBox_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 CTGUI_API void tguiComboBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
 {
     DOWNCAST(widget->This)->setDefaultText(text);

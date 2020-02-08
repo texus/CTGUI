@@ -49,9 +49,6 @@ CTGUI_API size_t tguiChatBox_getLineAmount(const tguiWidget* widget);
 CTGUI_API void tguiChatBox_setLineLimit(tguiWidget* widget, size_t maxLines);
 CTGUI_API size_t tguiChatBox_getLineLimit(const tguiWidget* widget);
 
-CTGUI_API void tguiChatBox_setTextSize(tguiWidget* widget, unsigned int textSize);
-CTGUI_API unsigned int tguiChatBox_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiChatBox_setTextColor(tguiWidget* widget, sfColor color);
 CTGUI_API sfColor tguiChatBox_getTextColor(const tguiWidget* widget);
 

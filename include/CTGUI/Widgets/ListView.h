@@ -87,9 +87,6 @@ CTGUI_API const sfUint32** tguiListView_getItems(const tguiWidget* widget, size_
 CTGUI_API void tguiListView_setItemHeight(tguiWidget* widget, unsigned int height);
 CTGUI_API unsigned int tguiListView_getItemHeight(const tguiWidget* widget);
 
-CTGUI_API void tguiListView_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiListView_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiListView_setHeaderTextSize(tguiWidget* widget, unsigned int size);
 CTGUI_API unsigned int tguiListView_getHeaderTextSize(const tguiWidget* widget);
 

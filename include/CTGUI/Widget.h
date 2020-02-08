@@ -90,6 +90,12 @@ CTGUI_API tguiWidget* tguiWidget_getParent(tguiWidget* widget);
 
 CTGUI_API sfBool tguiWidget_isAnimationPlaying(const tguiWidget* widget);
 
+CTGUI_API void tguiWidget_setTextSize(tguiWidget* widget, unsigned int size);
+CTGUI_API unsigned int tguiWidget_getTextSize(const tguiWidget* widget);
+
+CTGUI_API void tguiWidget_setName(tguiWidget* widget, const sfUint32* name);
+CTGUI_API const sfUint32* tguiWidget_getName(const tguiWidget* widget);
+
 CTGUI_API sfBool tguiWidget_mouseOnWidget(tguiWidget* widget, sfVector2f pos);
 
 CTGUI_API sfBool tguiWidget_setSignalEnabled(tguiWidget* widget, const char* signalName, sfBool enabled);

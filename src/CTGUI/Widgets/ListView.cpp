@@ -289,18 +289,6 @@ unsigned int tguiListView_getItemHeight(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiListView_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiListView_setHeaderTextSize(tguiWidget* widget, unsigned int size)
 {
     DOWNCAST(widget->This)->setHeaderTextSize(size);

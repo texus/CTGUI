@@ -71,9 +71,6 @@ CTGUI_API const sfUint32** tguiComboBox_getItemIds(const tguiWidget* widget, siz
 CTGUI_API void tguiComboBox_setMaximumItems(tguiWidget* widget, unsigned int maxItems);
 CTGUI_API size_t tguiComboBox_getMaximumItems(const tguiWidget* widget);
 
-CTGUI_API void tguiComboBox_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiComboBox_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiComboBox_setDefaultText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API const sfUint32* tguiComboBox_getDefaultText(const tguiWidget* widget);
 

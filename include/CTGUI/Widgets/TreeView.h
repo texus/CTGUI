@@ -49,9 +49,6 @@ CTGUI_API void tguiTreeView_deselectItem(tguiWidget* widget);
 CTGUI_API void tguiTreeView_setItemHeight(tguiWidget* widget, unsigned int itemHeight);
 CTGUI_API unsigned int tguiTreeView_getItemHeight(const tguiWidget* widget);
 
-CTGUI_API void tguiTreeView_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiTreeView_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiTreeView_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value);
 CTGUI_API unsigned int tguiTreeView_getVerticalScrollbarValue(const tguiWidget* widget);
 

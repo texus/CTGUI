@@ -135,18 +135,6 @@ sfBool tguiMenuBar_getMenuItemEnabledHierarchy(tguiWidget* widget, const sfUint3
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBar_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiMenuBar_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, float minimumWidth)
 {
     DOWNCAST(widget->This)->setMinimumSubMenuWidth(minimumWidth);

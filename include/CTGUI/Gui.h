@@ -48,8 +48,14 @@ CTGUI_API void tguiGui_add(tguiGui* gui, tguiWidget* widget, const sfUint32* wid
 CTGUI_API tguiWidget* tguiGui_get(tguiGui* gui, const sfUint32* widgetName);
 CTGUI_API tguiWidget** tguiGui_getWidgets(tguiGui* gui, size_t* count);
 CTGUI_API const sfUint32** tguiGui_getWidgetNames(tguiGui* gui, size_t* count);
-CTGUI_API void tguiGui_remove(tguiGui* gui, tguiWidget* widget);
+CTGUI_API sfBool tguiGui_remove(tguiGui* gui, tguiWidget* widget);
 CTGUI_API void tguiGui_removeAllWidgets(tguiGui* gui);
+
+CTGUI_API void tguiGui_moveWidgetToFront(tguiGui* gui, tguiWidget* widget);
+CTGUI_API void tguiGui_moveWidgetToBack(tguiGui* gui, tguiWidget* widget);
+
+CTGUI_API sfBool tguiGui_focusNextWidget(tguiGui* gui);
+CTGUI_API sfBool tguiGui_focusPreviousWidget(tguiGui* gui);
 
 CTGUI_API void tguiGui_setTabKeyUsageEnabled(tguiGui* gui, sfBool enabled);
 CTGUI_API sfBool tguiGui_isTabKeyUsageEnabled(tguiGui* gui);
@@ -60,6 +66,9 @@ CTGUI_API void tguiGui_setFont(tguiGui* gui, sfFont* font);
 
 CTGUI_API void tguiGui_setOpacity(tguiGui* gui, float alpha);
 CTGUI_API float tguiGui_getOpacity(const tguiGui* gui);
+
+CTGUI_API void tguiGui_setTextSize(tguiGui* gui, unsigned int size);
+CTGUI_API unsigned int tguiGui_getTextSize(const tguiGui* gui);
 
 CTGUI_API sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, sfBool replaceExisting);
 CTGUI_API sfBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename);

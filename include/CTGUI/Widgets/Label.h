@@ -36,9 +36,6 @@ CTGUI_API tguiWidget* tguiLabel_create(void);
 CTGUI_API void tguiLabel_setText(tguiWidget* widget, const sfUint32* text);
 CTGUI_API const sfUint32* tguiLabel_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiLabel_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiLabel_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiLabel_setHorizontalAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment);
 CTGUI_API tguiHorizontalAlignment tguiLabel_getHorizontalAlignment(const tguiWidget* widget);
 

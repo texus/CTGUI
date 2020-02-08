@@ -42,9 +42,6 @@ CTGUI_API const sfUint32* tguiEditBox_getDefaultText(const tguiWidget* widget);
 CTGUI_API void tguiEditBox_selectText(tguiWidget* widget, size_t start, size_t length);
 CTGUI_API const sfUint32* tguiEditBox_getSelectedText(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiEditBox_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char passwordChar);
 CTGUI_API char tguiEditBox_getPasswordCharacter(const tguiWidget* widget);
 

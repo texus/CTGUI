@@ -49,6 +49,8 @@ const sfUint32* tguiEditBox_getText(const tguiWidget* widget)
     return DOWNCAST(widget->This)->getText().getData();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiEditBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
 {
     DOWNCAST(widget->This)->setDefaultText(text);
@@ -71,18 +73,6 @@ const sfUint32* tguiEditBox_getSelectedText(const tguiWidget* widget)
     static sf::String selectedText;
     selectedText = DOWNCAST(widget->This)->getSelectedText();
     return selectedText.getData();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBox_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiEditBox_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

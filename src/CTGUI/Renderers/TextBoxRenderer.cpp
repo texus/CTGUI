@@ -92,6 +92,16 @@ sfColor tguiTextBoxRenderer_getTextColor(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
+void tguiTextBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setDefaultTextColor({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiTextBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getDefaultTextColor());
+}
+
 void tguiTextBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
 {
     DOWNCAST(renderer->This)->setSelectedTextColor({color.r, color.g, color.b, color.a});

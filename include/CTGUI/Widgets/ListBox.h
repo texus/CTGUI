@@ -62,9 +62,6 @@ CTGUI_API const sfUint32** tguiListBox_getItemIds(const tguiWidget* widget, size
 CTGUI_API void tguiListBox_setItemHeight(tguiWidget* widget, unsigned int height);
 CTGUI_API unsigned int tguiListBox_getItemHeight(const tguiWidget* widget);
 
-CTGUI_API void tguiListBox_setTextSize(tguiWidget* widget, unsigned int size);
-CTGUI_API unsigned int tguiListBox_getTextSize(const tguiWidget* widget);
-
 CTGUI_API void tguiListBox_setMaximumItems(tguiWidget* widget, size_t maxItems);
 CTGUI_API size_t tguiListBox_getMaximumItems(const tguiWidget* widget);
 

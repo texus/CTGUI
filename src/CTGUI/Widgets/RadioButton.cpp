@@ -63,18 +63,6 @@ const sfUint32* tguiRadioButton_getText(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButton_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiRadioButton_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable)
 {
     DOWNCAST(widget->This)->setTextClickable(clickable != 0);

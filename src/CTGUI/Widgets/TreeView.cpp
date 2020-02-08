@@ -133,18 +133,6 @@ unsigned int tguiTreeView_getItemHeight(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeView_setTextSize(tguiWidget* widget, unsigned int size)
-{
-    DOWNCAST(widget->This)->setTextSize(size);
-}
-
-unsigned int tguiTreeView_getTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTextSize();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiTreeView_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
 {
     DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
