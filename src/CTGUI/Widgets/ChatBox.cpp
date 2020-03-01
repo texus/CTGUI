@@ -59,9 +59,7 @@ void tguiChatBox_addLineWithColorAndStyle(tguiWidget* widget, const sfUint32* te
 
 const sfUint32* tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex)
 {
-    static sf::String line;
-    line = DOWNCAST(widget->This)->getLine(lineIndex);
-    return line.getData();
+    return returnString(DOWNCAST(widget->This)->getLine(lineIndex));
 }
 
 sfColor tguiChatBox_getLineColor(const tguiWidget* widget, size_t lineIndex)

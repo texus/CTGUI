@@ -63,9 +63,7 @@ void tguiTabs_insert(tguiWidget* widget, size_t index, const sfUint32* text, sfB
 
 const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t index)
 {
-    static sf::String text;
-    text = DOWNCAST(widget->This)->getText(index);
-    return text.getData();
+    return returnString(DOWNCAST(widget->This)->getText(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -113,9 +111,7 @@ void tguiTabs_removeAll(tguiWidget* widget)
 
 const sfUint32* tguiTabs_getSelected(const tguiWidget* widget)
 {
-    static sf::String text;
-    text = DOWNCAST(widget->This)->getSelected();
-    return text.getData();
+    return returnString(DOWNCAST(widget->This)->getSelected());
 }
 
 int tguiTabs_getSelectedIndex(const tguiWidget* widget)

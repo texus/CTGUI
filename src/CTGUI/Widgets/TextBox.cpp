@@ -51,7 +51,7 @@ void tguiTextBox_addText(tguiWidget* widget, const sfUint32* text)
 
 const sfUint32* tguiTextBox_getText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getText().getData();
+    return returnString(DOWNCAST(widget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +63,7 @@ void tguiTextBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
 
 const sfUint32* tguiTextBox_getDefaultText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getDefaultText().getData();
+    return returnString(DOWNCAST(widget->This)->getDefaultText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,9 +75,7 @@ void tguiTextBox_setSelectedText(const tguiWidget* widget, size_t selectionStart
 
 const sfUint32* tguiTextBox_getSelectedText(const tguiWidget* widget)
 {
-    static sf::String selectedText;
-    selectedText = DOWNCAST(widget->This)->getSelectedText();
-    return selectedText.getData();
+    return returnString(DOWNCAST(widget->This)->getSelectedText());
 }
 
 size_t tguiTextBox_getSelectionStart(const tguiWidget* widget)

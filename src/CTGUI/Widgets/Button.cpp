@@ -46,5 +46,5 @@ void tguiButton_setText(tguiWidget* widget, const sfUint32* text)
 
 const sfUint32* tguiButton_getText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getText().getData();
+    return returnString(DOWNCAST(widget->This)->getText());
 }

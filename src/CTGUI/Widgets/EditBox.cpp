@@ -46,7 +46,7 @@ void tguiEditBox_setText(tguiWidget* widget, const sfUint32* text)
 
 const sfUint32* tguiEditBox_getText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getText().getData();
+    return returnString(DOWNCAST(widget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ void tguiEditBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
 
 const sfUint32* tguiEditBox_getDefaultText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getDefaultText().getData();
+    return returnString(DOWNCAST(widget->This)->getDefaultText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,9 +70,7 @@ void tguiEditBox_selectText(tguiWidget* widget, size_t start, size_t length)
 
 const sfUint32* tguiEditBox_getSelectedText(const tguiWidget* widget)
 {
-    static sf::String selectedText;
-    selectedText = DOWNCAST(widget->This)->getSelectedText();
-    return selectedText.getData();
+    return returnString(DOWNCAST(widget->This)->getSelectedText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -156,7 +154,7 @@ void tguiEditBox_setInputValidator(tguiWidget* widget, const char* validator)
 
 const char* tguiEditBox_getInputValidator(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getInputValidator().c_str();
+    return returnString(DOWNCAST(widget->This)->getInputValidator());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,5 +166,5 @@ void tguiEditBox_setSuffix(tguiWidget* widget, const sfUint32* suffix)
 
 const sfUint32* tguiEditBox_getSuffix(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getSuffix().getData();
+    return returnString(DOWNCAST(widget->This)->getSuffix());
 }

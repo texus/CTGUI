@@ -25,8 +25,14 @@
 #ifndef CTGUI_INTERNAL_GLOBAL_H
 #define CTGUI_INTERNAL_GLOBAL_H
 
-#include <string>
+#include <SFML/System/String.hpp>
+#include <SFML/Config.h>
 
 extern std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
+
+const char* returnString(const char* str) = delete;
+const sfUint32* returnString(const sfUint32* str) = delete;
+const char* returnString(const std::string& str);
+const sfUint32* returnString(const sf::String& str);
 
 #endif // CTGUI_INTERNAL_GLOBAL_H

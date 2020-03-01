@@ -266,7 +266,7 @@ sfBool tguiWidget_isFocusable(const tguiWidget* widget)
 
 const char* tguiWidget_getWidgetType(const tguiWidget* widget)
 {
-    return widget->This->getWidgetType().c_str();
+    return returnString(widget->This->getWidgetType());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -339,7 +339,7 @@ void tguiWidget_setName(tguiWidget* widget, const sfUint32* name)
 
 const sfUint32* tguiWidget_getName(const tguiWidget* widget)
 {
-    return widget->This->getWidgetName().getData();
+    return returnString(widget->This->getWidgetName());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

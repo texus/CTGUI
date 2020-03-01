@@ -58,9 +58,7 @@ sfBool tguiComboBox_addItem(tguiWidget* widget, const sfUint32* item, const sfUi
 
 const sfUint32* tguiComboBox_getItemById(const tguiWidget* widget, const sfUint32* id)
 {
-    static sf::String item;
-    item = DOWNCAST(widget->This)->getItemById(id);
-    return item.getData();
+    return returnString(DOWNCAST(widget->This)->getItemById(id));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,16 +109,12 @@ void tguiComboBox_removeAllItems(tguiWidget* widget)
 
 const sfUint32* tguiComboBox_getSelectedItem(const tguiWidget* widget)
 {
-    static sf::String item;
-    item = DOWNCAST(widget->This)->getSelectedItem();
-    return item.getData();
+    return returnString(DOWNCAST(widget->This)->getSelectedItem());
 }
 
 const sfUint32* tguiComboBox_getSelectedItemId(const tguiWidget* widget)
 {
-    static sf::String id;
-    id = DOWNCAST(widget->This)->getSelectedItemId();
-    return id.getData();
+    return returnString(DOWNCAST(widget->This)->getSelectedItemId());
 }
 
 int tguiComboBox_getSelectedItemIndex(const tguiWidget* widget)
@@ -203,7 +197,7 @@ CTGUI_API void tguiComboBox_setDefaultText(tguiWidget* widget, const sfUint32* t
 
 CTGUI_API const sfUint32* tguiComboBox_getDefaultText(const tguiWidget* widget)
 {
-    return DOWNCAST(widget->This)->getDefaultText().getData();
+    return returnString(DOWNCAST(widget->This)->getDefaultText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

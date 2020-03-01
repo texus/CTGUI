@@ -54,7 +54,7 @@ void tguiListView_setColumnText(tguiWidget* widget, size_t index, const sfUint32
 
 const sfUint32* tguiListView_getColumnText(tguiWidget* widget, size_t index)
 {
-    return DOWNCAST(widget->This)->getColumnText(index).getData();
+    return returnString(DOWNCAST(widget->This)->getColumnText(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -239,12 +239,12 @@ size_t tguiListView_getItemCount(const tguiWidget* widget)
 
 const sfUint32* tguiListView_getItem(tguiWidget* widget, size_t index)
 {
-    return DOWNCAST(widget->This)->getItem(index).getData();
+    return returnString(DOWNCAST(widget->This)->getItem(index));
 }
 
 const sfUint32* tguiListView_getItemCell(tguiWidget* widget, size_t rowIndex, size_t columnIndex)
 {
-    return DOWNCAST(widget->This)->getItemCell(rowIndex, columnIndex).getData();
+    return returnString(DOWNCAST(widget->This)->getItemCell(rowIndex, columnIndex));
 }
 
 const sfUint32** tguiListView_getItemRow(const tguiWidget* widget, size_t index, size_t* count)

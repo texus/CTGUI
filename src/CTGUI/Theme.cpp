@@ -93,7 +93,7 @@ sfBool tguiTheme_removeRenderer(tguiTheme* theme, const char* id)
 
 const char* tguiTheme_getFilename(const tguiTheme* theme)
 {
-    return theme->This.getPrimary().c_str();
+    return returnString(theme->This.getPrimary());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

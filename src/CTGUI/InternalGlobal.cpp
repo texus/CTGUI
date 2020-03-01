@@ -25,3 +25,17 @@
 #include <CTGUI/InternalGlobal.h>
 
 std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
+
+const char* returnString(const std::string& str)
+{
+    static std::string tmpString; // String memory still needs to exist after the function returns
+    tmpString = str;
+    return tmpString.c_str();
+}
+
+const sfUint32* returnString(const sf::String& str)
+{
+    static sf::String tmpString; // String memory still needs to exist after the function returns
+    tmpString = str;
+    return tmpString.getData();
+}

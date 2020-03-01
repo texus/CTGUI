@@ -46,16 +46,12 @@ sfBool tguiListBox_addItem(tguiWidget* widget, const sfUint32* item, const sfUin
 
 const sfUint32* tguiListBox_getItemById(const tguiWidget* widget, const sfUint32* id)
 {
-    static sf::String item;
-    item = DOWNCAST(widget->This)->getItemById(id);
-    return item.getData();
+    return returnString(DOWNCAST(widget->This)->getItemById(id));
 }
 
 const sfUint32* tguiListBox_getItemByIndex(const tguiWidget* widget, size_t index)
 {
-    static sf::String item;
-    item = DOWNCAST(widget->This)->getItemByIndex(index);
-    return item.getData();
+    return returnString(DOWNCAST(widget->This)->getItemByIndex(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,16 +102,12 @@ void tguiListBox_removeAllItems(tguiWidget* widget)
 
 const sfUint32* tguiListBox_getSelectedItem(const tguiWidget* widget)
 {
-    static sf::String item;
-    item = DOWNCAST(widget->This)->getSelectedItem();
-    return item.getData();
+    return returnString(DOWNCAST(widget->This)->getSelectedItem());
 }
 
 const sfUint32* tguiListBox_getSelectedItemId(const tguiWidget* widget)
 {
-    static sf::String id;
-    id = DOWNCAST(widget->This)->getSelectedItemId();
-    return id.getData();
+    return returnString(DOWNCAST(widget->This)->getSelectedItemId());
 }
 
 int tguiListBox_getSelectedItemIndex(const tguiWidget* widget)
