@@ -54,6 +54,11 @@ CTGUI_API void tguiGui_removeAllWidgets(tguiGui* gui);
 CTGUI_API void tguiGui_moveWidgetToFront(tguiGui* gui, tguiWidget* widget);
 CTGUI_API void tguiGui_moveWidgetToBack(tguiGui* gui, tguiWidget* widget);
 
+CTGUI_API int tguiGui_getFocusedChildIndex(tguiGui* gui);
+
+CTGUI_API const int* tguiGui_getWidgetAtPositionIndices(tguiGui* gui, float x, float y, size_t* count);
+CTGUI_API const int* tguiGui_getWidgetBelowMouseCursorIndices(tguiGui* gui, int x, int y, size_t* count);
+
 CTGUI_API sfBool tguiGui_focusNextWidget(tguiGui* gui);
 CTGUI_API sfBool tguiGui_focusPreviousWidget(tguiGui* gui);
 
@@ -72,6 +77,9 @@ CTGUI_API unsigned int tguiGui_getTextSize(const tguiGui* gui);
 
 CTGUI_API sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, sfBool replaceExisting);
 CTGUI_API sfBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename);
+
+CTGUI_API void tguiGui_setDrawingUpdatesTime(tguiGui* gui, bool drawUpdatesTime);
+CTGUI_API sfBool tguiGui_updateTime(tguiGui* gui);
 
 #endif // CTGUI_GUI_H
 

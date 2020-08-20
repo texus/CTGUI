@@ -35,6 +35,8 @@ CTGUI_API tguiWidget* tguiListBox_create(void);
 CTGUI_API sfBool tguiListBox_addItem(tguiWidget* widget, const sfUint32* item, const sfUint32* id);
 CTGUI_API const sfUint32* tguiListBox_getItemById(const tguiWidget* widget, const sfUint32* id);
 CTGUI_API const sfUint32* tguiListBox_getItemByIndex(const tguiWidget* widget, size_t index);
+CTGUI_API int tguiListBox_getIndexById(const tguiWidget* widget, const sfUint32* id);
+CTGUI_API const sfUint32* tguiListBox_getIdByIndex(const tguiWidget* widget, size_t index);
 
 CTGUI_API sfBool tguiListBox_setSelectedItem(tguiWidget* widget, const sfUint32* item);
 CTGUI_API sfBool tguiListBox_setSelectedItemById(tguiWidget* widget, const sfUint32* id);

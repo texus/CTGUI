@@ -40,6 +40,10 @@ CTGUI_API void tguiContainer_removeAllWidgets(tguiWidget* container);
 CTGUI_API void tguiContainer_moveWidgetToFront(tguiWidget* container, tguiWidget* widget);
 CTGUI_API void tguiContainer_moveWidgetToBack(tguiWidget* container, tguiWidget* widget);
 
+CTGUI_API int tguiContainer_getFocusedChildIndex(tguiWidget* container);
+
+CTGUI_API const int* tguiContainer_getWidgetAtPositionIndices(tguiWidget* container, float x, float y, size_t* count);
+
 CTGUI_API sfBool tguiContainer_focusNextWidget(tguiWidget* container);
 CTGUI_API sfBool tguiContainer_focusPreviousWidget(tguiWidget* container);
 

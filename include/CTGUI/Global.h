@@ -34,6 +34,9 @@ CTGUI_API void tgui_setGlobalFont(const sfFont* font);
 CTGUI_API void tgui_setGlobalTextSize(unsigned int textSize);
 CTGUI_API unsigned int tgui_getGlobalTextSize();
 
+CTGUI_API void tgui_setEditCursorBlinkRate(unsigned int blinkRateMilliseconds);
+CTGUI_API unsigned int tgui_getEditCursorBlinkRate();
+
 CTGUI_API const char* tgui_getLastError();
 
 #endif // CTGUI_GLOBAL_H

@@ -161,6 +161,66 @@ void tguiGui_moveWidgetToBack(tguiGui* gui, tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int tguiGui_getFocusedChildIndex(tguiGui* gui)
+{
+    const auto focusedWidget = gui->This.getFocusedChild();
+    if (focusedWidget)
+    {
+        const auto& widgets = gui->This.getWidgets();
+        for (std::size_t i = 0; i < widgets.size(); ++i)
+        {
+            if (widgets[i] == focusedWidget)
+                return i;
+        }
+    }
+
+    return -1;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+static int* convertLeafWidgetToHierarchyIndices(const tgui::Widget::Ptr& leafWidget, size_t* count)
+{
+    static std::vector<int> indices;
+    indices.clear();
+
+    if (leafWidget)
+    {
+        tgui::Widget* widget = leafWidget.get();
+        while (widget->getParent())
+        {
+            int widgetIndex = 0;
+            const auto& widgets = widget->getParent()->getWidgets();
+            for (std::size_t i = 0; i < widgets.size(); ++i)
+            {
+                if (widgets[i].get() == widget)
+                {
+                    widgetIndex = static_cast<int>(i);
+                    break;
+                }
+            }
+
+            indices.insert(indices.begin(), widgetIndex);
+            widget = widget->getParent();
+        }
+    }
+
+    *count = indices.size();
+    return indices.data();
+}
+
+const int* tguiGui_getWidgetAtPositionIndices(tguiGui* gui, float x, float y, size_t* count)
+{
+    return convertLeafWidgetToHierarchyIndices(gui->This.getWidgetAtPosition({x, y}), count);
+}
+
+const int* tguiGui_getWidgetBelowMouseCursorIndices(tguiGui* gui, int x, int y, size_t* count)
+{
+    return convertLeafWidgetToHierarchyIndices(gui->This.getWidgetBelowMouseCursor({x, y}), count);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfBool tguiGui_focusNextWidget(tguiGui* gui)
 {
     return gui->This.focusNextWidget();
@@ -249,4 +309,16 @@ sfBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename)
         tguiErrorMessage = e.what();
         return false;
     }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_setDrawingUpdatesTime(tguiGui* gui, bool drawUpdatesTime)
+{
+    gui->This.setDrawingUpdatesTime(drawUpdatesTime != 0);
+}
+
+sfBool tguiGui_updateTime(tguiGui* gui)
+{
+    return gui->This.updateTime();
 }

@@ -56,3 +56,15 @@ unsigned int tgui_getGlobalTextSize()
 {
     return tgui::getGlobalTextSize();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tgui_setEditCursorBlinkRate(unsigned int blinkRateMilliseconds)
+{
+    tgui::setEditCursorBlinkRate(blinkRateMilliseconds);
+}
+
+unsigned int tgui_getEditCursorBlinkRate()
+{
+    return tgui::getEditCursorBlinkRate();
+}

@@ -98,6 +98,57 @@ void tguiContainer_moveWidgetToBack(tguiWidget* container, tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int tguiContainer_getFocusedChildIndex(tguiWidget* container)
+{
+    const auto focusedWidget = DOWNCAST(container->This)->getFocusedChild();
+    if (focusedWidget)
+    {
+        const auto& widgets = DOWNCAST(container->This)->getWidgets();
+        for (std::size_t i = 0; i < widgets.size(); ++i)
+        {
+            if (widgets[i] == focusedWidget)
+                return i;
+        }
+    }
+
+    return -1;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const int* tguiContainer_getWidgetAtPositionIndices(tguiWidget* container, float x, float y, size_t* count)
+{
+    static std::vector<int> indices;
+    indices.clear();
+
+    const auto leafWidget = DOWNCAST(container->This)->getWidgetAtPosition({x, y});
+    if (leafWidget)
+    {
+        tgui::Widget* widget = leafWidget.get();
+        while (widget->getParent())
+        {
+            int widgetIndex = 0;
+            const auto& widgets = widget->getParent()->getWidgets();
+            for (std::size_t i = 0; i < widgets.size(); ++i)
+            {
+                if (widgets[i].get() == widget)
+                {
+                    widgetIndex = static_cast<int>(i);
+                    break;
+                }
+            }
+
+            indices.insert(indices.begin(), widgetIndex);
+            widget = widget->getParent();
+        }
+    }
+
+    *count = indices.size();
+    return indices.data();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 sfBool tguiContainer_focusNextWidget(tguiWidget* container)
 {
     return DOWNCAST(container->This)->focusNextWidget();

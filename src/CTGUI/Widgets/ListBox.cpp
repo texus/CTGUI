@@ -54,6 +54,16 @@ const sfUint32* tguiListBox_getItemByIndex(const tguiWidget* widget, size_t inde
     return returnString(DOWNCAST(widget->This)->getItemByIndex(index));
 }
 
+int tguiListBox_getIndexById(const tguiWidget* widget, const sfUint32* id)
+{
+    return DOWNCAST(widget->This)->getIndexById(id);
+}
+
+const sfUint32* tguiListBox_getIdByIndex(const tguiWidget* widget, size_t index)
+{
+    return returnString(DOWNCAST(widget->This)->getIdByIndex(index));
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 sfBool tguiListBox_setSelectedItem(tguiWidget* widget, const sfUint32* item)

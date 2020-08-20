@@ -80,6 +80,16 @@ sfColor tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
+void tguiComboBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiComboBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiComboBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
@@ -90,6 +100,16 @@ void tguiComboBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
 sfColor tguiComboBoxRenderer_getTextColor(const tguiRenderer* renderer)
 {
     return convertColor(DOWNCAST(renderer->This)->getTextColor());
+}
+
+void tguiComboBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiComboBoxRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +146,16 @@ sfColor tguiComboBoxRenderer_getArrowBackgroundColorHover(const tguiRenderer* re
     return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColorHover());
 }
 
+void tguiComboBoxRenderer_setArrowBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setArrowBackgroundColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiComboBoxRenderer_getArrowBackgroundColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColorDisabled());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiComboBoxRenderer_setArrowColor(tguiRenderer* renderer, sfColor color)
@@ -148,6 +178,16 @@ sfColor tguiComboBoxRenderer_getArrowColorHover(const tguiRenderer* renderer)
     return convertColor(DOWNCAST(renderer->This)->getArrowColorHover());
 }
 
+void tguiComboBoxRenderer_setArrowColorDisabled(tguiRenderer* renderer, sfColor color)
+{
+    DOWNCAST(renderer->This)->setArrowColorDisabled({color.r, color.g, color.b, color.a});
+}
+
+sfColor tguiComboBoxRenderer_getArrowColorDisabled(const tguiRenderer* renderer)
+{
+    return convertColor(DOWNCAST(renderer->This)->getArrowColorDisabled());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiComboBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
@@ -167,6 +207,13 @@ void tguiComboBoxRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }
 
+void tguiComboBoxRenderer_setTextureBackgroundDisabled(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureBackgroundDisabled(*texture->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiComboBoxRenderer_setTextureArrow(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureArrow(*texture->This);
@@ -175,6 +222,11 @@ void tguiComboBoxRenderer_setTextureArrow(tguiRenderer* renderer, sfTexture* tex
 void tguiComboBoxRenderer_setTextureArrowHover(tguiRenderer* renderer, sfTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureArrowHover(*texture->This);
+}
+
+void tguiComboBoxRenderer_setTextureArrowDisabled(tguiRenderer* renderer, sfTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureArrowDisabled(*texture->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
