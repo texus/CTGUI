@@ -125,7 +125,7 @@ const int* tguiContainer_getWidgetAtPositionIndices(tguiWidget* container, float
     if (leafWidget)
     {
         tgui::Widget* widget = leafWidget.get();
-        while (widget->getParent())
+        while (widget->getParent() && (widget != container->This.get()))
         {
             int widgetIndex = 0;
             const auto& widgets = widget->getParent()->getWidgets();
