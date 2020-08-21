@@ -107,7 +107,7 @@ int tguiContainer_getFocusedChildIndex(tguiWidget* container)
         for (std::size_t i = 0; i < widgets.size(); ++i)
         {
             if (widgets[i] == focusedWidget)
-                return i;
+                return static_cast<int>(i);
         }
     }
 
