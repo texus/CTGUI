@@ -44,6 +44,7 @@ CTGUI_API void tguiWidgetRenderer_setFont(tguiRenderer* renderer, sfFont* font);
 CTGUI_API void tguiWidgetRenderer_setTransparentTexture(tguiRenderer* renderer, sfBool ignoreTransparentParts);
 CTGUI_API sfBool tguiWidgetRenderer_getTransparentTexture(tguiRenderer* renderer);
 
+CTGUI_API void tguiWidgetRenderer_setData(tguiRenderer* renderer, tguiRendererData* data);
 CTGUI_API tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* renderer);
 
 #endif // CTGUI_WIDGET_RENDERER_H

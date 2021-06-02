@@ -95,6 +95,11 @@ sfBool tguiWidgetRenderer_getTransparentTexture(tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidgetRenderer_setData(tguiRenderer* renderer, tguiRendererData* data)
+{
+    return renderer->This->setData(data->This);
+}
+
 tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* renderer)
 {
     return new tguiRendererData(renderer->This->getData());
