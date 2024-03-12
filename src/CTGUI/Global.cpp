@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,26 +24,8 @@
 
 
 #include <CTGUI/Global.h>
-#include <CTGUI/InternalGlobal.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
+#include <CTGUI/InternalGlobal.hpp>
 #include <TGUI/Global.hpp>
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-const char* tgui_getLastError()
-{
-    static std::string errorBuffer;
-    errorBuffer = tguiErrorMessage;
-    tguiErrorMessage = "";
-    return errorBuffer.c_str();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tgui_setGlobalFont(const sfFont* font)
-{
-    tgui::setGlobalFont(font->This);
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -52,19 +34,84 @@ void tgui_setGlobalTextSize(unsigned int textSize)
     tgui::setGlobalTextSize(textSize);
 }
 
-unsigned int tgui_getGlobalTextSize()
+unsigned int tgui_getGlobalTextSize(void)
 {
     return tgui::getGlobalTextSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tgui_setEditCursorBlinkRate(unsigned int blinkRateMilliseconds)
+void tgui_setDoubleClickTime(tguiDuration duration)
 {
-    tgui::setEditCursorBlinkRate(blinkRateMilliseconds);
+    tgui::setDoubleClickTime(std::chrono::nanoseconds(duration.nanoseconds));
 }
 
-unsigned int tgui_getEditCursorBlinkRate()
+tguiDuration tgui_getDoubleClickTime(void)
 {
-    return tgui::getEditCursorBlinkRate();
+    tguiDuration duration;
+    duration.nanoseconds = static_cast<tguiInt64>(std::chrono::nanoseconds(tgui::getDoubleClickTime()).count());
+    return duration;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tgui_setResourcePath(tguiUtf32 path)
+{
+    tgui::setResourcePath(ctgui::toCppStr(path));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tgui_setEditCursorBlinkRate(tguiDuration blinkRate)
+{
+    tgui::setEditCursorBlinkRate(std::chrono::nanoseconds(blinkRate.nanoseconds));
+}
+
+tguiDuration tgui_getEditCursorBlinkRate(void)
+{
+    tguiDuration duration;
+    duration.nanoseconds = static_cast<tguiInt64>(std::chrono::nanoseconds(tgui::getEditCursorBlinkRate()).count());
+    return duration;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiUint8* tgui_readFileToMemory(tguiUtf32 filename, size_t* fileSize)
+{
+    auto buffer = tgui::readFileToMemory(ctgui::toCppStr(filename), *fileSize);
+    if (!buffer)
+        return nullptr;
+
+    tguiUint8* data = new tguiUint8[*fileSize];
+    std::memcpy(data, buffer.get(), *fileSize);
+    return data;
+}
+
+tguiBool tgui_writeFile(tguiUtf32 filename, const char* textToWrite)
+{
+    return tgui::writeFile(ctgui::toCppStr(filename), textToWrite);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tgui_readFileToMemory_free(tguiUint8* data)
+{
+    delete[] data;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const char* tgui_getLastError(void)
+{
+    static std::string errorBuffer;
+    errorBuffer = ctgui::tguiErrorMessage;
+    ctgui::tguiErrorMessage = "";
+    return errorBuffer.c_str();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tgui_setBindingWidgetCleanupCallback(void (*function)(tguiWidget*))
+{
+    ctgui::bindingWidgetCleanupCallback = function;
 }

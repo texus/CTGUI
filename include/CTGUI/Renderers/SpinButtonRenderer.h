@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,9 +26,7 @@
 #ifndef CTGUI_SPIN_BUTTON_RENDERER_H
 #define CTGUI_SPIN_BUTTON_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiSpinButtonRenderer_create(void);
 CTGUI_API tguiRenderer* tguiSpinButtonRenderer_copy(const tguiRenderer* renderer);
@@ -39,23 +37,27 @@ CTGUI_API tguiOutline* tguiSpinButtonRenderer_getBorders(const tguiRenderer* ren
 CTGUI_API void tguiSpinButtonRenderer_setBorderBetweenArrows(tguiRenderer* renderer, float border);
 CTGUI_API float tguiSpinButtonRenderer_getBorderBetweenArrows(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* renderer);
-CTGUI_API void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setTextureArrowUp(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiSpinButtonRenderer_setTextureArrowUpHover(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiSpinButtonRenderer_setTextureArrowDown(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiSpinButtonRenderer_setTextureArrowDownHover(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiSpinButtonRenderer_setTextureArrowUp(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiSpinButtonRenderer_getTextureArrowUp(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setTextureArrowUpHover(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiSpinButtonRenderer_getTextureArrowUpHover(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setTextureArrowDown(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiSpinButtonRenderer_getTextureArrowDown(const tguiRenderer* renderer);
+CTGUI_API void tguiSpinButtonRenderer_setTextureArrowDownHover(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiSpinButtonRenderer_getTextureArrowDownHover(const tguiRenderer* renderer);
 
 #endif // CTGUI_SPIN_BUTTON_RENDERER_H
 

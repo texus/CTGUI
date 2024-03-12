@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,24 +26,22 @@
 #ifndef CTGUI_EDIT_BOX_H
 #define CTGUI_EDIT_BOX_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 #include <CTGUI/Alignment.h>
-#include <stddef.h>
 
 CTGUI_API tguiWidget* tguiEditBox_create(void);
 
-CTGUI_API void tguiEditBox_setText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiEditBox_getText(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiUtf32 tguiEditBox_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setDefaultText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiEditBox_getDefaultText(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setDefaultText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiUtf32 tguiEditBox_getDefaultText(const tguiWidget* widget);
 
 CTGUI_API void tguiEditBox_selectText(tguiWidget* widget, size_t start, size_t length);
-CTGUI_API const sfUint32* tguiEditBox_getSelectedText(const tguiWidget* widget);
+CTGUI_API tguiUtf32 tguiEditBox_getSelectedText(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char passwordChar);
-CTGUI_API char tguiEditBox_getPasswordCharacter(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char32_t passwordChar);
+CTGUI_API char32_t tguiEditBox_getPasswordCharacter(const tguiWidget* widget);
 
 CTGUI_API void tguiEditBox_setMaximumCharacters(tguiWidget* widget, unsigned int maximumCharacters);
 CTGUI_API unsigned int tguiEditBox_getMaximumCharacters(const tguiWidget* widget);
@@ -51,20 +49,20 @@ CTGUI_API unsigned int tguiEditBox_getMaximumCharacters(const tguiWidget* widget
 CTGUI_API void tguiEditBox_setAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment);
 CTGUI_API tguiHorizontalAlignment tguiEditBox_getAlignment(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_limitTextWidth(tguiWidget* widget, sfBool limitWidth);
-CTGUI_API sfBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_limitTextWidth(tguiWidget* widget, tguiBool limitWidth);
+CTGUI_API tguiBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setReadOnly(tguiWidget* widget, sfBool readOnly);
-CTGUI_API sfBool tguiEditBox_isReadOnly(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setReadOnly(tguiWidget* widget, tguiBool readOnly);
+CTGUI_API tguiBool tguiEditBox_isReadOnly(const tguiWidget* widget);
 
 CTGUI_API void tguiEditBox_setCaretPosition(tguiWidget* widget, size_t caretPosition);
 CTGUI_API size_t tguiEditBox_getCaretPosition(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setInputValidator(tguiWidget* widget, const char* validator);
-CTGUI_API const char* tguiEditBox_getInputValidator(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setInputValidator(tguiWidget* widget, tguiUtf32 validator);
+CTGUI_API tguiUtf32 tguiEditBox_getInputValidator(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setSuffix(tguiWidget* widget, const sfUint32* suffix);
-CTGUI_API const sfUint32* tguiEditBox_getSuffix(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setSuffix(tguiWidget* widget, tguiUtf32 suffix);
+CTGUI_API tguiUtf32 tguiEditBox_getSuffix(const tguiWidget* widget);
 
 #endif // CTGUI_EDIT_BOX_H
 

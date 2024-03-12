@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/TreeView.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/TreeView.hpp>
 
@@ -32,43 +32,84 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+static std::vector<tgui::String> convertHierarchy(const tguiUtf32* hierarchy, unsigned int hierarchyLength)
+{
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (unsigned int i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.emplace_back(ctgui::toCppStr(hierarchy[i]));
+
+    return convertedHierarchy;
+}
+
+static void convertNode(const tgui::TreeView::ConstNode& cppNode, tguiTreeViewConstNode& cNode)
+{
+    cNode.expanded = cppNode.expanded;
+    cNode.text = cppNode.text.c_str();
+    cNode.nodesCount = cppNode.nodes.size();
+    if (cppNode.nodes.empty())
+        cNode.nodes = nullptr;
+    else
+    {
+        cNode.nodes = new tguiTreeViewConstNode[cppNode.nodes.size()];
+        for (size_t i = 0; i < cppNode.nodes.size(); ++i)
+            convertNode(cppNode.nodes[i], cNode.nodes[i]);
+    }
+}
+
+static void freeSubNodes(tguiTreeViewConstNode& node)
+{
+    if (node.nodesCount == 0)
+        return;
+
+    for (size_t i = 0; i < node.nodesCount; ++i)
+        freeSubNodes(node.nodes[i]);
+
+    delete[] node.nodes;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewConstNode_free(tguiTreeViewConstNode* node)
+{
+    if (!node)
+        return;
+
+    freeSubNodes(*node);
+    delete node;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiWidget* tguiTreeView_create(void)
 {
-    return new tguiWidget(tgui::TreeView::create());
+    return ctgui::addWidgetRef(tgui::TreeView::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiTreeView_addItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool createParents)
+tguiBool tguiTreeView_addItem(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiBool createParents)
 {
-    std::vector<sf::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(hierarcy[i]);
-
-    return DOWNCAST(widget->This)->addItem(convertedHierarchy, createParents != 0);
+    return DOWNCAST(widget->This)->addItem(convertHierarchy(hierarchy, hierarchyLength), createParents != 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeView_expand(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength)
+tguiBool tguiTreeView_changeItem(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiUtf32 leafText)
 {
-    std::vector<sf::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(hierarcy[i]);
-
-    DOWNCAST(widget->This)->expand(convertedHierarchy);
+    return DOWNCAST(widget->This)->changeItem(convertHierarchy(hierarchy, hierarchyLength), ctgui::toCppStr(leafText));
 }
 
-void tguiTreeView_collapse(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength)
-{
-    std::vector<sf::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(hierarcy[i]);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    DOWNCAST(widget->This)->collapse(convertedHierarchy);
+void tguiTreeView_expand(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength)
+{
+    DOWNCAST(widget->This)->expand(convertHierarchy(hierarchy, hierarchyLength));
+}
+
+void tguiTreeView_collapse(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength)
+{
+    DOWNCAST(widget->This)->collapse(convertHierarchy(hierarchy, hierarchyLength));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,26 +126,23 @@ void tguiTreeView_collapseAll(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiTreeView_selectItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength)
+tguiBool tguiTreeView_selectItem(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength)
 {
-    std::vector<sf::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(hierarcy[i]);
-
-    return DOWNCAST(widget->This)->selectItem(convertedHierarchy);
+    return DOWNCAST(widget->This)->selectItem(convertHierarchy(hierarchy, hierarchyLength));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiTreeView_removeItem(tguiWidget* widget, const sfUint32** hierarcy, unsigned int hierarchyLength, sfBool removeParentsWhenEmpty)
+void tguiTreeView_deselectItem(tguiWidget* widget)
 {
-    std::vector<sf::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(hierarcy[i]);
+    DOWNCAST(widget->This)->deselectItem();
+}
 
-    return DOWNCAST(widget->This)->removeItem(convertedHierarchy, removeParentsWhenEmpty != 0);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiTreeView_removeItem(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiBool removeParentsWhenEmpty)
+{
+    return DOWNCAST(widget->This)->removeItem(convertHierarchy(hierarchy, hierarchyLength), removeParentsWhenEmpty != 0);
 }
 
 void tguiTreeView_removeAllItems(tguiWidget* widget)
@@ -114,9 +152,56 @@ void tguiTreeView_removeAllItems(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeView_deselectItem(tguiWidget* widget)
+const tguiUtf32* tguiTreeView_getSelectedItem(const tguiWidget* widget, size_t* count)
 {
-    DOWNCAST(widget->This)->deselectItem();
+    static std::vector<tgui::String> cppItems;
+    cppItems = DOWNCAST(widget->This)->getSelectedItem();
+
+    static std::vector<tguiUtf32> cItems;
+    cItems.clear();
+    cItems.reserve(cppItems.size());
+    for (const auto& item : cppItems)
+        cItems.emplace_back(item.c_str());
+
+    *count = cItems.size();
+    return cItems.data();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const tguiTreeViewConstNode* tguiTreeView_getNode(const tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength)
+{
+    // A copy of the text strings still needs to exist after this function finished
+    static tgui::TreeView::ConstNode cppNode;
+    cppNode = DOWNCAST(widget->This)->getNode(convertHierarchy(hierarchy, hierarchyLength));
+
+    tguiTreeViewConstNode* cNode = new tguiTreeViewConstNode;
+    convertNode(cppNode, *cNode);
+    return cNode;
+}
+
+tguiTreeViewConstNode** tguiTreeView_getNodes(const tguiWidget* widget, size_t* count)
+{
+    // A copy of the text strings still needs to exist after this function finished
+    static std::vector<tgui::TreeView::ConstNode> cppNodes;
+    cppNodes = DOWNCAST(widget->This)->getNodes();
+
+    if (cppNodes.empty())
+    {
+        *count = 0;
+        return nullptr;
+    }
+
+    static std::vector<tguiTreeViewConstNode*> cNodes;
+    cNodes.resize(cppNodes.size());
+    for (size_t i = 0; i < cppNodes.size(); ++i)
+    {
+        cNodes[i] = new tguiTreeViewConstNode;
+        convertNode(cppNodes[i], *cNodes[i]);
+    }
+
+    *count = cppNodes.size();
+    return cNodes.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

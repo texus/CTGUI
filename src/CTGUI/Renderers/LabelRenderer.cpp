@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,11 +24,9 @@
 
 
 #include <CTGUI/Renderers/LabelRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/RendererDataStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/LabelRenderer.hpp>
 
@@ -70,26 +68,26 @@ tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
+void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiLabelRenderer_getTextColor(const tguiRenderer* renderer)
+tguiColor* tguiLabelRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* renderer, sfColor color)
+void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextOutlineColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextOutlineColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* renderer)
+tguiColor* tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextOutlineColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextOutlineColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,36 +104,36 @@ float tguiLabelRenderer_getTextOutlineThickness(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiLabelRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiLabelRenderer_getBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiLabelRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabelRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiLabelRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
+void tguiLabelRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiLabelRenderer_getBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyle(style);
 }
 
-sfUint32 tguiLabelRenderer_getTextStyle(tguiRenderer* renderer)
+tguiUint32 tguiLabelRenderer_getTextStyle(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
 }
@@ -166,7 +164,12 @@ float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiLabelRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+}
+
+tguiTexture* tguiLabelRenderer_getTextureBackground(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
 }

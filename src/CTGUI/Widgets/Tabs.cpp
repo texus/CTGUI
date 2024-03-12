@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/Tabs.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Tabs.hpp>
 
@@ -34,53 +34,53 @@
 
 tguiWidget* tguiTabs_create(void)
 {
-    return new tguiWidget(tgui::Tabs::create());
+    return ctgui::addWidgetRef(tgui::Tabs::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_setAutoSize(tguiWidget* widget, sfBool autoSize)
+void tguiTabs_setAutoSize(tguiWidget* widget, tguiBool autoSize)
 {
     DOWNCAST(widget->This)->setAutoSize(autoSize != 0);
 }
 
-sfBool tguiTabs_getAutoSize(const tguiWidget* widget)
+tguiBool tguiTabs_getAutoSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiTabs_add(tguiWidget* widget, const sfUint32* text, sfBool select)
+size_t tguiTabs_add(tguiWidget* widget, tguiUtf32 text, tguiBool select)
 {
-    return DOWNCAST(widget->This)->add(text, select != 0);
+    return DOWNCAST(widget->This)->add(ctgui::toCppStr(text), select != 0);
 }
 
-void tguiTabs_insert(tguiWidget* widget, size_t index, const sfUint32* text, sfBool select)
+void tguiTabs_insert(tguiWidget* widget, size_t index, tguiUtf32 text, tguiBool select)
 {
-    DOWNCAST(widget->This)->insert(index, text, select != 0);
+    DOWNCAST(widget->This)->insert(index, ctgui::toCppStr(text), select != 0);
 }
 
-const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t index)
+tguiUtf32 tguiTabs_getText(const tguiWidget* widget, size_t index)
 {
-    return returnString(DOWNCAST(widget->This)->getText(index));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-sfBool tguiTabs_changeText(tguiWidget* widget, size_t index, const sfUint32* text)
-{
-    return DOWNCAST(widget->This)->changeText(index, text);
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text)
+tguiBool tguiTabs_changeText(tguiWidget* widget, size_t index, tguiUtf32 text)
 {
-    return DOWNCAST(widget->This)->select(text);
+    return DOWNCAST(widget->This)->changeText(index, ctgui::toCppStr(text));
 }
 
-sfBool tguiTabs_selectByIndex(tguiWidget* widget, size_t index)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiTabs_selectByText(tguiWidget* widget, tguiUtf32 text)
+{
+    return DOWNCAST(widget->This)->select(ctgui::toCppStr(text));
+}
+
+tguiBool tguiTabs_selectByIndex(tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->select(index);
 }
@@ -92,12 +92,12 @@ void tguiTabs_deselect(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiTabs_removeByText(tguiWidget* widget, const sfUint32* text)
+tguiBool tguiTabs_removeByText(tguiWidget* widget, tguiUtf32 text)
 {
-    return DOWNCAST(widget->This)->remove(text);
+    return DOWNCAST(widget->This)->remove(ctgui::toCppStr(text));
 }
 
-sfBool tguiTabs_removeByIndex(tguiWidget* widget, size_t index)
+tguiBool tguiTabs_removeByIndex(tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->remove(index);
 }
@@ -109,9 +109,9 @@ void tguiTabs_removeAll(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const sfUint32* tguiTabs_getSelected(const tguiWidget* widget)
+tguiUtf32 tguiTabs_getSelected(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getSelected());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getSelected());
 }
 
 int tguiTabs_getSelectedIndex(const tguiWidget* widget)
@@ -128,24 +128,24 @@ size_t tguiTabs_getTabsCount(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_setTabVisible(tguiWidget* widget, size_t index, sfBool visible)
+void tguiTabs_setTabVisible(tguiWidget* widget, size_t index, tguiBool visible)
 {
     DOWNCAST(widget->This)->setTabVisible(index, visible != 0);
 }
 
-sfBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index)
+tguiBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->getTabVisible(index);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, sfBool enabled)
+void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, tguiBool enabled)
 {
     DOWNCAST(widget->This)->setTabEnabled(index, enabled != 0);
 }
 
-sfBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index)
+tguiBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->getTabEnabled(index);
 }

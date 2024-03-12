@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,15 +26,23 @@
 #ifndef CTGUI_MESSAGE_BOX_H
 #define CTGUI_MESSAGE_BOX_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
+#include <CTGUI/Alignment.h>
 
 CTGUI_API tguiWidget* tguiMessageBox_create(void);
 
-CTGUI_API void tguiMessageBox_setText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiMessageBox_getText(const tguiWidget* widget);
+CTGUI_API void tguiMessageBox_setText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiUtf32 tguiMessageBox_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiMessageBox_addButton(tguiWidget* widget, const sfUint32* text);
+CTGUI_API void tguiMessageBox_addButton(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API void tguiMessageBox_removeButtons(tguiWidget* widget);
+CTGUI_API const tguiUtf32* tguiMessageBox_getButtons(const tguiWidget* widget, size_t* count); // count is set by the function to indicate length of returned array
+
+CTGUI_API void tguiMessageBox_setLabelAlignment(tguiWidget* widget, tguiHorizontalAlignment labelAlignment);
+CTGUI_API tguiHorizontalAlignment tguiMessageBox_getLabelAlignment(const tguiWidget* widget);
+
+CTGUI_API void tguiMessageBox_setButtonAlignment(tguiWidget* widget, tguiHorizontalAlignment buttonAlignment);
+CTGUI_API tguiHorizontalAlignment tguiMessageBox_getButtonAlignment(const tguiWidget* widget);
 
 #endif // CTGUI_MESSAGE_BOX_H
 

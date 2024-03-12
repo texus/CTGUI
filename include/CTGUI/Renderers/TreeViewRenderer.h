@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,9 +26,7 @@
 #ifndef CTGUI_TREE_VIEW_RENDERER_H
 #define CTGUI_TREE_VIEW_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiTreeViewRenderer_create(void);
 CTGUI_API tguiRenderer* tguiTreeViewRenderer_copy(const tguiRenderer* renderer);
@@ -38,30 +36,36 @@ CTGUI_API tguiOutline* tguiTreeViewRenderer_getBorders(const tguiRenderer* rende
 CTGUI_API void tguiTreeViewRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
 CTGUI_API tguiOutline* tguiTreeViewRenderer_getPadding(const tguiRenderer* renderer);
 
-CTGUI_API void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
-CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer);
 
-CTGUI_API void tguiTreeViewRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getTextColor(const tguiRenderer* renderer);
-CTGUI_API void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* renderer);
-CTGUI_API void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* renderer);
-CTGUI_API void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* renderer);
 
-CTGUI_API void tguiTreeViewRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiTreeViewRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiTreeViewRenderer_getBorderColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiTreeViewRenderer_setTextureBranchExpanded(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiTreeViewRenderer_setTextureBranchCollapsed(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiTreeViewRenderer_setTextureLeaf(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiTreeViewRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiTreeViewRenderer_getTextureBackground(const tguiRenderer* renderer);
+
+CTGUI_API void tguiTreeViewRenderer_setTextureBranchExpanded(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiTreeViewRenderer_getTextureBranchExpanded(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setTextureBranchCollapsed(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiTreeViewRenderer_getTextureBranchCollapsed(const tguiRenderer* renderer);
+CTGUI_API void tguiTreeViewRenderer_setTextureLeaf(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiTreeViewRenderer_getTextureLeaf(const tguiRenderer* renderer);
 
 CTGUI_API void tguiTreeViewRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* renderer);

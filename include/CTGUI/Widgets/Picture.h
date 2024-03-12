@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,14 +26,12 @@
 #ifndef CTGUI_PICTURE_H
 #define CTGUI_PICTURE_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
-#include <SFML/Graphics/Texture.h>
 
 CTGUI_API tguiWidget* tguiPicture_create(void);
 
-CTGUI_API void tguiPicture_ignoreMouseEvents(tguiWidget* widget, sfBool ignore);
-CTGUI_API sfBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget);
+CTGUI_API void tguiPicture_ignoreMouseEvents(tguiWidget* widget, tguiBool ignore);
+CTGUI_API tguiBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget);
 
 #endif // CTGUI_PICTURE_H
 

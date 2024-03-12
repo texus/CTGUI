@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,11 +24,9 @@
 
 
 #include <CTGUI/Renderers/ChildWindowRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/RendererDataStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/ChildWindowRenderer.hpp>
 
@@ -60,62 +58,62 @@ tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* renderer, sfColor color)
+void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTitleBarColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTitleBarColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* renderer)
+tguiColor* tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTitleBarColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChildWindowRenderer_setTitleColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTitleColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiChildWindowRenderer_getTitleColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getTitleColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTitleBarColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiChildWindowRenderer_setTitleColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTitleColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiChildWindowRenderer_getTitleColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTitleColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color)
+void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColorFocused({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+tguiColor* tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorFocused(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -180,28 +178,38 @@ float tguiChildWindowRenderer_getMinimumResizableBorderWidth(tguiRenderer* rende
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, sfBool showTitle)
+void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, tguiBool showTitle)
 {
     DOWNCAST(renderer->This)->setShowTextOnTitleButtons(showTitle);
 }
 
-sfBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer)
+tguiBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getShowTextOnTitleButtons();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, sfTexture* texture)
+void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureTitleBar(*texture->This);
 }
 
+tguiTexture* tguiChildWindowRenderer_getTextureTitleBar(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTitleBar()));
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+}
+
+tguiTexture* tguiChildWindowRenderer_getTextureBackground(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

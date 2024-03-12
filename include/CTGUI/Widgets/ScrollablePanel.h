@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,16 +26,14 @@
 #ifndef CTGUI_SCROLLABLE_PANEL_H
 #define CTGUI_SCROLLABLE_PANEL_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 #include <CTGUI/ScrollbarPolicy.h>
 
 CTGUI_API tguiWidget* tguiScrollablePanel_create(void);
 
-CTGUI_API void tguiScrollablePanel_setContentSize(tguiWidget* widget, sfVector2f contentSize);
-CTGUI_API sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget);
+CTGUI_API void tguiScrollablePanel_setContentSize(tguiWidget* widget, tguiVector2f contentSize);
+CTGUI_API tguiVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget);
 
-CTGUI_API void tguiScrollablePanel_setScrollbarWidth(tguiWidget* widget, float width);
 CTGUI_API float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* widget);
 
 CTGUI_API void tguiScrollablePanel_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy);
@@ -56,7 +54,10 @@ CTGUI_API unsigned int tguiScrollablePanel_getVerticalScrollbarValue(const tguiW
 CTGUI_API void tguiScrollablePanel_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value);
 CTGUI_API unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* widget);
 
-CTGUI_API sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget);
+CTGUI_API tguiBool tguiScrollablePanel_isVerticalScrollbarShown(const tguiWidget* widget);
+CTGUI_API tguiBool tguiScrollablePanel_isHorizontalScrollbarShown(const tguiWidget* widget);
+
+CTGUI_API tguiVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget);
 
 #endif // CTGUI_SCROLLABLE_PANEL_H
 

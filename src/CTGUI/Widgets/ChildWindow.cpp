@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,8 @@
 
 
 #include <CTGUI/Widgets/ChildWindow.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
+#include <CTGUI/LayoutStruct.hpp>
 
 #include <TGUI/Widgets/ChildWindow.hpp>
 
@@ -34,45 +35,63 @@
 
 tguiWidget* tguiChildWindow_create(void)
 {
-    return new tguiWidget(tgui::ChildWindow::create());
+    return ctgui::addWidgetRef(tgui::ChildWindow::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setMaximumSize(tguiWidget* widget, sfVector2f maxSize)
+void tguiChildWindow_setClientSize(tguiWidget* widget, tguiVector2f size)
+{
+    DOWNCAST(widget->This)->setClientSize({size.x, size.y});
+}
+
+void tguiChildWindow_setClientSizeFromLayout(tguiWidget* widget, tguiLayout2d* layout)
+{
+    DOWNCAST(widget->This)->setClientSize(layout->This);
+}
+
+tguiVector2f tguiChildWindow_getClientSize(const tguiWidget* widget)
+{
+    const tgui::Vector2f size = DOWNCAST(widget->This)->getClientSize();
+    return {size.x, size.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setMaximumSize(tguiWidget* widget, tguiVector2f maxSize)
 {
     DOWNCAST(widget->This)->setMaximumSize({maxSize.x, maxSize.y});
 }
 
-sfVector2f tguiChildWindow_getMaximumSize(const tguiWidget* widget)
+tguiVector2f tguiChildWindow_getMaximumSize(const tguiWidget* widget)
 {
-    sf::Vector2f size = DOWNCAST(widget->This)->getMaximumSize();
+    tgui::Vector2f size = DOWNCAST(widget->This)->getMaximumSize();
     return {size.x, size.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setMinimumSize(tguiWidget* widget, sfVector2f minSize)
+void tguiChildWindow_setMinimumSize(tguiWidget* widget, tguiVector2f minSize)
 {
     DOWNCAST(widget->This)->setMinimumSize({minSize.x, minSize.y});
 }
 
-sfVector2f tguiChildWindow_getMinimumSize(const tguiWidget* widget)
+tguiVector2f tguiChildWindow_getMinimumSize(const tguiWidget* widget)
 {
-    sf::Vector2f size = DOWNCAST(widget->This)->getMinimumSize();
+    tgui::Vector2f size = DOWNCAST(widget->This)->getMinimumSize();
     return {size.x, size.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setTitle(tguiWidget* widget, const sfUint32* text)
+void tguiChildWindow_setTitle(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setTitle(text);
+    DOWNCAST(widget->This)->setTitle(ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiChildWindow_getTitle(const tguiWidget* widget)
+tguiUtf32 tguiChildWindow_getTitle(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getTitle());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getTitle());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -113,36 +132,36 @@ unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setResizable(tguiWidget* widget, sfBool resizable)
+void tguiChildWindow_setResizable(tguiWidget* widget, tguiBool resizable)
 {
     DOWNCAST(widget->This)->setResizable(resizable != 0);
 }
 
-sfBool tguiChildWindow_isResizable(const tguiWidget* widget)
+tguiBool tguiChildWindow_isResizable(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isResizable();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setKeepInParent(tguiWidget* widget, sfBool keepInParent)
+void tguiChildWindow_setKeepInParent(tguiWidget* widget, tguiBool keepInParent)
 {
     DOWNCAST(widget->This)->setKeepInParent(keepInParent != 0);
 }
 
-sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget)
+tguiBool tguiChildWindow_isKeptInParent(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isKeptInParent();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setPositionLocked(tguiWidget* widget, sfBool positionLocked)
+void tguiChildWindow_setPositionLocked(tguiWidget* widget, tguiBool positionLocked)
 {
     DOWNCAST(widget->This)->setPositionLocked(positionLocked != 0);
 }
 
-sfBool tguiChildWindow_isPositionLocked(const tguiWidget* widget)
+tguiBool tguiChildWindow_isPositionLocked(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isPositionLocked();
 }

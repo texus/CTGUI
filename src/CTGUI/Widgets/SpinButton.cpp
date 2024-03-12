@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/SpinButton.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/SpinButton.hpp>
 
@@ -34,7 +34,7 @@
 
 tguiWidget* tguiSpinButton_create(void)
 {
-    return new tguiWidget(tgui::SpinButton::create());
+    return ctgui::addWidgetRef(tgui::SpinButton::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,12 +87,12 @@ float tguiSpinButton_getStep(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_setVerticalScroll(tguiWidget* widget, sfBool vertical)
+void tguiSpinButton_setVerticalScroll(tguiWidget* widget, tguiBool vertical)
 {
     DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
 }
 
-sfBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget)
+tguiBool tguiSpinButton_getVerticalScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getVerticalScroll();
 }

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/Label.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Label.hpp>
 
@@ -34,19 +34,19 @@
 
 tguiWidget* tguiLabel_create(void)
 {
-    return new tguiWidget(tgui::Label::create());
+    return ctgui::addWidgetRef(tgui::Label::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabel_setText(tguiWidget* widget, const sfUint32* text)
+void tguiLabel_setText(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setText(text);
+    DOWNCAST(widget->This)->setText(ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiLabel_getText(const tguiWidget* widget)
+tguiUtf32 tguiLabel_getText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,12 +73,12 @@ tguiVerticalAlignment tguiLabel_getVerticalAlignment(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabel_setAutoSize(tguiWidget* widget, sfBool autoSize)
+void tguiLabel_setAutoSize(tguiWidget* widget, tguiBool autoSize)
 {
     DOWNCAST(widget->This)->setAutoSize(autoSize != 0);
 }
 
-sfBool tguiLabel_getAutoSize(const tguiWidget* widget)
+tguiBool tguiLabel_getAutoSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoSize();
 }
@@ -97,12 +97,12 @@ float tguiLabel_getMaximumTextWidth(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabel_ignoreMouseEvents(tguiWidget* widget, sfBool ignore)
+void tguiLabel_ignoreMouseEvents(tguiWidget* widget, tguiBool ignore)
 {
     DOWNCAST(widget->This)->ignoreMouseEvents(ignore != 0);
 }
 
-sfBool tguiLabel_isIgnoringMouseEvents(const tguiWidget* widget)
+tguiBool tguiLabel_isIgnoringMouseEvents(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isIgnoringMouseEvents();
 }
@@ -117,4 +117,16 @@ void tguiLabel_setScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy
 tguiScrollbarPolicy tguiLabel_getScrollbarPolicy(const tguiWidget* widget)
 {
     return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabel_setScrollbarValue(tguiWidget* widget, unsigned int value)
+{
+    DOWNCAST(widget->This)->setScrollbarValue(value);
+}
+
+unsigned int tguiLabel_getScrollbarValue(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getScrollbarValue();
 }

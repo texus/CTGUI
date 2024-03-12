@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,31 +26,44 @@
 #ifndef CTGUI_MENU_BAR_RENDERER_H
 #define CTGUI_MENU_BAR_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiMenuBarRenderer_create(void);
 CTGUI_API tguiRenderer* tguiMenuBarRenderer_copy(const tguiRenderer* renderer);
 
-CTGUI_API void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer);
-CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer);
-CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* renderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiMenuBarRenderer_getTextureBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiMenuBarRenderer_getTextureItemBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiMenuBarRenderer_getTextureSelectedItemBackground(const tguiRenderer* renderer);
 
 CTGUI_API void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* renderer, float distanceToSide);
 CTGUI_API float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* renderer);
+
+CTGUI_API void tguiMenuBarRenderer_setSeparatorThickness(tguiRenderer* renderer, float thickness);
+CTGUI_API float tguiMenuBarRenderer_getSeparatorThickness(const tguiRenderer* renderer);
+
+CTGUI_API void tguiMenuBarRenderer_setSeparatorVerticalPadding(tguiRenderer* renderer, float padding);
+CTGUI_API float tguiMenuBarRenderer_getSeparatorVerticalPadding(const tguiRenderer* renderer);
+
+CTGUI_API void tguiMenuBarRenderer_setSeparatorSidePadding(tguiRenderer* renderer, float padding);
+CTGUI_API float tguiMenuBarRenderer_getSeparatorSidePadding(const tguiRenderer* renderer);
 
 #endif // CTGUI_MENU_BAR_RENDERER_H
 

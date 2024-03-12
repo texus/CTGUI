@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,7 +26,6 @@
 #ifndef CTGUI_SCROLLBAR_H
 #define CTGUI_SCROLLBAR_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 
 CTGUI_API tguiWidget* tguiScrollbar_create(void);
@@ -43,11 +42,11 @@ CTGUI_API unsigned int tguiScrollbar_getValue(const tguiWidget* widget);
 CTGUI_API void tguiScrollbar_setScrollAmount(tguiWidget* widget, unsigned int scrollAmount);
 CTGUI_API unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* widget);
 
-CTGUI_API void tguiScrollbar_setAutoHide(tguiWidget* widget, sfBool autoHide);
-CTGUI_API sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget);
+CTGUI_API void tguiScrollbar_setAutoHide(tguiWidget* widget, tguiBool autoHide);
+CTGUI_API tguiBool tguiScrollbar_getAutoHide(const tguiWidget* widget);
 
-CTGUI_API void tguiScrollbar_setVerticalScroll(tguiWidget* widget, sfBool vertical);
-CTGUI_API sfBool tguiScrollbar_getVerticalScroll(const tguiWidget* widget);
+CTGUI_API void tguiScrollbar_setVerticalScroll(tguiWidget* widget, tguiBool vertical);
+CTGUI_API tguiBool tguiScrollbar_getVerticalScroll(const tguiWidget* widget);
 
 CTGUI_API float tguiScrollbar_getDefaultWidth(const tguiWidget* widget);
 

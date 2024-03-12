@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,8 +24,8 @@
 
 
 #include <CTGUI/Widgets/ListView.h>
-#include <CTGUI/WidgetStruct.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Widgets/ListView.hpp>
 
@@ -35,26 +35,26 @@
 
 tguiWidget* tguiListView_create(void)
 {
-    return new tguiWidget(tgui::ListView::create());
+    return ctgui::addWidgetRef(tgui::ListView::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiListView_addColumn(tguiWidget* widget, const sfUint32* text, float width, tguiHorizontalAlignment columnAlignment)
+size_t tguiListView_addColumn(tguiWidget* widget, tguiUtf32 text, float width, tguiHorizontalAlignment columnAlignment)
 {
-    return DOWNCAST(widget->This)->addColumn(text, width, static_cast<tgui::ListView::ColumnAlignment>(columnAlignment));
+    return DOWNCAST(widget->This)->addColumn(ctgui::toCppStr(text), width, static_cast<tgui::ListView::ColumnAlignment>(columnAlignment));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setColumnText(tguiWidget* widget, size_t index, const sfUint32* text)
+void tguiListView_setColumnText(tguiWidget* widget, size_t index, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setColumnText(index, text);
+    DOWNCAST(widget->This)->setColumnText(index, ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiListView_getColumnText(tguiWidget* widget, size_t index)
+tguiUtf32 tguiListView_getColumnText(tguiWidget* widget, size_t index)
 {
-    return returnString(DOWNCAST(widget->This)->getColumnText(index));
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getColumnText(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,6 +69,11 @@ float tguiListView_getColumnWidth(tguiWidget* widget, size_t index)
     return DOWNCAST(widget->This)->getColumnWidth(index);
 }
 
+float tguiListView_getColumnDesignWidth(tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(widget->This)->getColumnDesignWidth(index);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiListView_setColumnAlignment(tguiWidget* widget, size_t index, tguiHorizontalAlignment columnAlignment)
@@ -79,6 +84,30 @@ void tguiListView_setColumnAlignment(tguiWidget* widget, size_t index, tguiHoriz
 tguiHorizontalAlignment tguiListView_getColumnAlignment(tguiWidget* widget, size_t index)
 {
     return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getColumnAlignment(index));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setColumnAutoResize(tguiWidget* widget, size_t index, tguiBool autoResize)
+{
+    DOWNCAST(widget->This)->setColumnAutoResize(index, autoResize != 0);
+}
+
+tguiBool tguiListView_getColumnAutoResize(const tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(widget->This)->getColumnAutoResize(index);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setColumnExpanded(tguiWidget* widget, size_t index, tguiBool expand)
+{
+    DOWNCAST(widget->This)->setColumnExpanded(index, expand != 0);
+}
+
+tguiBool tguiListView_getColumnExpanded(const tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(widget->This)->getColumnExpanded(index);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,53 +143,70 @@ float tguiListView_getCurrentHeaderHeight(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setHeaderVisible(tguiWidget* widget, sfBool showHeader)
+void tguiListView_setHeaderVisible(tguiWidget* widget, tguiBool showHeader)
 {
     DOWNCAST(widget->This)->setHeaderVisible(showHeader != 0);
 }
 
-sfBool tguiListView_getHeaderVisible(tguiWidget* widget)
+tguiBool tguiListView_getHeaderVisible(tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getHeaderVisible();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiListView_addItem(tguiWidget* widget, const sfUint32* text)
+size_t tguiListView_addItem(tguiWidget* widget, tguiUtf32 text)
 {
-    return DOWNCAST(widget->This)->addItem(text);
+    return DOWNCAST(widget->This)->addItem(ctgui::toCppStr(text));
 }
 
-size_t tguiListView_addItemRow(tguiWidget* widget, const sfUint32** item, unsigned int itemLength)
+size_t tguiListView_addItemRow(tguiWidget* widget, const tguiUtf32* item, unsigned int itemLength)
 {
-    std::vector<sf::String> convertedItem;
+    std::vector<tgui::String> convertedItem;
     convertedItem.reserve(itemLength);
     for (unsigned int i = 0; i < itemLength; ++i)
-        convertedItem.push_back(item[i]);
+        convertedItem.push_back(ctgui::toCppStr(item[i]));
 
     return DOWNCAST(widget->This)->addItem(std::move(convertedItem));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiListView_changeItem(tguiWidget* widget, size_t index, const sfUint32** item, unsigned int itemLength)
+void tguiListView_insertItem(tguiWidget* widget, size_t index, tguiUtf32 text)
 {
-    std::vector<sf::String> convertedItem;
-    convertedItem.reserve(itemLength);
-    for (unsigned int i = 0; i < itemLength; ++i)
-        convertedItem.push_back(item[i]);
-
-    return DOWNCAST(widget->This)->changeItem(index, std::move(convertedItem));
+    DOWNCAST(widget->This)->insertItem(index, ctgui::toCppStr(text));
 }
 
-sfBool tguiListView_changeSubItem(tguiWidget* widget, size_t index, size_t column, const sfUint32* text)
+void tguiListView_insertItemRow(tguiWidget* widget, size_t index, const tguiUtf32* item, unsigned int itemLength)
 {
-    return DOWNCAST(widget->This)->changeSubItem(index, column, text);
+    std::vector<tgui::String> convertedItem;
+    convertedItem.reserve(itemLength);
+    for (unsigned int i = 0; i < itemLength; ++i)
+        convertedItem.push_back(ctgui::toCppStr(item[i]));
+
+    DOWNCAST(widget->This)->insertItem(index, std::move(convertedItem));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiListView_removeItem(tguiWidget* widget, size_t index)
+tguiBool tguiListView_changeItem(tguiWidget* widget, size_t index, const tguiUtf32* item, unsigned int itemLength)
+{
+    std::vector<tgui::String> convertedItem;
+    convertedItem.reserve(itemLength);
+    for (unsigned int i = 0; i < itemLength; ++i)
+        convertedItem.push_back(ctgui::toCppStr(item[i]));
+
+    return DOWNCAST(widget->This)->changeItem(index, std::move(convertedItem));
+}
+
+tguiBool tguiListView_changeSubItem(tguiWidget* widget, size_t index, size_t column, tguiUtf32 text)
+{
+    return DOWNCAST(widget->This)->changeSubItem(index, column, ctgui::toCppStr(text));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiListView_removeItem(tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->removeItem(index);
 }
@@ -197,7 +243,7 @@ const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* widget, size
 
     static std::vector<size_t> cIndices;
     cIndices.reserve(indices.size());
-    for (const size_t index : indices)
+    for (size_t index : indices)
         cIndices.push_back(index);
 
     *count = cIndices.size();
@@ -211,19 +257,38 @@ void tguiListView_deselectItems(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setMultiSelect(tguiWidget* widget, sfBool multiSelect)
+void tguiListView_setMultiSelect(tguiWidget* widget, tguiBool multiSelect)
 {
     DOWNCAST(widget->This)->setMultiSelect(multiSelect != 0);
 }
 
-sfBool tguiListView_getMultiSelect(const tguiWidget* widget)
+tguiBool tguiListView_getMultiSelect(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMultiSelect();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setItemIcon(tguiWidget* widget, size_t index, sfTexture* texture)
+void tguiListView_setItemData(tguiWidget* widget, size_t index, void* data)
+{
+    DOWNCAST(widget->This)->setItemData(index, data);
+}
+
+void* tguiListView_getItemData(const tguiWidget* widget, size_t index)
+{
+    try
+    {
+        return DOWNCAST(widget->This)->getItemData<void*>(index);
+    }
+    catch (const std::bad_cast&)
+    {
+        return nullptr;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setItemIcon(tguiWidget* widget, size_t index, tguiTexture* texture)
 {
     DOWNCAST(widget->This)->setItemIcon(index, *texture->This);
 }
@@ -237,39 +302,41 @@ size_t tguiListView_getItemCount(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const sfUint32* tguiListView_getItem(tguiWidget* widget, size_t index)
+tguiUtf32 tguiListView_getItem(tguiWidget* widget, size_t index)
 {
-    return returnString(DOWNCAST(widget->This)->getItem(index));
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getItem(index));
 }
 
-const sfUint32* tguiListView_getItemCell(tguiWidget* widget, size_t rowIndex, size_t columnIndex)
+tguiUtf32 tguiListView_getItemCell(tguiWidget* widget, size_t rowIndex, size_t columnIndex)
 {
-    return returnString(DOWNCAST(widget->This)->getItemCell(rowIndex, columnIndex));
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getItemCell(rowIndex, columnIndex));
 }
 
-const sfUint32** tguiListView_getItemRow(const tguiWidget* widget, size_t index, size_t* count)
+const tguiUtf32* tguiListView_getItemRow(const tguiWidget* widget, size_t index, size_t* count)
 {
-    const auto& items = DOWNCAST(widget->This)->getItemRow(index);
+    static std::vector<tgui::String> cppItems;
+    cppItems = DOWNCAST(widget->This)->getItemRow(index);
 
-    static std::vector<const sfUint32*> cItems;
-    cItems.resize(items.size());
-
-    for (std::size_t i = 0; i < items.size(); ++i)
-        cItems[i] = items[i].getData();
+    static std::vector<tguiUtf32> cItems;
+    cItems.clear();
+    cItems.reserve(cppItems.size());
+    for (const auto& item : cppItems)
+        cItems.emplace_back(item.c_str());
 
     *count = cItems.size();
     return cItems.data();
 }
 
-const sfUint32** tguiListView_getItems(const tguiWidget* widget, size_t* count)
+const tguiUtf32* tguiListView_getItems(const tguiWidget* widget, size_t* count)
 {
-    const auto& items = DOWNCAST(widget->This)->getItems();
+    static std::vector<tgui::String> cppItems;
+    cppItems = DOWNCAST(widget->This)->getItems();
 
-    static std::vector<const sfUint32*> cItems;
-    cItems.resize(items.size());
-
-    for (std::size_t i = 0; i < items.size(); ++i)
-        cItems[i] = items[i].getData();
+    static std::vector<tguiUtf32> cItems;
+    cItems.clear();
+    cItems.reserve(cppItems.size());
+    for (const auto& item : cppItems)
+        cItems.emplace_back(item.c_str());
 
     *count = cItems.size();
     return cItems.data();
@@ -337,50 +404,38 @@ unsigned int tguiListView_getGridLinesWidth(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setAutoScroll(tguiWidget* widget, sfBool autoScroll)
+void tguiListView_setAutoScroll(tguiWidget* widget, tguiBool autoScroll)
 {
     DOWNCAST(widget->This)->setAutoScroll(autoScroll != 0);
 }
 
-sfBool tguiListView_getAutoScroll(const tguiWidget* widget)
+tguiBool tguiListView_getAutoScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoScroll();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setShowVerticalGridLines(tguiWidget* widget, sfBool showGridLines)
+void tguiListView_setShowVerticalGridLines(tguiWidget* widget, tguiBool showGridLines)
 {
     DOWNCAST(widget->This)->setShowVerticalGridLines(showGridLines != 0);
 }
 
-sfBool tguiListView_getShowVerticalGridLines(const tguiWidget* widget)
+tguiBool tguiListView_getShowVerticalGridLines(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getShowVerticalGridLines();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_setShowHorizontalGridLines(tguiWidget* widget, sfBool showGridLines)
+void tguiListView_setShowHorizontalGridLines(tguiWidget* widget, tguiBool showGridLines)
 {
     DOWNCAST(widget->This)->setShowHorizontalGridLines(showGridLines != 0);
 }
 
-sfBool tguiListView_getShowHorizontalGridLines(const tguiWidget* widget)
+tguiBool tguiListView_getShowHorizontalGridLines(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getShowHorizontalGridLines();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiListView_setExpandLastColumn(tguiWidget* widget, sfBool expand)
-{
-    DOWNCAST(widget->This)->setExpandLastColumn(expand != 0);
-}
-
-sfBool tguiListView_getExpandLastColumn(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getExpandLastColumn();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -433,9 +488,34 @@ unsigned int tguiListView_getHorizontalScrollbarValue(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListView_sort(tguiWidget* widget, size_t index, sfBool (*comp)(const sfUint32*, const sfUint32*))
+void tguiListView_sort(tguiWidget* widget, size_t index, tguiBool (*comp)(tguiUtf32, tguiUtf32))
 {
-    DOWNCAST(widget->This)->sort(index, [&comp](const sf::String& str1, const sf::String& str2){
-        return comp(str1.getData(), str2.getData()) != 0;
+    DOWNCAST(widget->This)->sort(index, [&comp](const tgui::String& str1, const tgui::String& str2){
+        return comp(reinterpret_cast<tguiUtf32>(str1.c_str()), reinterpret_cast<tguiUtf32>(str2.c_str())) != 0;
     });
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setFixedIconSize(tguiWidget* widget, tguiVector2f iconSize)
+{
+    DOWNCAST(widget->This)->setFixedIconSize({iconSize.x, iconSize.y});
+}
+
+tguiVector2f tguiListView_getFixedIconSize(const tguiWidget* widget)
+{
+    const tgui::Vector2f iconSize = DOWNCAST(widget->This)->getFixedIconSize();
+    return {iconSize.x, iconSize.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListView_setResizableColumns(tguiWidget* widget, tguiBool autoScroll)
+{
+    DOWNCAST(widget->This)->setResizableColumns(autoScroll != 0);
+}
+
+tguiBool tguiListView_getResizableColumns(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->getResizableColumns();
 }

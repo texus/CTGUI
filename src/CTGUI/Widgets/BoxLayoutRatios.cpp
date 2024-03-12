@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/BoxLayoutRatios.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/BoxLayoutRatios.hpp>
 
@@ -32,16 +32,16 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiBoxLayoutRatios_add(tguiWidget* layout, tguiWidget* widget, float ratio, const sfUint32* widgetName)
+void tguiBoxLayoutRatios_add(tguiWidget* layout, tguiWidget* widget, float ratio, tguiUtf32 widgetName)
 {
-    DOWNCAST(layout->This)->add(widget->This, ratio, widgetName);
+    DOWNCAST(layout->This)->add(widget->This, ratio, ctgui::toCppStr(widgetName));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiBoxLayoutRatios_insert(tguiWidget* layout, size_t index, tguiWidget* widget, float ratio, const sfUint32* widgetName)
+void tguiBoxLayoutRatios_insert(tguiWidget* layout, size_t index, tguiWidget* widget, float ratio, tguiUtf32 widgetName)
 {
-    DOWNCAST(layout->This)->insert(index, widget->This, ratio, widgetName);
+    DOWNCAST(layout->This)->insert(index, widget->This, ratio, ctgui::toCppStr(widgetName));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

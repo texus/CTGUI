@@ -1,0 +1,5 @@
+if(CTGUI_BACKEND STREQUAL "CSFML_GRAPHICS")
+    add_subdirectory(CSFML_GRAPHICS)
+elseif(CTGUI_BACKEND STREQUAL "SDL_RENDERER")
+    add_subdirectory(SDL_RENDERER)
+endif()

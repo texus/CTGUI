@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/ProgressBar.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/ProgressBar.hpp>
 
@@ -34,7 +34,7 @@
 
 tguiWidget* tguiProgressBar_create(void)
 {
-    return new tguiWidget(tgui::ProgressBar::create());
+    return ctgui::addWidgetRef(tgui::ProgressBar::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,14 +82,14 @@ unsigned int tguiProgressBar_incrementValue(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBar_setText(tguiWidget* widget, const sfUint32* text)
+void tguiProgressBar_setText(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setText(text);
+    DOWNCAST(widget->This)->setText(ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiProgressBar_getText(const tguiWidget* widget)
+tguiUtf32 tguiProgressBar_getText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

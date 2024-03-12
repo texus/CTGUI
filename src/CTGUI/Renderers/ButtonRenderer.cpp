@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,10 +24,8 @@
 
 
 #include <CTGUI/Renderers/ButtonRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/ButtonRenderer.hpp>
 
@@ -59,249 +57,424 @@ tguiOutline* tguiButtonRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getTextColor(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
-void tguiButtonRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getTextColorHover(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorHover());
 }
 
-void tguiButtonRenderer_setTextColorDown(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorFocused(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColorDown({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorFocused(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getTextColorDown(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorFocused(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColorDown());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorFocused());
 }
 
-void tguiButtonRenderer_setTextColorFocused(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColorFocused({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorDisabled(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getTextColorFocused(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColorFocused());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
-void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorDown(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorDown(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorDown(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDown());
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButtonRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorDownHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorDownHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorDownHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDownHover());
 }
 
-void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorDownFocused(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorDownFocused(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorDownFocused(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDownFocused());
 }
 
-void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextColorDownDisabled(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColorDown({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorDownDisabled(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getTextColorDownDisabled(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDown());
-}
-
-void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColorFocused({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorFocused());
-}
-
-void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColorDisabled({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDownDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBorderColor(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
-void tguiButtonRenderer_setBorderColorHover(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBorderColorHover(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
-void tguiButtonRenderer_setBorderColorDown(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColorDown({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColorFocused(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBorderColorDown(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColorDown());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorFocused());
 }
 
-void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColorFocused({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
 }
 
-void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColorDisabled({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColorDown(ctgui::toCppColor(color));
 }
 
-sfColor tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* renderer)
+tguiColor* tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDown());
+}
+
+void tguiButtonRenderer_setBackgroundColorDownHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorDownHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBackgroundColorDownHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDownHover());
+}
+
+void tguiButtonRenderer_setBackgroundColorDownFocused(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorDownFocused(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBackgroundColorDownFocused(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDownFocused());
+}
+
+void tguiButtonRenderer_setBackgroundColorDownDisabled(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBackgroundColorDownDisabled(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBackgroundColorDownDisabled(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDownDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTexture(tguiRenderer* renderer, sfTexture* texture)
+void tguiButtonRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+void tguiButtonRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorHover());
+}
+
+void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorFocused(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorFocused());
+}
+
+void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorDisabled(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
+}
+
+void tguiButtonRenderer_setBorderColorDown(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorDown(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorDown(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDown());
+}
+
+void tguiButtonRenderer_setBorderColorDownHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorDownHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorDownHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDownHover());
+}
+
+void tguiButtonRenderer_setBorderColorDownFocused(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorDownFocused(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorDownFocused(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDownFocused());
+}
+
+void tguiButtonRenderer_setBorderColorDownDisabled(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorDownDisabled(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getBorderColorDownDisabled(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDownDisabled());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButtonRenderer_setTexture(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTexture(*texture->This);
 }
 
-void tguiButtonRenderer_setTextureHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiButtonRenderer_getTexture(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTexture()));
+}
+
+void tguiButtonRenderer_setTextureHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureHover(*texture->This);
 }
 
-void tguiButtonRenderer_setTextureDown(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiButtonRenderer_getTextureHover(const tguiRenderer* renderer)
 {
-    DOWNCAST(renderer->This)->setTextureDown(*texture->This);
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureHover()));
 }
 
-void tguiButtonRenderer_setTextureFocused(tguiRenderer* renderer, sfTexture* texture)
+void tguiButtonRenderer_setTextureFocused(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureFocused(*texture->This);
 }
 
-void tguiButtonRenderer_setTextureDisabled(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiButtonRenderer_getTextureFocused(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureFocused()));
+}
+
+void tguiButtonRenderer_setTextureDisabled(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureDisabled(*texture->This);
 }
 
+tguiTexture* tguiButtonRenderer_getTextureDisabled(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDisabled()));
+}
+
+void tguiButtonRenderer_setTextureDown(tguiRenderer* renderer, tguiTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureDown(*texture->This);
+}
+
+tguiTexture* tguiButtonRenderer_getTextureDown(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDown()));
+}
+
+void tguiButtonRenderer_setTextureDownHover(tguiRenderer* renderer, tguiTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureDownHover(*texture->This);
+}
+
+tguiTexture* tguiButtonRenderer_getTextureDownHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDownHover()));
+}
+
+void tguiButtonRenderer_setTextureDownFocused(tguiRenderer* renderer, tguiTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureDownFocused(*texture->This);
+}
+
+tguiTexture* tguiButtonRenderer_getTextureDownFocused(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDownFocused()));
+}
+
+void tguiButtonRenderer_setTextureDownDisabled(tguiRenderer* renderer, tguiTexture* texture)
+{
+    DOWNCAST(renderer->This)->setTextureDownDisabled(*texture->This);
+}
+
+tguiTexture* tguiButtonRenderer_getTextureDownDisabled(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDownDisabled()));
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
+void tguiButtonRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyle(style);
 }
 
-sfUint32 tguiButtonRenderer_getTextStyle(tguiRenderer* renderer)
+tguiUint32 tguiButtonRenderer_getTextStyle(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
 }
 
-void tguiButtonRenderer_setTextStyleHover(tguiRenderer* renderer, sfUint32 style)
+void tguiButtonRenderer_setTextStyleHover(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyleHover(style);
 }
 
-sfUint32 tguiButtonRenderer_getTextStyleHover(tguiRenderer* renderer)
+tguiUint32 tguiButtonRenderer_getTextStyleHover(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyleHover();
 }
 
-void tguiButtonRenderer_setTextStyleDown(tguiRenderer* renderer, sfUint32 style)
-{
-    DOWNCAST(renderer->This)->setTextStyleDown(style);
-}
-
-sfUint32 tguiButtonRenderer_getTextStyleDown(tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getTextStyleDown();
-}
-
-void tguiButtonRenderer_setTextStyleFocused(tguiRenderer* renderer, sfUint32 style)
+void tguiButtonRenderer_setTextStyleFocused(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyleFocused(style);
 }
 
-sfUint32 tguiButtonRenderer_getTextStyleFocused(tguiRenderer* renderer)
+tguiUint32 tguiButtonRenderer_getTextStyleFocused(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyleFocused();
 }
 
-void tguiButtonRenderer_setTextStyleDisabled(tguiRenderer* renderer, sfUint32 style)
+void tguiButtonRenderer_setTextStyleDisabled(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyleDisabled(style);
 }
 
-sfUint32 tguiButtonRenderer_getTextStyleDisabled(tguiRenderer* renderer)
+tguiUint32 tguiButtonRenderer_getTextStyleDisabled(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyleDisabled();
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* renderer, sfColor color)
+void tguiButtonRenderer_setTextStyleDown(tguiRenderer* renderer, tguiUint32 style)
 {
-    DOWNCAST(renderer->This)->setTextOutlineColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextStyleDown(style);
 }
 
-sfColor tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* renderer)
+tguiUint32 tguiButtonRenderer_getTextStyleDown(tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextOutlineColor());
+    return DOWNCAST(renderer->This)->getTextStyleDown();
+}
+
+void tguiButtonRenderer_setTextStyleDownHover(tguiRenderer* renderer, tguiUint32 style)
+{
+    DOWNCAST(renderer->This)->setTextStyleDownHover(style);
+}
+
+tguiUint32 tguiButtonRenderer_getTextStyleDownHover(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextStyleDownHover();
+}
+
+void tguiButtonRenderer_setTextStyleDownFocused(tguiRenderer* renderer, tguiUint32 style)
+{
+    DOWNCAST(renderer->This)->setTextStyleDownFocused(style);
+}
+
+tguiUint32 tguiButtonRenderer_getTextStyleDownFocused(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextStyleDownFocused();
+}
+
+void tguiButtonRenderer_setTextStyleDownDisabled(tguiRenderer* renderer, tguiUint32 style)
+{
+    DOWNCAST(renderer->This)->setTextStyleDownDisabled(style);
+}
+
+tguiUint32 tguiButtonRenderer_getTextStyleDownDisabled(tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextStyleDownDisabled();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setTextOutlineColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextOutlineColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -314,4 +487,16 @@ void tguiButtonRenderer_setTextOutlineThickness(tguiRenderer* renderer, float th
 float tguiButtonRenderer_getTextOutlineThickness(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextOutlineThickness();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiButtonRenderer_setRoundedBorderRadius(tguiRenderer* renderer, float radius)
+{
+    DOWNCAST(renderer->This)->setRoundedBorderRadius(radius);
+}
+
+float tguiButtonRenderer_getRoundedBorderRadius(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getRoundedBorderRadius();
 }

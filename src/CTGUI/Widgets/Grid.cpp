@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,8 +24,8 @@
 
 
 #include <CTGUI/Widgets/Grid.h>
-#include <CTGUI/WidgetStruct.h>
-#include <CTGUI/OutlineStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Widgets/Grid.hpp>
 
@@ -33,28 +33,46 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiGrid_create(void)
+void tguiGridWidgetLocation_free(tguiGridWidgetLocation* locationList, size_t count)
 {
-    return new tguiWidget(tgui::Grid::create());
+    if (!locationList)
+        return;
+
+    for (size_t i = 0; i < count; ++i)
+        ctgui::removeWidgetRef(locationList[i].widget->This);
+
+    delete[] locationList;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGrid_setAutoSize(tguiWidget* widget, sfBool autoSize)
+tguiWidget* tguiGrid_create(void)
+{
+    return ctgui::addWidgetRef(tgui::Grid::create());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGrid_setAutoSize(tguiWidget* widget, tguiBool autoSize)
 {
     DOWNCAST(widget->This)->setAutoSize(autoSize != 0);
 }
 
-sfBool tguiGrid_getAutoSize(const tguiWidget* widget)
+tguiBool tguiGrid_getAutoSize(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiOutline* padding, tguiAlignment alignment)
+void tguiGrid_addWidget(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiAlignment alignment, tguiOutline* padding)
 {
-    DOWNCAST(grid->This)->addWidget(widget->This, row, col, padding->This, static_cast<tgui::Grid::Alignment>(alignment));
+    DOWNCAST(grid->This)->addWidget(widget->This, row, col, static_cast<tgui::Grid::Alignment>(alignment), padding->This);
+}
+
+void tguiGrid_setWidgetCell(tguiWidget* grid, tguiWidget* widget, size_t row, size_t col, tguiAlignment alignment, tguiOutline* padding)
+{
+    DOWNCAST(grid->This)->setWidgetCell(widget->This, row, col, static_cast<tgui::Grid::Alignment>(alignment), padding->This);
 }
 
 tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col)
@@ -64,6 +82,32 @@ tguiWidget* tguiGrid_getWidget(tguiWidget* grid, size_t row, size_t col)
         return new tguiWidget(widget);
     else
         return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiGridWidgetLocation* tguiGrid_getWidgetLocations(const tguiWidget* grid, size_t* count)
+{
+    const auto& cppLocations = DOWNCAST(grid->This)->getWidgetLocations();
+    if (cppLocations.empty())
+    {
+        *count = 0;
+        return nullptr;
+    }
+
+    tguiGridWidgetLocation* cLocations = new tguiGridWidgetLocation[cppLocations.size()];
+    size_t index = 0;
+    for (const auto& pair : cppLocations)
+    {
+        const tgui::Widget::Ptr& cppWidget = pair.first;
+        cLocations[index].widget = ctgui::addWidgetRef(cppWidget);
+        cLocations[index].row = pair.second.first;
+        cLocations[index].column = pair.second.second;
+        ++index;
+    }
+
+    *count = cppLocations.size();
+    return cLocations;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

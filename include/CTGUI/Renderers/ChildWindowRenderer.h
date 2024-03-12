@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,9 +26,7 @@
 #ifndef CTGUI_CHILD_WINDOW_RENDERER_H
 #define CTGUI_CHILD_WINDOW_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiChildWindowRenderer_create(void);
 CTGUI_API tguiRenderer* tguiChildWindowRenderer_copy(const tguiRenderer* other);
@@ -36,20 +34,20 @@ CTGUI_API tguiRenderer* tguiChildWindowRenderer_copy(const tguiRenderer* other);
 CTGUI_API void tguiChildWindowRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
 CTGUI_API tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setTitleColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChildWindowRenderer_getTitleColor(const tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setTitleColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChildWindowRenderer_getTitleColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChildWindowRenderer_getBorderColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* renderer);
 
 CTGUI_API void tguiChildWindowRenderer_setBorderBelowTitleBar(tguiRenderer* renderer, float border);
 CTGUI_API float tguiChildWindowRenderer_getBorderBelowTitleBar(tguiRenderer* renderer);
@@ -66,12 +64,14 @@ CTGUI_API float tguiChildWindowRenderer_getPaddingBetweenButtons(tguiRenderer* r
 CTGUI_API void tguiChildWindowRenderer_setMinimumResizableBorderWidth(tguiRenderer* renderer, float minimumBorderWidth);
 CTGUI_API float tguiChildWindowRenderer_getMinimumResizableBorderWidth(tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, sfBool showTitle);
-CTGUI_API sfBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer);
+CTGUI_API void tguiChildWindowRenderer_setShowTextOnTitleButtons(tguiRenderer* renderer, tguiBool showTitle);
+CTGUI_API tguiBool tguiChildWindowRenderer_getShowTextOnTitleButtons(tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiChildWindowRenderer_setTextureTitleBar(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiChildWindowRenderer_getTextureTitleBar(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiChildWindowRenderer_getTextureBackground(const tguiRenderer* renderer);
 
 CTGUI_API void tguiChildWindowRenderer_setCloseButton(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiChildWindowRenderer_getCloseButton(const tguiRenderer* renderer);

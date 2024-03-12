@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/RadioButton.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/RadioButton.hpp>
 
@@ -34,41 +34,41 @@
 
 tguiWidget* tguiRadioButton_create(void)
 {
-    return new tguiWidget(tgui::RadioButton::create());
+    return ctgui::addWidgetRef(tgui::RadioButton::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButton_setChecked(tguiWidget* widget, sfBool checked)
+void tguiRadioButton_setChecked(tguiWidget* widget, tguiBool checked)
 {
     DOWNCAST(widget->This)->setChecked(checked);
 }
 
-sfBool tguiRadioButton_isChecked(const tguiWidget* widget)
+tguiBool tguiRadioButton_isChecked(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isChecked();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButton_setText(tguiWidget* widget, const sfUint32* text)
+void tguiRadioButton_setText(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setText(text);
+    DOWNCAST(widget->This)->setText(ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiRadioButton_getText(const tguiWidget* widget)
+tguiUtf32 tguiRadioButton_getText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable)
+void tguiRadioButton_setTextClickable(tguiWidget* widget, tguiBool clickable)
 {
     DOWNCAST(widget->This)->setTextClickable(clickable != 0);
 }
 
-sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget)
+tguiBool tguiRadioButton_isTextClickable(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isTextClickable();
 }

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,14 +26,13 @@
 #ifndef CTGUI_MESSAGE_BOX_RENDERER_H
 #define CTGUI_MESSAGE_BOX_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiMessageBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiMessageBoxRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiMessageBoxRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiMessageBoxRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMessageBoxRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiMessageBoxRenderer_getTextColor(const tguiRenderer* renderer);
 
 CTGUI_API void tguiMessageBoxRenderer_setButton(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiMessageBoxRenderer_getButton(const tguiRenderer* renderer);

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,10 +24,8 @@
 
 
 #include <CTGUI/Renderers/PanelRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/PanelRenderer.hpp>
 
@@ -59,31 +57,48 @@ tguiOutline* tguiPanelRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiPanelRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiPanelRenderer_getBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiPanelRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiPanelRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiPanelRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiPanelRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiPanelRenderer_getBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPanelRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+}
+
+tguiTexture* tguiPanelRenderer_getTextureBackground(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPanelRenderer_setRoundedBorderRadius(tguiRenderer* renderer, float radius)
+{
+    DOWNCAST(renderer->This)->setRoundedBorderRadius(radius);
+}
+
+float tguiPanelRenderer_getRoundedBorderRadius(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getRoundedBorderRadius();
 }

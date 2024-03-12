@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,11 +24,9 @@
 
 
 #include <CTGUI/Renderers/TabsRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/RendererDataStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/TabsRenderer.hpp>
 
@@ -60,145 +58,200 @@ tguiOutline* tguiTabsRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabsRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiTabsRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
-void tguiTabsRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiTabsRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
+tguiColor* tguiTabsRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
-void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setSelectedBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiTabsRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
 }
 
-void tguiTabsRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setSelectedBackgroundColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setSelectedBackgroundColorHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiTabsRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer)
+tguiColor* tguiTabsRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getSelectedBackgroundColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBackgroundColorHover());
 }
 
-void tguiTabsRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBackgroundColorDisabled({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(color));
 }
 
-sfColor tguiTabsRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
+tguiColor* tguiTabsRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiTabsRenderer_getTextColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getTextColor());
-}
-
-void tguiTabsRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTextColorHover({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiTabsRenderer_getTextColorHover(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getTextColorHover());
-}
-
-void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setSelectedTextColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColor());
-}
-
-void tguiTabsRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setSelectedTextColorHover({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiTabsRenderer_getSelectedTextColorHover(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getSelectedTextColorHover());
-}
-
-void tguiTabsRenderer_setTextColorDisabled(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setTextColorDisabled({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiTabsRenderer_getTextColorDisabled(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getTextColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
+void tguiTabsRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer)
+tguiColor* tguiTabsRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
+}
+
+void tguiTabsRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setTextColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getTextColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorHover());
+}
+
+void tguiTabsRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getSelectedTextColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
+}
+
+void tguiTabsRenderer_setSelectedTextColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setSelectedTextColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getSelectedTextColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColorHover());
+}
+
+void tguiTabsRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setTextColorDisabled(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, sfTexture* texture)
+void tguiTabsRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+void tguiTabsRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getBorderColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorHover());
+}
+
+void tguiTabsRenderer_setSelectedBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setSelectedBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getSelectedBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBorderColor());
+}
+
+void tguiTabsRenderer_setSelectedBorderColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setSelectedBorderColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiTabsRenderer_getSelectedBorderColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBorderColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabsRenderer_setTextureTab(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureTab(*texture->This);
 }
 
-void tguiTabsRenderer_setTextureTabHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiTabsRenderer_getTextureTab(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTab()));
+}
+
+void tguiTabsRenderer_setTextureTabHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureTabHover(*texture->This);
 }
 
-void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiTabsRenderer_getTextureTabHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTabHover()));
+}
+
+void tguiTabsRenderer_setTextureSelectedTab(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureSelectedTab(*texture->This);
 }
 
-void tguiTabsRenderer_setTextureSelectedTabHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiTabsRenderer_getTextureSelectedTab(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureSelectedTab()));
+}
+
+void tguiTabsRenderer_setTextureSelectedTabHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureSelectedTabHover(*texture->This);
 }
 
-void tguiTabsRenderer_setTextureDisabledTab(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiTabsRenderer_getTextureSelectedTabHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureSelectedTabHover()));
+}
+
+void tguiTabsRenderer_setTextureDisabledTab(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureDisabledTab(*texture->This);
+}
+
+tguiTexture* tguiTabsRenderer_getTextureDisabledTab(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDisabledTab()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

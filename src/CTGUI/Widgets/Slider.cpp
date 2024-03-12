@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/Slider.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Slider.hpp>
 
@@ -34,7 +34,7 @@
 
 tguiWidget* tguiSlider_create(void)
 {
-    return new tguiWidget(tgui::Slider::create());
+    return ctgui::addWidgetRef(tgui::Slider::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,36 +87,36 @@ float tguiSlider_getStep(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setVerticalScroll(tguiWidget* widget, sfBool vertical)
+void tguiSlider_setVerticalScroll(tguiWidget* widget, tguiBool vertical)
 {
     DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
 }
 
-sfBool tguiSlider_getVerticalScroll(const tguiWidget* widget)
+tguiBool tguiSlider_getVerticalScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getVerticalScroll();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirection)
+void tguiSlider_setInvertedDirection(tguiWidget* widget, tguiBool invertedDirection)
 {
     DOWNCAST(widget->This)->setInvertedDirection(invertedDirection != 0);
 }
 
-sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget)
+tguiBool tguiSlider_getInvertedDirection(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getInvertedDirection();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, sfBool changeValueOnScroll)
+void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, tguiBool changeValueOnScroll)
 {
     DOWNCAST(widget->This)->setChangeValueOnScroll(changeValueOnScroll != 0);
 }
 
-sfBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget)
+tguiBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getChangeValueOnScroll();
 }

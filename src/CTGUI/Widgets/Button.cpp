@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,27 +24,13 @@
 
 
 #include <CTGUI/Widgets/Button.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Button.hpp>
-
-#define DOWNCAST(x) std::static_pointer_cast<tgui::Button>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 tguiWidget* tguiButton_create(void)
 {
-    return new tguiWidget(tgui::Button::create());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiButton_setText(tguiWidget* widget, const sfUint32* text)
-{
-    DOWNCAST(widget->This)->setText(text);
-}
-
-const sfUint32* tguiButton_getText(const tguiWidget* widget)
-{
-    return returnString(DOWNCAST(widget->This)->getText());
+    return ctgui::addWidgetRef(tgui::Button::create());
 }

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,8 +24,7 @@
 
 
 #include <CTGUI/Widgets/ChatBox.h>
-#include <CTGUI/WidgetStruct.h>
-#include <CTGUI/ColorConverter.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/ChatBox.hpp>
 
@@ -35,46 +34,46 @@
 
 tguiWidget* tguiChatBox_create(void)
 {
-    return new tguiWidget(tgui::ChatBox::create());
+    return ctgui::addWidgetRef(tgui::ChatBox::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_addLine(tguiWidget* widget, const sfUint32* text)
+void tguiChatBox_addLine(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->addLine(text);
+    DOWNCAST(widget->This)->addLine(ctgui::toCppStr(text));
 }
 
-void tguiChatBox_addLineWithColor(tguiWidget* widget, const sfUint32* text, sfColor color)
+void tguiChatBox_addLineWithColor(tguiWidget* widget, tguiUtf32 text, tguiColor* color)
 {
-    DOWNCAST(widget->This)->addLine(text, {color.r, color.g, color.b, color.a});
+    DOWNCAST(widget->This)->addLine(ctgui::toCppStr(text), ctgui::toCppColor(color));
 }
 
-void tguiChatBox_addLineWithColorAndStyle(tguiWidget* widget, const sfUint32* text, sfColor color, sfUint32 style)
+void tguiChatBox_addLineWithColorAndStyle(tguiWidget* widget, tguiUtf32 text, tguiColor* color, tguiUint32 style)
 {
-    DOWNCAST(widget->This)->addLine(text, {color.r, color.g, color.b, color.a}, style);
+    DOWNCAST(widget->This)->addLine(ctgui::toCppStr(text), ctgui::toCppColor(color), style);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const sfUint32* tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex)
+tguiUtf32 tguiChatBox_getLine(const tguiWidget* widget, size_t lineIndex)
 {
-    return returnString(DOWNCAST(widget->This)->getLine(lineIndex));
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getLine(lineIndex));
 }
 
-sfColor tguiChatBox_getLineColor(const tguiWidget* widget, size_t lineIndex)
+tguiColor* tguiChatBox_getLineColor(const tguiWidget* widget, size_t lineIndex)
 {
-    return convertColor(DOWNCAST(widget->This)->getLineColor(lineIndex));
+    return ctgui::fromCppColor(DOWNCAST(widget->This)->getLineColor(lineIndex));
 }
 
-sfUint32 tguiChatBox_getLineTextStyle(const tguiWidget* widget, size_t lineIndex)
+tguiUint32 tguiChatBox_getLineTextStyle(const tguiWidget* widget, size_t lineIndex)
 {
     return DOWNCAST(widget->This)->getLineTextStyle(lineIndex);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiChatBox_removeLine(tguiWidget* widget, size_t lineIndex)
+tguiBool tguiChatBox_removeLine(tguiWidget* widget, size_t lineIndex)
 {
     return DOWNCAST(widget->This)->removeLine(lineIndex);
 }
@@ -105,46 +104,46 @@ size_t tguiChatBox_getLineLimit(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_setTextColor(tguiWidget* widget, sfColor color)
+void tguiChatBox_setTextColor(tguiWidget* widget, tguiColor* color)
 {
-    DOWNCAST(widget->This)->setTextColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(widget->This)->setTextColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiChatBox_getTextColor(const tguiWidget* widget)
+tguiColor* tguiChatBox_getTextColor(const tguiWidget* widget)
 {
-    return convertColor(DOWNCAST(widget->This)->getTextColor());
+    return ctgui::fromCppColor(DOWNCAST(widget->This)->getTextColor());
 }
 
-void tguiChatBox_setTextStyle(tguiWidget* widget, sfUint32 style)
+void tguiChatBox_setTextStyle(tguiWidget* widget, tguiUint32 style)
 {
     DOWNCAST(widget->This)->setTextStyle(style);
 }
 
-sfUint32 tguiChatBox_getTextStyle(const tguiWidget* widget)
+tguiUint32 tguiChatBox_getTextStyle(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getTextStyle();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_setLinesStartFromTop(tguiWidget* widget, sfBool startFromTop)
+void tguiChatBox_setLinesStartFromTop(tguiWidget* widget, tguiBool startFromTop)
 {
     DOWNCAST(widget->This)->setLinesStartFromTop(startFromTop != 0);
 }
 
-sfBool tguiChatBox_getLinesStartFromTop(const tguiWidget* widget)
+tguiBool tguiChatBox_getLinesStartFromTop(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getLinesStartFromTop();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_setNewLinesBelowOthers(tguiWidget* widget, sfBool newLinesBelowOthers)
+void tguiChatBox_setNewLinesBelowOthers(tguiWidget* widget, tguiBool newLinesBelowOthers)
 {
     DOWNCAST(widget->This)->setNewLinesBelowOthers(newLinesBelowOthers != 0);
 }
 
-sfBool tguiChatBox_getNewLinesBelowOthers(const tguiWidget* widget)
+tguiBool tguiChatBox_getNewLinesBelowOthers(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getNewLinesBelowOthers();
 }

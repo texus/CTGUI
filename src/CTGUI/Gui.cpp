@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -22,303 +22,333 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 #include <CTGUI/Gui.h>
-#include <CTGUI/GuiStruct.h>
-#include <CTGUI/WidgetStruct.h>
-#include <CTGUI/ConvertEvent.h>
-#include <CTGUI/SFML/Graphics/RenderWindowStruct.h>
-#include <CTGUI/SFML/Graphics/RenderTextureStruct.h>
-#include <CTGUI/SFML/Graphics/FontStruct.h>
+#include <CTGUI/GuiStruct.hpp>
+#include <CTGUI/InternalGlobal.hpp>
+#include <CTGUI/FontStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiGui* tguiGui_create(void)
+void tguiGui_setAbsoluteViewport(tguiGui* gui, tguiFloatRect viewport)
 {
-    return new tguiGui;
+    gui->This->setAbsoluteViewport({viewport.left, viewport.top, viewport.width, viewport.height});
 }
 
-tguiGui* tguiGui_createFromTargetRenderWindow(sfRenderWindow* target)
+void tguiGui_setRelativeViewport(tguiGui* gui, tguiFloatRect viewport)
 {
-    tguiGui* gui = tguiGui_create();
-    tguiGui_setTargetRenderWindow(gui, target);
-    return gui;
+    gui->This->setRelativeViewport({viewport.left, viewport.top, viewport.width, viewport.height});
 }
 
-tguiGui* tguiGui_createFromTargetRenderTexture(sfRenderTexture* target)
+tguiFloatRect tguiGui_getViewport(const tguiGui* gui)
 {
-    tguiGui* gui = tguiGui_create();
-    tguiGui_setTargetRenderTexture(gui, target);
-    return gui;
-}
-
-void tguiGui_destroy(tguiGui* gui)
-{
-    delete gui;
+    const tgui::FloatRect rect = gui->This->getViewport().getRect();
+    return {rect.left, rect.top, rect.width, rect.height};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_setTargetRenderWindow(tguiGui* gui, sfRenderWindow* window)
+void tguiGui_setAbsoluteView(tguiGui* gui, tguiFloatRect view)
 {
-    gui->This.setTarget(window->This);
+    gui->This->setAbsoluteView({view.left, view.top, view.width, view.height});
+}
+
+void tguiGui_setRelativeView(tguiGui* gui, tguiFloatRect view)
+{
+    gui->This->setRelativeView({view.left, view.top, view.width, view.height});
+}
+
+tguiFloatRect tguiGui_getView(const tguiGui* gui)
+{
+    const tgui::FloatRect rect = gui->This->getView().getRect();
+    return {rect.left, rect.top, rect.width, rect.height};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_setTargetRenderTexture(tguiGui* gui, sfRenderTexture* window)
+void tguiGui_setTabKeyUsageEnabled(tguiGui* gui, tguiBool enabled)
 {
-    gui->This.setTarget(window->This);
+    gui->This->setTabKeyUsageEnabled(enabled != 0);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiGui_setView(tguiGui* gui, const sfView* view)
+tguiBool tguiGui_isTabKeyUsageEnabled(tguiGui* gui)
 {
-    gui->This.setView(view->This);
-    gui->View.This = view->This;
-}
-
-const sfView* tguiGui_getView(const tguiGui* gui)
-{
-    return &gui->View;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-sfBool tguiGui_handleEvent(tguiGui* gui, sfEvent event)
-{
-    sf::Event SFMLEvent;
-    convertEvent(event, SFMLEvent);
-    return gui->This.handleEvent(SFMLEvent);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiGui_add(tguiGui* gui, tguiWidget* widget, const sfUint32* widgetName)
-{
-    gui->This.add(widget->This, widgetName);
-}
-
-tguiWidget* tguiGui_get(tguiGui* gui, const sfUint32* widgetName)
-{
-    tgui::Widget::Ptr widget = gui->This.get(widgetName);
-    if (widget)
-        return new tguiWidget(widget);
-    else
-        return nullptr;
-}
-
-tguiWidget** tguiGui_getWidgets(tguiGui* gui, size_t* count)
-{
-    const auto& widgets = gui->This.getWidgets();
-
-    static std::vector<tguiWidget*> cWidgets;
-    cWidgets.resize(widgets.size());
-
-    for (std::size_t i = 0; i < widgets.size(); ++i)
-        cWidgets[i] = new tguiWidget(widgets[i]);
-
-    *count = cWidgets.size();
-    return cWidgets.data();
-}
-
-const sfUint32** tguiGui_getWidgetNames(tguiGui* gui, size_t* count)
-{
-    const auto& names = gui->This.getWidgetNames();
-
-    static std::vector<const sfUint32*> cNames;
-    cNames.resize(names.size());
-
-    for (std::size_t i = 0; i < names.size(); ++i)
-        cNames[i] = names[i].getData();
-
-    *count = cNames.size();
-    return cNames.data();
-}
-
-sfBool tguiGui_remove(tguiGui* gui, tguiWidget* widget)
-{
-    return gui->This.remove(widget->This);
-}
-
-void tguiGui_removeAllWidgets(tguiGui* gui)
-{
-    gui->This.removeAllWidgets();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiGui_moveWidgetToFront(tguiGui* gui, tguiWidget* widget)
-{
-    gui->This.moveWidgetToFront(widget->This);
-}
-
-void tguiGui_moveWidgetToBack(tguiGui* gui, tguiWidget* widget)
-{
-    gui->This.moveWidgetToBack(widget->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-int tguiGui_getFocusedChildIndex(tguiGui* gui)
-{
-    const auto focusedWidget = gui->This.getFocusedChild();
-    if (focusedWidget)
-    {
-        const auto& widgets = gui->This.getWidgets();
-        for (std::size_t i = 0; i < widgets.size(); ++i)
-        {
-            if (widgets[i] == focusedWidget)
-                return static_cast<int>(i);
-        }
-    }
-
-    return -1;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-static int* convertLeafWidgetToHierarchyIndices(const tgui::Widget::Ptr& leafWidget, size_t* count)
-{
-    static std::vector<int> indices;
-    indices.clear();
-
-    if (leafWidget)
-    {
-        tgui::Widget* widget = leafWidget.get();
-        while (widget->getParent())
-        {
-            int widgetIndex = 0;
-            const auto& widgets = widget->getParent()->getWidgets();
-            for (std::size_t i = 0; i < widgets.size(); ++i)
-            {
-                if (widgets[i].get() == widget)
-                {
-                    widgetIndex = static_cast<int>(i);
-                    break;
-                }
-            }
-
-            indices.insert(indices.begin(), widgetIndex);
-            widget = widget->getParent();
-        }
-    }
-
-    *count = indices.size();
-    return indices.data();
-}
-
-const int* tguiGui_getWidgetAtPositionIndices(tguiGui* gui, float x, float y, size_t* count)
-{
-    return convertLeafWidgetToHierarchyIndices(gui->This.getWidgetAtPosition({x, y}), count);
-}
-
-const int* tguiGui_getWidgetBelowMouseCursorIndices(tguiGui* gui, int x, int y, size_t* count)
-{
-    return convertLeafWidgetToHierarchyIndices(gui->This.getWidgetBelowMouseCursor({x, y}), count);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-sfBool tguiGui_focusNextWidget(tguiGui* gui)
-{
-    return gui->This.focusNextWidget();
-}
-
-sfBool tguiGui_focusPreviousWidget(tguiGui* gui)
-{
-    return gui->This.focusPreviousWidget();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiGui_setTabKeyUsageEnabled(tguiGui* gui, sfBool enabled)
-{
-    gui->This.setTabKeyUsageEnabled(enabled != 0);
-}
-
-sfBool tguiGui_isTabKeyUsageEnabled(tguiGui* gui)
-{
-    return gui->This.isTabKeyUsageEnabled();
+    return gui->This->isTabKeyUsageEnabled();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiGui_draw(tguiGui* gui)
 {
-    gui->This.draw();
+    gui->This->draw();
+
+    ctgui::cleanupWidgets(); // Fully destroy widgets that no longer exist
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_setFont(tguiGui* gui, sfFont* font)
+void tguiGui_setFont(tguiGui* gui, tguiFont* font)
 {
-    gui->This.setFont(font->This);
+    gui->This->setFont(*font->This);
+}
+
+tguiFont* tguiGui_getFont(const tguiGui* gui)
+{
+    return new tguiFont(std::make_unique<tgui::Font>(gui->This->getFont()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_add(tguiGui* gui, tguiWidget* widget, tguiUtf32 widgetName)
+{
+    gui->This->add(widget->This, ctgui::toCppStr(widgetName));
+}
+
+tguiWidget* tguiGui_get(tguiGui* gui, tguiUtf32 widgetName)
+{
+    tgui::Widget::Ptr widget = gui->This->get(ctgui::toCppStr(widgetName));
+    if (widget)
+        return ctgui::addWidgetRef(widget);
+    else
+        return nullptr;
+}
+
+tguiWidget** tguiGui_getWidgets(tguiGui* gui, size_t* count)
+{
+    const auto& widgets = gui->This->getWidgets();
+
+    static std::vector<tguiWidget*> cWidgets;
+    cWidgets.resize(widgets.size());
+
+    for (std::size_t i = 0; i < widgets.size(); ++i)
+        cWidgets[i] = ctgui::addWidgetRef(widgets[i]);
+
+    *count = cWidgets.size();
+    return cWidgets.data();
+}
+
+tguiBool tguiGui_remove(tguiGui* gui, tguiWidget* widget)
+{
+    return gui->This->remove(widget->This);
+}
+
+void tguiGui_removeAllWidgets(tguiGui* gui)
+{
+    gui->This->removeAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiGui_getFocusedChild(tguiGui* gui)
+{
+    const auto focusedWidget = gui->This->getFocusedChild();
+    if (focusedWidget)
+    {
+        const auto& widgets = gui->This->getWidgets();
+        for (std::size_t i = 0; i < widgets.size(); ++i)
+        {
+            if (widgets[i] == focusedWidget)
+                return ctgui::addWidgetRef(focusedWidget);
+        }
+    }
+
+    return nullptr;
+}
+
+tguiWidget* tguiGui_getFocusedLeaf(tguiGui* gui)
+{
+    const auto leafWidget = gui->This->getFocusedLeaf();
+    if (leafWidget)
+        return ctgui::addWidgetRef(leafWidget);
+    else
+        return nullptr;
+}
+
+tguiWidget* tguiGui_getWidgetAtPos(tguiGui* gui, tguiVector2f pos, tguiBool recursive)
+{
+    const auto leafWidgetAtPos = gui->This->getWidgetAtPos({pos.x, pos.y}, recursive != 0);
+    if (leafWidgetAtPos)
+        return ctgui::addWidgetRef(leafWidgetAtPos);
+    else
+        return nullptr;
+}
+
+tguiWidget* tguiGui_getWidgetBelowMouseCursor(tguiGui* gui, tguiVector2i mousePos, tguiBool recursive)
+{
+    const auto leafWidgetAtPos = gui->This->getWidgetBelowMouseCursor({mousePos.x, mousePos.y}, recursive != 0);
+    if (leafWidgetAtPos)
+        return ctgui::addWidgetRef(leafWidgetAtPos);
+    else
+        return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiGui_focusNextWidget(tguiGui* gui, tguiBool recursive)
+{
+    return gui->This->focusNextWidget(recursive != 0);
+}
+
+tguiBool tguiGui_focusPreviousWidget(tguiGui* gui, tguiBool recursive)
+{
+    return gui->This->focusPreviousWidget(recursive != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_unfocusAllWidgets(tguiGui* gui)
+{
+    gui->This->unfocusAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_moveWidgetToFront(tguiGui* gui, tguiWidget* widget)
+{
+    gui->This->moveWidgetToFront(widget->This);
+}
+
+void tguiGui_moveWidgetToBack(tguiGui* gui, tguiWidget* widget)
+{
+    gui->This->moveWidgetToBack(widget->This);
+}
+
+size_t tguiGui_moveWidgetForward(tguiGui* gui, tguiWidget* widget)
+{
+    return gui->This->moveWidgetForward(widget->This);
+}
+
+size_t tguiGui_moveWidgetBackward(tguiGui* gui, tguiWidget* widget)
+{
+    return gui->This->moveWidgetBackward(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiGui_setWidgetIndex(tguiGui* gui, tguiWidget* widget, size_t index)
+{
+    return gui->This->setWidgetIndex(widget->This, index);
+}
+
+int tguiGui_getWidgetIndex(tguiGui* gui, tguiWidget* widget)
+{
+    return gui->This->getWidgetIndex(widget->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiGui_setOpacity(tguiGui* gui, float alpha)
 {
-    gui->This.setOpacity(alpha);
+    gui->This->setOpacity(alpha);
 }
 
 float tguiGui_getOpacity(const tguiGui* gui)
 {
-    return gui->This.getOpacity();
+    return gui->This->getOpacity();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiGui_setTextSize(tguiGui* gui, unsigned int size)
 {
-    gui->This.setTextSize(size);
+    gui->This->setTextSize(size);
 }
 
 unsigned int tguiGui_getTextSize(const tguiGui* gui)
 {
-    return gui->This.getTextSize();
+    return gui->This->getTextSize();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, sfBool replaceExisting)
+tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, tguiBool replaceExisting)
 {
     try
     {
-        gui->This.loadWidgetsFromFile(filename, replaceExisting);
+        gui->This->loadWidgetsFromFile(filename, replaceExisting);
         return true;
     }
     catch (const tgui::Exception& e)
     {
-        tguiErrorMessage = e.what();
+        ctgui::tguiErrorMessage = e.what();
         return false;
     }
 }
 
-sfBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename)
+tguiBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename)
 {
     try
     {
-        gui->This.saveWidgetsToFile(filename);
+        gui->This->saveWidgetsToFile(filename);
         return true;
     }
     catch (const tgui::Exception& e)
     {
-        tguiErrorMessage = e.what();
+        ctgui::tguiErrorMessage = e.what();
         return false;
     }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_setDrawingUpdatesTime(tguiGui* gui, bool drawUpdatesTime)
+void tguiGui_setDrawingUpdatesTime(tguiGui* gui, tguiBool drawUpdatesTime)
 {
-    gui->This.setDrawingUpdatesTime(drawUpdatesTime != 0);
+    gui->This->setDrawingUpdatesTime(drawUpdatesTime != 0);
 }
 
-sfBool tguiGui_updateTime(tguiGui* gui)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiGui_updateTime(tguiGui* gui)
 {
-    return gui->This.updateTime();
+    return gui->This->updateTime();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_setOverrideMouseCursor(tguiGui* gui, tguiCursorType type)
+{
+    gui->This->setOverrideMouseCursor(static_cast<tgui::Cursor::Type>(type));
+}
+
+void tguiGui_restoreOverrideMouseCursor(tguiGui* gui)
+{
+    gui->This->restoreOverrideMouseCursor();
+}
+
+void tguiGui_requestMouseCursor(tguiGui* gui, tguiCursorType type)
+{
+    gui->This->requestMouseCursor(static_cast<tgui::Cursor::Type>(type));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiVector2f tguiGui_mapPixelToCoords(const tguiGui* gui, tguiVector2i pixel)
+{
+    const tgui::Vector2f coord = gui->This->mapPixelToCoords({pixel.x, pixel.y});
+    return {coord.x, coord.y};
+}
+
+tguiVector2f tguiGui_mapCoordsToPixel(const tguiGui* gui, tguiVector2f coord)
+{
+    const tgui::Vector2f pixel = gui->This->mapCoordsToPixel({coord.x, coord.y});
+    return {pixel.x, pixel.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_setKeyboardNavigationEnabled(tguiGui* gui, tguiBool enabled)
+{
+    gui->This->setKeyboardNavigationEnabled(enabled != 0);
+}
+
+tguiBool tguiGui_isKeyboardNavigationEnabled(const tguiGui* gui)
+{
+    return gui->This->isKeyboardNavigationEnabled();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_mainLoop(tguiGui* gui, tguiColor* clearColor)
+{
+    gui->This->mainLoop(ctgui::toCppColor(clearColor));
 }

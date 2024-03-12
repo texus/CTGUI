@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/Scrollbar.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Scrollbar.hpp>
 
@@ -34,7 +34,7 @@
 
 tguiWidget* tguiScrollbar_create(void)
 {
-    return new tguiWidget(tgui::Scrollbar::create());
+    return ctgui::addWidgetRef(tgui::Scrollbar::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,24 +87,24 @@ unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbar_setAutoHide(tguiWidget* widget, sfBool autoHide)
+void tguiScrollbar_setAutoHide(tguiWidget* widget, tguiBool autoHide)
 {
     DOWNCAST(widget->This)->setAutoHide(autoHide != 0);
 }
 
-sfBool tguiScrollbar_getAutoHide(const tguiWidget* widget)
+tguiBool tguiScrollbar_getAutoHide(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getAutoHide();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbar_setVerticalScroll(tguiWidget* widget, sfBool vertical)
+void tguiScrollbar_setVerticalScroll(tguiWidget* widget, tguiBool vertical)
 {
     DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
 }
 
-sfBool tguiScrollbar_getVerticalScroll(const tguiWidget* widget)
+tguiBool tguiScrollbar_getVerticalScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getVerticalScroll();
 }

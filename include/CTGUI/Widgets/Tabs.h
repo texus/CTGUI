@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,39 +26,37 @@
 #ifndef CTGUI_TABS_H
 #define CTGUI_TABS_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
-#include <stddef.h>
 
 CTGUI_API tguiWidget* tguiTabs_create(void);
 
-CTGUI_API void tguiTabs_setAutoSize(tguiWidget* widget, sfBool autoSize);
-CTGUI_API sfBool tguiTabs_getAutoSize(const tguiWidget* widget);
+CTGUI_API void tguiTabs_setAutoSize(tguiWidget* widget, tguiBool autoSize);
+CTGUI_API tguiBool tguiTabs_getAutoSize(const tguiWidget* widget);
 
-CTGUI_API size_t tguiTabs_add(tguiWidget* widget, const sfUint32* text, sfBool select);
-CTGUI_API void tguiTabs_insert(tguiWidget* widget, size_t index, const sfUint32* text, sfBool select);
-CTGUI_API const sfUint32* tguiTabs_getText(const tguiWidget* widget, size_t index);
+CTGUI_API size_t tguiTabs_add(tguiWidget* widget, tguiUtf32 text, tguiBool select);
+CTGUI_API void tguiTabs_insert(tguiWidget* widget, size_t index, tguiUtf32 text, tguiBool select);
+CTGUI_API tguiUtf32 tguiTabs_getText(const tguiWidget* widget, size_t index);
 
-CTGUI_API sfBool tguiTabs_changeText(tguiWidget* widget, size_t index, const sfUint32* text);
+CTGUI_API tguiBool tguiTabs_changeText(tguiWidget* widget, size_t index, tguiUtf32 text);
 
-CTGUI_API sfBool tguiTabs_selectByText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API sfBool tguiTabs_selectByIndex(tguiWidget* widget, size_t index);
+CTGUI_API tguiBool tguiTabs_selectByText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiBool tguiTabs_selectByIndex(tguiWidget* widget, size_t index);
 CTGUI_API void tguiTabs_deselect(tguiWidget* widget);
 
-CTGUI_API sfBool tguiTabs_removeByText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API sfBool tguiTabs_removeByIndex(tguiWidget* widget, size_t index);
+CTGUI_API tguiBool tguiTabs_removeByText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiBool tguiTabs_removeByIndex(tguiWidget* widget, size_t index);
 CTGUI_API void tguiTabs_removeAll(tguiWidget* widget);
 
-CTGUI_API const sfUint32* tguiTabs_getSelected(const tguiWidget* widget);
+CTGUI_API tguiUtf32 tguiTabs_getSelected(const tguiWidget* widget);
 CTGUI_API int tguiTabs_getSelectedIndex(const tguiWidget* widget);
 
 CTGUI_API size_t tguiTabs_getTabsCount(const tguiWidget* widget);
 
-CTGUI_API void tguiTabs_setTabVisible(tguiWidget* widget, size_t index, sfBool visible);
-CTGUI_API sfBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index);
+CTGUI_API void tguiTabs_setTabVisible(tguiWidget* widget, size_t index, tguiBool visible);
+CTGUI_API tguiBool tguiTabs_getTabVisible(const tguiWidget* widget, size_t index);
 
-CTGUI_API void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, sfBool enabled);
-CTGUI_API sfBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index);
+CTGUI_API void tguiTabs_setTabEnabled(tguiWidget* widget, size_t index, tguiBool enabled);
+CTGUI_API tguiBool tguiTabs_getTabEnabled(const tguiWidget* widget, size_t index);
 
 CTGUI_API void tguiTabs_setMaximumTabWidth(tguiWidget* widget, float maximumTabWidth);
 CTGUI_API float tguiTabs_getMaximumTabWidth(const tguiWidget* widget);

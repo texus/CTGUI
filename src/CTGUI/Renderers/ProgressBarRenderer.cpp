@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,10 +24,8 @@
 
 
 #include <CTGUI/Renderers/ProgressBarRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/ProgressBarRenderer.hpp>
 
@@ -59,82 +57,116 @@ tguiOutline* tguiProgressBarRenderer_getBorders(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextColor(tguiRenderer* renderer, sfColor color)
+void tguiProgressBarRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiProgressBarRenderer_getTextColor(const tguiRenderer* renderer)
+tguiColor* tguiProgressBarRenderer_getTextColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
-void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* renderer, sfColor color)
+void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTextColorFilled({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTextColorFilled(ctgui::toCppColor(color));
 }
 
-sfColor tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* renderer)
+tguiColor* tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTextColorFilled());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorFilled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setFillColor(tguiRenderer* renderer, sfColor color)
+void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setFillColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiProgressBarRenderer_getFillColor(const tguiRenderer* renderer)
+tguiColor* tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getFillColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiProgressBarRenderer_setBorderColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setBorderColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture)
+void tguiProgressBarRenderer_setFillColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setFillColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiProgressBarRenderer_getFillColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getFillColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiProgressBarRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiProgressBarRenderer_getBorderColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiProgressBarRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
 }
 
-void tguiProgressBarRenderer_setTextureFill(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiProgressBarRenderer_getTextureBackground(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
+}
+
+void tguiProgressBarRenderer_setTextureFill(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureFill(*texture->This);
 }
 
+tguiTexture* tguiProgressBarRenderer_getTextureFill(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureFill()));
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextStyle(tguiRenderer* renderer, sfUint32 style)
+void tguiProgressBarRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyle(style);
 }
 
-sfUint32 tguiProgressBarRenderer_getTextStyle(tguiRenderer* renderer)
+tguiUint32 tguiProgressBarRenderer_getTextStyle(tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiProgressBarRenderer_setTextOutlineColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setTextOutlineColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiProgressBarRenderer_getTextOutlineColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextOutlineColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiProgressBarRenderer_setTextOutlineThickness(tguiRenderer* renderer, float outlineThickness)
+{
+    DOWNCAST(renderer->This)->setTextOutlineThickness(outlineThickness);
+}
+
+float tguiProgressBarRenderer_getTextOutlineThickness(const tguiRenderer* renderer)
+{
+    return DOWNCAST(renderer->This)->getTextOutlineThickness();
 }

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,8 +24,7 @@
 
 
 #include <CTGUI/Widgets/Picture.h>
-#include <CTGUI/WidgetStruct.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Picture.hpp>
 
@@ -35,17 +34,17 @@
 
 tguiWidget* tguiPicture_create(void)
 {
-    return new tguiWidget(tgui::Picture::create());
+    return ctgui::addWidgetRef(tgui::Picture::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPicture_ignoreMouseEvents(tguiWidget* widget, sfBool ignore)
+void tguiPicture_ignoreMouseEvents(tguiWidget* widget, tguiBool ignore)
 {
     DOWNCAST(widget->This)->ignoreMouseEvents(ignore != 0);
 }
 
-sfBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget)
+tguiBool tguiPicture_isIgnoringMouseEvents(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isIgnoringMouseEvents();
 }

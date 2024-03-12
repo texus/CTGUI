@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,10 +24,9 @@
 
 
 #include <CTGUI/Renderers/ScrollablePanelRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/RendererDataStruct.h>
-#include <CTGUI/OutlineStruct.h>
-#include <CTGUI/ColorConverter.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/ScrollablePanelRenderer.hpp>
 

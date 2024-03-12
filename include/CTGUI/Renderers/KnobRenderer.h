@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,9 +26,7 @@
 #ifndef CTGUI_LIST_BOX_RENDERER_H
 #define CTGUI_LIST_BOX_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiKnobRenderer_create(void);
 CTGUI_API tguiRenderer* tguiKnobRenderer_copy(const tguiRenderer* renderer);
@@ -36,17 +34,19 @@ CTGUI_API tguiRenderer* tguiKnobRenderer_copy(const tguiRenderer* renderer);
 CTGUI_API void tguiKnobRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders);
 CTGUI_API tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* renderer);
 
-CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiKnobRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiKnobRenderer_getBackgroundColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiKnobRenderer_setThumbColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiKnobRenderer_getThumbColor(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setThumbColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiKnobRenderer_getThumbColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiKnobRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiKnobRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiKnobRenderer_getBorderColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiKnobRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
-CTGUI_API void tguiKnobRenderer_setTextureForeground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiKnobRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiKnobRenderer_getTextureBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setTextureForeground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiKnobRenderer_getTextureForeground(const tguiRenderer* renderer);
 
 CTGUI_API void tguiKnobRenderer_setImageRotation(tguiRenderer* renderer, float rotation);
 CTGUI_API float tguiKnobRenderer_getImageRotation(const tguiRenderer* renderer);

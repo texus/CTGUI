@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,19 +26,18 @@
 #ifndef CTGUI_RADIO_BUTTON_H
 #define CTGUI_RADIO_BUTTON_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 
 CTGUI_API tguiWidget* tguiRadioButton_create(void);
 
-CTGUI_API void tguiRadioButton_setChecked(tguiWidget* widget, sfBool checked);
-CTGUI_API sfBool tguiRadioButton_isChecked(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setChecked(tguiWidget* widget, tguiBool checked);
+CTGUI_API tguiBool tguiRadioButton_isChecked(const tguiWidget* widget);
 
-CTGUI_API void tguiRadioButton_setText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiRadioButton_getText(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiUtf32 tguiRadioButton_getText(const tguiWidget* widget);
 
-CTGUI_API void tguiRadioButton_setTextClickable(tguiWidget* widget, sfBool clickable);
-CTGUI_API sfBool tguiRadioButton_isTextClickable(const tguiWidget* widget);
+CTGUI_API void tguiRadioButton_setTextClickable(tguiWidget* widget, tguiBool clickable);
+CTGUI_API tguiBool tguiRadioButton_isTextClickable(const tguiWidget* widget);
 
 #endif // CTGUI_RADIO_BUTTON_H
 

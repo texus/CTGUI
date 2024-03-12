@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,11 +24,11 @@
 
 
 #include <CTGUI/Widgets/HorizontalWrap.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/HorizontalWrap.hpp>
 
 tguiWidget* tguiHorizontalWrap_create(void)
 {
-    return new tguiWidget(tgui::HorizontalWrap::create());
+    return ctgui::addWidgetRef(tgui::HorizontalWrap::create());
 }

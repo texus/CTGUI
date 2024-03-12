@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/ComboBox.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/ComboBox.hpp>
 
@@ -34,7 +34,7 @@
 
 tguiWidget* tguiComboBox_create(void)
 {
-    return new tguiWidget(tgui::ComboBox::create());
+    return ctgui::addWidgetRef(tgui::ComboBox::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,29 +51,29 @@ size_t tguiComboBox_getItemsToDisplay(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiComboBox_addItem(tguiWidget* widget, const sfUint32* item, const sfUint32* id)
+tguiBool tguiComboBox_addItem(tguiWidget* widget, tguiUtf32 item, tguiUtf32 id)
 {
-    return DOWNCAST(widget->This)->addItem(item, id);
+    return DOWNCAST(widget->This)->addItem(ctgui::toCppStr(item), ctgui::toCppStr(id));
 }
 
-const sfUint32* tguiComboBox_getItemById(const tguiWidget* widget, const sfUint32* id)
+tguiUtf32 tguiComboBox_getItemById(const tguiWidget* widget, tguiUtf32 id)
 {
-    return returnString(DOWNCAST(widget->This)->getItemById(id));
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getItemById(ctgui::toCppStr(id)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiComboBox_setSelectedItem(tguiWidget* widget, const sfUint32* item)
+tguiBool tguiComboBox_setSelectedItem(tguiWidget* widget, tguiUtf32 item)
 {
-    return DOWNCAST(widget->This)->setSelectedItem(item);
+    return DOWNCAST(widget->This)->setSelectedItem(ctgui::toCppStr(item));
 }
 
-sfBool tguiComboBox_setSelectedItemById(tguiWidget* widget, const sfUint32* id)
+tguiBool tguiComboBox_setSelectedItemById(tguiWidget* widget, tguiUtf32 id)
 {
-    return DOWNCAST(widget->This)->setSelectedItemById(id);
+    return DOWNCAST(widget->This)->setSelectedItemById(ctgui::toCppStr(id));
 }
 
-sfBool tguiComboBox_setSelectedItemByIndex(tguiWidget* widget, size_t index)
+tguiBool tguiComboBox_setSelectedItemByIndex(tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->setSelectedItemByIndex(index);
 }
@@ -85,17 +85,17 @@ void tguiComboBox_deselectItem(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiComboBox_removeItem(tguiWidget* widget, const sfUint32* item)
+tguiBool tguiComboBox_removeItem(tguiWidget* widget, tguiUtf32 item)
 {
-    return DOWNCAST(widget->This)->removeItem(item);
+    return DOWNCAST(widget->This)->removeItem(ctgui::toCppStr(item));
 }
 
-sfBool tguiComboBox_removeItemById(tguiWidget* widget, const sfUint32* id)
+tguiBool tguiComboBox_removeItemById(tguiWidget* widget, tguiUtf32 id)
 {
-    return DOWNCAST(widget->This)->removeItemById(id);
+    return DOWNCAST(widget->This)->removeItemById(ctgui::toCppStr(id));
 }
 
-sfBool tguiComboBox_removeItemByIndex(tguiWidget* widget, size_t index)
+tguiBool tguiComboBox_removeItemByIndex(tguiWidget* widget, size_t index)
 {
     return DOWNCAST(widget->This)->removeItemByIndex(index);
 }
@@ -107,14 +107,14 @@ void tguiComboBox_removeAllItems(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const sfUint32* tguiComboBox_getSelectedItem(const tguiWidget* widget)
+tguiUtf32 tguiComboBox_getSelectedItem(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getSelectedItem());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getSelectedItem());
 }
 
-const sfUint32* tguiComboBox_getSelectedItemId(const tguiWidget* widget)
+tguiUtf32 tguiComboBox_getSelectedItemId(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getSelectedItemId());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getSelectedItemId());
 }
 
 int tguiComboBox_getSelectedItemIndex(const tguiWidget* widget)
@@ -124,19 +124,19 @@ int tguiComboBox_getSelectedItemIndex(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiComboBox_changeItem(tguiWidget* widget, const sfUint32* originalValue, const sfUint32* newValue)
+tguiBool tguiComboBox_changeItem(tguiWidget* widget, tguiUtf32 originalValue, tguiUtf32 newValue)
 {
-    return DOWNCAST(widget->This)->changeItem(originalValue, newValue);
+    return DOWNCAST(widget->This)->changeItem(ctgui::toCppStr(originalValue), ctgui::toCppStr(newValue));
 }
 
-sfBool tguiComboBox_changeItemById(tguiWidget* widget, const sfUint32* id, const sfUint32* newValue)
+tguiBool tguiComboBox_changeItemById(tguiWidget* widget, tguiUtf32 id, tguiUtf32 newValue)
 {
-    return DOWNCAST(widget->This)->changeItemById(id, newValue);
+    return DOWNCAST(widget->This)->changeItemById(ctgui::toCppStr(id), ctgui::toCppStr(newValue));
 }
 
-sfBool tguiComboBox_changeItemByIndex(tguiWidget* widget, size_t index, const sfUint32* newValue)
+tguiBool tguiComboBox_changeItemByIndex(tguiWidget* widget, size_t index, tguiUtf32 newValue)
 {
-    return DOWNCAST(widget->This)->changeItemByIndex(index, newValue);
+    return DOWNCAST(widget->This)->changeItemByIndex(index, ctgui::toCppStr(newValue));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,29 +148,31 @@ size_t tguiComboBox_getItemCount(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const sfUint32** tguiComboBox_getItems(const tguiWidget* widget, size_t* count)
+const tguiUtf32* tguiComboBox_getItems(const tguiWidget* widget, size_t* count)
 {
-    auto items = DOWNCAST(widget->This)->getItems();
+    static std::vector<tgui::String> cppItems;
+    cppItems = DOWNCAST(widget->This)->getItems();
 
-    static std::vector<const sfUint32*> cItems;
-    cItems.resize(items.size());
-
-    for (std::size_t i = 0; i < items.size(); ++i)
-        cItems[i] = items[i].getData();
+    static std::vector<tguiUtf32> cItems;
+    cItems.clear();
+    cItems.reserve(cppItems.size());
+    for (const auto& item : cppItems)
+        cItems.emplace_back(item.c_str());
 
     *count = cItems.size();
     return cItems.data();
 }
 
-const sfUint32** tguiComboBox_getItemIds(const tguiWidget* widget, size_t* count)
+const tguiUtf32* tguiComboBox_getItemIds(const tguiWidget* widget, size_t* count)
 {
-    auto ids = DOWNCAST(widget->This)->getItemIds();
+    static std::vector<tgui::String> cppIds;
+    cppIds = DOWNCAST(widget->This)->getItemIds();
 
-    static std::vector<const sfUint32*> cIds;
-    cIds.resize(ids.size());
-
-    for (std::size_t i = 0; i < ids.size(); ++i)
-        cIds[i] = ids[i].getData();
+    static std::vector<tguiUtf32> cIds;
+    cIds.clear();
+    cIds.reserve(cppIds.size());
+    for (const auto& id : cppIds)
+        cIds.emplace_back(id.c_str());
 
     *count = cIds.size();
     return cIds.data();
@@ -190,14 +192,14 @@ size_t tguiComboBox_getMaximumItems(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API void tguiComboBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
+void tguiComboBox_setDefaultText(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setDefaultText(text);
+    DOWNCAST(widget->This)->setDefaultText(ctgui::toCppStr(text));
 }
 
-CTGUI_API const sfUint32* tguiComboBox_getDefaultText(const tguiWidget* widget)
+tguiUtf32 tguiComboBox_getDefaultText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getDefaultText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getDefaultText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -214,24 +216,24 @@ tguiExpandDirection tguiComboBox_getExpandDirection(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiComboBox_contains(tguiWidget* widget, const sfUint32* item)
+tguiBool tguiComboBox_contains(tguiWidget* widget, tguiUtf32 item)
 {
-    return DOWNCAST(widget->This)->contains(item);
+    return DOWNCAST(widget->This)->contains(ctgui::toCppStr(item));
 }
 
-sfBool tguiComboBox_containsId(tguiWidget* widget, const sfUint32* id)
+tguiBool tguiComboBox_containsId(tguiWidget* widget, tguiUtf32 id)
 {
-    return DOWNCAST(widget->This)->containsId(id);
+    return DOWNCAST(widget->This)->containsId(ctgui::toCppStr(id));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBox_setChangeItemOnScroll(tguiWidget* widget, sfBool changeOnScroll)
+void tguiComboBox_setChangeItemOnScroll(tguiWidget* widget, tguiBool changeOnScroll)
 {
     DOWNCAST(widget->This)->setChangeItemOnScroll(changeOnScroll != 0);
 }
 
-sfBool tguiComboBox_getChangeItemOnScroll(const tguiWidget* widget)
+tguiBool tguiComboBox_getChangeItemOnScroll(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getChangeItemOnScroll();
 }

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Container.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Container.hpp>
 
@@ -32,16 +32,16 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiContainer_add(tguiWidget* container, tguiWidget* widget, const sfUint32* widgetName)
+void tguiContainer_add(tguiWidget* container, tguiWidget* widget, tguiUtf32 widgetName)
 {
-    DOWNCAST(container->This)->add(widget->This, widgetName);
+    DOWNCAST(container->This)->add(widget->This, ctgui::toCppStr(widgetName));
 }
 
-tguiWidget* tguiContainer_get(tguiWidget* container, const sfUint32* widgetName)
+tguiWidget* tguiContainer_get(tguiWidget* container, tguiUtf32 widgetName)
 {
-    tgui::Widget::Ptr widget = DOWNCAST(container->This)->get(widgetName);
+    tgui::Widget::Ptr widget = DOWNCAST(container->This)->get(ctgui::toCppStr(widgetName));
     if (widget)
-        return new tguiWidget(widget);
+        return ctgui::addWidgetRef(widget);
     else
         return nullptr;
 }
@@ -54,27 +54,13 @@ tguiWidget** tguiContainer_getWidgets(tguiWidget* container, size_t* count)
     cWidgets.resize(widgets.size());
 
     for (std::size_t i = 0; i < widgets.size(); ++i)
-        cWidgets[i] = new tguiWidget(widgets[i]);
+        cWidgets[i] = ctgui::addWidgetRef(widgets[i]);
 
     *count = cWidgets.size();
     return cWidgets.data();
 }
 
-const sfUint32** tguiContainer_getWidgetNames(tguiWidget* container, size_t* count)
-{
-    const auto& names = DOWNCAST(container->This)->getWidgetNames();
-
-    static std::vector<const sfUint32*> cNames;
-    cNames.resize(names.size());
-
-    for (std::size_t i = 0; i < names.size(); ++i)
-        cNames[i] = names[i].getData();
-
-    *count = cNames.size();
-    return cNames.data();
-}
-
-sfBool tguiContainer_remove(tguiWidget* container, tguiWidget* widget)
+tguiBool tguiContainer_remove(tguiWidget* container, tguiWidget* widget)
 {
     return DOWNCAST(container->This)->remove(widget->This);
 }
@@ -96,9 +82,31 @@ void tguiContainer_moveWidgetToBack(tguiWidget* container, tguiWidget* widget)
     DOWNCAST(container->This)->moveWidgetToBack(widget->This);
 }
 
+size_t tguiContainer_moveWidgetForward(tguiWidget* container, tguiWidget* widget)
+{
+    return DOWNCAST(container->This)->moveWidgetForward(widget->This);
+}
+
+size_t tguiContainer_moveWidgetBackward(tguiWidget* container, tguiWidget* widget)
+{
+    return DOWNCAST(container->This)->moveWidgetBackward(widget->This);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int tguiContainer_getFocusedChildIndex(tguiWidget* container)
+tguiBool tguiContainer_setWidgetIndex(tguiWidget* container, tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(container->This)->setWidgetIndex(widget->This, index);
+}
+
+int tguiContainer_getWidgetIndex(tguiWidget* container, tguiWidget* widget)
+{
+    return DOWNCAST(container->This)->getWidgetIndex(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiContainer_getFocusedChild(tguiWidget* container)
 {
     const auto focusedWidget = DOWNCAST(container->This)->getFocusedChild();
     if (focusedWidget)
@@ -107,75 +115,60 @@ int tguiContainer_getFocusedChildIndex(tguiWidget* container)
         for (std::size_t i = 0; i < widgets.size(); ++i)
         {
             if (widgets[i] == focusedWidget)
-                return static_cast<int>(i);
+                return ctgui::addWidgetRef(focusedWidget);
         }
     }
 
-    return -1;
+    return nullptr;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-const int* tguiContainer_getWidgetAtPositionIndices(tguiWidget* container, float x, float y, size_t* count)
+tguiWidget* tguiContainer_getFocusedLeaf(tguiWidget* container)
 {
-    static std::vector<int> indices;
-    indices.clear();
-
-    const auto leafWidget = DOWNCAST(container->This)->getWidgetAtPosition({x, y});
+    const auto leafWidget = DOWNCAST(container->This)->getFocusedLeaf();
     if (leafWidget)
-    {
-        tgui::Widget* widget = leafWidget.get();
-        while (widget->getParent() && (widget != container->This.get()))
-        {
-            int widgetIndex = 0;
-            const auto& widgets = widget->getParent()->getWidgets();
-            for (std::size_t i = 0; i < widgets.size(); ++i)
-            {
-                if (widgets[i].get() == widget)
-                {
-                    widgetIndex = static_cast<int>(i);
-                    break;
-                }
-            }
+        return ctgui::addWidgetRef(leafWidget);
+    else
+        return nullptr;
+}
 
-            indices.insert(indices.begin(), widgetIndex);
-            widget = widget->getParent();
-        }
-    }
-
-    *count = indices.size();
-    return indices.data();
+tguiWidget* tguiContainer_getWidgetAtPos(tguiWidget* container, tguiVector2f pos, tguiBool recursive)
+{
+    const auto leafWidgetAtPos = DOWNCAST(container->This)->getWidgetAtPos({pos.x, pos.y}, recursive != 0);
+    if (leafWidgetAtPos)
+        return ctgui::addWidgetRef(leafWidgetAtPos);
+    else
+        return nullptr;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiContainer_focusNextWidget(tguiWidget* container)
+tguiBool tguiContainer_focusNextWidget(tguiWidget* container, tguiBool recursive)
 {
-    return DOWNCAST(container->This)->focusNextWidget();
+    return DOWNCAST(container->This)->focusNextWidget(recursive != 0);
 }
 
-sfBool tguiContainer_focusPreviousWidget(tguiWidget* container)
+tguiBool tguiContainer_focusPreviousWidget(tguiWidget* container, tguiBool recursive)
 {
-    return DOWNCAST(container->This)->focusPreviousWidget();
+    return DOWNCAST(container->This)->focusPreviousWidget(recursive != 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfVector2f tguiContainer_getInnerSize(tguiWidget* container)
+tguiVector2f tguiContainer_getInnerSize(tguiWidget* container)
 {
-    const sf::Vector2f offset = DOWNCAST(container->This)->getInnerSize();
+    const tgui::Vector2f offset = DOWNCAST(container->This)->getInnerSize();
     return {offset.x, offset.y};
 }
 
-sfVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container)
+tguiVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container)
 {
-    sf::Vector2f offset = DOWNCAST(container->This)->getChildWidgetsOffset();
+    tgui::Vector2f offset = DOWNCAST(container->This)->getChildWidgetsOffset();
     return {offset.x, offset.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, sfBool replaceExisting)
+tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, tguiBool replaceExisting)
 {
     try
     {
@@ -184,12 +177,12 @@ sfBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* file
     }
     catch (const tgui::Exception& e)
     {
-        tguiErrorMessage = e.what();
+        ctgui::tguiErrorMessage = e.what();
         return false;
     }
 }
 
-sfBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename)
+tguiBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename)
 {
     try
     {
@@ -198,7 +191,7 @@ sfBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filena
     }
     catch (const tgui::Exception& e)
     {
-        tguiErrorMessage = e.what();
+        ctgui::tguiErrorMessage = e.what();
         return false;
     }
 }

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/EditBox.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/EditBox.hpp>
 
@@ -34,31 +34,31 @@
 
 tguiWidget* tguiEditBox_create(void)
 {
-    return new tguiWidget(tgui::EditBox::create());
+    return ctgui::addWidgetRef(tgui::EditBox::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setText(tguiWidget* widget, const sfUint32* text)
+void tguiEditBox_setText(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setText(text);
+    DOWNCAST(widget->This)->setText(ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiEditBox_getText(const tguiWidget* widget)
+tguiUtf32 tguiEditBox_getText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setDefaultText(tguiWidget* widget, const sfUint32* text)
+void tguiEditBox_setDefaultText(tguiWidget* widget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setDefaultText(text);
+    DOWNCAST(widget->This)->setDefaultText(ctgui::toCppStr(text));
 }
 
-const sfUint32* tguiEditBox_getDefaultText(const tguiWidget* widget)
+tguiUtf32 tguiEditBox_getDefaultText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getDefaultText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getDefaultText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,19 +68,19 @@ void tguiEditBox_selectText(tguiWidget* widget, size_t start, size_t length)
     DOWNCAST(widget->This)->selectText(start, length);
 }
 
-const sfUint32* tguiEditBox_getSelectedText(const tguiWidget* widget)
+tguiUtf32 tguiEditBox_getSelectedText(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getSelectedText());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getSelectedText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char passwordChar)
+void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char32_t passwordChar)
 {
     DOWNCAST(widget->This)->setPasswordCharacter(passwordChar);
 }
 
-char tguiEditBox_getPasswordCharacter(const tguiWidget* widget)
+char32_t tguiEditBox_getPasswordCharacter(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getPasswordCharacter();
 }
@@ -111,24 +111,24 @@ tguiHorizontalAlignment tguiEditBox_getAlignment(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_limitTextWidth(tguiWidget* widget, sfBool limitWidth)
+void tguiEditBox_limitTextWidth(tguiWidget* widget, tguiBool limitWidth)
 {
     DOWNCAST(widget->This)->limitTextWidth(limitWidth != 0);
 }
 
-sfBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget)
+tguiBool tguiEditBox_isTextWidthLimited(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isTextWidthLimited();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setReadOnly(tguiWidget* widget, sfBool readOnly)
+void tguiEditBox_setReadOnly(tguiWidget* widget, tguiBool readOnly)
 {
     DOWNCAST(widget->This)->setReadOnly(readOnly != 0);
 }
 
-sfBool tguiEditBox_isReadOnly(const tguiWidget* widget)
+tguiBool tguiEditBox_isReadOnly(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->isReadOnly();
 }
@@ -147,24 +147,24 @@ size_t tguiEditBox_getCaretPosition(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setInputValidator(tguiWidget* widget, const char* validator)
+void tguiEditBox_setInputValidator(tguiWidget* widget, tguiUtf32 validator)
 {
-    DOWNCAST(widget->This)->setInputValidator(validator);
+    DOWNCAST(widget->This)->setInputValidator(ctgui::toCppStr(validator));
 }
 
-const char* tguiEditBox_getInputValidator(const tguiWidget* widget)
+tguiUtf32 tguiEditBox_getInputValidator(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getInputValidator());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getInputValidator());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setSuffix(tguiWidget* widget, const sfUint32* suffix)
+void tguiEditBox_setSuffix(tguiWidget* widget, tguiUtf32 suffix)
 {
-    DOWNCAST(widget->This)->setSuffix(suffix);
+    DOWNCAST(widget->This)->setSuffix(ctgui::toCppStr(suffix));
 }
 
-const sfUint32* tguiEditBox_getSuffix(const tguiWidget* widget)
+tguiUtf32 tguiEditBox_getSuffix(const tguiWidget* widget)
 {
-    return returnString(DOWNCAST(widget->This)->getSuffix());
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getSuffix());
 }

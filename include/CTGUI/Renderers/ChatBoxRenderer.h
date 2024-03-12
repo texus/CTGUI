@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,9 +26,7 @@
 #ifndef CTGUI_CHAT_BOX_RENDERER_H
 #define CTGUI_CHAT_BOX_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiChatBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiChatBoxRenderer_copy(const tguiRenderer* renderer);
@@ -38,13 +36,14 @@ CTGUI_API tguiOutline* tguiChatBoxRenderer_getBorders(const tguiRenderer* render
 CTGUI_API void tguiChatBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
 CTGUI_API tguiOutline* tguiChatBoxRenderer_getPadding(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChatBoxRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiChatBoxRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiChatBoxRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiChatBoxRenderer_getBorderColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* renderer, sfTexture* texture);
+CTGUI_API void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiChatBoxRenderer_getTextureBackground(const tguiRenderer* renderer);
 
 CTGUI_API void tguiChatBoxRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* renderer);

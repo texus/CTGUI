@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,12 +26,10 @@
 #ifndef CTGUI_BOX_LAYOUT_H
 #define CTGUI_BOX_LAYOUT_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
-#include <stddef.h>
 
-CTGUI_API void tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, const sfUint32* widgetName);
-CTGUI_API sfBool tguiBoxLayout_removeAtIndex(tguiWidget* layout, size_t index);
+CTGUI_API void tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, tguiUtf32 widgetName);
+CTGUI_API tguiBool tguiBoxLayout_removeAtIndex(tguiWidget* layout, size_t index);
 CTGUI_API tguiWidget* tguiBoxLayout_getAtIndex(tguiWidget* layout, size_t index);
 
 #endif // CTGUI_BOX_LAYOUT_H

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,7 +26,6 @@
 #ifndef CTGUI_SLIDER_H
 #define CTGUI_SLIDER_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 
 CTGUI_API tguiWidget* tguiSlider_create(void);
@@ -43,14 +42,14 @@ CTGUI_API float tguiSlider_getValue(const tguiWidget* widget);
 CTGUI_API void tguiSlider_setStep(tguiWidget* widget, float step);
 CTGUI_API float tguiSlider_getStep(const tguiWidget* widget);
 
-CTGUI_API void tguiSlider_setVerticalScroll(tguiWidget* widget, sfBool vertical);
-CTGUI_API sfBool tguiSlider_getVerticalScroll(const tguiWidget* widget);
+CTGUI_API void tguiSlider_setVerticalScroll(tguiWidget* widget, tguiBool vertical);
+CTGUI_API tguiBool tguiSlider_getVerticalScroll(const tguiWidget* widget);
 
-CTGUI_API void tguiSlider_setInvertedDirection(tguiWidget* widget, sfBool invertedDirection);
-CTGUI_API sfBool tguiSlider_getInvertedDirection(const tguiWidget* widget);
+CTGUI_API void tguiSlider_setInvertedDirection(tguiWidget* widget, tguiBool invertedDirection);
+CTGUI_API tguiBool tguiSlider_getInvertedDirection(const tguiWidget* widget);
 
-CTGUI_API void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, sfBool changeValueOnScroll);
-CTGUI_API sfBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget);
+CTGUI_API void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, tguiBool changeValueOnScroll);
+CTGUI_API tguiBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget);
 
 #endif // CTGUI_SLIDER_H
 

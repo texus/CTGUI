@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,9 +24,7 @@
 
 
 #include <CTGUI/Renderers/ScrollbarRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.h>
-#include <CTGUI/ColorConverter.h>
-#include <CTGUI/SFML/Graphics/TextureStruct.h>
+#include <CTGUI/Renderers/RendererStruct.hpp>
 
 #include <TGUI/Renderers/ScrollbarRenderer.hpp>
 
@@ -46,130 +44,170 @@ tguiRenderer* tguiScrollbarRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setTrackColor(tguiRenderer* renderer, sfColor color)
+void tguiScrollbarRenderer_setTrackColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTrackColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTrackColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiScrollbarRenderer_getTrackColor(const tguiRenderer* renderer)
+tguiColor* tguiScrollbarRenderer_getTrackColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTrackColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColor());
 }
 
-void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* renderer, sfColor color)
+void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setTrackColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setTrackColorHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* renderer)
+tguiColor* tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getTrackColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiScrollbarRenderer_setThumbColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setThumbColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiScrollbarRenderer_getThumbColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getThumbColor());
-}
-
-void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setThumbColorHover({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getThumbColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* renderer, sfColor color)
+void tguiScrollbarRenderer_setThumbColor(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setArrowBackgroundColor({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setThumbColor(ctgui::toCppColor(color));
 }
 
-sfColor tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* renderer)
+tguiColor* tguiScrollbarRenderer_getThumbColor(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColor());
 }
 
-void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, sfColor color)
+void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* renderer, tguiColor* color)
 {
-    DOWNCAST(renderer->This)->setArrowBackgroundColorHover({color.r, color.g, color.b, color.a});
+    DOWNCAST(renderer->This)->setThumbColorHover(ctgui::toCppColor(color));
 }
 
-sfColor tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* renderer)
+tguiColor* tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* renderer)
 {
-    return convertColor(DOWNCAST(renderer->This)->getArrowBackgroundColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiScrollbarRenderer_setArrowColor(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setArrowColor({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiScrollbarRenderer_getArrowColor(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getArrowColor());
-}
-
-void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* renderer, sfColor color)
-{
-    DOWNCAST(renderer->This)->setArrowColorHover({color.r, color.g, color.b, color.a});
-}
-
-sfColor tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* renderer)
-{
-    return convertColor(DOWNCAST(renderer->This)->getArrowColorHover());
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setTextureTrack(tguiRenderer* renderer, sfTexture* texture)
+void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setArrowBackgroundColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowBackgroundColor());
+}
+
+void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setArrowBackgroundColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowBackgroundColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollbarRenderer_setArrowColor(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setArrowColor(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiScrollbarRenderer_getArrowColor(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColor());
+}
+
+void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* renderer, tguiColor* color)
+{
+    DOWNCAST(renderer->This)->setArrowColorHover(ctgui::toCppColor(color));
+}
+
+tguiColor* tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* renderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollbarRenderer_setTextureTrack(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureTrack(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureTrackHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureTrack(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrack()));
+}
+
+void tguiScrollbarRenderer_setTextureTrackHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureTrackHover(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureThumb(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureTrackHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrackHover()));
+}
+
+void tguiScrollbarRenderer_setTextureThumb(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureThumb(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureThumbHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureThumb(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumb()));
+}
+
+void tguiScrollbarRenderer_setTextureThumbHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureThumbHover(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureArrowUp(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureThumbHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumbHover()));
+}
+
+void tguiScrollbarRenderer_setTextureArrowUp(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureArrowUp(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureArrowUpHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureArrowUp(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowUp()));
+}
+
+void tguiScrollbarRenderer_setTextureArrowUpHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureArrowUpHover(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureArrowDown(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureArrowUpHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowUpHover()));
+}
+
+void tguiScrollbarRenderer_setTextureArrowDown(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureArrowDown(*texture->This);
 }
 
-void tguiScrollbarRenderer_setTextureArrowDownHover(tguiRenderer* renderer, sfTexture* texture)
+tguiTexture* tguiScrollbarRenderer_getTextureArrowDown(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowDown()));
+}
+
+void tguiScrollbarRenderer_setTextureArrowDownHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureArrowDownHover(*texture->This);
+}
+
+tguiTexture* tguiScrollbarRenderer_getTextureArrowDownHover(const tguiRenderer* renderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowDownHover()));
 }

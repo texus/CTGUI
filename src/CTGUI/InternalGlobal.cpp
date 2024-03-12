@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -22,20 +22,58 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <CTGUI/InternalGlobal.h>
+#include <CTGUI/InternalGlobal.hpp>
 
-std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
-
-const char* returnString(const std::string& str)
+namespace ctgui
 {
-    static std::string tmpString; // String memory still needs to exist after the function returns
-    tmpString = str;
-    return tmpString.c_str();
-}
+    std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
 
-const sfUint32* returnString(const sf::String& str)
-{
-    static sf::String tmpString; // String memory still needs to exist after the function returns
-    tmpString = str;
-    return tmpString.getData();
+    // The bindingWidgetCleanupCallback is called once per frame for each widget that was destroyed since the last check.
+    // Note that the pointer passed as parameter should NOT be freed or accessed in any way by the callback function!
+    // A binding may store a global map of resources with the widget pointer as key. This callback allows the binding
+    // to release all resources that were still attached to the freed widget.
+    void (*bindingWidgetCleanupCallback)(tguiWidget*) = nullptr;
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    const char* fromCppStr(const std::string& str)
+    {
+        static std::string tmpString; // String memory still needs to exist after the function returns
+        tmpString = str;
+        return tmpString.c_str();
+    }
+
+    tguiUtf32 fromCppStr(const tgui::String& str)
+    {
+        static tgui::String tmpString; // String memory still needs to exist after the function returns
+        tmpString = str;
+        return reinterpret_cast<tguiUtf32>(tmpString.c_str());
+    }
+
+    tgui::String toCppStr(tguiUtf32 str)
+    {
+        return {str};
+    }
+
+    tguiColor* fromCppColor(tgui::Color cppColor)
+    {
+        static tguiColor color;
+
+        if (!cppColor.isSet())
+            return nullptr;
+
+        color.r = cppColor.getRed();
+        color.g = cppColor.getGreen();
+        color.b = cppColor.getBlue();
+        color.a = cppColor.getAlpha();
+        return &color;
+    }
+
+    tgui::Color toCppColor(const tguiColor* color)
+    {
+        if (color)
+            return {color->r, color->g, color->b, color->a};
+        else
+            return {};
+    }
 }

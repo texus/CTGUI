@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,20 +26,23 @@
 #ifndef CTGUI_CHILD_WINDOW_H
 #define CTGUI_CHILD_WINDOW_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 #include <CTGUI/Alignment.h>
 
 CTGUI_API tguiWidget* tguiChildWindow_create(void);
 
-CTGUI_API void tguiChildWindow_setMaximumSize(tguiWidget* widget, sfVector2f maxSize);
-CTGUI_API sfVector2f tguiChildWindow_getMaximumSize(const tguiWidget* widget);
+CTGUI_API void tguiChildWindow_setClientSize(tguiWidget* widget, tguiVector2f size);
+CTGUI_API void tguiChildWindow_setClientSizeFromLayout(tguiWidget* widget, tguiLayout2d* layout);
+CTGUI_API tguiVector2f tguiChildWindow_getClientSize(const tguiWidget* widget);
 
-CTGUI_API void tguiChildWindow_setMinimumSize(tguiWidget* widget, sfVector2f minSize);
-CTGUI_API sfVector2f tguiChildWindow_getMinimumSize(const tguiWidget* widget);
+CTGUI_API void tguiChildWindow_setMaximumSize(tguiWidget* widget, tguiVector2f maxSize);
+CTGUI_API tguiVector2f tguiChildWindow_getMaximumSize(const tguiWidget* widget);
 
-CTGUI_API void tguiChildWindow_setTitle(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiChildWindow_getTitle(const tguiWidget* widget);
+CTGUI_API void tguiChildWindow_setMinimumSize(tguiWidget* widget, tguiVector2f minSize);
+CTGUI_API tguiVector2f tguiChildWindow_getMinimumSize(const tguiWidget* widget);
+
+CTGUI_API void tguiChildWindow_setTitle(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiUtf32 tguiChildWindow_getTitle(const tguiWidget* widget);
 
 CTGUI_API void tguiChildWindow_setTitleTextSize(tguiWidget* widget, unsigned int textSize);
 CTGUI_API unsigned int tguiChildWindow_getTitleTextSize(const tguiWidget* widget);
@@ -50,14 +53,14 @@ CTGUI_API tguiHorizontalAlignment tguiChildWindow_getTitleAlignment(const tguiWi
 CTGUI_API void tguiChildWindow_setTitleButtons(tguiWidget* widget, unsigned int buttons);
 CTGUI_API unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* widget);
 
-CTGUI_API void tguiChildWindow_setResizable(tguiWidget* widget, sfBool resizable);
-CTGUI_API sfBool tguiChildWindow_isResizable(const tguiWidget* widget);
+CTGUI_API void tguiChildWindow_setResizable(tguiWidget* widget, tguiBool resizable);
+CTGUI_API tguiBool tguiChildWindow_isResizable(const tguiWidget* widget);
 
-CTGUI_API void tguiChildWindow_setKeepInParent(tguiWidget* widget, sfBool keepInParent);
-CTGUI_API sfBool tguiChildWindow_isKeptInParent(const tguiWidget* widget);
+CTGUI_API void tguiChildWindow_setKeepInParent(tguiWidget* widget, tguiBool keepInParent);
+CTGUI_API tguiBool tguiChildWindow_isKeptInParent(const tguiWidget* widget);
 
-CTGUI_API void tguiChildWindow_setPositionLocked(tguiWidget* widget, sfBool positionLocked);
-CTGUI_API sfBool tguiChildWindow_isPositionLocked(const tguiWidget* widget);
+CTGUI_API void tguiChildWindow_setPositionLocked(tguiWidget* widget, tguiBool positionLocked);
+CTGUI_API tguiBool tguiChildWindow_isPositionLocked(const tguiWidget* widget);
 
 #endif // CTGUI_CHILD_WINDOW_H
 

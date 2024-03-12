@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -34,7 +34,7 @@ CTGUI_API tguiOutline* tguiOutline_create(float left, float top, float right, fl
 CTGUI_API tguiOutline* tguiOutline_createFromStrings(const char* left, const char* top, const char* right, const char* bottom);
 
 CTGUI_API tguiOutline* tguiOutline_copy(const tguiOutline* other);
-CTGUI_API void tguiOutline_destroy(tguiOutline* outline);
+CTGUI_API void tguiOutline_free(tguiOutline* outline);
 
 CTGUI_API float tguiOutline_getLeft(const tguiOutline* outline);
 CTGUI_API float tguiOutline_getTop(const tguiOutline* outline);

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,9 +26,7 @@
 #ifndef CTGUI_LIST_VIEW_RENDERER_H
 #define CTGUI_LIST_VIEW_RENDERER_H
 
-#include <CTGUI/Config.h>
-#include <SFML/Graphics/Color.h>
-#include <SFML/Graphics/Texture.h>
+#include <CTGUI/Global.h>
 
 CTGUI_API tguiRenderer* tguiListViewRenderer_create(void);
 CTGUI_API tguiRenderer* tguiListViewRenderer_copy(const tguiRenderer* renderer);
@@ -38,37 +36,43 @@ CTGUI_API tguiOutline* tguiListViewRenderer_getBorders(const tguiRenderer* rende
 CTGUI_API void tguiListViewRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding);
 CTGUI_API tguiOutline* tguiListViewRenderer_getPadding(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListViewRenderer_setBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setBackgroundColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListViewRenderer_setTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getTextColor(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setTextColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getTextColorHover(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setSelectedTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getSelectedTextColor(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setSelectedTextColorHover(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getSelectedTextColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getTextColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getSelectedTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setSelectedTextColorHover(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getSelectedTextColorHover(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListViewRenderer_setHeaderBackgroundColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getHeaderBackgroundColor(const tguiRenderer* renderer);
-CTGUI_API void tguiListViewRenderer_setHeaderTextColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getHeaderTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setHeaderBackgroundColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getHeaderBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setHeaderTextColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getHeaderTextColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListViewRenderer_setBorderColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getBorderColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListViewRenderer_setSeparatorColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getSeparatorColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setSeparatorColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getSeparatorColor(const tguiRenderer* renderer);
 
-CTGUI_API void tguiListViewRenderer_setGridLinesColor(tguiRenderer* renderer, sfColor color);
-CTGUI_API sfColor tguiListViewRenderer_getGridLinesColor(const tguiRenderer* renderer);
+CTGUI_API void tguiListViewRenderer_setGridLinesColor(tguiRenderer* renderer, tguiColor* color);
+CTGUI_API tguiColor* tguiListViewRenderer_getGridLinesColor(const tguiRenderer* renderer);
+
+CTGUI_API void tguiListViewRenderer_setTextureHeaderBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiListViewRenderer_getTextureHeaderBackground(const tguiRenderer* renderer);
+
+CTGUI_API void tguiListViewRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
+CTGUI_API tguiTexture* tguiListViewRenderer_getTextureBackground(const tguiRenderer* renderer);
 
 CTGUI_API void tguiListViewRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData);
 CTGUI_API tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* renderer);

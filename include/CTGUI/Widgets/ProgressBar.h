@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -26,7 +26,6 @@
 #ifndef CTGUI_PROGRESS_BAR_H
 #define CTGUI_PROGRESS_BAR_H
 
-#include <CTGUI/Config.h>
 #include <CTGUI/Widget.h>
 
 typedef enum
@@ -50,8 +49,8 @@ CTGUI_API unsigned int tguiProgressBar_getValue(const tguiWidget* widget);
 
 CTGUI_API unsigned int tguiProgressBar_incrementValue(const tguiWidget* widget);
 
-CTGUI_API void tguiProgressBar_setText(tguiWidget* widget, const sfUint32* text);
-CTGUI_API const sfUint32* tguiProgressBar_getText(const tguiWidget* widget);
+CTGUI_API void tguiProgressBar_setText(tguiWidget* widget, tguiUtf32 text);
+CTGUI_API tguiUtf32 tguiProgressBar_getText(const tguiWidget* widget);
 
 CTGUI_API void tguiProgressBar_setFillDirection(tguiWidget* widget, tguiFillDirection fillDirection);
 CTGUI_API tguiFillDirection tguiProgressBar_getFillDirection(const tguiWidget* widget);

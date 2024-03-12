@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -25,30 +25,43 @@
 
 #include <CTGUI/ToolTip.h>
 #include <TGUI/ToolTip.hpp>
+#include <TGUI/Duration.hpp>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiToolTip_setInitialDelay(sfTime time)
+void tguiToolTip_setInitialDelay(tguiDuration delay)
 {
-    tgui::ToolTip::setInitialDelay(sf::microseconds(time.microseconds));
+    tgui::ToolTip::setInitialDelay(std::chrono::nanoseconds(delay.nanoseconds));
 }
 
-sfTime tguiToolTip_getInitialDelay()
+tguiDuration tguiToolTip_getInitialDelay(void)
 {
-    sfTime time;
-    time.microseconds = tgui::ToolTip::getInitialDelay().asMicroseconds();
-    return time;
+    tguiDuration delay;
+    delay.nanoseconds = static_cast<tguiInt64>(std::chrono::nanoseconds(tgui::ToolTip::getInitialDelay()).count());
+    return delay;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiToolTip_setDistanceToMouse(sfVector2f distance)
+void tguiToolTip_setDistanceToMouse(tguiVector2f distance)
 {
     tgui::ToolTip::setDistanceToMouse({distance.x, distance.y});
 }
 
-sfVector2f tguiToolTip_getDistanceToMouse()
+tguiVector2f tguiToolTip_getDistanceToMouse(void)
 {
-    sf::Vector2f distance = tgui::ToolTip::getDistanceToMouse();
+    tgui::Vector2f distance = tgui::ToolTip::getDistanceToMouse();
     return {distance.x, distance.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiToolTip_setShowOnDisabledWidget(tguiBool show)
+{
+    tgui::ToolTip::setShowOnDisabledWidget(show != 0);
+}
+
+tguiBool tguiToolTip_getShowOnDisabledWidget(void)
+{
+    return tgui::ToolTip::getShowOnDisabledWidget();
 }

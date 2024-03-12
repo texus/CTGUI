@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/Knob.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/Knob.hpp>
 
@@ -34,7 +34,7 @@
 
 tguiWidget* tguiKnob_create(void)
 {
-    return new tguiWidget(tgui::Knob::create());
+    return ctgui::addWidgetRef(tgui::Knob::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,48 +63,48 @@ float tguiKnob_getEndRotation(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnob_setMinimum(tguiWidget* widget, int minimum)
+void tguiKnob_setMinimum(tguiWidget* widget, float minimum)
 {
     DOWNCAST(widget->This)->setMinimum(minimum);
 }
 
-int tguiKnob_getMinimum(const tguiWidget* widget)
+float tguiKnob_getMinimum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnob_setMaximum(tguiWidget* widget, int maximum)
+void tguiKnob_setMaximum(tguiWidget* widget, float maximum)
 {
     DOWNCAST(widget->This)->setMaximum(maximum);
 }
 
-int tguiKnob_getMaximum(const tguiWidget* widget)
+float tguiKnob_getMaximum(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnob_setValue(tguiWidget* widget, int value)
+void tguiKnob_setValue(tguiWidget* widget, float value)
 {
     DOWNCAST(widget->This)->setValue(value);
 }
 
-int tguiKnob_getValue(const tguiWidget* widget)
+float tguiKnob_getValue(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnob_setClockwiseTurning(tguiWidget* widget, sfBool clockwise)
+void tguiKnob_setClockwiseTurning(tguiWidget* widget, tguiBool clockwise)
 {
     DOWNCAST(widget->This)->setClockwiseTurning(clockwise != 0);
 }
 
-sfBool tguiKnob_getClockwiseTurning(const tguiWidget* widget)
+tguiBool tguiKnob_getClockwiseTurning(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getClockwiseTurning();
 }

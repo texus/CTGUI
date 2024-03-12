@@ -1,0 +1,12 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/include
+
+Name: CTGUI
+Description: C binding for the c++ TGUI library
+URL: https://tgui.eu
+Version: @PROJECT_VERSION@
+Requires.private: tgui
+Libs: -L${libdir} -lctgui
+Cflags: -I${includedir}

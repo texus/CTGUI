@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2020 Bruno Van de Velde (vdv_b@tgui.eu)
+// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -24,7 +24,7 @@
 
 
 #include <CTGUI/Widgets/ScrollablePanel.h>
-#include <CTGUI/WidgetStruct.h>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/ScrollablePanel.hpp>
 
@@ -32,28 +32,23 @@
 
 tguiWidget* tguiScrollablePanel_create(void)
 {
-    return new tguiWidget(tgui::ScrollablePanel::create());
+    return ctgui::addWidgetRef(tgui::ScrollablePanel::create());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanel_setContentSize(tguiWidget* widget, sfVector2f contentSize)
+void tguiScrollablePanel_setContentSize(tguiWidget* widget, tguiVector2f contentSize)
 {
     DOWNCAST(widget->This)->setContentSize({contentSize.x, contentSize.y});
 }
 
-sfVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget)
+tguiVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget)
 {
-    sf::Vector2f contentSize = DOWNCAST(widget->This)->getContentSize();
+    const tgui::Vector2f contentSize = DOWNCAST(widget->This)->getContentSize();
     return {contentSize.x, contentSize.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiScrollablePanel_setScrollbarWidth(tguiWidget* widget, float width)
-{
-    DOWNCAST(widget->This)->setScrollbarWidth(width);
-}
 
 float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* widget)
 {
@@ -134,8 +129,20 @@ unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* w
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-sfVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget)
+tguiBool tguiScrollablePanel_isVerticalScrollbarShown(const tguiWidget* widget)
 {
-    sf::Vector2f contentOffset = DOWNCAST(widget->This)->getContentOffset();
+    return DOWNCAST(widget->This)->isVerticalScrollbarShown();
+}
+
+tguiBool tguiScrollablePanel_isHorizontalScrollbarShown(const tguiWidget* widget)
+{
+    return DOWNCAST(widget->This)->isHorizontalScrollbarShown();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget)
+{
+    const tgui::Vector2f contentOffset = DOWNCAST(widget->This)->getContentOffset();
     return {contentOffset.x, contentOffset.y};
 }
