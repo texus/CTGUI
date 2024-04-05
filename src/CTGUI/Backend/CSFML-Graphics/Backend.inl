@@ -130,7 +130,11 @@ namespace ctgui
 
         void setClipboard(const tgui::String& contents) override
         {
+#if CSFML_VERSION_MAJOR >= 3
+            sfClipboard_setUnicodeString(reinterpret_cast<const sfChar32*>(contents.toUtf32().c_str()));
+#else
             sfClipboard_setUnicodeString(reinterpret_cast<const sfUint32*>(contents.toUtf32().c_str()));
+#endif
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

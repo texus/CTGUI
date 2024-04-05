@@ -16,7 +16,11 @@ find_path(CSFML_INCLUDE_DIR SFML/Config.h
 
 # check the version number
 set(CSFML_VERSION_OK TRUE)
-set(CSFML_FOUND TRUE)
+if (CSFML_INCLUDE_DIR)
+    set(CSFML_FOUND TRUE)
+else()
+    set(CSFML_FOUND FALSE)
+endif()
 if (CSFML_FIND_VERSION AND CSFML_INCLUDE_DIR)
     # extract the major and minor version numbers from SFML/Config.h
     set(CSFML_CONFIG_H_INPUT "${CSFML_INCLUDE_DIR}/SFML/Config.h")
@@ -56,7 +60,7 @@ if(NOT CSFML_VERSION_OK)
     set(CSFML_FOUND FALSE)
 elseif(NOT CSFML_FOUND)
     # include directory not found
-    set(FIND_CSFML_ERROR "Could NOT find CSFML headers")
+    set(FIND_CSFML_ERROR "Could NOT find CSFML headers (please set CSFML_INCLUDE_DIR manually)")
 endif()
 if (NOT CSFML_FOUND)
     if(CSFML_FIND_REQUIRED)

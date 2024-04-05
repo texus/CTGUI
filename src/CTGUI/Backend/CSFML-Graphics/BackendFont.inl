@@ -172,7 +172,11 @@ namespace ctgui
             // texture with TGUI, even if the TGUI texture also uses sf::Texture.
             sfImage* image = sfTexture_copyToImage(sfFont_getTexture(m_font, scaledTextSize));
             const sfVector2u imageSize = sfImage_getSize(image);
+#if CSFML_VERSION_MAJOR >= 3
+            const uint8_t* pixels = sfImage_getPixelsPtr(image);
+#else
             const sfUint8* pixels = sfImage_getPixelsPtr(image);
+#endif
             auto texture = tgui::getBackend()->getRenderer()->createTexture();
             texture->loadTextureOnly({imageSize.x, imageSize.y}, pixels, m_isSmooth);
             m_textures[scaledTextSize] = texture;
