@@ -614,11 +614,20 @@ void* tguiWidget_getUserData(const tguiWidget* widget)
 {
     try
     {
+        // User data will be of type void* when it was set using tguiWidget_setUserData
         return widget->This->getUserData<void*>();
     }
     catch (const std::bad_cast&)
     {
-        return nullptr;
+        try
+        {
+            // User data will be of type tgui::String when it was set by loading the widget from a form
+            return const_cast<void*>(static_cast<const void*>(ctgui::fromCppStr(widget->This->getUserData<tgui::String>())));
+        }
+        catch (const std::bad_cast&)
+        {
+            return nullptr;
+        }
     }
 }
 

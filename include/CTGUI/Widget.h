@@ -119,7 +119,7 @@ CTGUI_API void tguiWidget_moveToFront(tguiWidget* widget);
 CTGUI_API void tguiWidget_moveToBack(tguiWidget* widget);
 
 CTGUI_API void tguiWidget_setUserData(tguiWidget* widget, void* data);
-CTGUI_API void* tguiWidget_getUserData(const tguiWidget* widget);
+CTGUI_API void* tguiWidget_getUserData(const tguiWidget* widget); // Returns value set by tguiWidget_setUserData, or a tguiUtf32 that was casted to void* if the data came from a form file loaded with e.g. tguiGui_loadWidgetsFromFile
 CTGUI_API tguiBool tguiWidget_hasUserData(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_setToolTip(tguiWidget* widget, tguiWidget* toolTip);
