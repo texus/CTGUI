@@ -75,12 +75,12 @@ tguiUtf32 tguiEditBox_getSelectedText(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char32_t passwordChar)
+void tguiEditBox_setPasswordCharacter(tguiWidget* widget, tguiChar32 passwordChar)
 {
     DOWNCAST(widget->This)->setPasswordCharacter(passwordChar);
 }
 
-char32_t tguiEditBox_getPasswordCharacter(const tguiWidget* widget)
+tguiChar32 tguiEditBox_getPasswordCharacter(const tguiWidget* widget)
 {
     return DOWNCAST(widget->This)->getPasswordCharacter();
 }

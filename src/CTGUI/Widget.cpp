@@ -295,7 +295,7 @@ unsigned int tguiWidget_signalConnectEx(tguiWidget* widget, const char* signalNa
     {
         return widget->This->getSignal(signalName).connectEx(
             [function](const std::shared_ptr<tgui::Widget>& cppWidget, const tgui::String& name) {
-                function(ctgui::addWidgetRef(cppWidget), name.c_str());
+                function(ctgui::addWidgetRef(cppWidget), ctgui::fromCppStr(name));
             });
     }
     catch (const tgui::Exception& e)
@@ -339,7 +339,7 @@ unsigned int tguiWidget_signalColorConnect(tguiWidget* widget, const char* signa
 unsigned int tguiWidget_signalStringConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiUtf32))
 {
     return ctgui::connectSignal<tgui::SignalString>(widget, signalName, [function](const tgui::String& value) {
-        function(value.c_str());
+        function(ctgui::fromCppStr(value));
     });
 }
 
@@ -395,7 +395,7 @@ unsigned int tguiWidget_signalFileDialogPathsConnect(tguiWidget* widget, const c
         // as above because we need to be certain that cppStrings will no longer move its data.
         std::vector<tguiUtf32> cStrings;
         for (auto& cppStr : cppStrings)
-            cStrings.emplace_back(cppStr.c_str());
+            cStrings.emplace_back(reinterpret_cast<tguiUtf32>(cppStr.c_str()));
 
         function(cStrings.size(), cStrings.data());
     });
@@ -420,7 +420,7 @@ unsigned int tguiWidget_signalItemHierarchyConnect(tguiWidget* widget, const cha
     return ctgui::connectSignal<tgui::SignalItemHierarchy>(widget, signalName, [function](const std::vector<tgui::String>& value) {
         std::vector<tguiUtf32> cStrings;
         for (auto& cppStr : value)
-            cStrings.emplace_back(cppStr.c_str());
+            cStrings.emplace_back(reinterpret_cast<tguiUtf32>(cppStr.c_str()));
 
         function(cStrings.size(), cStrings.data());
     });

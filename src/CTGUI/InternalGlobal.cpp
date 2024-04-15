@@ -24,6 +24,8 @@
 
 #include <CTGUI/InternalGlobal.hpp>
 
+static_assert(sizeof(char32_t) == sizeof(uint32_t)); // Needed for reinterpret_cast between c and c++ strings, in this file and others
+
 namespace ctgui
 {
     std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
@@ -52,7 +54,7 @@ namespace ctgui
 
     tgui::String toCppStr(tguiUtf32 str)
     {
-        return {str};
+        return {reinterpret_cast<const char32_t*>(str)};
     }
 
     tguiColor* fromCppColor(tgui::Color cppColor)

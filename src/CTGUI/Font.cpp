@@ -87,7 +87,7 @@ tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, unsigned int characterSize
     return glyph;
 }
 
-float tguiFont_getKerning(const tguiFont* font, tguiUint32 first, tguiUint32 second, unsigned int characterSize, tguiBool bold)
+float tguiFont_getKerning(const tguiFont* font, tguiChar32 first, tguiChar32 second, unsigned int characterSize, tguiBool bold)
 {
     return font->This->getKerning(static_cast<char32_t>(first), static_cast<char32_t>(second), characterSize, bold != 0);
 }

@@ -45,7 +45,7 @@ static std::vector<tgui::String> convertHierarchy(const tguiUtf32* hierarchy, un
 static void convertNode(const tgui::TreeView::ConstNode& cppNode, tguiTreeViewConstNode& cNode)
 {
     cNode.expanded = cppNode.expanded;
-    cNode.text = cppNode.text.c_str();
+    cNode.text = reinterpret_cast<tguiUtf32>(cppNode.text.c_str());
     cNode.nodesCount = cppNode.nodes.size();
     if (cppNode.nodes.empty())
         cNode.nodes = nullptr;
@@ -161,7 +161,7 @@ const tguiUtf32* tguiTreeView_getSelectedItem(const tguiWidget* widget, size_t* 
     cItems.clear();
     cItems.reserve(cppItems.size());
     for (const auto& item : cppItems)
-        cItems.emplace_back(item.c_str());
+        cItems.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
     *count = cItems.size();
     return cItems.data();

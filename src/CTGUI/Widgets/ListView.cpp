@@ -321,7 +321,7 @@ const tguiUtf32* tguiListView_getItemRow(const tguiWidget* widget, size_t index,
     cItems.clear();
     cItems.reserve(cppItems.size());
     for (const auto& item : cppItems)
-        cItems.emplace_back(item.c_str());
+        cItems.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
     *count = cItems.size();
     return cItems.data();
@@ -336,7 +336,7 @@ const tguiUtf32* tguiListView_getItems(const tguiWidget* widget, size_t* count)
     cItems.clear();
     cItems.reserve(cppItems.size());
     for (const auto& item : cppItems)
-        cItems.emplace_back(item.c_str());
+        cItems.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
     *count = cItems.size();
     return cItems.data();

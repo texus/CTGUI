@@ -195,7 +195,7 @@ const tguiUtf32* tguiPanelListBox_getItemIds(const tguiWidget* widget, size_t* c
     cIds.clear();
     cIds.reserve(cppIds.size());
     for (const auto& id : cppIds)
-        cIds.emplace_back(id.c_str());
+        cIds.emplace_back(reinterpret_cast<tguiUtf32>(id.c_str()));
 
     *count = cIds.size();
     return cIds.data();

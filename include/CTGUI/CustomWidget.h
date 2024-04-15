@@ -49,7 +49,7 @@ CTGUI_API void tguiCustomWidget_setRightMousePressedCallback(tguiWidget* widget,
 CTGUI_API void tguiCustomWidget_setRightMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
 CTGUI_API void tguiCustomWidget_setMouseMovedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
 CTGUI_API void tguiCustomWidget_setKeyPressedCallback(tguiWidget* widget, void (*function)(tguiKeyEvent));
-CTGUI_API void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiUint32));
+CTGUI_API void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiChar32));
 CTGUI_API void tguiCustomWidget_setScrolledCallback(tguiWidget* widget, tguiBool (*function)(float, tguiVector2f, tguiBool));
 CTGUI_API void tguiCustomWidget_setMouseNoLongerOnWidgetCallback(tguiWidget* widget, void (*function)(void));
 CTGUI_API void tguiCustomWidget_setLeftMouseButtonNoLongerDownCallback(tguiWidget* widget, void (*function)(void));

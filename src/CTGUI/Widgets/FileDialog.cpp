@@ -61,7 +61,7 @@ const tguiUtf32* tguiFileDialogFilter_getExpressions(const tguiFileDialogFilter*
 
     cExpressions.clear();
     for (const auto& cppExpression : filter->expressions)
-        cExpressions.push_back(cppExpression.c_str());
+        cExpressions.push_back(reinterpret_cast<tguiUtf32>(cppExpression.c_str()));
 
     *count = cExpressions.size();
     return cExpressions.data();
@@ -88,7 +88,7 @@ const tguiUtf32* tguiFileDialog_getSelectedPaths(const tguiWidget* widget, size_
     static std::vector<tguiUtf32> cPaths;
     cPaths.clear();
     for (const auto& path : cppPathStrings)
-        cPaths.emplace_back(path.c_str());
+        cPaths.emplace_back(reinterpret_cast<tguiUtf32>(path.c_str()));
 
     *count = cPaths.size();
     return cPaths.data();
@@ -137,9 +137,9 @@ tguiFileDialogFilter** tguiFileDialog_getFileTypeFilters(const tguiWidget* widge
     cFilters.clear();
     for (const auto& cppFilter : cppFilters)
     {
-        tguiFileDialogFilter* cFilter = cFilters.emplace_back(tguiFileDialogFilter_create(cppFilter.first.c_str()));
+        tguiFileDialogFilter* cFilter = cFilters.emplace_back(tguiFileDialogFilter_create(reinterpret_cast<tguiUtf32>(cppFilter.first.c_str())));
         for (const auto& cppExpression : cppFilter.second)
-            tguiFileDialogFilter_addExpression(cFilter, cppExpression.c_str());
+            tguiFileDialogFilter_addExpression(cFilter, reinterpret_cast<tguiUtf32>(cppExpression.c_str()));
     }
 
     *count = cFilters.size();

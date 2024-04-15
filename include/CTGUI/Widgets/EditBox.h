@@ -40,8 +40,8 @@ CTGUI_API tguiUtf32 tguiEditBox_getDefaultText(const tguiWidget* widget);
 CTGUI_API void tguiEditBox_selectText(tguiWidget* widget, size_t start, size_t length);
 CTGUI_API tguiUtf32 tguiEditBox_getSelectedText(const tguiWidget* widget);
 
-CTGUI_API void tguiEditBox_setPasswordCharacter(tguiWidget* widget, char32_t passwordChar);
-CTGUI_API char32_t tguiEditBox_getPasswordCharacter(const tguiWidget* widget);
+CTGUI_API void tguiEditBox_setPasswordCharacter(tguiWidget* widget, tguiChar32 passwordChar);
+CTGUI_API tguiChar32 tguiEditBox_getPasswordCharacter(const tguiWidget* widget);
 
 CTGUI_API void tguiEditBox_setMaximumCharacters(tguiWidget* widget, unsigned int maximumCharacters);
 CTGUI_API unsigned int tguiEditBox_getMaximumCharacters(const tguiWidget* widget);

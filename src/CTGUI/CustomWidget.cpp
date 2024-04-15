@@ -139,9 +139,9 @@ void tguiCustomWidget_setKeyPressedCallback(tguiWidget* widget, void (*function)
     };
 }
 
-void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiUint32))
+void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiChar32))
 {
-    DOWNCAST(widget->This)->implTextEntered = [function](char32_t key){ function(static_cast<tguiUint32>(key)); };
+    DOWNCAST(widget->This)->implTextEntered = [function](char32_t key){ function(static_cast<tguiChar32>(key)); };
 }
 
 void tguiCustomWidget_setScrolledCallback(tguiWidget* widget, tguiBool (*function)(float, tguiVector2f, tguiBool))

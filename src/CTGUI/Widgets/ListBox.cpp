@@ -160,7 +160,7 @@ const tguiUtf32* tguiListBox_getItems(const tguiWidget* widget, size_t* count)
     cItems.clear();
     cItems.reserve(cppItems.size());
     for (const auto& item : cppItems)
-        cItems.emplace_back(item.c_str());
+        cItems.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
     *count = cItems.size();
     return cItems.data();
@@ -175,7 +175,7 @@ const tguiUtf32* tguiListBox_getItemIds(const tguiWidget* widget, size_t* count)
     cIds.clear();
     cIds.reserve(cppIds.size());
     for (const auto& id : cppIds)
-        cIds.emplace_back(id.c_str());
+        cIds.emplace_back(reinterpret_cast<tguiUtf32>(id.c_str()));
 
     *count = cIds.size();
     return cIds.data();

@@ -28,7 +28,6 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include <uchar.h>
 
 typedef struct tguiFont tguiFont;
 typedef struct tguiGui tguiGui;
@@ -45,7 +44,9 @@ typedef struct tguiTheme tguiTheme;
 typedef struct tguiWidget tguiWidget;
 typedef struct tguiTimer tguiTimer;
 
-typedef const char32_t* tguiUtf32;
+// Use uint32_t instead of char32_t because macOS has no uchar.h header
+typedef uint32_t tguiChar32;
+typedef const uint32_t* tguiUtf32;
 
 typedef int8_t tguiInt8;
 typedef uint8_t tguiUint8;

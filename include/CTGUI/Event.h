@@ -181,7 +181,7 @@ typedef struct
 typedef struct
 {
     tguiEventType type;
-    tguiUint32    unicode;
+    tguiChar32    unicode;
 } tguiTextEvent;
 
 typedef struct

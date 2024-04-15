@@ -179,7 +179,7 @@ namespace ctgui
             case sfEvtTextEntered:
             {
                 eventTGUI.type = tgui::Event::Type::TextEntered;
-                eventTGUI.text.unicode = eventSFML.text.unicode;
+                eventTGUI.text.unicode = static_cast<tguiChar32>(eventSFML.text.unicode);
                 return true;
             }
             case sfEvtKeyPressed:

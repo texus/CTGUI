@@ -173,7 +173,7 @@ tguiBool tguiMenuBar_getInvertedMenuDirection(const tguiWidget* widget)
 
 static void convertMenuItem(const tgui::MenuBar::GetMenusElement& cppMenu, tguiMenuBarElement& cMenu)
 {
-    cMenu.text = cppMenu.text.c_str();
+    cMenu.text = reinterpret_cast<tguiUtf32>(cppMenu.text.c_str());
     cMenu.enabled = cppMenu.enabled;
     cMenu.menuItemsCount = cppMenu.menuItems.size();
     if (cppMenu.menuItems.empty())
