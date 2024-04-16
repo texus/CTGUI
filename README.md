@@ -8,19 +8,18 @@ It is intended to simplify creating bindings for TGUI in other languages, but it
 Backends
 --------
 
-CTGUI provides 2 backends to choose from. One of them should be provided to the `CTGUI_BACKEND` property in CMake.
+CTGUI provides multiple backends to choose from. One of multiple can be selected by setting the `CTGUI_HAS_BACKEND_XXX` properties in CMake (e.g. `CTGUI_HAS_BACKEND_CSFML_GRAPHICS`).
 
 | Backend            | Description |
 |:-------------------|:------------|
 | **CSFML_GRAPHICS** | Uses csfml-graphics (>= 2.6.1) for rendering and events. The c++ TGUI library can be built *without* any backends, as the CSFML\_GRAPHICS backend is implemented directly in CTGUI and is independent of the c++ SFML\_GRAPHICS backend. |
 | **SDL_RENDERER**   | Uses SDL (>= 2.24) and SDL\_ttf (>= 2.20) for rendering and events. The c++ TGUI library also needs to be built with the SDL\_RENDERER backend, as CTGUI uses it internally. |
 
-Important CMake options
------------------------
+Other important CMake options
+-----------------------------
 
 | Option                     | Description |
 |:---------------------------|:------------|
-| CTGUI_BACKEND              | This needs to be set to one of the backend values explained above in order to choose which libraries are used for rendering and handling events. |
 | CTGUI_LINK_TGUI_STATICALLY | Set this to TRUE if the c++ TGUI library is linked statically, and FALSE if the TGUI library is linked dynamically. |
 
 Documentation

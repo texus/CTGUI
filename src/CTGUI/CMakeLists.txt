@@ -216,14 +216,15 @@ set(SRC
 
 add_library(ctgui SHARED ${SRC})
 
-if(CTGUI_BACKEND STREQUAL "CSFML_GRAPHICS")
+if(CTGUI_HAS_BACKEND_CSFML_GRAPHICS)
     target_sources(ctgui PRIVATE
         ${SRCROOT}/Backend/CSFML-Graphics.cpp
         ${INCROOT}/Backend/CSFML-Graphics.h
     )
     target_include_directories(ctgui PUBLIC ${CSFML_INCLUDE_DIR})
     target_link_libraries(ctgui PUBLIC csfml-graphics csfml-window csfml-system)
-elseif(CTGUI_BACKEND STREQUAL "SDL_RENDERER")
+endif()
+if(CTGUI_HAS_BACKEND_SDL_RENDERER)
     target_sources(ctgui PRIVATE
         ${SRCROOT}/Backend/SDL-Renderer.cpp
         ${INCROOT}/Backend/SDL-Renderer.h

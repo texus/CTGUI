@@ -49,23 +49,8 @@ if (CTGUI_INSTALL_PKGCONFIG_FILES)
     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/pkgconfig/ctgui.pc" DESTINATION "${CTGUI_PKGCONFIG_INSTALL_DIR}")
 endif()
 
-# Provide an option to select the backend
-set(CTGUI_BACKEND_OPTIONS "")
-set(CTGUI_BACKEND_OPTIONS_DESC "")
-list(APPEND CTGUI_BACKEND_OPTIONS CSFML_GRAPHICS)
-string(APPEND CTGUI_BACKEND_OPTIONS_DESC " - CSFML_GRAPHICS: csfml-graphics (independent from c++ TGUI backends)\n")
-list(APPEND CTGUI_BACKEND_OPTIONS SDL_RENDERER)
-string(APPEND CTGUI_BACKEND_OPTIONS_DESC " - SDL_RENDERER: SDL + SDL_ttf (requires SDL_RENDERER backend in c++ TGUI library)\n")
-
-ctgui_set_option(CTGUI_BACKEND "" STRING "Select a backend for rendering or select Custom to use your own backend")
-set_property(CACHE CTGUI_BACKEND PROPERTY STRINGS ${CTGUI_BACKEND_OPTIONS})
-if(NOT CTGUI_BACKEND OR NOT CTGUI_BACKEND IN_LIST CTGUI_BACKEND_OPTIONS)
-    message(FATAL_ERROR
-      " Please select a backend by setting the value of CTGUI_BACKEND.\n"
-      " \n"
-      " The following backends are available:\n"
-      ${CTGUI_BACKEND_OPTIONS_DESC})
-endif()
+option(CTGUI_HAS_BACKEND_CSFML_GRAPHICS "Build CSFML_GRAPHICS backend (uses csfml-graphics). Independent from TGUI's c++ SFML_GRAPHICS backend.")
+option(CTGUI_HAS_BACKEND_SDL_RENDERER "Build SDL_RENDERER backend (uses SDL and SDL_ttf). Requires SDL_RENDERER backend in c++ TGUI library.")
 
 option(CTGUI_BUILD_EXAMPLE "TRUE to build the CTGUI example, FALSE to ignore it" FALSE)
 
@@ -79,10 +64,11 @@ ctgui_set_option(CTGUI_LINK_TGUI_STATICALLY ${link_tgui_statically_default} BOOL
 set(TGUI_STATIC_LIBRARIES ${CTGUI_LINK_TGUI_STATICALLY})
 find_package(TGUI ${PROJECT_VERSION_MAJOR} REQUIRED CONFIG)
 
-if(CTGUI_BACKEND STREQUAL "CSFML_GRAPHICS")
+if(CTGUI_HAS_BACKEND_CSFML_GRAPHICS)
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules/")
     find_package(CSFML 2 REQUIRED)
-elseif(CTGUI_BACKEND STREQUAL "SDL_RENDERER")
+endif()
+if(CTGUI_HAS_BACKEND_SDL_RENDERER)
     find_package(SDL2 REQUIRED CONFIG)
     find_package(SDL2_ttf REQUIRED CONFIG)
 
