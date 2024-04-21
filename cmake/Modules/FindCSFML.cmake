@@ -53,6 +53,10 @@ if (CSFML_FIND_VERSION AND CSFML_INCLUDE_DIR)
     endif()
 endif()
 
+if (CSFML_LIBRARIES_DIR)
+    link_directories("${CSFML_LIBRARIES_DIR}")
+endif()
+
 # handle errors
 if(NOT CSFML_VERSION_OK)
     # CSFML version not ok
