@@ -1,0 +1,277 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      SFML_GITHUB_URL: https://github.com/SFML/SFML
+      CSFML_GITHUB_URL: https://github.com/SFML/CSFML
+      SDL_GITHUB_URL: https://github.com/libsdl-org/SDL
+      SDL_TTF_GITHUB_URL: https://github.com/libsdl-org/SDL_ttf
+      TGUI_GITHUB_URL: https://github.com/texus/TGUI
+    steps:
+      - name: Checkout CTGUI
+        uses: actions/checkout@v4
+
+      - name: Lookup dependency versions
+        id: find-dependencies
+        run: |
+          echo "sfml-revision=$(git ls-remote $SFML_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+          echo "csfml-revision=$(git ls-remote $CSFML_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+          echo "sdl-revision=$(git ls-remote $SDL_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+          echo "sdl-ttf-revision=$(git ls-remote $SDL_TTF_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+          echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+
+      - name: Cache SFML
+        uses: actions/cache@v4
+        id: cache-sfml
+        with:
+          path: SFML_INSTALL
+          key: CACHE_LINUX_SFML_LATEST_${{ steps.find-dependencies.outputs.sfml-revision }}
+
+      - name: Cache CSFML
+        uses: actions/cache@v4
+        id: cache-csfml
+        with:
+          path: CSFML_INSTALL
+          key: CACHE_LINUX_CSFML_LATEST_${{ steps.find-dependencies.outputs.csfml-revision }}
+
+      - name: Cache SDL
+        uses: actions/cache@v4
+        id: cache-sdl
+        with:
+          path: SDL_INSTALL
+          key: CACHE_LINUX_SDL_LATEST_${{ steps.find-dependencies.outputs.sdl-revision }}
+
+      - name: Cache SDL_ttf
+        uses: actions/cache@v4
+        id: cache-sdl-ttf
+        with:
+          path: SDL_TTF_INSTALL
+          key: CACHE_LINUX_SDL_TTF_LATEST_${{ steps.find-dependencies.outputs.sdl-ttf-revision }}
+
+      - name: Cache TGUI
+        uses: actions/cache@v4
+        id: cache-tgui
+        with:
+          path: TGUI_INSTALL
+          key: CACHE_LINUX_TGUI_LATEST_${{ steps.find-dependencies.outputs.tgui-revision }}
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install xorg-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev libfreetype-dev ninja-build libwayland-dev libxkbcommon-dev
+
+      - name: Build SFML
+        if: steps.cache-sfml.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 $SFML_GITHUB_URL SFML
+          cmake -GNinja -DCMAKE_INSTALL_PREFIX=SFML_INSTALL -DBUILD_SHARED_LIBS=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON -S SFML -B SFML-build
+          cmake --build SFML-build --config Debug --target install
+
+      - name: Build CSFML
+        if: steps.cache-csfml.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 $CSFML_GITHUB_URL CSFML
+          cmake -GNinja -DCMAKE_INSTALL_PREFIX=CSFML_INSTALL -DBUILD_SHARED_LIBS=ON -DCSFML_LINK_SFML_STATICALLY=ON -DSFML_ROOT="$GITHUB_WORKSPACE/SFML_INSTALL" -S CSFML -B CSFML-build
+          cmake --build CSFML-build --config Debug --target install
+
+      - name: Build SDL
+        if: steps.cache-sdl.outputs.cache-hit != 'true'
+        run: |
+          git clone --single-branch --depth 1 $SDL_GITHUB_URL SDL
+          cmake -GNinja -DCMAKE_INSTALL_PREFIX=SDL_INSTALL -DBUILD_SHARED_LIBS=ON -S SDL -B SDL-build
+          cmake --build SDL-build --config Debug --target install
+
+      - name: Build SDL_ttf
+        if: steps.cache-sdl-ttf.outputs.cache-hit != 'true'
+        run: |
+          git clone --recurse-submodules --single-branch --depth 1 $SDL_TTF_GITHUB_URL SDL_TTF
+          cmake -GNinja -DCMAKE_INSTALL_PREFIX=SDL_TTF_INSTALL -DSDL3_DIR="$GITHUB_WORKSPACE/SDL_INSTALL/lib/cmake/SDL3" -DBUILD_SHARED_LIBS=ON -S SDL_TTF -B SDL_TTF-build
+          cmake --build SDL_TTF-build --config Debug --target install
+
+      - name: Build TGUI
+        if: steps.cache-tgui.outputs.cache-hit != 'true'
+        run: >
+          git clone --single-branch --depth 1 $TGUI_GITHUB_URL TGUI
+
+          cmake -GNinja -S TGUI -B TGUI-build
+          -DCMAKE_INSTALL_PREFIX=TGUI_INSTALL
+          -DSDL3_ROOT="$GITHUB_WORKSPACE/SDL_INSTALL"
+          -DSDL3_ttf_ROOT="$GITHUB_WORKSPACE/SDL_TTF_INSTALL"
+          -DBUILD_SHARED_LIBS=OFF
+          -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+          -DTGUI_BACKEND=SDL_RENDERER
+          -DCMAKE_BUILD_TYPE=Debug
+          -DTGUI_CXX_STANDARD=23
+          -DTGUI_BUILD_EXAMPLES=OFF
+          -DTGUI_BUILD_GUI_BUILDER=OFF
+          -DTGUI_BUILD_TESTS=OFF
+          -DCMAKE_UNITY_BUILD=ON
+
+          cmake --build TGUI-build --config Debug --target install
+
+      - name: Build CTGUI
+        run: >
+          cmake -B build
+          -DTGUI_ROOT="$GITHUB_WORKSPACE/TGUI_INSTALL"
+          -DCSFML_INCLUDE_DIR="$GITHUB_WORKSPACE/CSFML_INSTALL/include/"
+          -DCSFML_LIBRARIES_DIR="$GITHUB_WORKSPACE/CSFML_INSTALL/lib/"
+          -DSDL3_ROOT="$GITHUB_WORKSPACE/SDL_INSTALL"
+          -DSDL3_ttf_ROOT="$GITHUB_WORKSPACE/SDL_TTF_INSTALL"
+          -DCTGUI_USE_CSFML_VERSION=3
+          -DCTGUI_USE_SDL_VERSION=3
+          -DBUILD_SHARED_LIBS=ON
+          -DCTGUI_LINK_TGUI_STATICALLY=ON
+          -DCMAKE_BUILD_TYPE=Debug
+          -DCTGUI_WARNINGS_AS_ERRORS=ON
+          -DCTGUI_BUILD_EXAMPLE=ON
+          -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
+          -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
+
+          cmake --build build --config Debug
+
+  #----------------------------------------
+
+  # TODO: The latest released CSFML version is 2.6.0, but we need at least 2.6.1, so the following code is not yet added to the windows build:
+  #   Install dependencies:
+  #     C:\msys64\usr\bin\wget.exe -nv https://github.com/SFML/CSFML/releases/download/${env:CSFML_VERSION}/CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
+  #     7z x CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
+  #   Build CTGUI:
+  #     -DCSFML_INCLUDE_DIR="${env:GITHUB_WORKSPACE}/CSFML/include"
+  #     -DCSFML_LIBRARIES_DIR="${env:GITHUB_WORKSPACE}/CSFML/lib/msvc"
+  #     -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
+
+  windows:
+    runs-on: windows-latest
+    env:
+      CSFML_VERSION: 2.6.1
+      SDL_VERSION:  2.24.0
+      SDL_TTF_VERSION: 2.20.0
+      MSVC_TOOLSET_VERSION: 143  # VS2022
+      CMAKE_VERSION: 3.22
+      CMAKE_VERSION_PATCH: 1
+    steps:
+      - name: Checkout CTGUI
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          C:\msys64\usr\bin\wget.exe -nv https://cmake.org/files/v${env:CMAKE_VERSION}/cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386.zip
+          C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL/releases/download/release-${env:SDL_VERSION}/SDL2-devel-${env:SDL_VERSION}-VC.zip
+          C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL_ttf/releases/download/release-${env:SDL_TTF_VERSION}/SDL2_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
+          7z x cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386.zip
+          7z x SDL2-devel-${env:SDL_VERSION}-VC.zip
+          7z x SDL2_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
+
+      - name: Lookup TGUI version for cache
+        id: find-dependencies
+        run: |
+          echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+
+      - name: Cache TGUI
+        uses: actions/cache@v4
+        id: cache-tgui
+        with:
+          path: TGUI_INSTALL
+          key: CACHE_WINDOWS_TGUI_LATEST_${{ steps.find-dependencies.outputs.tgui-revision }}
+
+      - name: Build TGUI
+        if: steps.cache-tgui.outputs.cache-hit != 'true'
+        run: >
+          C:\msys64\usr\bin\wget.exe -nv "https://github.com/texus/TGUI/archive/refs/heads/1.x.zip"
+
+          7z x "1.x.zip"
+
+          & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe"
+          -S TGUI-1.x -B TGUI-build -T v${env:MSVC_TOOLSET_VERSION} -A Win32
+          -DCMAKE_INSTALL_PREFIX=TGUI_INSTALL
+          -DSDL2_ROOT="${env:GITHUB_WORKSPACE}/SDL2-${env:SDL_VERSION}/"
+          -DSDL2_ttf_ROOT="${env:GITHUB_WORKSPACE}/SDL2_ttf-${env:SDL_TTF_VERSION}/"
+          -DCMAKE_UNITY_BUILD=ON
+          -DBUILD_SHARED_LIBS=ON
+          -DCMAKE_BUILD_TYPE=Release
+          -DTGUI_CXX_STANDARD=14
+          -DTGUI_BUILD_EXAMPLES=OFF
+          -DTGUI_BUILD_GUI_BUILDER=OFF
+          -DTGUI_BUILD_TESTS=OFF
+          -DTGUI_BACKEND=SDL_RENDERER
+
+          cmake --build TGUI-build --config Release --target install
+
+      - name: Build CTGUI
+        run: >
+          & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe"
+          -B build -T v${env:MSVC_TOOLSET_VERSION} -A Win32
+          -DTGUI_ROOT="${env:GITHUB_WORKSPACE}/TGUI_INSTALL"
+          -DSDL2_ROOT="${env:GITHUB_WORKSPACE}/SDL2-${env:SDL_VERSION}/"
+          -DSDL2_ttf_ROOT="${env:GITHUB_WORKSPACE}/SDL2_ttf-${env:SDL_TTF_VERSION}/"
+          -DBUILD_SHARED_LIBS=ON
+          -DCTGUI_LINK_TGUI_STATICALLY=OFF
+          -DCMAKE_BUILD_TYPE=Release
+          -DCTGUI_WARNINGS_AS_ERRORS=ON
+          -DCTGUI_BUILD_EXAMPLE=ON
+          -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
+
+          & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe" --build build --config Release
+
+  #----------------------------------------
+
+  # TODO: -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON needs to be added to "Build CTGUI" section once CSFML version in brew is 2.6.1 or higher
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout CTGUI
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          brew install csfml sdl2 sdl2_ttf ninja wget2
+
+      - name: Lookup TGUI version for cache
+        id: find-dependencies
+        run: |
+          echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+
+      - name: Cache TGUI
+        uses: actions/cache@v4
+        id: cache-tgui
+        with:
+          path: TGUI_INSTALL
+          key: CACHE_MACOS_TGUI_LATEST_${{ steps.find-dependencies.outputs.tgui-revision }}
+
+      - name: Build TGUI
+        if: steps.cache-tgui.outputs.cache-hit != 'true'
+        run: >
+          wget2 -nv "https://github.com/texus/TGUI/archive/refs/heads/1.x.zip"
+
+          unzip "1.x.zip"
+
+          cmake -S TGUI-1.x -B TGUI-build -GNinja
+          -DCMAKE_INSTALL_PREFIX=TGUI_INSTALL
+          -DCMAKE_UNITY_BUILD=ON
+          -DBUILD_SHARED_LIBS=ON
+          -DTGUI_BUILD_FRAMEWORK=OFF
+          -DTGUI_CXX_STANDARD=17
+          -DTGUI_BUILD_EXAMPLES=OFF
+          -DTGUI_BUILD_GUI_BUILDER=OFF
+          -DTGUI_BUILD_TESTS=OFF
+          -DTGUI_BACKEND=SDL_RENDERER
+
+          cmake --build TGUI-build --config Debug --target install
+
+      - name: Build CTGUI
+        run: >
+          cmake -B build
+          -DTGUI_ROOT="$GITHUB_WORKSPACE/TGUI_INSTALL"
+          -DBUILD_SHARED_LIBS=ON
+          -DCTGUI_LINK_TGUI_STATICALLY=OFF
+          -DCMAKE_BUILD_TYPE=Release
+          -DCTGUI_WARNINGS_AS_ERRORS=ON
+          -DCTGUI_BUILD_EXAMPLE=ON
+          -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
+
+          cmake --build build --config Release
