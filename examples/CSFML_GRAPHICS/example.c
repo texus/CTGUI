@@ -2,7 +2,7 @@
 #include <CTGUI/Backend/CSFML-Graphics.h>
 #include <stdio.h>
 
-void func()
+void func(void)
 {
     printf("Button clicked\n");
 }

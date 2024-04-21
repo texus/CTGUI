@@ -28,8 +28,42 @@
 #include <CTGUI/Global.h>
 #include <CTGUI/Gui.h>
 
-#include <SDL.h>
-#include <SDL_ttf.h>
+#if !CTGUI_HAS_BACKEND_SDL_RENDERER
+    #error "CTGUI wasn't build with the SDL_RENDERER backend"
+#endif
+
+#ifdef __cplusplus
+    #if defined(__GNUC__)
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wold-style-cast"
+    #elif defined (_MSC_VER)
+        #if defined(__clang__)
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wold-style-cast"
+            #pragma clang diagnostic ignored "-Wlanguage-extension-token"
+        #endif
+    #endif
+#endif
+
+#if CTGUI_USE_SDL_VERSION == 3
+    #include <SDL3/SDL.h>
+    #include <SDL3_ttf/SDL_ttf.h>
+#elif CTGUI_USE_SDL_VERSION == 2
+    #include <SDL.h>
+    #include <SDL_ttf.h>
+#else
+    #error "CTGUI_USE_SDL_VERSION wasn't set correctly"
+#endif
+
+#ifdef __cplusplus
+    #if defined(__GNUC__)
+        #pragma GCC diagnostic pop
+    #elif defined (_MSC_VER)
+        #if defined(__clang__)
+            #pragma clang diagnostic pop
+        #endif
+    #endif
+#endif
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

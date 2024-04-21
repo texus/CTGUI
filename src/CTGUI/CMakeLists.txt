@@ -229,7 +229,11 @@ if(CTGUI_HAS_BACKEND_SDL_RENDERER)
         ${SRCROOT}/Backend/SDL-Renderer.cpp
         ${INCROOT}/Backend/SDL-Renderer.h
     )
-    target_link_libraries(ctgui PUBLIC SDL2::SDL2 SDL2_ttf::SDL2_ttf)
+    if (CTGUI_USE_SDL_VERSION EQUAL 2)
+        target_link_libraries(ctgui PUBLIC SDL2::SDL2 SDL2_ttf::SDL2_ttf)
+    elseif(CTGUI_USE_SDL_VERSION EQUAL 3)
+        target_link_libraries(ctgui PUBLIC SDL3::SDL3-shared SDL3_ttf::SDL3_ttf-shared)
+    endif()
 endif()
 
 target_link_libraries(ctgui PUBLIC TGUI::TGUI)
@@ -242,13 +246,32 @@ set_target_properties(ctgui PROPERTIES DEFINE_SYMBOL CTGUI_EXPORTS)
 # Ignore warnings about deprecated TGUI code as we must keep it in CTGUI
 target_compile_definitions(ctgui PUBLIC TGUI_NO_DEPRECATED_WARNINGS)
 
-# Set some compile flags when using GCC and Clang
-if(TGUI_COMPILER_GCC OR TGUI_COMPILER_CLANG)
-    target_compile_options(ctgui PRIVATE -Wall)
-    target_compile_options(ctgui PRIVATE -Wextra)
-    target_compile_options(ctgui PRIVATE -Wshadow)
-    target_compile_options(ctgui PRIVATE -Wno-long-long)
-    target_compile_options(ctgui PRIVATE -pedantic)
+# Enable compiler warnings
+if(TGUI_COMPILER_MSVC OR TGUI_COMPILER_CLANG_CL)
+    target_compile_options(ctgui PRIVATE
+                           $<$<BOOL:${CTGUI_WARNINGS_AS_ERRORS}>:/WX>
+                           /W4
+                           /permissive-
+    )
+else()
+    target_compile_options(ctgui PRIVATE
+                           $<$<BOOL:${CTGUI_WARNINGS_AS_ERRORS}>:-Werror>
+                           -Wall
+                           -Wextra
+                           -Wpedantic
+                           -Wshadow
+                           -Wsign-conversion
+                           -Wfloat-conversion
+                           -Wnon-virtual-dtor
+                           -Wold-style-cast
+                           -Wcast-align
+                           -Wunused
+                           -Woverloaded-virtual
+                           -Wdouble-promotion
+                           -Wformat=2
+                           -Wimplicit-fallthrough
+                           -Wnull-dereference
+    )
 endif()
 
 # Require C11 to use CTGUI and C++17 to build CTGUI
