@@ -150,6 +150,8 @@ set(SRC
     ${SRCROOT}/Widgets/ComboBox.cpp
     ${INCROOT}/Widgets/EditBox.h
     ${SRCROOT}/Widgets/EditBox.cpp
+    ${INCROOT}/Widgets/EditBoxSlider.h
+    ${SRCROOT}/Widgets/EditBoxSlider.cpp
     ${INCROOT}/Widgets/FileDialog.h
     ${SRCROOT}/Widgets/FileDialog.cpp
     ${INCROOT}/Widgets/Grid.h

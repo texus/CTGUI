@@ -67,6 +67,7 @@
 #include <CTGUI/Widgets/ColorPicker.h>
 #include <CTGUI/Widgets/ComboBox.h>
 #include <CTGUI/Widgets/EditBox.h>
+#include <CTGUI/Widgets/EditBoxSlider.h>
 #include <CTGUI/Widgets/FileDialog.h>
 #include <CTGUI/Widgets/Grid.h>
 #include <CTGUI/Widgets/Group.h>
