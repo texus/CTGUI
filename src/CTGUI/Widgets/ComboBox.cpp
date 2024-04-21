@@ -51,7 +51,7 @@ size_t tguiComboBox_getItemsToDisplay(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiComboBox_addItem(tguiWidget* widget, tguiUtf32 item, tguiUtf32 id)
+size_t tguiComboBox_addItem(tguiWidget* widget, tguiUtf32 item, tguiUtf32 id)
 {
     return DOWNCAST(widget->This)->addItem(ctgui::toCppStr(item), ctgui::toCppStr(id));
 }

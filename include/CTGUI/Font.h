@@ -45,7 +45,7 @@ CTGUI_API tguiFont* tguiFont_createFromMemory(tguiUint8* data, size_t dataSize);
 CTGUI_API void tguiFont_free(tguiFont* font);
 
 CTGUI_API tguiUtf32 tguiFont_getId(const tguiFont* font);
-CTGUI_API tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, unsigned int characterSize, tguiBool bold, float outlineThickness);
+CTGUI_API tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, tguiChar32 codePoint, unsigned int characterSize, tguiBool bold, float outlineThickness);
 CTGUI_API float tguiFont_getKerning(const tguiFont* font, tguiChar32 first, tguiChar32 second, unsigned int characterSize, tguiBool bold);
 CTGUI_API float tguiFont_getLineSpacing(const tguiFont* font, unsigned int characterSize);
 CTGUI_API float tguiFont_getFontHeight(const tguiFont* font, unsigned int characterSize);

@@ -70,9 +70,9 @@ tguiUtf32 tguiFont_getId(const tguiFont* font)
     return ctgui::fromCppStr(font->This->getId());
 }
 
-tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, unsigned int characterSize, tguiBool bold, float outlineThickness)
+tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, tguiChar32 codePoint, unsigned int characterSize, tguiBool bold, float outlineThickness)
 {
-    const auto& cppGlyph = font->This->getGlyph(characterSize, bold != 0, outlineThickness);
+    const auto& cppGlyph = font->This->getGlyph(codePoint, characterSize, bold != 0, outlineThickness);
 
     tguiFontGlyph glyph;
     glyph.advance = cppGlyph.advance;

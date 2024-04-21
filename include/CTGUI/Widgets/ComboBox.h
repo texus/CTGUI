@@ -40,7 +40,7 @@ CTGUI_API tguiWidget* tguiComboBox_create(void);
 CTGUI_API void tguiComboBox_setItemsToDisplay(tguiWidget* widget, size_t itemsToDisplay);
 CTGUI_API size_t tguiComboBox_getItemsToDisplay(const tguiWidget* widget);
 
-CTGUI_API tguiBool tguiComboBox_addItem(tguiWidget* widget, tguiUtf32 item, tguiUtf32 id);
+CTGUI_API size_t tguiComboBox_addItem(tguiWidget* widget, tguiUtf32 item, tguiUtf32 id);
 CTGUI_API tguiUtf32 tguiComboBox_getItemById(const tguiWidget* widget, tguiUtf32 id);
 
 CTGUI_API tguiBool tguiComboBox_setSelectedItem(tguiWidget* widget, tguiUtf32 item);

@@ -47,7 +47,7 @@ tguiWidget* tguiPanelListBox_addItem(tguiWidget* widget, tguiUtf32 id)
 
 tguiWidget* tguiPanelListBox_addItemAtIndex(tguiWidget* widget, tguiUtf32 id, size_t index)
 {
-    return ctgui::addWidgetRef(DOWNCAST(widget->This)->addItem(ctgui::toCppStr(id), index));
+    return ctgui::addWidgetRef(DOWNCAST(widget->This)->addItem(ctgui::toCppStr(id), static_cast<int>(index)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
