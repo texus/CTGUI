@@ -32,7 +32,7 @@ struct tguiTimer
     std::shared_ptr<tgui::Timer> This;
 
     tguiTimer(void(*callback)(tguiTimer*), tgui::Duration interval, bool enable)
-        : This{tgui::Timer::create([=]{ callback(this); }, interval, enable)}
+        : This{tgui::Timer::create([this,callback]{ callback(this); }, interval, enable)}
     {
     }
 };
