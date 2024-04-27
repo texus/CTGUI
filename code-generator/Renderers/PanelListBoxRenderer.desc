@@ -1,0 +1,9 @@
+inherits ScrollablePanelRenderer
+
+property Color ItemsBackgroundColor
+
+property Color ItemsBackgroundColorHover
+
+property Color SelectedItemsBackgroundColor
+
+property Color SelectedItemsBackgroundColorHover

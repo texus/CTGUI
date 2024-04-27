@@ -1,0 +1,11 @@
+inherits GroupRenderer
+
+property Outline Borders
+
+property Color BackgroundColor
+
+property Color BorderColor
+
+property Texture TextureBackground
+
+property float RoundedBorderRadius

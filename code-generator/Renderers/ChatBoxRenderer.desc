@@ -1,0 +1,7 @@
+property Outline Borders
+property Outline Padding
+property Color BackgroundColor
+property Color BorderColor
+property Texture TextureBackground
+property RendererData Scrollbar
+property float ScrollbarWidth

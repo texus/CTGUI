@@ -1,0 +1,5 @@
+inherits ChildWindowRenderer
+
+property RendererData Button
+property RendererData Label
+property RendererData Slider

@@ -1,32 +1,9 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/TextAreaRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.hpp>
-#include <CTGUI/RendererDataStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/RendererDataStruct.hpp>
 
 #include <TGUI/Renderers/TextAreaRenderer.hpp>
 
@@ -46,9 +23,9 @@ tguiRenderer* tguiTextAreaRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
+void tguiTextAreaRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
 {
-    DOWNCAST(renderer->This)->setBorders(borders->This);
+    DOWNCAST(renderer->This)->setBorders(outline->This);
 }
 
 tguiOutline* tguiTextAreaRenderer_getBorders(const tguiRenderer* renderer)
@@ -56,9 +33,11 @@ tguiOutline* tguiTextAreaRenderer_getBorders(const tguiRenderer* renderer)
     return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
-void tguiTextAreaRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
 {
-    DOWNCAST(renderer->This)->setPadding(padding->This);
+    DOWNCAST(renderer->This)->setPadding(outline->This);
 }
 
 tguiOutline* tguiTextAreaRenderer_getPadding(const tguiRenderer* renderer)
@@ -90,6 +69,8 @@ tguiColor* tguiTextAreaRenderer_getTextColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiTextAreaRenderer_setDefaultTextColor(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setDefaultTextColor(ctgui::toCppColor(color));
@@ -100,6 +81,8 @@ tguiColor* tguiTextAreaRenderer_getDefaultTextColor(const tguiRenderer* renderer
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getDefaultTextColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiTextAreaRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
@@ -109,6 +92,8 @@ tguiColor* tguiTextAreaRenderer_getSelectedTextColor(const tguiRenderer* rendere
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiTextAreaRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
@@ -158,9 +143,9 @@ tguiTexture* tguiTextAreaRenderer_getTextureBackground(const tguiRenderer* rende
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setCaretWidth(const tguiRenderer* renderer, float width)
+void tguiTextAreaRenderer_setCaretWidth(tguiRenderer* renderer, float value)
 {
-    DOWNCAST(renderer->This)->setCaretWidth(width);
+    DOWNCAST(renderer->This)->setCaretWidth(value);
 }
 
 float tguiTextAreaRenderer_getCaretWidth(const tguiRenderer* renderer)
@@ -182,12 +167,14 @@ tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* renderer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setScrollbarWidth(tguiRenderer* renderer, float width)
+void tguiTextAreaRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
 {
-    DOWNCAST(renderer->This)->setScrollbarWidth(width);
+    DOWNCAST(renderer->This)->setScrollbarWidth(value);
 }
 
 float tguiTextAreaRenderer_getScrollbarWidth(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getScrollbarWidth();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

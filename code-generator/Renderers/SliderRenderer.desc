@@ -1,0 +1,17 @@
+property Outline Borders
+
+property Color TrackColor
+property Color TrackColorHover
+
+property Color ThumbColor
+property Color ThumbColorHover
+
+property Color BorderColor
+property Color BorderColorHover
+
+property Texture TextureTrack
+property Texture TextureTrackHover
+property Texture TextureThumb
+property Texture TextureThumbHover
+
+property bool ThumbWithinTrack

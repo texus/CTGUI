@@ -1,0 +1,20 @@
+property Outline Borders
+
+property Color TextColor
+
+property Color TextColorFilled
+
+property Color BackgroundColor
+
+property Color FillColor
+
+property Color BorderColor
+
+property Texture TextureBackground
+property Texture TextureFill
+
+property TextStyle TextStyle
+
+property Color TextOutlineColor
+
+property float TextOutlineThickness

@@ -1,0 +1,21 @@
+property Color TrackColor
+property Color TrackColorHover
+
+property Color ThumbColor
+property Color ThumbColorHover
+
+property Color ArrowBackgroundColor
+property Color ArrowBackgroundColorHover
+
+property Color ArrowColor
+property Color ArrowColorHover
+
+property Texture TextureTrack
+property Texture TextureTrackHover
+property Texture TextureThumb
+property Texture TextureThumbHover
+
+property Texture TextureArrowUp
+property Texture TextureArrowUpHover
+property Texture TextureArrowDown
+property Texture TextureArrowDownHover

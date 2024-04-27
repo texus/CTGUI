@@ -1,0 +1,50 @@
+property Outline Borders
+
+property Color TextColor
+property Color TextColorHover
+property Color TextColorFocused
+property Color TextColorDisabled
+property Color TextColorDown
+property Color TextColorDownHover
+property Color TextColorDownFocused
+property Color TextColorDownDisabled
+
+property Color BackgroundColor
+property Color BackgroundColorHover
+property Color BackgroundColorFocused
+property Color BackgroundColorDisabled
+property Color BackgroundColorDown
+property Color BackgroundColorDownHover
+property Color BackgroundColorDownFocused
+property Color BackgroundColorDownDisabled
+
+property Color BorderColor
+property Color BorderColorHover
+property Color BorderColorFocused
+property Color BorderColorDisabled
+property Color BorderColorDown
+property Color BorderColorDownHover
+property Color BorderColorDownFocused
+property Color BorderColorDownDisabled
+
+property Texture Texture
+property Texture TextureHover
+property Texture TextureFocused
+property Texture TextureDisabled
+property Texture TextureDown
+property Texture TextureDownHover
+property Texture TextureDownFocused
+property Texture TextureDownDisabled
+
+property TextStyle TextStyle
+property TextStyle TextStyleHover
+property TextStyle TextStyleFocused
+property TextStyle TextStyleDisabled
+property TextStyle TextStyleDown
+property TextStyle TextStyleDownHover
+property TextStyle TextStyleDownFocused
+property TextStyle TextStyleDownDisabled
+
+property Color TextOutlineColor
+property float TextOutlineThickness
+property float RoundedBorderRadius

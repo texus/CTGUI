@@ -1,0 +1,33 @@
+property Outline Borders
+property Outline Padding
+property float CaretWidth
+
+property Color TextColor
+property Color DefaultTextColor
+property Color TextColorFocused
+property Color TextColorDisabled
+property Color SelectedTextColor
+property Color SelectedTextBackgroundColor
+
+property Color BackgroundColor
+property Color BackgroundColorHover
+property Color BackgroundColorFocused
+property Color BackgroundColorDisabled
+
+property Color CaretColor
+property Color CaretColorHover
+property Color CaretColorFocused
+
+property Color BorderColor
+property Color BorderColorHover
+property Color BorderColorFocused
+property Color BorderColorDisabled
+
+property Texture Texture
+property Texture TextureHover
+property Texture TextureFocused
+property Texture TextureDisabled
+
+property TextStyle TextStyle
+property TextStyle DefaultTextStyle
+

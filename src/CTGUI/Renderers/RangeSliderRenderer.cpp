@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/RangeSliderRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.hpp>
@@ -45,9 +22,9 @@ tguiRenderer* tguiRangeSliderRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
+void tguiRangeSliderRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
 {
-    DOWNCAST(renderer->This)->setBorders(borders->This);
+    DOWNCAST(renderer->This)->setBorders(outline->This);
 }
 
 tguiOutline* tguiRangeSliderRenderer_getBorders(const tguiRenderer* renderer)
@@ -66,6 +43,8 @@ tguiColor* tguiRangeSliderRenderer_getTrackColor(const tguiRenderer* renderer)
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColor());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRangeSliderRenderer_setTrackColorHover(tguiRenderer* renderer, tguiColor* color)
 {
@@ -89,6 +68,8 @@ tguiColor* tguiRangeSliderRenderer_getSelectedTrackColor(const tguiRenderer* ren
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTrackColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRangeSliderRenderer_setSelectedTrackColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setSelectedTrackColorHover(ctgui::toCppColor(color));
@@ -110,6 +91,8 @@ tguiColor* tguiRangeSliderRenderer_getThumbColor(const tguiRenderer* renderer)
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColor());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRangeSliderRenderer_setThumbColorHover(tguiRenderer* renderer, tguiColor* color)
 {
@@ -133,6 +116,8 @@ tguiColor* tguiRangeSliderRenderer_getBorderColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRangeSliderRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
@@ -154,6 +139,8 @@ tguiTexture* tguiRangeSliderRenderer_getTextureTrack(const tguiRenderer* rendere
 {
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrack()));
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRangeSliderRenderer_setTextureTrackHover(tguiRenderer* renderer, tguiTexture* texture)
 {
@@ -177,6 +164,8 @@ tguiTexture* tguiRangeSliderRenderer_getTextureSelectedTrack(const tguiRenderer*
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureSelectedTrack()));
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRangeSliderRenderer_setTextureSelectedTrackHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureSelectedTrackHover(*texture->This);
@@ -199,6 +188,8 @@ tguiTexture* tguiRangeSliderRenderer_getTextureThumb(const tguiRenderer* rendere
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumb()));
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRangeSliderRenderer_setTextureThumbHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureThumbHover(*texture->This);
@@ -211,12 +202,14 @@ tguiTexture* tguiRangeSliderRenderer_getTextureThumbHover(const tguiRenderer* re
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setThumbWithinTrack(tguiRenderer* renderer, tguiBool keepThumbInside)
+void tguiRangeSliderRenderer_setThumbWithinTrack(tguiRenderer* renderer, tguiBool value)
 {
-    DOWNCAST(renderer->This)->setThumbWithinTrack(keepThumbInside);
+    DOWNCAST(renderer->This)->setThumbWithinTrack(value != 0);
 }
 
 tguiBool tguiRangeSliderRenderer_getThumbWithinTrack(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getThumbWithinTrack();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

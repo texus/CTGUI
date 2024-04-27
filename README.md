@@ -30,3 +30,8 @@ Unfortunately there are no tutorials or documentation for the C binding itself, 
 Since this is a binding for the c++ TGUI library, the available functionality can be found in the c++ [documentation](https://tgui.eu/documentation/latest-stable/annotated.html) and [tutorials](https://tgui.eu/tutorials/latest-stable/).
 
 For a list of C functions that correspond with the c++ classes, you will need to check the source code in the `include` folder.
+
+Code generation
+---------------
+
+Some files or parts of files are generated to reduce the amount of boilerplate code that needs to be written. The generated files are part of the repository so it doesn't affect you when attempting to use CTGUI. It you wish to make modifications to the CTGUI code then you might need to look at the contents of the `code-generator` folder, depending on which files you want to modify.

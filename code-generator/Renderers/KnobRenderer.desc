@@ -1,0 +1,12 @@
+property Outline Borders
+
+property Color BackgroundColor
+
+property Color ThumbColor
+
+property Color BorderColor
+
+property Texture TextureBackground
+property Texture TextureForeground
+
+property float ImageRotation

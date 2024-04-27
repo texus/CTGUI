@@ -1,0 +1,20 @@
+property Color BackgroundColor
+property Color SelectedBackgroundColor
+
+property Color TextColor
+property Color SelectedTextColor
+property Color TextColorDisabled
+
+property Color SeparatorColor
+
+property Texture TextureBackground
+property Texture TextureItemBackground
+property Texture TextureSelectedItemBackground
+
+property float DistanceToSide
+
+property float SeparatorThickness
+
+property float SeparatorVerticalPadding
+
+property float SeparatorSidePadding

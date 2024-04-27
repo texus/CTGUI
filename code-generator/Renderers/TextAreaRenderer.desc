@@ -1,0 +1,21 @@
+property Outline Borders
+property Outline Padding
+
+property Color BackgroundColor
+
+property Color TextColor
+property Color DefaultTextColor
+property Color SelectedTextColor
+property Color SelectedTextBackgroundColor
+
+property Color BorderColor
+
+property Color CaretColor
+
+property Texture TextureBackground
+
+property float CaretWidth
+
+property RendererData Scrollbar
+
+property float ScrollbarWidth

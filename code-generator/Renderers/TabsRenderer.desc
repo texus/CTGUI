@@ -1,0 +1,26 @@
+property Outline Borders
+
+property Color BackgroundColor
+property Color BackgroundColorHover
+property Color SelectedBackgroundColor
+property Color SelectedBackgroundColorHover
+property Color BackgroundColorDisabled
+
+property Color TextColor
+property Color TextColorHover
+property Color SelectedTextColor
+property Color SelectedTextColorHover
+property Color TextColorDisabled
+
+property Color BorderColor
+property Color BorderColorHover
+property Color SelectedBorderColor
+property Color SelectedBorderColorHover
+
+property Texture TextureTab
+property Texture TextureTabHover
+property Texture TextureSelectedTab
+property Texture TextureSelectedTabHover
+property Texture TextureDisabledTab
+
+property float DistanceToSide

@@ -1,0 +1,32 @@
+/// @brief Size of the borders
+property Outline Borders
+
+/// @brief Size of the padding
+property Outline Padding
+
+/// @brief Text color
+property Color TextColor
+
+/// @brief Outline color of the text
+property Color TextOutlineColor
+
+/// @brief Outline thickness of the text
+property float TextOutlineThickness
+
+/// @brief Background color
+property Color BackgroundColor
+
+/// @brief Color of the borders
+property Color BorderColor
+
+/// @brief Text style
+property TextStyle TextStyle
+
+/// @brief Renderer data of the scrollbar
+property RendererData Scrollbar
+
+/// @brief Width of the scrollbar
+property float ScrollbarWidth
+
+/// @brief Background texture
+property Texture TextureBackground

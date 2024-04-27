@@ -1,0 +1,24 @@
+property Outline Borders
+property Outline Padding
+
+property Color BackgroundColor
+property Color BackgroundColorHover
+property Color SelectedBackgroundColor
+property Color SelectedBackgroundColorHover
+
+property Color TextColor
+property Color TextColorHover
+property Color SelectedTextColor
+property Color SelectedTextColorHover
+
+property Color BorderColor
+
+property Texture TextureBackground
+
+property Texture TextureBranchExpanded
+property Texture TextureBranchCollapsed
+property Texture TextureLeaf
+
+property RendererData Scrollbar
+
+property float ScrollbarWidth

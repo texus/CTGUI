@@ -1,0 +1,5 @@
+inherits PanelRenderer
+
+property RendererData Scrollbar
+
+property float ScrollbarWidth

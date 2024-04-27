@@ -1,0 +1,32 @@
+property Outline Borders
+property Outline Padding
+
+property Color BackgroundColor
+property Color BackgroundColorDisabled
+
+property Color TextColor
+property Color TextColorDisabled
+property Color DefaultTextColor
+
+property Color ArrowBackgroundColor
+property Color ArrowBackgroundColorHover
+property Color ArrowBackgroundColorDisabled
+
+property Color ArrowColor
+property Color ArrowColorHover
+property Color ArrowColorDisabled
+
+property Color BorderColor
+
+property Texture TextureBackground
+property Texture TextureBackgroundDisabled
+
+property Texture TextureArrow
+property Texture TextureArrowHover
+property Texture TextureArrowDisabled
+
+property TextStyle TextStyle
+
+property TextStyle DefaultTextStyle
+
+property RendererData ListBox

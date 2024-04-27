@@ -1,32 +1,9 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ListViewRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.hpp>
-#include <CTGUI/RendererDataStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/RendererDataStruct.hpp>
 
 #include <TGUI/Renderers/ListViewRenderer.hpp>
 
@@ -46,9 +23,9 @@ tguiRenderer* tguiListViewRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListViewRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
+void tguiListViewRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
 {
-    DOWNCAST(renderer->This)->setBorders(borders->This);
+    DOWNCAST(renderer->This)->setBorders(outline->This);
 }
 
 tguiOutline* tguiListViewRenderer_getBorders(const tguiRenderer* renderer)
@@ -56,9 +33,11 @@ tguiOutline* tguiListViewRenderer_getBorders(const tguiRenderer* renderer)
     return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
 }
 
-void tguiListViewRenderer_setPadding(tguiRenderer* renderer, tguiOutline* padding)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiListViewRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
 {
-    DOWNCAST(renderer->This)->setPadding(padding->This);
+    DOWNCAST(renderer->This)->setPadding(outline->This);
 }
 
 tguiOutline* tguiListViewRenderer_getPadding(const tguiRenderer* renderer)
@@ -78,6 +57,8 @@ tguiColor* tguiListViewRenderer_getBackgroundColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListViewRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
@@ -88,6 +69,8 @@ tguiColor* tguiListViewRenderer_getBackgroundColorHover(const tguiRenderer* rend
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListViewRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(color));
@@ -97,6 +80,8 @@ tguiColor* tguiListViewRenderer_getSelectedBackgroundColor(const tguiRenderer* r
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiListViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
 {
@@ -120,6 +105,8 @@ tguiColor* tguiListViewRenderer_getTextColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListViewRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setTextColorHover(ctgui::toCppColor(color));
@@ -130,6 +117,8 @@ tguiColor* tguiListViewRenderer_getTextColorHover(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorHover());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListViewRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
@@ -139,6 +128,8 @@ tguiColor* tguiListViewRenderer_getSelectedTextColor(const tguiRenderer* rendere
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiListViewRenderer_setSelectedTextColorHover(tguiRenderer* renderer, tguiColor* color)
 {
@@ -161,6 +152,8 @@ tguiColor* tguiListViewRenderer_getHeaderBackgroundColor(const tguiRenderer* ren
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getHeaderBackgroundColor());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiListViewRenderer_setHeaderTextColor(tguiRenderer* renderer, tguiColor* color)
 {
@@ -246,12 +239,14 @@ tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* renderer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListViewRenderer_setScrollbarWidth(tguiRenderer* renderer, float width)
+void tguiListViewRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
 {
-    DOWNCAST(renderer->This)->setScrollbarWidth(width);
+    DOWNCAST(renderer->This)->setScrollbarWidth(value);
 }
 
 float tguiListViewRenderer_getScrollbarWidth(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getScrollbarWidth();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

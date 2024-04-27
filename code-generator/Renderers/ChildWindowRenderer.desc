@@ -1,0 +1,17 @@
+property Outline Borders
+property Color TitleBarColor
+property Color TitleColor
+property Color BackgroundColor
+property Color BorderColor
+property Color BorderColorFocused
+property float BorderBelowTitleBar
+property float TitleBarHeight
+property float DistanceToSide
+property float PaddingBetweenButtons
+property float MinimumResizableBorderWidth
+property bool ShowTextOnTitleButtons
+property Texture TextureTitleBar
+property Texture TextureBackground
+property RendererData CloseButton
+property RendererData MaximizeButton
+property RendererData MinimizeButton

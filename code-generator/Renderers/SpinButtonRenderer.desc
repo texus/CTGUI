@@ -1,0 +1,16 @@
+property Outline Borders
+
+property float BorderBetweenArrows
+
+property Color BackgroundColor
+property Color BackgroundColorHover
+
+property Color ArrowColor
+property Color ArrowColorHover
+
+property Color BorderColor
+
+property Texture TextureArrowUp
+property Texture TextureArrowUpHover
+property Texture TextureArrowDown
+property Texture TextureArrowDownHover

@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/RadioButtonRenderer.h>
 #include <CTGUI/Renderers/RendererStruct.hpp>
@@ -45,9 +22,9 @@ tguiRenderer* tguiRadioButtonRenderer_copy(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextDistanceRatio(tguiRenderer* renderer, float ratio)
+void tguiRadioButtonRenderer_setTextDistanceRatio(tguiRenderer* renderer, float value)
 {
-    DOWNCAST(renderer->This)->setTextDistanceRatio(ratio);
+    DOWNCAST(renderer->This)->setTextDistanceRatio(value);
 }
 
 float tguiRadioButtonRenderer_getTextDistanceRatio(const tguiRenderer* renderer)
@@ -57,9 +34,9 @@ float tguiRadioButtonRenderer_getTextDistanceRatio(const tguiRenderer* renderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline* borders)
+void tguiRadioButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
 {
-    DOWNCAST(renderer->This)->setBorders(borders->This);
+    DOWNCAST(renderer->This)->setBorders(outline->This);
 }
 
 tguiOutline* tguiRadioButtonRenderer_getBorders(const tguiRenderer* renderer)
@@ -79,6 +56,8 @@ tguiColor* tguiRadioButtonRenderer_getTextColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setTextColorHover(ctgui::toCppColor(color));
@@ -88,6 +67,8 @@ tguiColor* tguiRadioButtonRenderer_getTextColorHover(const tguiRenderer* rendere
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorHover());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
@@ -99,6 +80,8 @@ tguiColor* tguiRadioButtonRenderer_getTextColorDisabled(const tguiRenderer* rend
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDisabled());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextColorChecked(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setTextColorChecked(ctgui::toCppColor(color));
@@ -109,6 +92,8 @@ tguiColor* tguiRadioButtonRenderer_getTextColorChecked(const tguiRenderer* rende
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorChecked());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextColorCheckedHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setTextColorCheckedHover(ctgui::toCppColor(color));
@@ -118,6 +103,8 @@ tguiColor* tguiRadioButtonRenderer_getTextColorCheckedHover(const tguiRenderer* 
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorCheckedHover());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setTextColorCheckedDisabled(tguiRenderer* renderer, tguiColor* color)
 {
@@ -141,6 +128,8 @@ tguiColor* tguiRadioButtonRenderer_getBackgroundColor(const tguiRenderer* render
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
@@ -150,6 +139,8 @@ tguiColor* tguiRadioButtonRenderer_getBackgroundColorHover(const tguiRenderer* r
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
@@ -161,6 +152,8 @@ tguiColor* tguiRadioButtonRenderer_getBackgroundColorDisabled(const tguiRenderer
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBackgroundColorChecked(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBackgroundColorChecked(ctgui::toCppColor(color));
@@ -171,6 +164,8 @@ tguiColor* tguiRadioButtonRenderer_getBackgroundColorChecked(const tguiRenderer*
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorChecked());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBackgroundColorCheckedHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBackgroundColorCheckedHover(ctgui::toCppColor(color));
@@ -180,6 +175,8 @@ tguiColor* tguiRadioButtonRenderer_getBackgroundColorCheckedHover(const tguiRend
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorCheckedHover());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setBackgroundColorCheckedDisabled(tguiRenderer* renderer, tguiColor* color)
 {
@@ -203,6 +200,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
@@ -212,6 +211,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColorHover(const tguiRenderer* rende
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorHover());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setBorderColorFocused(tguiRenderer* renderer, tguiColor* color)
 {
@@ -223,6 +224,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColorFocused(const tguiRenderer* ren
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorFocused());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBorderColorDisabled(ctgui::toCppColor(color));
@@ -232,6 +235,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColorDisabled(const tguiRenderer* re
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setBorderColorChecked(tguiRenderer* renderer, tguiColor* color)
 {
@@ -243,6 +248,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColorChecked(const tguiRenderer* ren
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorChecked());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBorderColorCheckedHover(ctgui::toCppColor(color));
@@ -253,6 +260,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColorCheckedHover(const tguiRenderer
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorCheckedHover());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setBorderColorCheckedFocused(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setBorderColorCheckedFocused(ctgui::toCppColor(color));
@@ -262,6 +271,8 @@ tguiColor* tguiRadioButtonRenderer_getBorderColorCheckedFocused(const tguiRender
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorCheckedFocused());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* renderer, tguiColor* color)
 {
@@ -285,6 +296,8 @@ tguiColor* tguiRadioButtonRenderer_getCheckColor(const tguiRenderer* renderer)
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getCheckColor());
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setCheckColorHover(tguiRenderer* renderer, tguiColor* color)
 {
     DOWNCAST(renderer->This)->setCheckColorHover(ctgui::toCppColor(color));
@@ -294,6 +307,8 @@ tguiColor* tguiRadioButtonRenderer_getCheckColorHover(const tguiRenderer* render
 {
     return ctgui::fromCppColor(DOWNCAST(renderer->This)->getCheckColorHover());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setCheckColorDisabled(tguiRenderer* renderer, tguiColor* color)
 {
@@ -317,6 +332,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureUnchecked(const tguiRenderer* ren
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureUnchecked()));
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextureChecked(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureChecked(*texture->This);
@@ -326,6 +343,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureChecked(const tguiRenderer* rende
 {
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureChecked()));
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setTextureUncheckedHover(tguiRenderer* renderer, tguiTexture* texture)
 {
@@ -337,6 +356,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureUncheckedHover(const tguiRenderer
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureUncheckedHover()));
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextureCheckedHover(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureCheckedHover(*texture->This);
@@ -346,6 +367,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureCheckedHover(const tguiRenderer* 
 {
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureCheckedHover()));
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setTextureUncheckedFocused(tguiRenderer* renderer, tguiTexture* texture)
 {
@@ -357,6 +380,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureUncheckedFocused(const tguiRender
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureUncheckedFocused()));
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextureCheckedFocused(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureCheckedFocused(*texture->This);
@@ -367,6 +392,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureCheckedFocused(const tguiRenderer
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureCheckedFocused()));
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiRadioButtonRenderer_setTextureUncheckedDisabled(tguiRenderer* renderer, tguiTexture* texture)
 {
     DOWNCAST(renderer->This)->setTextureUncheckedDisabled(*texture->This);
@@ -376,6 +403,8 @@ tguiTexture* tguiRadioButtonRenderer_getTextureUncheckedDisabled(const tguiRende
 {
     return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureUncheckedDisabled()));
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setTextureCheckedDisabled(tguiRenderer* renderer, tguiTexture* texture)
 {
@@ -394,17 +423,21 @@ void tguiRadioButtonRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 sty
     DOWNCAST(renderer->This)->setTextStyle(style);
 }
 
-tguiUint32 tguiRadioButtonRenderer_getTextStyle(tguiRenderer* renderer)
+tguiUint32 tguiRadioButtonRenderer_getTextStyle(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyle();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiRadioButtonRenderer_setTextStyleChecked(tguiRenderer* renderer, tguiUint32 style)
 {
     DOWNCAST(renderer->This)->setTextStyleChecked(style);
 }
 
-tguiUint32 tguiRadioButtonRenderer_getTextStyleChecked(tguiRenderer* renderer)
+tguiUint32 tguiRadioButtonRenderer_getTextStyleChecked(const tguiRenderer* renderer)
 {
     return DOWNCAST(renderer->This)->getTextStyleChecked();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

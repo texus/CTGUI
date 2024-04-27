@@ -1,0 +1,42 @@
+property float TextDistanceRatio
+
+property Outline Borders
+
+property Color TextColor
+property Color TextColorHover
+property Color TextColorDisabled
+property Color TextColorChecked
+property Color TextColorCheckedHover
+property Color TextColorCheckedDisabled
+
+property Color BackgroundColor
+property Color BackgroundColorHover
+property Color BackgroundColorDisabled
+property Color BackgroundColorChecked
+property Color BackgroundColorCheckedHover
+property Color BackgroundColorCheckedDisabled
+
+property Color BorderColor
+property Color BorderColorHover
+property Color BorderColorFocused
+property Color BorderColorDisabled
+property Color BorderColorChecked
+property Color BorderColorCheckedHover
+property Color BorderColorCheckedFocused
+property Color BorderColorCheckedDisabled
+
+property Color CheckColor
+property Color CheckColorHover
+property Color CheckColorDisabled
+
+property Texture TextureUnchecked
+property Texture TextureChecked
+property Texture TextureUncheckedHover
+property Texture TextureCheckedHover
+property Texture TextureUncheckedFocused
+property Texture TextureCheckedFocused
+property Texture TextureUncheckedDisabled
+property Texture TextureCheckedDisabled
+
+property TextStyle TextStyle
+property TextStyle TextStyleChecked

@@ -1,0 +1,19 @@
+inherits ChildWindowRenderer
+
+property RendererData ListView
+
+property RendererData EditBox
+
+property RendererData FilenameLabel
+
+property RendererData FileTypeComboBox
+
+property RendererData Button
+
+property RendererData BackButton
+
+property RendererData ForwardButton
+
+property RendererData UpButton
+
+property bool ArrowsOnNavigationButtonsVisible

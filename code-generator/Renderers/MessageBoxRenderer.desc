@@ -1,0 +1,5 @@
+inherits ChildWindowRenderer
+
+property Color TextColor
+
+property RendererData Button

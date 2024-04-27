@@ -1,0 +1,7 @@
+inherits SliderRenderer
+
+property Color SelectedTrackColor
+property Color SelectedTrackColorHover
+
+property Texture TextureSelectedTrack
+property Texture TextureSelectedTrackHover
