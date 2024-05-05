@@ -1,9 +1,10 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/TextAreaRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/TextAreaRenderer.hpp>
 
@@ -16,165 +17,165 @@ tguiRenderer* tguiTextAreaRenderer_create(void)
     return new tguiRenderer(new tgui::TextAreaRenderer);
 }
 
-tguiRenderer* tguiTextAreaRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiTextAreaRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::TextAreaRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::TextAreaRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiTextAreaRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiTextAreaRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiTextAreaRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextAreaRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
-{
-    DOWNCAST(renderer->This)->setPadding(outline->This);
-}
-
-tguiOutline* tguiTextAreaRenderer_getPadding(const tguiRenderer* renderer)
-{
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTextAreaRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-tguiColor* tguiTextAreaRenderer_getBackgroundColor(const tguiRenderer* renderer)
+const tguiOutline* tguiTextAreaRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextAreaRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTextAreaRenderer_getTextColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setDefaultTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTextAreaRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setDefaultTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTextAreaRenderer_getDefaultTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiTextAreaRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getDefaultTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextAreaRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTextAreaRenderer_getSelectedTextColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTextAreaRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSelectedTextBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTextAreaRenderer_getSelectedTextBackgroundColor(const tguiRenderer* renderer)
+const tguiColor* tguiTextAreaRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextAreaRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTextAreaRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setCaretColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTextAreaRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setCaretColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setDefaultTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTextAreaRenderer_getCaretColor(const tguiRenderer* renderer)
+const tguiColor* tguiTextAreaRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getCaretColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextAreaRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
-}
-
-tguiTexture* tguiTextAreaRenderer_getTextureBackground(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getDefaultTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setCaretWidth(tguiRenderer* renderer, float value)
+void tguiTextAreaRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setCaretWidth(value);
+    DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-float tguiTextAreaRenderer_getCaretWidth(const tguiRenderer* renderer)
+const tguiColor* tguiTextAreaRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getCaretWidth();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextAreaRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
-}
-
-tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
+void tguiTextAreaRenderer_setSelectedTextBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setScrollbarWidth(value);
+    DOWNCAST(thisRenderer->This)->setSelectedTextBackgroundColor(ctgui::toCppColor(value));
 }
 
-float tguiTextAreaRenderer_getScrollbarWidth(const tguiRenderer* renderer)
+const tguiColor* tguiTextAreaRenderer_getSelectedTextBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getScrollbarWidth();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextBackgroundColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiTextAreaRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setCaretColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setCaretColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiTextAreaRenderer_getCaretColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCaretColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
+}
+
+const tguiTexture* tguiTextAreaRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setCaretWidth(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setCaretWidth(value);
+}
+
+float tguiTextAreaRenderer_getCaretWidth(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getCaretWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
+}
+
+const tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbarWidth(value);
+}
+
+float tguiTextAreaRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getScrollbarWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -25,7 +25,7 @@
 
 #include <CTGUI/Theme.h>
 #include <CTGUI/ThemeStruct.hpp>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>

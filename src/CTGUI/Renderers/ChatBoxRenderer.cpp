@@ -1,9 +1,10 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ChatBoxRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/ChatBoxRenderer.hpp>
 
@@ -16,93 +17,93 @@ tguiRenderer* tguiChatBoxRenderer_create(void)
     return new tguiRenderer(new tgui::ChatBoxRenderer);
 }
 
-tguiRenderer* tguiChatBoxRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiChatBoxRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::ChatBoxRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::ChatBoxRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiChatBoxRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiChatBoxRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiChatBoxRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChatBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
-{
-    DOWNCAST(renderer->This)->setPadding(outline->This);
-}
-
-tguiOutline* tguiChatBoxRenderer_getPadding(const tguiRenderer* renderer)
-{
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiChatBoxRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-tguiColor* tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
+const tguiOutline* tguiChatBoxRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChatBoxRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiChatBoxRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
+void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiChatBoxRenderer_getTextureBackground(const tguiRenderer* renderer)
+const tguiColor* tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChatBoxRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
-}
-
-tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
+void tguiChatBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setScrollbarWidth(value);
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-float tguiChatBoxRenderer_getScrollbarWidth(const tguiRenderer* renderer)
+const tguiColor* tguiChatBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getScrollbarWidth();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
+}
+
+const tguiTexture* tguiChatBoxRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChatBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
+}
+
+const tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChatBoxRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbarWidth(value);
+}
+
+float tguiChatBoxRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getScrollbarWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

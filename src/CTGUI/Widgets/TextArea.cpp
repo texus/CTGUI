@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/TextArea.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -39,171 +16,187 @@ tguiWidget* tguiTextArea_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setText(tguiWidget* widget, tguiUtf32 text)
+void tguiTextArea_setText(tguiWidget* thisWidget, tguiUtf32 value)
 {
-    DOWNCAST(widget->This)->setText(ctgui::toCppStr(text));
+    DOWNCAST(thisWidget->This)->setText(ctgui::toCppStr(value));
 }
 
-void tguiTextArea_addText(tguiWidget* widget, tguiUtf32 text)
+tguiUtf32 tguiTextArea_getText(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->addText(ctgui::toCppStr(text));
-}
-
-tguiUtf32 tguiTextArea_getText(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText());
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setDefaultText(tguiWidget* widget, tguiUtf32 text)
+void tguiTextArea_addText(tguiWidget* thisWidget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setDefaultText(ctgui::toCppStr(text));
-}
-
-tguiUtf32 tguiTextArea_getDefaultText(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getDefaultText());
+    DOWNCAST(thisWidget->This)->addText(ctgui::toCppStr(text));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setSelectedText(const tguiWidget* widget, size_t selectionStartIndex, size_t selectionEndIndex)
+void tguiTextArea_setDefaultText(tguiWidget* thisWidget, tguiUtf32 value)
 {
-    DOWNCAST(widget->This)->setSelectedText(selectionStartIndex, selectionEndIndex);
+    DOWNCAST(thisWidget->This)->setDefaultText(ctgui::toCppStr(value));
 }
 
-tguiUtf32 tguiTextArea_getSelectedText(const tguiWidget* widget)
+tguiUtf32 tguiTextArea_getDefaultText(const tguiWidget* thisWidget)
 {
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getSelectedText());
-}
-
-size_t tguiTextArea_getSelectionStart(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getSelectionStart();
-}
-
-size_t tguiTextArea_getSelectionEnd(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getSelectionEnd();
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getDefaultText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setMaximumCharacters(tguiWidget* widget, size_t maximumCharacters)
+void tguiTextArea_setSelectedText(tguiWidget* thisWidget, size_t selectionStartIndex, size_t selectionEndIndex)
 {
-    DOWNCAST(widget->This)->setMaximumCharacters(maximumCharacters);
-}
-
-size_t tguiTextArea_getMaximumCharacters(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getMaximumCharacters();
+    DOWNCAST(thisWidget->This)->setSelectedText(selectionStartIndex, selectionEndIndex);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setTabString(tguiWidget* widget, tguiUtf32 tabText)
+tguiUtf32 tguiTextArea_getSelectedText(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setTabString(ctgui::toCppStr(tabText));
-}
-
-tguiUtf32 tguiTextArea_getTabString(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getTabString());
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getSelectedText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setCaretPosition(tguiWidget* widget, size_t charactersBeforeCaret)
+size_t tguiTextArea_getSelectionStart(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setCaretPosition(charactersBeforeCaret);
-}
-
-size_t tguiTextArea_getCaretPosition(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getCaretPosition();
-}
-
-size_t tguiTextArea_getCaretLine(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getCaretLine();
-}
-
-size_t tguiTextArea_getCaretColumn(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getCaretColumn();
+    return DOWNCAST(thisWidget->This)->getSelectionStart();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setReadOnly(tguiWidget* widget, tguiBool readOnly)
+size_t tguiTextArea_getSelectionEnd(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setReadOnly(readOnly != 0);
-}
-
-tguiBool tguiTextArea_isReadOnly(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->isReadOnly();
+    return DOWNCAST(thisWidget->This)->getSelectionEnd();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+void tguiTextArea_setMaximumCharacters(tguiWidget* thisWidget, size_t value)
 {
-    DOWNCAST(widget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
+    DOWNCAST(thisWidget->This)->setMaximumCharacters(value);
 }
 
-tguiScrollbarPolicy tguiTextArea_getVerticalScrollbarPolicy(const tguiWidget* widget)
+size_t tguiTextArea_getMaximumCharacters(const tguiWidget* thisWidget)
 {
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getVerticalScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextArea_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
-{
-    DOWNCAST(widget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
-}
-
-tguiScrollbarPolicy tguiTextArea_getHorizontalScrollbarPolicy(const tguiWidget* widget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getHorizontalScrollbarPolicy());
+    return DOWNCAST(thisWidget->This)->getMaximumCharacters();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* widget, tguiBool enable)
+void tguiTextArea_setTabString(tguiWidget* thisWidget, tguiUtf32 value)
 {
-    DOWNCAST(widget->This)->enableMonospacedFontOptimization(enable != 0);
+    DOWNCAST(thisWidget->This)->setTabString(ctgui::toCppStr(value));
+}
+
+tguiUtf32 tguiTextArea_getTabString(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getTabString());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
+void tguiTextArea_setCaretPosition(tguiWidget* thisWidget, size_t charactersBeforeCaret)
 {
-    DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
-}
-
-unsigned int tguiTextArea_getVerticalScrollbarValue(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getVerticalScrollbarValue();
+    DOWNCAST(thisWidget->This)->setCaretPosition(charactersBeforeCaret);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value)
+size_t tguiTextArea_getCaretPosition(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setHorizontalScrollbarValue(value);
-}
-
-unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getHorizontalScrollbarValue();
+    return DOWNCAST(thisWidget->This)->getCaretPosition();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiTextArea_getLinesCount(const tguiWidget* widget)
+size_t tguiTextArea_getCaretLine(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getLinesCount();
+    return DOWNCAST(thisWidget->This)->getCaretLine();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiTextArea_getCaretColumn(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getCaretColumn();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextArea_setReadOnly(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setReadOnly(value != 0);
+}
+
+tguiBool tguiTextArea_isReadOnly(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->isReadOnly();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextArea_setVerticalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
+{
+    DOWNCAST(thisWidget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
+}
+
+tguiScrollbarPolicy tguiTextArea_getVerticalScrollbarPolicy(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getVerticalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextArea_setHorizontalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
+{
+    DOWNCAST(thisWidget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
+}
+
+tguiScrollbarPolicy tguiTextArea_getHorizontalScrollbarPolicy(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getHorizontalScrollbarPolicy());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextArea_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setVerticalScrollbarValue(value);
+}
+
+unsigned int tguiTextArea_getVerticalScrollbarValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextArea_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setHorizontalScrollbarValue(value);
+}
+
+unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiBool enable)
+{
+    DOWNCAST(thisWidget->This)->enableMonospacedFontOptimization(enable != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiTextArea_getLinesCount(tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getLinesCount();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,19 @@
+inherits ChildWindow
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer FileDialogRenderer
+
+property string Filename
+
+function getFileTypeFiltersIndex() const -> size_t
+
+property string ConfirmButtonText
+property string CancelButtonText
+property string CreateFolderButtonText
+property string FilenameLabelText
+
+property bool AllowCreateFolder
+property bool FileMustExist
+property bool SelectingDirectory
+property bool MultiSelect
+

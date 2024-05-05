@@ -1,0 +1,14 @@
+inherits ChildWindow
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer MessageBoxRenderer
+
+property string Text
+
+function addButton(string text)
+function changeButtons(List<string> buttonCaptions)
+function getButtons() -> List<string>
+
+property HorizontalAlignment LabelAlignment
+property HorizontalAlignment ButtonAlignment
+

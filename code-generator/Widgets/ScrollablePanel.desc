@@ -1,0 +1,22 @@
+inherits Panel
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ScrollbablePanelRenderer
+
+property Vector2f ContentSize
+
+function getScrollbarWidth() const -> float
+
+property ScrollbarPolicy VerticalScrollbarPolicy
+property ScrollbarPolicy HorizontalScrollbarPolicy
+
+property uint VerticalScrollAmount
+property uint HorizontalScrollAmount
+
+property uint VerticalScrollbarValue
+property uint HorizontalScrollbarValue
+
+function isVerticalScrollbarShown() const -> bool
+function isHorizontalScrollbarShown() const -> bool
+
+function getContentOffset() const -> Vector2f

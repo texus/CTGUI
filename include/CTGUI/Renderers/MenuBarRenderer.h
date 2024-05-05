@@ -8,43 +8,43 @@
 CTGUI_API tguiRenderer* tguiMenuBarRenderer_create(void);
 CTGUI_API tguiRenderer* tguiMenuBarRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiMenuBarRenderer_getTextureBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiMenuBarRenderer_getTextureBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiMenuBarRenderer_getTextureItemBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiMenuBarRenderer_getTextureItemBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiMenuBarRenderer_getTextureSelectedItemBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiMenuBarRenderer_getTextureSelectedItemBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* renderer, float value);
-CTGUI_API float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSeparatorThickness(tguiRenderer* renderer, float value);
-CTGUI_API float tguiMenuBarRenderer_getSeparatorThickness(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSeparatorThickness(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiMenuBarRenderer_getSeparatorThickness(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSeparatorVerticalPadding(tguiRenderer* renderer, float value);
-CTGUI_API float tguiMenuBarRenderer_getSeparatorVerticalPadding(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSeparatorVerticalPadding(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiMenuBarRenderer_getSeparatorVerticalPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSeparatorSidePadding(tguiRenderer* renderer, float value);
-CTGUI_API float tguiMenuBarRenderer_getSeparatorSidePadding(const tguiRenderer* renderer);
+CTGUI_API void tguiMenuBarRenderer_setSeparatorSidePadding(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiMenuBarRenderer_getSeparatorSidePadding(const tguiRenderer* thisRenderer);
 
 #endif // CTGUI_MENUBARRENDERER_H

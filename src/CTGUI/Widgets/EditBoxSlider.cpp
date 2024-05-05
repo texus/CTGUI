@@ -1,31 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/EditBoxSlider.h>
 #include <CTGUI/WidgetStruct.hpp>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Widgets/EditBoxSlider.hpp>
 
@@ -40,94 +17,98 @@ tguiWidget* tguiEditBoxSlider_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiRenderer* tguiEditBoxSlider_getEditBoxRenderer(const tguiWidget* widget)
+tguiRenderer* tguiEditBoxSlider_getEditBoxRenderer(const tguiWidget* thisWidget)
 {
-    return new tguiRenderer(DOWNCAST(widget->This)->getEditBoxRenderer(), false);
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getEditBoxRenderer(), false);
 }
 
-tguiRenderer* tguiEditBoxSlider_getEditBoxSharedRenderer(const tguiWidget* widget)
+tguiRenderer* tguiEditBoxSlider_getEditBoxSharedRenderer(const tguiWidget* thisWidget)
 {
-    return new tguiRenderer(DOWNCAST(widget->This)->getEditBoxSharedRenderer(), false);
-}
-
-tguiRenderer* tguiEditBoxSlider_getSliderRenderer(const tguiWidget* widget)
-{
-    return new tguiRenderer(DOWNCAST(widget->This)->getSliderRenderer(), false);
-}
-
-tguiRenderer* tguiEditBoxSlider_getSliderSharedRenderer(const tguiWidget* widget)
-{
-    return new tguiRenderer(DOWNCAST(widget->This)->getSliderSharedRenderer(), false);
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getEditBoxSharedRenderer(), false);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxSlider_setMinimum(tguiWidget* widget, float minimum)
+tguiRenderer* tguiEditBoxSlider_getSliderRenderer(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setMinimum(minimum);
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getSliderRenderer(), false);
 }
 
-float tguiEditBoxSlider_getMinimum(const tguiWidget* widget)
+tguiRenderer* tguiEditBoxSlider_getSliderSharedRenderer(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getMinimum();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxSlider_setMaximum(tguiWidget* widget, float maximum)
-{
-    DOWNCAST(widget->This)->setMaximum(maximum);
-}
-
-float tguiEditBoxSlider_getMaximum(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getMaximum();
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getSliderSharedRenderer(), false);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxSlider_setValue(tguiWidget* widget, float value)
+void tguiEditBoxSlider_setMinimum(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setValue(value);
+    DOWNCAST(thisWidget->This)->setMinimum(value);
 }
 
-float tguiEditBoxSlider_getValue(const tguiWidget* widget)
+float tguiEditBoxSlider_getMinimum(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxSlider_setStep(tguiWidget* widget, float step)
-{
-    DOWNCAST(widget->This)->setStep(step);
-}
-
-float tguiEditBoxSlider_getStep(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getStep();
+    return DOWNCAST(thisWidget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxSlider_setDecimalPlaces(tguiWidget* widget, unsigned int decimalPlaces)
+void tguiEditBoxSlider_setMaximum(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setDecimalPlaces(decimalPlaces);
+    DOWNCAST(thisWidget->This)->setMaximum(value);
 }
 
-unsigned int tguiEditBoxSlider_getDecimalPlaces(const tguiWidget* widget)
+float tguiEditBoxSlider_getMaximum(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getDecimalPlaces();
+    return DOWNCAST(thisWidget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxSlider_setTextAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment)
+void tguiEditBoxSlider_setValue(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setTextAlignment(static_cast<tgui::EditBox::Alignment>(alignment));
+    DOWNCAST(thisWidget->This)->setValue(value);
 }
 
-tguiHorizontalAlignment tguiEditBoxSlider_getAlignment(const tguiWidget* widget)
+float tguiEditBoxSlider_getValue(const tguiWidget* thisWidget)
 {
-    return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getTextAlignment());
+    return DOWNCAST(thisWidget->This)->getValue();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxSlider_setStep(tguiWidget* thisWidget, float value)
+{
+    DOWNCAST(thisWidget->This)->setStep(value);
+}
+
+float tguiEditBoxSlider_getStep(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getStep();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxSlider_setDecimalPlaces(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setDecimalPlaces(value);
+}
+
+unsigned int tguiEditBoxSlider_getDecimalPlaces(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getDecimalPlaces();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxSlider_setTextAlignment(tguiWidget* thisWidget, tguiHorizontalAlignment value)
+{
+    DOWNCAST(thisWidget->This)->setTextAlignment(static_cast<tgui::HorizontalAlignment>(value));
+}
+
+tguiHorizontalAlignment tguiEditBoxSlider_getTextAlignment(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiHorizontalAlignment>(DOWNCAST(thisWidget->This)->getTextAlignment());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

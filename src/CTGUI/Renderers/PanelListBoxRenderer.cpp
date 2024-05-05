@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/PanelListBoxRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/PanelListBoxRenderer.hpp>
 
@@ -14,57 +14,57 @@ tguiRenderer* tguiPanelListBoxRenderer_create(void)
     return new tguiRenderer(new tgui::PanelListBoxRenderer);
 }
 
-tguiRenderer* tguiPanelListBoxRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiPanelListBoxRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::PanelListBoxRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::PanelListBoxRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelListBoxRenderer_setItemsBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiPanelListBoxRenderer_setItemsBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setItemsBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setItemsBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColor(const tguiRenderer* renderer)
+const tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getItemsBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiPanelListBoxRenderer_setItemsBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setItemsBackgroundColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getItemsBackgroundColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getItemsBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiPanelListBoxRenderer_setItemsBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSelectedItemsBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setItemsBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColor(const tguiRenderer* renderer)
+const tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedItemsBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getItemsBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSelectedItemsBackgroundColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedItemsBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedItemsBackgroundColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedItemsBackgroundColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setSelectedItemsBackgroundColorHover(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColorHover(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedItemsBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/MessageBox.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -39,63 +16,74 @@ tguiWidget* tguiMessageBox_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_setText(tguiWidget* widget, tguiUtf32 text)
+void tguiMessageBox_setText(tguiWidget* thisWidget, tguiUtf32 value)
 {
-    DOWNCAST(widget->This)->setText(ctgui::toCppStr(text));
+    DOWNCAST(thisWidget->This)->setText(ctgui::toCppStr(value));
 }
 
-tguiUtf32 tguiMessageBox_getText(const tguiWidget* widget)
+tguiUtf32 tguiMessageBox_getText(const tguiWidget* thisWidget)
 {
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getText());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMessageBox_addButton(tguiWidget* widget, tguiUtf32 text)
-{
-    DOWNCAST(widget->This)->addButton(ctgui::toCppStr(text));
-}
-
-void tguiMessageBox_removeButtons(tguiWidget* widget)
-{
-    DOWNCAST(widget->This)->changeButtons({});
-}
-
-const tguiUtf32* tguiMessageBox_getButtons(const tguiWidget* widget, size_t* count)
-{
-    static std::vector<tgui::String> cppItems;
-    cppItems = DOWNCAST(widget->This)->getButtons();
-
-    static std::vector<tguiUtf32> cItems;
-    cItems.clear();
-    cItems.reserve(cppItems.size());
-    for (const auto& item : cppItems)
-        cItems.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
-
-    *count = cItems.size();
-    return cItems.data();
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getText());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_setLabelAlignment(tguiWidget* widget, tguiHorizontalAlignment labelAlignment)
+void tguiMessageBox_addButton(tguiWidget* thisWidget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setLabelAlignment(static_cast<tgui::MessageBox::Alignment>(labelAlignment));
-}
-
-tguiHorizontalAlignment tguiMessageBox_getLabelAlignment(const tguiWidget* widget)
-{
-    return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getLabelAlignment());
+    DOWNCAST(thisWidget->This)->addButton(ctgui::toCppStr(text));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBox_setButtonAlignment(tguiWidget* widget, tguiHorizontalAlignment buttonAlignment)
+void tguiMessageBox_changeButtons(tguiWidget* thisWidget, const tguiUtf32* buttonCaptions, size_t buttonCaptionsLength)
 {
-    DOWNCAST(widget->This)->setButtonAlignment(static_cast<tgui::MessageBox::Alignment>(buttonAlignment));
+    std::vector<tgui::String> convertedButtoncaptions;
+    convertedButtoncaptions.reserve(buttonCaptionsLength);
+    for (size_t i = 0; i < buttonCaptionsLength; ++i)
+        convertedButtoncaptions.push_back(ctgui::toCppStr(buttonCaptions[i]));
+
+    DOWNCAST(thisWidget->This)->changeButtons(std::move(convertedButtoncaptions));
 }
 
-tguiHorizontalAlignment tguiMessageBox_getButtonAlignment(const tguiWidget* widget)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const tguiUtf32* tguiMessageBox_getButtons(tguiWidget* thisWidget, size_t* returnCount)
 {
-    return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getButtonAlignment());
+    static std::vector<tgui::String> cppStrings;
+    cppStrings = DOWNCAST(thisWidget->This)->getButtons();
+
+    static std::vector<tguiUtf32> cStrings;
+    cStrings.clear();
+    cStrings.reserve(cppStrings.size());
+    for (const auto& item : cppStrings)
+        cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
+
+*returnCount = cStrings.size();
+return cStrings.data();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMessageBox_setLabelAlignment(tguiWidget* thisWidget, tguiHorizontalAlignment value)
+{
+    DOWNCAST(thisWidget->This)->setLabelAlignment(static_cast<tgui::HorizontalAlignment>(value));
+}
+
+tguiHorizontalAlignment tguiMessageBox_getLabelAlignment(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiHorizontalAlignment>(DOWNCAST(thisWidget->This)->getLabelAlignment());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMessageBox_setButtonAlignment(tguiWidget* thisWidget, tguiHorizontalAlignment value)
+{
+    DOWNCAST(thisWidget->This)->setButtonAlignment(static_cast<tgui::HorizontalAlignment>(value));
+}
+
+tguiHorizontalAlignment tguiMessageBox_getButtonAlignment(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiHorizontalAlignment>(DOWNCAST(thisWidget->This)->getButtonAlignment());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

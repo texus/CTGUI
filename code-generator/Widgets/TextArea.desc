@@ -1,0 +1,36 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer TextAreaRenderer
+
+property string Text
+
+function addText(string text)
+
+property string DefaultText
+
+function setSelectedText(size_t selectionStartIndex, size_t selectionEndIndex)
+function getSelectedText() const -> string
+function getSelectionStart() const -> size_t
+function getSelectionEnd() const -> size_t
+
+property size_t MaximumCharacters
+property string TabString
+
+function setCaretPosition(size_t charactersBeforeCaret)
+function getCaretPosition() const -> size_t
+function getCaretLine() const -> size_t
+function getCaretColumn() const -> size_t
+
+property-bool-is ReadOnly
+
+property ScrollbarPolicy VerticalScrollbarPolicy
+property ScrollbarPolicy HorizontalScrollbarPolicy
+
+property uint VerticalScrollbarValue
+property uint HorizontalScrollbarValue
+
+function enableMonospacedFontOptimization(bool enable)
+
+function getLinesCount() -> size_t
+

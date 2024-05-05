@@ -8,16 +8,16 @@
 CTGUI_API tguiRenderer* tguiPanelListBoxRenderer_create(void);
 CTGUI_API tguiRenderer* tguiPanelListBoxRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiPanelListBoxRenderer_setItemsBackgroundColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiPanelListBoxRenderer_setItemsBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiPanelListBoxRenderer_setItemsBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiPanelListBoxRenderer_setItemsBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiPanelListBoxRenderer_getItemsBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiPanelListBoxRenderer_setSelectedItemsBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiPanelListBoxRenderer_getSelectedItemsBackgroundColorHover(const tguiRenderer* thisRenderer);
 
 #endif // CTGUI_PANELLISTBOXRENDERER_H

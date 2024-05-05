@@ -1,7 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/MenuBarRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/MenuBarRenderer.hpp>
 
@@ -14,165 +15,165 @@ tguiRenderer* tguiMenuBarRenderer_create(void)
     return new tguiRenderer(new tgui::MenuBarRenderer);
 }
 
-tguiRenderer* tguiMenuBarRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiMenuBarRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::MenuBarRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::MenuBarRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* renderer)
+const tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color)
+void tguiMenuBarRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextColorDisabled(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+const tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDisabled());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSeparatorColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSeparatorColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
+void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+    DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiMenuBarRenderer_getTextureBackground(const tguiRenderer* renderer)
+const tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureItemBackground(*texture->This);
-}
-
-tguiTexture* tguiMenuBarRenderer_getTextureItemBackground(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureItemBackground()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* renderer, tguiTexture* texture)
+void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureSelectedItemBackground(*texture->This);
+    DOWNCAST(thisRenderer->This)->setTextColorDisabled(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiMenuBarRenderer_getTextureSelectedItemBackground(const tguiRenderer* renderer)
+const tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureSelectedItemBackground()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* renderer, float value)
-{
-    DOWNCAST(renderer->This)->setDistanceToSide(value);
-}
-
-float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getDistanceToSide();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setSeparatorThickness(tguiRenderer* renderer, float value)
+void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSeparatorThickness(value);
+    DOWNCAST(thisRenderer->This)->setSeparatorColor(ctgui::toCppColor(value));
 }
 
-float tguiMenuBarRenderer_getSeparatorThickness(const tguiRenderer* renderer)
+const tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getSeparatorThickness();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBarRenderer_setSeparatorVerticalPadding(tguiRenderer* renderer, float value)
-{
-    DOWNCAST(renderer->This)->setSeparatorVerticalPadding(value);
-}
-
-float tguiMenuBarRenderer_getSeparatorVerticalPadding(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getSeparatorVerticalPadding();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSeparatorColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setSeparatorSidePadding(tguiRenderer* renderer, float value)
+void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
 {
-    DOWNCAST(renderer->This)->setSeparatorSidePadding(value);
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
 }
 
-float tguiMenuBarRenderer_getSeparatorSidePadding(const tguiRenderer* renderer)
+const tguiTexture* tguiMenuBarRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getSeparatorSidePadding();
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBarRenderer_setTextureItemBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureItemBackground(*value->This);
+}
+
+const tguiTexture* tguiMenuBarRenderer_getTextureItemBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureItemBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBarRenderer_setTextureSelectedItemBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureSelectedItemBackground(*value->This);
+}
+
+const tguiTexture* tguiMenuBarRenderer_getTextureSelectedItemBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureSelectedItemBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBarRenderer_setDistanceToSide(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setDistanceToSide(value);
+}
+
+float tguiMenuBarRenderer_getDistanceToSide(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getDistanceToSide();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBarRenderer_setSeparatorThickness(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setSeparatorThickness(value);
+}
+
+float tguiMenuBarRenderer_getSeparatorThickness(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getSeparatorThickness();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBarRenderer_setSeparatorVerticalPadding(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setSeparatorVerticalPadding(value);
+}
+
+float tguiMenuBarRenderer_getSeparatorVerticalPadding(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getSeparatorVerticalPadding();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBarRenderer_setSeparatorSidePadding(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setSeparatorSidePadding(value);
+}
+
+float tguiMenuBarRenderer_getSeparatorSidePadding(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getSeparatorSidePadding();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

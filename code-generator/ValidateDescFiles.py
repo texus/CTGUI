@@ -26,6 +26,9 @@ for filename in os.listdir('Renderers'):
         cppPropertyTypes = {}
         cppInherits = None
         for line in open(cppFile, 'r').readlines():
+            if line.strip().startswith('//'):
+                continue
+
             match = re.search(' : public ([a-zA-Z]+)', line)
             if match:
                 cppInherits = match.group(1)

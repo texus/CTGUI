@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ColorPickerRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 
 #include <TGUI/Renderers/ColorPickerRenderer.hpp>
@@ -15,45 +15,45 @@ tguiRenderer* tguiColorPickerRenderer_create(void)
     return new tguiRenderer(new tgui::ColorPickerRenderer);
 }
 
-tguiRenderer* tguiColorPickerRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiColorPickerRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::ColorPickerRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::ColorPickerRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPickerRenderer_setButton(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiColorPickerRenderer_setButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setButton(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setButton(value->This);
 }
 
-tguiRendererData* tguiColorPickerRenderer_getButton(const tguiRenderer* renderer)
+const tguiRendererData* tguiColorPickerRenderer_getButton(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getButton());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiColorPickerRenderer_setLabel(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setLabel(rendererData->This);
-}
-
-tguiRendererData* tguiColorPickerRenderer_getLabel(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getLabel());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getButton());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPickerRenderer_setSlider(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiColorPickerRenderer_setLabel(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setSlider(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setLabel(value->This);
 }
 
-tguiRendererData* tguiColorPickerRenderer_getSlider(const tguiRenderer* renderer)
+const tguiRendererData* tguiColorPickerRenderer_getLabel(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getSlider());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getLabel());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiColorPickerRenderer_setSlider(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setSlider(value->This);
+}
+
+const tguiRendererData* tguiColorPickerRenderer_getSlider(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getSlider());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,16 @@
+inherits ClickableWidget
+
+enum FillDirection { LeftToRight, RightToLeft, TopToBottom, BottomToTop }
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ProgressBarRenderer
+
+property uint Minimum
+property uint Maximum
+property uint Value
+
+function incrementValue() -> uint
+
+property string Text
+property FillDirection FillDirection
+

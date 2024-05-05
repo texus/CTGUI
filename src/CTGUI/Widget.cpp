@@ -27,7 +27,7 @@
 #include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/LayoutStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Container.hpp>
 #include <TGUI/Widgets/ChildWindow.hpp>

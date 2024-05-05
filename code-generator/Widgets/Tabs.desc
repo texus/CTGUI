@@ -1,0 +1,34 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer TabsRenderer
+
+property bool AutoSize
+
+function add(string text, bool select) -> size_t
+function insert(size_t index, string text, bool select)
+function getText(size_t index) -> string
+function changeText(size_t index, string text) -> bool
+
+function deselect()
+function removeAll()
+
+function getSelected() -> string
+function getSelectedIndex() -> int
+
+function getTabsCount() -> size_t
+
+function setTabVisible(size_t index, bool visible)
+function getTabVisible(size_t index) -> bool
+
+function setTabEnabled(size_t index, bool visible)
+function getTabEnabled(size_t index) -> bool
+
+property float MaximumTabWidth
+property float MinimumTabWidth
+
+function selectByText select(string text) -> bool
+function selectByIndex select(size_t index) -> bool
+
+function removeByText remove(string text) -> bool
+function removeByIndex remove(size_t index) -> bool

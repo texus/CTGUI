@@ -1,9 +1,10 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ComboBoxRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/ComboBoxRenderer.hpp>
 
@@ -16,273 +17,273 @@ tguiRenderer* tguiComboBoxRenderer_create(void)
     return new tguiRenderer(new tgui::ComboBoxRenderer);
 }
 
-tguiRenderer* tguiComboBoxRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiComboBoxRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::ComboBoxRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::ComboBoxRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiComboBoxRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiComboBoxRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiComboBoxRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
-{
-    DOWNCAST(renderer->This)->setPadding(outline->This);
-}
-
-tguiOutline* tguiComboBoxRenderer_getPadding(const tguiRenderer* renderer)
-{
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiComboBoxRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-tguiColor* tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
+const tguiOutline* tguiComboBoxRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiComboBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiComboBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiComboBoxRenderer_getTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTextColorDisabled(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiComboBoxRenderer_getTextColorDisabled(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiComboBoxRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setDefaultTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiComboBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getDefaultTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setArrowBackgroundColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiComboBoxRenderer_getArrowBackgroundColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiComboBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setArrowBackgroundColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiComboBoxRenderer_getArrowBackgroundColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowBackgroundColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setArrowBackgroundColorDisabled(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setArrowBackgroundColorDisabled(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiComboBoxRenderer_getArrowBackgroundColorDisabled(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowBackgroundColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setArrowColor(tguiRenderer* renderer, tguiColor* color)
+void tguiComboBoxRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setArrowColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColorDisabled(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiComboBoxRenderer_getArrowColor(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setArrowColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setArrowColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiComboBoxRenderer_getArrowColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setArrowColorDisabled(tguiRenderer* renderer, tguiColor* color)
+void tguiComboBoxRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setArrowColorDisabled(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setDefaultTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiComboBoxRenderer_getArrowColorDisabled(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColorDisabled());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiComboBoxRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getDefaultTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
+void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+    DOWNCAST(thisRenderer->This)->setArrowBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiComboBoxRenderer_getTextureBackground(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getArrowBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setTextureBackgroundDisabled(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureBackgroundDisabled(*texture->This);
-}
-
-tguiTexture* tguiComboBoxRenderer_getTextureBackgroundDisabled(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackgroundDisabled()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setTextureArrow(tguiRenderer* renderer, tguiTexture* texture)
+void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureArrow(*texture->This);
+    DOWNCAST(thisRenderer->This)->setArrowBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiComboBoxRenderer_getTextureArrow(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getArrowBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrow()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setTextureArrowHover(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureArrowHover(*texture->This);
-}
-
-tguiTexture* tguiComboBoxRenderer_getTextureArrowHover(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowHover()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setTextureArrowDisabled(tguiRenderer* renderer, tguiTexture* texture)
+void tguiComboBoxRenderer_setArrowBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureArrowDisabled(*texture->This);
+    DOWNCAST(thisRenderer->This)->setArrowBackgroundColorDisabled(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiComboBoxRenderer_getTextureArrowDisabled(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getArrowBackgroundColorDisabled(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowDisabled()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiComboBoxRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 style)
-{
-    DOWNCAST(renderer->This)->setTextStyle(style);
-}
-
-tguiUint32 tguiComboBoxRenderer_getTextStyle(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getTextStyle();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setDefaultTextStyle(tguiRenderer* renderer, tguiUint32 style)
+void tguiComboBoxRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setDefaultTextStyle(style);
+    DOWNCAST(thisRenderer->This)->setArrowColor(ctgui::toCppColor(value));
 }
 
-tguiUint32 tguiComboBoxRenderer_getDefaultTextStyle(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getArrowColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getDefaultTextStyle();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setListBox(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiComboBoxRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setListBox(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setArrowColorHover(ctgui::toCppColor(value));
 }
 
-tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* renderer)
+const tguiColor* tguiComboBoxRenderer_getArrowColorHover(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getListBox());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setArrowColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setArrowColorDisabled(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiComboBoxRenderer_getArrowColorDisabled(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColorDisabled());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiComboBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
+}
+
+const tguiTexture* tguiComboBoxRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setTextureBackgroundDisabled(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackgroundDisabled(*value->This);
+}
+
+const tguiTexture* tguiComboBoxRenderer_getTextureBackgroundDisabled(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackgroundDisabled()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setTextureArrow(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrow(*value->This);
+}
+
+const tguiTexture* tguiComboBoxRenderer_getTextureArrow(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrow()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setTextureArrowHover(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrowHover(*value->This);
+}
+
+const tguiTexture* tguiComboBoxRenderer_getTextureArrowHover(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrowHover()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setTextureArrowDisabled(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrowDisabled(*value->This);
+}
+
+const tguiTexture* tguiComboBoxRenderer_getTextureArrowDisabled(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrowDisabled()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setTextStyle(tguiRenderer* thisRenderer, tguiUint32 value)
+{
+    DOWNCAST(thisRenderer->This)->setTextStyle(value);
+}
+
+tguiUint32 tguiComboBoxRenderer_getTextStyle(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setDefaultTextStyle(tguiRenderer* thisRenderer, tguiUint32 value)
+{
+    DOWNCAST(thisRenderer->This)->setDefaultTextStyle(value);
+}
+
+tguiUint32 tguiComboBoxRenderer_getDefaultTextStyle(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getDefaultTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setListBox(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setListBox(value->This);
+}
+
+const tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getListBox());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

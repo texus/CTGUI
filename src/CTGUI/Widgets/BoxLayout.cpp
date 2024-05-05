@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/BoxLayout.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -32,25 +9,27 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiBoxLayout_insert(tguiWidget* layout, size_t index, tguiWidget* widget, tguiUtf32 widgetName)
+void tguiBoxLayout_insert(tguiWidget* thisWidget, size_t index, tguiWidget* widgetToAdd, tguiUtf32 widgetName)
 {
-    DOWNCAST(layout->This)->insert(index, widget->This, ctgui::toCppStr(widgetName));
+    DOWNCAST(thisWidget->This)->insert(index, widgetToAdd->This, ctgui::toCppStr(widgetName));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiBoxLayout_removeAtIndex(tguiWidget* layout, size_t index)
+tguiBool tguiBoxLayout_removeAtIndex(tguiWidget* thisWidget, size_t index)
 {
-    return DOWNCAST(layout->This)->remove(index);
+    return DOWNCAST(thisWidget->This)->remove(index);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiBoxLayout_getAtIndex(tguiWidget* layout, size_t index)
+tguiWidget* tguiBoxLayout_getAtIndex(const tguiWidget* thisWidget, size_t index)
 {
-    tgui::Widget::Ptr widget = DOWNCAST(layout->This)->get(index);
-    if (widget)
-        return new tguiWidget(widget);
+    tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisWidget->This)->get(index);
+    if (widgetToReturn)
+        return new tguiWidget(widgetToReturn);
     else
         return nullptr;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

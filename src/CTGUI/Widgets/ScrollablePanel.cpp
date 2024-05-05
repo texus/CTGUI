@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/ScrollablePanel.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -30,6 +7,8 @@
 
 #define DOWNCAST(x) std::static_pointer_cast<tgui::ScrollablePanel>(x)
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiWidget* tguiScrollablePanel_create(void)
 {
     return ctgui::addWidgetRef(tgui::ScrollablePanel::create());
@@ -37,112 +16,116 @@ tguiWidget* tguiScrollablePanel_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanel_setContentSize(tguiWidget* widget, tguiVector2f contentSize)
+void tguiScrollablePanel_setContentSize(tguiWidget* thisWidget, tguiVector2f value)
 {
-    DOWNCAST(widget->This)->setContentSize({contentSize.x, contentSize.y});
+    DOWNCAST(thisWidget->This)->setContentSize({value.x, value.y});
 }
 
-tguiVector2f tguiScrollablePanel_getContentSize(const tguiWidget* widget)
+tguiVector2f tguiScrollablePanel_getContentSize(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f contentSize = DOWNCAST(widget->This)->getContentSize();
-    return {contentSize.x, contentSize.y};
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getScrollbarWidth();
+    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getContentSize();
+    return {value.x, value.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanel_setVerticalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+float tguiScrollablePanel_getScrollbarWidth(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
-}
-
-tguiScrollbarPolicy tguiScrollablePanel_getVerticalScrollbarPolicy(const tguiWidget* widget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getVerticalScrollbarPolicy());
+    return DOWNCAST(thisWidget->This)->getScrollbarWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanel_setHorizontalScrollbarPolicy(tguiWidget* widget, tguiScrollbarPolicy policy)
+void tguiScrollablePanel_setVerticalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
 {
-    DOWNCAST(widget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(policy));
+    DOWNCAST(thisWidget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
 }
 
-tguiScrollbarPolicy tguiScrollablePanel_getHorizontalScrollbarPolicy(const tguiWidget* widget)
+tguiScrollbarPolicy tguiScrollablePanel_getVerticalScrollbarPolicy(const tguiWidget* thisWidget)
 {
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(widget->This)->getHorizontalScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiScrollablePanel_setVerticalScrollAmount(tguiWidget* widget, unsigned int scrollAmount)
-{
-    DOWNCAST(widget->This)->setVerticalScrollAmount(scrollAmount);
-}
-
-unsigned int tguiScrollablePanel_getVerticalScrollAmount(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getVerticalScrollAmount();
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getVerticalScrollbarPolicy());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanel_setHorizontalScrollAmount(tguiWidget* widget, unsigned int scrollAmount)
+void tguiScrollablePanel_setHorizontalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
 {
-    DOWNCAST(widget->This)->setHorizontalScrollAmount(scrollAmount);
+    DOWNCAST(thisWidget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
 }
 
-unsigned int tguiScrollablePanel_getHorizontalScrollAmount(const tguiWidget* widget)
+tguiScrollbarPolicy tguiScrollablePanel_getHorizontalScrollbarPolicy(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getHorizontalScrollAmount();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiScrollablePanel_setVerticalScrollbarValue(tguiWidget* widget, unsigned int value)
-{
-    DOWNCAST(widget->This)->setVerticalScrollbarValue(value);
-}
-
-unsigned int tguiScrollablePanel_getVerticalScrollbarValue(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getVerticalScrollbarValue();
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getHorizontalScrollbarPolicy());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanel_setHorizontalScrollbarValue(tguiWidget* widget, unsigned int value)
+void tguiScrollablePanel_setVerticalScrollAmount(tguiWidget* thisWidget, unsigned int value)
 {
-    DOWNCAST(widget->This)->setHorizontalScrollbarValue(value);
+    DOWNCAST(thisWidget->This)->setVerticalScrollAmount(value);
 }
 
-unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* widget)
+unsigned int tguiScrollablePanel_getVerticalScrollAmount(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getHorizontalScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiScrollablePanel_isVerticalScrollbarShown(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->isVerticalScrollbarShown();
-}
-
-tguiBool tguiScrollablePanel_isHorizontalScrollbarShown(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->isHorizontalScrollbarShown();
+    return DOWNCAST(thisWidget->This)->getVerticalScrollAmount();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* widget)
+void tguiScrollablePanel_setHorizontalScrollAmount(tguiWidget* thisWidget, unsigned int value)
 {
-    const tgui::Vector2f contentOffset = DOWNCAST(widget->This)->getContentOffset();
-    return {contentOffset.x, contentOffset.y};
+    DOWNCAST(thisWidget->This)->setHorizontalScrollAmount(value);
 }
+
+unsigned int tguiScrollablePanel_getHorizontalScrollAmount(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollAmount();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setVerticalScrollbarValue(value);
+}
+
+unsigned int tguiScrollablePanel_getVerticalScrollbarValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiScrollablePanel_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setHorizontalScrollbarValue(value);
+}
+
+unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiScrollablePanel_isVerticalScrollbarShown(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->isVerticalScrollbarShown();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiScrollablePanel_isHorizontalScrollbarShown(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->isHorizontalScrollbarShown();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* thisWidget)
+{
+    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getContentOffset();
+    return {value.x, value.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

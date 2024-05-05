@@ -1,9 +1,10 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/LabelRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/LabelRenderer.hpp>
 
@@ -16,141 +17,141 @@ tguiRenderer* tguiLabelRenderer_create(void)
     return new tguiRenderer(new tgui::LabelRenderer);
 }
 
-tguiRenderer* tguiLabelRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiLabelRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::LabelRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::LabelRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiLabelRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiLabelRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiLabelRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabelRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
-{
-    DOWNCAST(renderer->This)->setPadding(outline->This);
-}
-
-tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* renderer)
-{
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiLabelRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-tguiColor* tguiLabelRenderer_getTextColor(const tguiRenderer* renderer)
+const tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTextOutlineColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextOutlineColor());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextOutlineThickness(tguiRenderer* renderer, float value)
+void tguiLabelRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextOutlineThickness(value);
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-float tguiLabelRenderer_getTextOutlineThickness(const tguiRenderer* renderer)
+const tguiColor* tguiLabelRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getTextOutlineThickness();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabelRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiLabelRenderer_getBackgroundColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextOutlineColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiLabelRenderer_getBorderColor(const tguiRenderer* renderer)
+const tguiColor* tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabelRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 style)
-{
-    DOWNCAST(renderer->This)->setTextStyle(style);
-}
-
-tguiUint32 tguiLabelRenderer_getTextStyle(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getTextStyle();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextOutlineColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiLabelRenderer_setTextOutlineThickness(tguiRenderer* thisRenderer, float value)
 {
-    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setTextOutlineThickness(value);
 }
 
-tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* renderer)
+float tguiLabelRenderer_getTextOutlineThickness(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabelRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
-{
-    DOWNCAST(renderer->This)->setScrollbarWidth(value);
-}
-
-float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getScrollbarWidth();
+    return DOWNCAST(thisRenderer->This)->getTextOutlineThickness();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
+void tguiLabelRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiLabelRenderer_getTextureBackground(const tguiRenderer* renderer)
+const tguiColor* tguiLabelRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiLabelRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setTextStyle(tguiRenderer* thisRenderer, tguiUint32 value)
+{
+    DOWNCAST(thisRenderer->This)->setTextStyle(value);
+}
+
+tguiUint32 tguiLabelRenderer_getTextStyle(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
+}
+
+const tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbarWidth(value);
+}
+
+float tguiLabelRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getScrollbarWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiLabelRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
+}
+
+const tguiTexture* tguiLabelRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

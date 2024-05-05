@@ -1,0 +1,11 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer KnobRenderer
+
+property float StartRotation
+property float EndRotation
+property float Minimum
+property float Maximum
+property float Value
+property bool ClockwiseTurning

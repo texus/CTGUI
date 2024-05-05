@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/MenuBar.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -39,134 +16,189 @@ tguiWidget* tguiMenuBar_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBar_addMenu(tguiWidget* widget, tguiUtf32 text)
+void tguiMenuBar_addMenu(tguiWidget* thisWidget, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->addMenu(ctgui::toCppStr(text));
-}
-
-tguiBool tguiMenuBar_addMenuItem(tguiWidget* widget, tguiUtf32 menu, tguiUtf32 text)
-{
-    return DOWNCAST(widget->This)->addMenuItem(ctgui::toCppStr(menu), ctgui::toCppStr(text));
-}
-
-tguiBool tguiMenuBar_addMenuItemToLastMenu(tguiWidget* widget, tguiUtf32 text)
-{
-    return DOWNCAST(widget->This)->addMenuItem(ctgui::toCppStr(text));
-}
-
-tguiBool tguiMenuBar_addMenuItemHierarchy(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiBool createParents)
-{
-    std::vector<tgui::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
-
-    return DOWNCAST(widget->This)->addMenuItem(std::move(convertedHierarchy), createParents != 0);
+    DOWNCAST(thisWidget->This)->addMenu(ctgui::toCppStr(text));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiMenuBar_changeMenuItem(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiUtf32 text)
+tguiBool tguiMenuBar_addMenuItem(tguiWidget* thisWidget, tguiUtf32 menu, tguiUtf32 text)
 {
-    std::vector<tgui::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
-
-    return DOWNCAST(widget->This)->changeMenuItem(std::move(convertedHierarchy), ctgui::toCppStr(text));
+    return DOWNCAST(thisWidget->This)->addMenuItem(ctgui::toCppStr(menu), ctgui::toCppStr(text));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiMenuBar_removeMenu(tguiWidget* widget, tguiUtf32 menu)
+tguiBool tguiMenuBar_addMenuItemToLastMenu(tguiWidget* thisWidget, tguiUtf32 text)
 {
-    return DOWNCAST(widget->This)->removeMenu(ctgui::toCppStr(menu));
-}
-
-tguiBool tguiMenuBar_removeMenuItem(tguiWidget* widget, tguiUtf32 menu, tguiUtf32 menuItem)
-{
-    return DOWNCAST(widget->This)->removeMenuItem(ctgui::toCppStr(menu), ctgui::toCppStr(menuItem));
-}
-
-tguiBool tguiMenuBar_removeMenuItemHierarchy(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiBool removeParentsWhenEmpty)
-{
-    std::vector<tgui::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
-
-    return DOWNCAST(widget->This)->addMenuItem(convertedHierarchy, removeParentsWhenEmpty != 0);
-}
-
-void tguiMenuBar_removeAllMenus(tguiWidget* widget)
-{
-    DOWNCAST(widget->This)->removeAllMenus();
+    return DOWNCAST(thisWidget->This)->addMenuItem(ctgui::toCppStr(text));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiMenuBar_setMenuEnabled(tguiWidget* widget, tguiUtf32 menu, tguiBool enabled)
-{
-    return DOWNCAST(widget->This)->setMenuEnabled(ctgui::toCppStr(menu), enabled != 0);
-}
-
-tguiBool tguiMenuBar_getMenuEnabled(tguiWidget* widget, tguiUtf32 menu)
-{
-    return DOWNCAST(widget->This)->getMenuEnabled(ctgui::toCppStr(menu));
-}
-
-tguiBool tguiMenuBar_setMenuItemEnabled(tguiWidget* widget, tguiUtf32 menu, tguiUtf32 menuItem, tguiBool enabled)
-{
-    return DOWNCAST(widget->This)->setMenuItemEnabled(ctgui::toCppStr(menu), ctgui::toCppStr(menuItem), enabled != 0);
-}
-
-tguiBool tguiMenuBar_getMenuItemEnabled(tguiWidget* widget, tguiUtf32 menu, tguiUtf32 menuItem)
-{
-    return DOWNCAST(widget->This)->getMenuItemEnabled(ctgui::toCppStr(menu), ctgui::toCppStr(menuItem));
-}
-
-tguiBool tguiMenuBar_setMenuItemEnabledHierarchy(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength, tguiBool enabled)
+tguiBool tguiMenuBar_addMenuItemHierarchy(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool createParents)
 {
     std::vector<tgui::String> convertedHierarchy;
     convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
+    for (size_t i = 0; i < hierarchyLength; ++i)
         convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
 
-    return DOWNCAST(widget->This)->setMenuItemEnabled(convertedHierarchy, enabled != 0);
-}
-
-tguiBool tguiMenuBar_getMenuItemEnabledHierarchy(tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength)
-{
-    std::vector<tgui::String> convertedHierarchy;
-    convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
-        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
-
-    return DOWNCAST(widget->This)->getMenuItemEnabled(convertedHierarchy);
+    return DOWNCAST(thisWidget->This)->addMenuItem(std::move(convertedHierarchy), createParents != 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* widget, float minimumWidth)
+tguiBool tguiMenuBar_changeMenuItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiUtf32 text)
 {
-    DOWNCAST(widget->This)->setMinimumSubMenuWidth(minimumWidth);
-}
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (size_t i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
 
-float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getMinimumSubMenuWidth();
+    return DOWNCAST(thisWidget->This)->changeMenuItem(std::move(convertedHierarchy), ctgui::toCppStr(text));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBar_setInvertedMenuDirection(tguiWidget* widget, tguiBool invertDirection)
+tguiBool tguiMenuBar_removeMenu(tguiWidget* thisWidget, tguiUtf32 menu)
 {
-    DOWNCAST(widget->This)->setInvertedMenuDirection(invertDirection != 0);
+    return DOWNCAST(thisWidget->This)->removeMenu(ctgui::toCppStr(menu));
 }
 
-tguiBool tguiMenuBar_getInvertedMenuDirection(const tguiWidget* widget)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_removeMenuItem(tguiWidget* thisWidget, tguiUtf32 menu, tguiUtf32 menuItem)
 {
-    return DOWNCAST(widget->This)->getInvertedMenuDirection();
+    return DOWNCAST(thisWidget->This)->removeMenuItem(ctgui::toCppStr(menu), ctgui::toCppStr(menuItem));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_removeMenuItemHierarchy(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool removeParentsWhenEmpty)
+{
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (size_t i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
+
+    return DOWNCAST(thisWidget->This)->removeMenuItem(std::move(convertedHierarchy), removeParentsWhenEmpty != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_removeAllMenus(tguiWidget* thisWidget)
+{
+    DOWNCAST(thisWidget->This)->removeAllMenus();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_setMenuEnabled(tguiWidget* thisWidget, tguiUtf32 text, tguiBool enabled)
+{
+    return DOWNCAST(thisWidget->This)->setMenuEnabled(ctgui::toCppStr(text), enabled != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_getMenuEnabled(const tguiWidget* thisWidget, tguiUtf32 text)
+{
+    return DOWNCAST(thisWidget->This)->getMenuEnabled(ctgui::toCppStr(text));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_setMenuItemEnabled(tguiWidget* thisWidget, tguiUtf32 menu, tguiUtf32 text, tguiBool enabled)
+{
+    return DOWNCAST(thisWidget->This)->setMenuItemEnabled(ctgui::toCppStr(menu), ctgui::toCppStr(text), enabled != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_getMenuItemEnabled(const tguiWidget* thisWidget, tguiUtf32 menu, tguiUtf32 text)
+{
+    return DOWNCAST(thisWidget->This)->getMenuItemEnabled(ctgui::toCppStr(menu), ctgui::toCppStr(text));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_setMenuItemEnabledHierarchy(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool enabled)
+{
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (size_t i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
+
+    return DOWNCAST(thisWidget->This)->setMenuItemEnabled(std::move(convertedHierarchy), enabled != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiMenuBar_getMenuItemEnabledHierarchy(const tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength)
+{
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (size_t i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
+
+    return DOWNCAST(thisWidget->This)->getMenuItemEnabled(std::move(convertedHierarchy));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_closeMenu(tguiWidget* thisWidget)
+{
+    DOWNCAST(thisWidget->This)->closeMenu();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_setMinimumSubMenuWidth(tguiWidget* thisWidget, float value)
+{
+    DOWNCAST(thisWidget->This)->setMinimumSubMenuWidth(value);
+}
+
+float tguiMenuBar_getMinimumSubMenuWidth(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getMinimumSubMenuWidth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiMenuBar_setInvertedMenuDirection(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setInvertedMenuDirection(value != 0);
+}
+
+tguiBool tguiMenuBar_getInvertedMenuDirection(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getInvertedMenuDirection();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+static void freeMenuItem(tguiMenuBarElement& menu)
+{
+    if (menu.menuItemsCount == 0)
+        return;
+
+    for (size_t i = 0; i < menu.menuItemsCount; ++i)
+        freeMenuItem(menu.menuItems[i]);
+
+    delete[] menu.menuItems;
+}
+
+void tguiMenuBarMenuList_free(tguiMenuBarMenuList* menuList)
+{
+    if (menuList->menusCount > 0)
+    {
+        for (size_t i = 0; i < menuList->menusCount; ++i)
+            freeMenuItem(menuList->menus[i]);
+
+        delete[] menuList->menus;
+    }
+
+    delete menuList;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,37 +236,4 @@ tguiMenuBarMenuList* tguiMenuBar_getMenus(tguiWidget* widget)
     }
 
     return menuList;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiMenuBar_closeMenu(tguiWidget* widget)
-{
-    DOWNCAST(widget->This)->closeMenu();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-static void freeMenuItem(tguiMenuBarElement& menu)
-{
-    if (menu.menuItemsCount == 0)
-        return;
-
-    for (size_t i = 0; i < menu.menuItemsCount; ++i)
-        freeMenuItem(menu.menuItems[i]);
-
-    delete[] menu.menuItems;
-}
-
-void tguiMenuBarMenuList_free(tguiMenuBarMenuList* menuList)
-{
-    if (menuList->menusCount > 0)
-    {
-        for (size_t i = 0; i < menuList->menusCount; ++i)
-            freeMenuItem(menuList->menus[i]);
-
-        delete[] menuList->menus;
-    }
-
-    delete menuList;
 }

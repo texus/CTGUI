@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ScrollablePanelRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 
 #include <TGUI/Renderers/ScrollablePanelRenderer.hpp>
@@ -15,33 +15,33 @@ tguiRenderer* tguiScrollablePanelRenderer_create(void)
     return new tguiRenderer(new tgui::ScrollablePanelRenderer);
 }
 
-tguiRenderer* tguiScrollablePanelRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiScrollablePanelRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::ScrollablePanelRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::ScrollablePanelRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* renderer)
+const tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanelRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
+void tguiScrollablePanelRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value)
 {
-    DOWNCAST(renderer->This)->setScrollbarWidth(value);
+    DOWNCAST(thisRenderer->This)->setScrollbarWidth(value);
 }
 
-float tguiScrollablePanelRenderer_getScrollbarWidth(const tguiRenderer* renderer)
+float tguiScrollablePanelRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getScrollbarWidth();
+    return DOWNCAST(thisRenderer->This)->getScrollbarWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,9 +1,10 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/TreeViewRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/TreeViewRenderer.hpp>
 
@@ -16,213 +17,213 @@ tguiRenderer* tguiTreeViewRenderer_create(void)
     return new tguiRenderer(new tgui::TreeViewRenderer);
 }
 
-tguiRenderer* tguiTreeViewRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiTreeViewRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::TreeViewRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::TreeViewRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiTreeViewRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiTreeViewRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiTreeViewRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
-{
-    DOWNCAST(renderer->This)->setPadding(outline->This);
-}
-
-tguiOutline* tguiTreeViewRenderer_getPadding(const tguiRenderer* renderer)
-{
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTreeViewRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-tguiColor* tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* renderer)
+const tguiOutline* tguiTreeViewRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedBackgroundColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedBackgroundColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTreeViewRenderer_getTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTextColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedTextColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiTreeViewRenderer_getBorderColor(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
-}
-
-tguiTexture* tguiTreeViewRenderer_getTextureBackground(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setTextureBranchExpanded(tguiRenderer* renderer, tguiTexture* texture)
+void tguiTreeViewRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureBranchExpanded(*texture->This);
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiTreeViewRenderer_getTextureBranchExpanded(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBranchExpanded()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setTextureBranchCollapsed(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureBranchCollapsed(*texture->This);
-}
-
-tguiTexture* tguiTreeViewRenderer_getTextureBranchCollapsed(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBranchCollapsed()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setTextureLeaf(tguiRenderer* renderer, tguiTexture* texture)
+void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureLeaf(*texture->This);
+    DOWNCAST(thisRenderer->This)->setTextColorHover(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiTreeViewRenderer_getTextureLeaf(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureLeaf()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeViewRenderer_setScrollbar(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setScrollbar(rendererData->This);
-}
-
-tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getScrollbar());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setScrollbarWidth(tguiRenderer* renderer, float value)
+void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setScrollbarWidth(value);
+    DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-float tguiTreeViewRenderer_getScrollbarWidth(const tguiRenderer* renderer)
+const tguiColor* tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getScrollbarWidth();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setSelectedTextColorHover(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiTreeViewRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
+}
+
+const tguiTexture* tguiTreeViewRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setTextureBranchExpanded(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBranchExpanded(*value->This);
+}
+
+const tguiTexture* tguiTreeViewRenderer_getTextureBranchExpanded(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBranchExpanded()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setTextureBranchCollapsed(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBranchCollapsed(*value->This);
+}
+
+const tguiTexture* tguiTreeViewRenderer_getTextureBranchCollapsed(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBranchCollapsed()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setTextureLeaf(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureLeaf(*value->This);
+}
+
+const tguiTexture* tguiTreeViewRenderer_getTextureLeaf(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureLeaf()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
+}
+
+const tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTreeViewRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setScrollbarWidth(value);
+}
+
+float tguiTreeViewRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getScrollbarWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

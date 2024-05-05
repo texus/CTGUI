@@ -8,25 +8,25 @@
 CTGUI_API tguiRenderer* tguiKnobRenderer_create(void);
 CTGUI_API tguiRenderer* tguiKnobRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiKnobRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline);
-CTGUI_API tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value);
+CTGUI_API const tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiKnobRenderer_getBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiKnobRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setThumbColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiKnobRenderer_getThumbColor(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiKnobRenderer_getThumbColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiKnobRenderer_getBorderColor(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiKnobRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiKnobRenderer_getTextureBackground(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiKnobRenderer_getTextureBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setTextureForeground(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiKnobRenderer_getTextureForeground(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setTextureForeground(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiKnobRenderer_getTextureForeground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setImageRotation(tguiRenderer* renderer, float value);
-CTGUI_API float tguiKnobRenderer_getImageRotation(const tguiRenderer* renderer);
+CTGUI_API void tguiKnobRenderer_setImageRotation(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiKnobRenderer_getImageRotation(const tguiRenderer* thisRenderer);
 
 #endif // CTGUI_KNOBRENDERER_H

@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/BoxLayoutRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/BoxLayoutRenderer.hpp>
 
@@ -14,21 +14,21 @@ tguiRenderer* tguiBoxLayoutRenderer_create(void)
     return new tguiRenderer(new tgui::BoxLayoutRenderer);
 }
 
-tguiRenderer* tguiBoxLayoutRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiBoxLayoutRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::BoxLayoutRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::BoxLayoutRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiBoxLayoutRenderer_setSpaceBetweenWidgets(tguiRenderer* renderer, float value)
+void tguiBoxLayoutRenderer_setSpaceBetweenWidgets(tguiRenderer* thisRenderer, float value)
 {
-    DOWNCAST(renderer->This)->setSpaceBetweenWidgets(value);
+    DOWNCAST(thisRenderer->This)->setSpaceBetweenWidgets(value);
 }
 
-float tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* renderer)
+float tguiBoxLayoutRenderer_getSpaceBetweenWidgets(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getSpaceBetweenWidgets();
+    return DOWNCAST(thisRenderer->This)->getSpaceBetweenWidgets();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

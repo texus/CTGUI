@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/GroupRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 
 #include <TGUI/Renderers/GroupRenderer.hpp>
@@ -15,21 +15,21 @@ tguiRenderer* tguiGroupRenderer_create(void)
     return new tguiRenderer(new tgui::GroupRenderer);
 }
 
-tguiRenderer* tguiGroupRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiGroupRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::GroupRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::GroupRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGroupRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
+void tguiGroupRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setPadding(outline->This);
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-tguiOutline* tguiGroupRenderer_getPadding(const tguiRenderer* renderer)
+const tguiOutline* tguiGroupRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

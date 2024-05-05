@@ -1,0 +1,26 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer TreeViewRenderer
+
+property uint ItemHeight
+property uint VerticalScrollbarValue
+property uint HorizontalScrollbarValue
+
+function addItem(List<string> hierarchy, bool createParents) -> bool
+function changeItem(List<string> hierarchy, string leafText) -> bool
+
+function expand(List<string> hierarchy)
+function collapse(List<string> hierarchy)
+
+function expandAll()
+function collapseAll()
+
+function deselectItem()
+function removeAllItems()
+
+function getSelectedItem() const -> List<string>
+
+function selectItem(List<string> hierarchy) -> bool
+function removeItem(List<string> hierarchy, bool removeParentsWhenEmpty) -> bool
+

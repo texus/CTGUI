@@ -168,6 +168,7 @@ jobs:
 
       - name: Lookup TGUI version for cache
         id: find-dependencies
+        shell: bash
         run: |
           echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
 
@@ -233,6 +234,7 @@ jobs:
 
       - name: Lookup TGUI version for cache
         id: find-dependencies
+        shell: bash
         run: |
           echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
 

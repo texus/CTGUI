@@ -1,31 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/SpinControl.h>
 #include <CTGUI/WidgetStruct.hpp>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Widgets/SpinControl.hpp>
 
@@ -40,94 +17,98 @@ tguiWidget* tguiSpinControl_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiRenderer* tguiSpinControl_getSpinButtonRenderer(const tguiWidget* widget)
+tguiRenderer* tguiSpinControl_getSpinButtonRenderer(const tguiWidget* thisWidget)
 {
-    return new tguiRenderer(DOWNCAST(widget->This)->getSpinButtonRenderer(), false);
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getSpinButtonRenderer(), false);
 }
 
-tguiRenderer* tguiSpinControl_getSpinButtonSharedRenderer(const tguiWidget* widget)
+tguiRenderer* tguiSpinControl_getSpinButtonSharedRenderer(const tguiWidget* thisWidget)
 {
-    return new tguiRenderer(DOWNCAST(widget->This)->getSpinButtonSharedRenderer(), false);
-}
-
-tguiRenderer* tguiSpinControl_getSpinTextRenderer(const tguiWidget* widget)
-{
-    return new tguiRenderer(DOWNCAST(widget->This)->getSpinTextRenderer(), false);
-}
-
-tguiRenderer* tguiSpinControl_getSpinTextSharedRenderer(const tguiWidget* widget)
-{
-    return new tguiRenderer(DOWNCAST(widget->This)->getSpinTextSharedRenderer(), false);
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getSpinButtonSharedRenderer(), false);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinControl_setMinimum(tguiWidget* widget, float minimum)
+tguiRenderer* tguiSpinControl_getSpinTextRenderer(const tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setMinimum(minimum);
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getSpinTextRenderer(), false);
 }
 
-float tguiSpinControl_getMinimum(const tguiWidget* widget)
+tguiRenderer* tguiSpinControl_getSpinTextSharedRenderer(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getMinimum();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinControl_setMaximum(tguiWidget* widget, float maximum)
-{
-    DOWNCAST(widget->This)->setMaximum(maximum);
-}
-
-float tguiSpinControl_getMaximum(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getMaximum();
+    return new tguiRenderer(DOWNCAST(thisWidget->This)->getSpinTextSharedRenderer(), false);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinControl_setValue(tguiWidget* widget, float value)
+void tguiSpinControl_setMinimum(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setValue(value);
+    DOWNCAST(thisWidget->This)->setMinimum(value);
 }
 
-float tguiSpinControl_getValue(const tguiWidget* widget)
+float tguiSpinControl_getMinimum(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinControl_setStep(tguiWidget* widget, float step)
-{
-    DOWNCAST(widget->This)->setStep(step);
-}
-
-float tguiSpinControl_getStep(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getStep();
+    return DOWNCAST(thisWidget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinControl_setDecimalPlaces(tguiWidget* widget, unsigned int decimalPlaces)
+void tguiSpinControl_setMaximum(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setDecimalPlaces(decimalPlaces);
+    DOWNCAST(thisWidget->This)->setMaximum(value);
 }
 
-unsigned int tguiSpinControl_getDecimalPlaces(const tguiWidget* widget)
+float tguiSpinControl_getMaximum(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getDecimalPlaces();
+    return DOWNCAST(thisWidget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinControl_setUseWideArrows(tguiWidget* widget, tguiBool useWideArrows)
+void tguiSpinControl_setValue(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setUseWideArrows(useWideArrows != 0);
+    DOWNCAST(thisWidget->This)->setValue(value);
 }
 
-tguiBool tguiSpinControl_getUseWideArrows(const tguiWidget* widget)
+float tguiSpinControl_getValue(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getUseWideArrows();
+    return DOWNCAST(thisWidget->This)->getValue();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinControl_setStep(tguiWidget* thisWidget, float value)
+{
+    DOWNCAST(thisWidget->This)->setStep(value);
+}
+
+float tguiSpinControl_getStep(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getStep();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinControl_setDecimalPlaces(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setDecimalPlaces(value);
+}
+
+unsigned int tguiSpinControl_getDecimalPlaces(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getDecimalPlaces();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinControl_setUseWideArrows(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setUseWideArrows(value != 0);
+}
+
+tguiBool tguiSpinControl_getUseWideArrows(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getUseWideArrows();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

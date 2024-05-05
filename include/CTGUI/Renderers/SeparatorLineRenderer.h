@@ -8,7 +8,7 @@
 CTGUI_API tguiRenderer* tguiSeparatorLineRenderer_create(void);
 CTGUI_API tguiRenderer* tguiSeparatorLineRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiSeparatorLineRenderer_setColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiSeparatorLineRenderer_getColor(const tguiRenderer* renderer);
+CTGUI_API void tguiSeparatorLineRenderer_setColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiSeparatorLineRenderer_getColor(const tguiRenderer* thisRenderer);
 
 #endif // CTGUI_SEPARATORLINERENDERER_H

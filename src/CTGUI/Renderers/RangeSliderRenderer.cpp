@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/RangeSliderRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
-#include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/RangeSliderRenderer.hpp>
 
@@ -15,201 +15,57 @@ tguiRenderer* tguiRangeSliderRenderer_create(void)
     return new tguiRenderer(new tgui::RangeSliderRenderer);
 }
 
-tguiRenderer* tguiRangeSliderRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiRangeSliderRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::RangeSliderRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::RangeSliderRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiRangeSliderRenderer_setSelectedTrackColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setSelectedTrackColor(ctgui::toCppColor(value));
 }
 
-tguiOutline* tguiRangeSliderRenderer_getBorders(const tguiRenderer* renderer)
+const tguiColor* tguiRangeSliderRenderer_getSelectedTrackColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTrackColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTrackColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiRangeSliderRenderer_getTrackColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTrackColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setTrackColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiRangeSliderRenderer_setSelectedTrackColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTrackColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedTrackColorHover(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiRangeSliderRenderer_getTrackColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiRangeSliderRenderer_getSelectedTrackColorHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setSelectedTrackColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedTrackColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiRangeSliderRenderer_getSelectedTrackColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTrackColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setSelectedTrackColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiRangeSliderRenderer_setTextureSelectedTrack(tguiRenderer* thisRenderer, const tguiTexture* value)
 {
-    DOWNCAST(renderer->This)->setSelectedTrackColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextureSelectedTrack(*value->This);
 }
 
-tguiColor* tguiRangeSliderRenderer_getSelectedTrackColorHover(const tguiRenderer* renderer)
+const tguiTexture* tguiRangeSliderRenderer_getTextureSelectedTrack(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTrackColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setThumbColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setThumbColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiRangeSliderRenderer_getThumbColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColor());
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureSelectedTrack()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setThumbColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiRangeSliderRenderer_setTextureSelectedTrackHover(tguiRenderer* thisRenderer, const tguiTexture* value)
 {
-    DOWNCAST(renderer->This)->setThumbColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextureSelectedTrackHover(*value->This);
 }
 
-tguiColor* tguiRangeSliderRenderer_getThumbColorHover(const tguiRenderer* renderer)
+const tguiTexture* tguiRangeSliderRenderer_getTextureSelectedTrackHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiRangeSliderRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiRangeSliderRenderer_getBorderColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTextureTrack(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureTrack(*texture->This);
-}
-
-tguiTexture* tguiRangeSliderRenderer_getTextureTrack(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrack()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTextureTrackHover(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureTrackHover(*texture->This);
-}
-
-tguiTexture* tguiRangeSliderRenderer_getTextureTrackHover(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrackHover()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTextureSelectedTrack(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureSelectedTrack(*texture->This);
-}
-
-tguiTexture* tguiRangeSliderRenderer_getTextureSelectedTrack(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureSelectedTrack()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTextureSelectedTrackHover(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureSelectedTrackHover(*texture->This);
-}
-
-tguiTexture* tguiRangeSliderRenderer_getTextureSelectedTrackHover(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureSelectedTrackHover()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTextureThumb(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureThumb(*texture->This);
-}
-
-tguiTexture* tguiRangeSliderRenderer_getTextureThumb(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumb()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setTextureThumbHover(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureThumbHover(*texture->This);
-}
-
-tguiTexture* tguiRangeSliderRenderer_getTextureThumbHover(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumbHover()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiRangeSliderRenderer_setThumbWithinTrack(tguiRenderer* renderer, tguiBool value)
-{
-    DOWNCAST(renderer->This)->setThumbWithinTrack(value != 0);
-}
-
-tguiBool tguiRangeSliderRenderer_getThumbWithinTrack(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getThumbWithinTrack();
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureSelectedTrackHover()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

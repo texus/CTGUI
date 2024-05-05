@@ -1,0 +1,41 @@
+inherits ClickableWidget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer LabelRenderer
+
+/// @brief Text of the label
+/// 
+/// When the text is auto-sized (default), then the size of the label will be changed to fit the whole text.
+property string Text
+
+/// @brief Horizontal text alignment
+///
+/// By default the text is aligned to the left.
+property HorizontalAlignment HorizontalAlignment
+
+/// @brief Vertical text alignment
+///
+/// By default the text is aligned to the top.
+property VerticalAlignment VerticalAlignment
+
+/// @brief Whether the label is auto-sized or not
+///
+/// When the label is in auto-size mode, the width and height of the label will be changed to fit the text.
+/// Otherwise, only the part defined by the size will be visible.
+///
+/// The label is auto-sized by default.
+property bool AutoSize
+
+/// @brief Maximum width that the text will have when auto-sizing
+///
+/// When an exact label size is set then you can't set a custom MaximumTextWidth and the maximum width will equal the width of the label minus the padding.
+/// When the label is auto-sizing then the maximum width is used to split the text over several lines when its width would exceed the configured value.
+/// Setting this property to 0 while the label is auto-sizing would disable the maximum text width.
+property float MaximumTextWidth
+
+/// @brief When the vertical scrollbar should be displayed
+property ScrollbarPolicy ScrollbarPolicy
+
+/// @brief Thumb position of the scrollbar
+property uint ScrollbarValue
+

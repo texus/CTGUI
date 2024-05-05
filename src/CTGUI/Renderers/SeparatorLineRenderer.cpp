@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/SeparatorLineRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/SeparatorLineRenderer.hpp>
 
@@ -14,21 +14,21 @@ tguiRenderer* tguiSeparatorLineRenderer_create(void)
     return new tguiRenderer(new tgui::SeparatorLineRenderer);
 }
 
-tguiRenderer* tguiSeparatorLineRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiSeparatorLineRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::SeparatorLineRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::SeparatorLineRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSeparatorLineRenderer_setColor(tguiRenderer* renderer, tguiColor* color)
+void tguiSeparatorLineRenderer_setColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiSeparatorLineRenderer_getColor(const tguiRenderer* renderer)
+const tguiColor* tguiSeparatorLineRenderer_getColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

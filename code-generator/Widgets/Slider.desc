@@ -1,0 +1,12 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer SliderRenderer
+
+property float Minimum
+property float Maximum
+property float Value
+property float Step
+property bool VerticalScroll
+property bool InvertedDirection
+property bool ChangeValueOnScroll

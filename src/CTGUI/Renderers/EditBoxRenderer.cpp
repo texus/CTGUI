@@ -1,8 +1,9 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/EditBoxRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/EditBoxRenderer.hpp>
 
@@ -15,321 +16,321 @@ tguiRenderer* tguiEditBoxRenderer_create(void)
     return new tguiRenderer(new tgui::EditBoxRenderer);
 }
 
-tguiRenderer* tguiEditBoxRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiEditBoxRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::EditBoxRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::EditBoxRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiEditBoxRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiEditBoxRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiEditBoxRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setPadding(tguiRenderer* renderer, tguiOutline* outline)
-{
-    DOWNCAST(renderer->This)->setPadding(outline->This);
-}
-
-tguiOutline* tguiEditBoxRenderer_getPadding(const tguiRenderer* renderer)
-{
-    return new tguiOutline(DOWNCAST(renderer->This)->getPadding());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setCaretWidth(tguiRenderer* renderer, float value)
+void tguiEditBoxRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setCaretWidth(value);
+    DOWNCAST(thisRenderer->This)->setPadding(value->This);
 }
 
-float tguiEditBoxRenderer_getCaretWidth(const tguiRenderer* renderer)
+const tguiOutline* tguiEditBoxRenderer_getPadding(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getCaretWidth();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getTextColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getPadding());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setCaretWidth(tguiRenderer* thisRenderer, float value)
 {
-    DOWNCAST(renderer->This)->setDefaultTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setCaretWidth(value);
 }
 
-tguiColor* tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* renderer)
+float tguiEditBoxRenderer_getCaretWidth(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getDefaultTextColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setTextColorFocused(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTextColorFocused(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getTextColorFocused(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorFocused());
+    return DOWNCAST(thisRenderer->This)->getCaretWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextColorDisabled(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getTextColorDisabled(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColorDisabled());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setSelectedTextColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getSelectedTextColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setSelectedTextBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setDefaultTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getSelectedTextBackgroundColor(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getSelectedTextBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getBackgroundColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getDefaultTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setTextColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColorFocused(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getTextColorFocused(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setBackgroundColorFocused(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColorFocused(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getBackgroundColorFocused(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorFocused());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColorDisabled(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorDisabled());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setCaretColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setCaretColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getCaretColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getCaretColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setCaretColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getCaretColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setCaretColorFocused(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setCaretColorFocused(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getCaretColorFocused(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getCaretColorFocused());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setSelectedTextBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getBorderColor(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getSelectedTextBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setBorderColorFocused(tguiRenderer* renderer, tguiColor* color)
+void tguiEditBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColorFocused(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiEditBoxRenderer_getBorderColorFocused(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorFocused());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColorDisabled(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiEditBoxRenderer_getBorderColorDisabled(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorDisabled());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setTexture(tguiRenderer* renderer, tguiTexture* texture)
+void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTexture(*texture->This);
+    DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiEditBoxRenderer_getTexture(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTexture()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setTextureHover(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureHover(*texture->This);
-}
-
-tguiTexture* tguiEditBoxRenderer_getTextureHover(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureHover()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setTextureFocused(tguiRenderer* renderer, tguiTexture* texture)
+void tguiEditBoxRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureFocused(*texture->This);
+    DOWNCAST(thisRenderer->This)->setBackgroundColorFocused(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiEditBoxRenderer_getTextureFocused(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureFocused()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxRenderer_setTextureDisabled(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureDisabled(*texture->This);
-}
-
-tguiTexture* tguiEditBoxRenderer_getTextureDisabled(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureDisabled()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setTextStyle(tguiRenderer* renderer, tguiUint32 style)
+void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextStyle(style);
+    DOWNCAST(thisRenderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(value));
 }
 
-tguiUint32 tguiEditBoxRenderer_getTextStyle(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getTextStyle();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setDefaultTextStyle(tguiRenderer* renderer, tguiUint32 style)
+void tguiEditBoxRenderer_setCaretColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setDefaultTextStyle(style);
+    DOWNCAST(thisRenderer->This)->setCaretColor(ctgui::toCppColor(value));
 }
 
-tguiUint32 tguiEditBoxRenderer_getDefaultTextStyle(const tguiRenderer* renderer)
+const tguiColor* tguiEditBoxRenderer_getCaretColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getDefaultTextStyle();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCaretColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setCaretColorHover(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCaretColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setCaretColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setCaretColorFocused(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiEditBoxRenderer_getCaretColorFocused(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCaretColorFocused());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiEditBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColorHover(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColorFocused(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiEditBoxRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorFocused());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColorDisabled(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiEditBoxRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDisabled());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setTexture(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTexture(*value->This);
+}
+
+const tguiTexture* tguiEditBoxRenderer_getTexture(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTexture()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setTextureHover(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureHover(*value->This);
+}
+
+const tguiTexture* tguiEditBoxRenderer_getTextureHover(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureHover()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setTextureFocused(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureFocused(*value->This);
+}
+
+const tguiTexture* tguiEditBoxRenderer_getTextureFocused(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureFocused()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setTextureDisabled(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureDisabled(*value->This);
+}
+
+const tguiTexture* tguiEditBoxRenderer_getTextureDisabled(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureDisabled()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setTextStyle(tguiRenderer* thisRenderer, tguiUint32 value)
+{
+    DOWNCAST(thisRenderer->This)->setTextStyle(value);
+}
+
+tguiUint32 tguiEditBoxRenderer_getTextStyle(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getTextStyle();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setDefaultTextStyle(tguiRenderer* thisRenderer, tguiUint32 value)
+{
+    DOWNCAST(thisRenderer->This)->setDefaultTextStyle(value);
+}
+
+tguiUint32 tguiEditBoxRenderer_getDefaultTextStyle(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getDefaultTextStyle();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

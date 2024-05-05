@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/FileDialog.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -29,6 +6,128 @@
 #include <TGUI/Widgets/FileDialog.hpp>
 
 #define DOWNCAST(x) std::static_pointer_cast<tgui::FileDialog>(x)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiFileDialog_create(void)
+{
+    return ctgui::addWidgetRef(tgui::FileDialog::create());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setFilename(tguiWidget* thisWidget, tguiUtf32 value)
+{
+    DOWNCAST(thisWidget->This)->setFilename(ctgui::toCppStr(value));
+}
+
+tguiUtf32 tguiFileDialog_getFilename(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getFilename());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiFileDialog_getFileTypeFiltersIndex(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getFileTypeFiltersIndex();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setConfirmButtonText(tguiWidget* thisWidget, tguiUtf32 value)
+{
+    DOWNCAST(thisWidget->This)->setConfirmButtonText(ctgui::toCppStr(value));
+}
+
+tguiUtf32 tguiFileDialog_getConfirmButtonText(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getConfirmButtonText());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setCancelButtonText(tguiWidget* thisWidget, tguiUtf32 value)
+{
+    DOWNCAST(thisWidget->This)->setCancelButtonText(ctgui::toCppStr(value));
+}
+
+tguiUtf32 tguiFileDialog_getCancelButtonText(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getCancelButtonText());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setCreateFolderButtonText(tguiWidget* thisWidget, tguiUtf32 value)
+{
+    DOWNCAST(thisWidget->This)->setCreateFolderButtonText(ctgui::toCppStr(value));
+}
+
+tguiUtf32 tguiFileDialog_getCreateFolderButtonText(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getCreateFolderButtonText());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setFilenameLabelText(tguiWidget* thisWidget, tguiUtf32 value)
+{
+    DOWNCAST(thisWidget->This)->setFilenameLabelText(ctgui::toCppStr(value));
+}
+
+tguiUtf32 tguiFileDialog_getFilenameLabelText(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getFilenameLabelText());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setAllowCreateFolder(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setAllowCreateFolder(value != 0);
+}
+
+tguiBool tguiFileDialog_getAllowCreateFolder(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getAllowCreateFolder();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setFileMustExist(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setFileMustExist(value != 0);
+}
+
+tguiBool tguiFileDialog_getFileMustExist(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getFileMustExist();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setSelectingDirectory(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setSelectingDirectory(value != 0);
+}
+
+tguiBool tguiFileDialog_getSelectingDirectory(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getSelectingDirectory();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialog_setMultiSelect(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setMultiSelect(value != 0);
+}
+
+tguiBool tguiFileDialog_getMultiSelect(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getMultiSelect();
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -69,9 +168,14 @@ const tguiUtf32* tguiFileDialogFilter_getExpressions(const tguiFileDialogFilter*
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiFileDialog_create(void)
+void tguiFileDialog_setPath(tguiWidget* widget, tguiUtf32 path)
 {
-    return ctgui::addWidgetRef(tgui::FileDialog::create());
+    DOWNCAST(widget->This)->setPath(ctgui::toCppStr(path));
+}
+
+tguiUtf32 tguiFileDialog_getPath(const tguiWidget* widget)
+{
+    return ctgui::fromCppStr(DOWNCAST(widget->This)->getPath().asString());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,30 +196,6 @@ const tguiUtf32* tguiFileDialog_getSelectedPaths(const tguiWidget* widget, size_
 
     *count = cPaths.size();
     return cPaths.data();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setPath(tguiWidget* widget, tguiUtf32 path)
-{
-    DOWNCAST(widget->This)->setPath(ctgui::toCppStr(path));
-}
-
-tguiUtf32 tguiFileDialog_getPath(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getPath().asString());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setFilename(tguiWidget* widget, tguiUtf32 filename)
-{
-    DOWNCAST(widget->This)->setFilename(ctgui::toCppStr(filename));
-}
-
-tguiUtf32 tguiFileDialog_getFilename(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getFilename());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -146,71 +226,6 @@ tguiFileDialogFilter** tguiFileDialog_getFileTypeFilters(const tguiWidget* widge
     return cFilters.data();
 }
 
-size_t tguiFileDialog_getFileTypeFiltersIndex(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getFileTypeFiltersIndex();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setConfirmButtonText(tguiWidget* widget, tguiUtf32 text)
-{
-    DOWNCAST(widget->This)->setConfirmButtonText(ctgui::toCppStr(text));
-}
-
-tguiUtf32 tguiFileDialog_getConfirmButtonText(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getConfirmButtonText());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setCancelButtonText(tguiWidget* widget, tguiUtf32 text)
-{
-    DOWNCAST(widget->This)->setCancelButtonText(ctgui::toCppStr(text));
-}
-
-tguiUtf32 tguiFileDialog_getCancelButtonText(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getCancelButtonText());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setCreateFolderButtonText(tguiWidget* widget, tguiUtf32 text)
-{
-    DOWNCAST(widget->This)->setCreateFolderButtonText(ctgui::toCppStr(text));
-}
-
-tguiUtf32 tguiFileDialog_getCreateFolderButtonText(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getCreateFolderButtonText());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setAllowCreateFolder(tguiWidget* widget, tguiBool allowCreateFolder)
-{
-    DOWNCAST(widget->This)->setAllowCreateFolder(allowCreateFolder != 0);
-}
-
-tguiBool tguiFileDialog_getAllowCreateFolder(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getAllowCreateFolder();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setFilenameLabelText(tguiWidget* widget, tguiUtf32 labelText)
-{
-    DOWNCAST(widget->This)->setFilenameLabelText(ctgui::toCppStr(labelText));
-}
-
-tguiUtf32 tguiFileDialog_getFilenameLabelText(const tguiWidget* widget)
-{
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getFilenameLabelText());
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiFileDialog_setListViewColumnCaptions(tguiWidget* widget, tguiUtf32 nameColumnText, tguiUtf32 sizeColumnText, tguiUtf32 modifiedColumnText)
@@ -231,40 +246,4 @@ tguiUtf32 tguiFileDialog_getListViewColumnCaptionsSize(const tguiWidget* widget)
 tguiUtf32 tguiFileDialog_getListViewColumnCaptionsModified(const tguiWidget* widget)
 {
     return ctgui::fromCppStr(std::get<2>(DOWNCAST(widget->This)->getListViewColumnCaptions()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setFileMustExist(tguiWidget* widget, tguiBool enforceExistence)
-{
-    DOWNCAST(widget->This)->setFileMustExist(enforceExistence != 0);
-}
-
-tguiBool tguiFileDialog_getFileMustExist(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getFileMustExist();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setSelectingDirectory(tguiWidget* widget, tguiBool selectDirectories)
-{
-    DOWNCAST(widget->This)->setSelectingDirectory(selectDirectories != 0);
-}
-
-tguiBool tguiFileDialog_getSelectingDirectory(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getSelectingDirectory();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialog_setMultiSelect(tguiWidget* widget, tguiBool multiSelect)
-{
-    DOWNCAST(widget->This)->setMultiSelect(multiSelect != 0);
-}
-
-tguiBool tguiFileDialog_getMultiSelect(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getMultiSelect();
 }

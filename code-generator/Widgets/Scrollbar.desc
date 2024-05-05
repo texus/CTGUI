@@ -1,0 +1,13 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ScrollbarRenderer
+
+property uint ViewportSize
+property uint Maximum
+property uint Value
+property uint ScrollAmount
+property bool AutoHide
+property bool VerticalScroll
+
+function getDefaultWidth() const -> float

@@ -1,0 +1,19 @@
+inherits ClickableWidget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer EditBoxRenderer
+
+property string Text
+property string DefaultText
+property Char32 PasswordCharacter
+property uint MaximumCharacters
+property HorizontalAlignment Alignment
+property-bool-is TextWidthLimited
+property-bool-is ReadOnly
+property size_t CaretPosition
+property string InputValidator
+property string Suffix
+
+function selectText(size_t start, size_t length)
+function getSelectedText() const -> string
+

@@ -1,36 +1,15 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/WidgetRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
+#include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
-#include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/FontStruct.hpp>
 
 #include <TGUI/Renderers/WidgetRenderer.hpp>
+
+#define DOWNCAST(x) static_cast<tgui::WidgetRenderer*>(x)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -39,136 +18,144 @@ tguiRenderer* tguiWidgetRenderer_create(void)
     return new tguiRenderer(new tgui::WidgetRenderer);
 }
 
-tguiRenderer* tguiWidgetRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiWidgetRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::WidgetRenderer(*renderer->This));
-}
-
-void tguiWidgetRenderer_free(tguiRenderer* renderer)
-{
-    if (renderer->AllocatedInWrapper)
-        delete renderer->This;
-
-    delete renderer;
+    return new tguiRenderer(new tgui::WidgetRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setOpacity(tguiRenderer* renderer, float alpha)
+void tguiWidgetRenderer_setOpacity(tguiRenderer* thisRenderer, float value)
 {
-    renderer->This->setOpacity(alpha);
+    DOWNCAST(thisRenderer->This)->setOpacity(value);
 }
 
-float tguiWidgetRenderer_getOpacity(const tguiRenderer* renderer)
+float tguiWidgetRenderer_getOpacity(const tguiRenderer* thisRenderer)
 {
-    return renderer->This->getOpacity();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidgetRenderer_setOpacityDisabled(tguiRenderer* renderer, float alpha)
-{
-    renderer->This->setOpacityDisabled(alpha);
-}
-
-float tguiWidgetRenderer_getOpacityDisabled(const tguiRenderer* renderer)
-{
-    return renderer->This->getOpacityDisabled();
+    return DOWNCAST(thisRenderer->This)->getOpacity();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setFont(tguiRenderer* renderer, tguiFont* font)
+void tguiWidgetRenderer_setOpacityDisabled(tguiRenderer* thisRenderer, float value)
 {
-    renderer->This->setFont(*font->This);
+    DOWNCAST(thisRenderer->This)->setOpacityDisabled(value);
 }
 
-tguiFont* tguiWidgetRenderer_getFont(const tguiRenderer* renderer)
+float tguiWidgetRenderer_getOpacityDisabled(const tguiRenderer* thisRenderer)
 {
-    return new tguiFont(std::make_unique<tgui::Font>(renderer->This->getFont()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidgetRenderer_setTextSize(tguiRenderer* renderer, unsigned int size)
-{
-    renderer->This->setTextSize(size);
-}
-
-unsigned int tguiWidgetRenderer_getTextSize(const tguiRenderer* renderer)
-{
-    return renderer->This->getTextSize();
+    return DOWNCAST(thisRenderer->This)->getOpacityDisabled();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setTransparentTexture(tguiRenderer* renderer, tguiBool ignoreTransparentParts)
+void tguiWidgetRenderer_setFont(tguiRenderer* thisRenderer, const tguiFont* value)
 {
-    renderer->This->setTransparentTexture(ignoreTransparentParts != 0);
+    DOWNCAST(thisRenderer->This)->setFont(*value->This);
 }
 
-tguiBool tguiWidgetRenderer_getTransparentTexture(tguiRenderer* renderer)
+const tguiFont* tguiWidgetRenderer_getFont(const tguiRenderer* thisRenderer)
 {
-    return renderer->This->getTransparentTexture();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidgetRenderer_setData(tguiRenderer* renderer, tguiRendererData* data)
-{
-    return renderer->This->setData(data->This);
-}
-
-tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(renderer->This->getData());
+    return new tguiFont(std::make_unique<tgui::Font>(DOWNCAST(thisRenderer->This)->getFont()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setPropertyBool(tguiRenderer* renderer, tguiUtf32 property, tguiBool value)
+void tguiWidgetRenderer_setTextSize(tguiRenderer* thisRenderer, unsigned int value)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), value != 0);
+    DOWNCAST(thisRenderer->This)->setTextSize(value);
 }
 
-void tguiWidgetRenderer_setPropertyFont(tguiRenderer* renderer, tguiUtf32 property, tguiFont* value)
+unsigned int tguiWidgetRenderer_getTextSize(const tguiRenderer* thisRenderer)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), *value->This);
+    return DOWNCAST(thisRenderer->This)->getTextSize();
 }
 
-void tguiWidgetRenderer_setPropertyColor(tguiRenderer* renderer, tguiUtf32 property, tguiColor* value)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setTransparentTexture(tguiRenderer* thisRenderer, tguiBool value)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), ctgui::toCppColor(value));
+    DOWNCAST(thisRenderer->This)->setTransparentTexture(value != 0);
 }
 
-void tguiWidgetRenderer_setPropertyString(tguiRenderer* renderer, tguiUtf32 property, tguiUtf32 value)
+tguiBool tguiWidgetRenderer_getTransparentTexture(const tguiRenderer* thisRenderer)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), ctgui::toCppStr(value));
+    return DOWNCAST(thisRenderer->This)->getTransparentTexture();
 }
 
-void tguiWidgetRenderer_setPropertyNumber(tguiRenderer* renderer, tguiUtf32 property, float value)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setData(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), value);
+    DOWNCAST(thisRenderer->This)->setData(value->This);
 }
 
-void tguiWidgetRenderer_setPropertyOutline(tguiRenderer* renderer, tguiUtf32 property, tguiOutline* value)
+const tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* thisRenderer)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), value->This);
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getData());
 }
 
-void tguiWidgetRenderer_setPropertyTexture(tguiRenderer* renderer, tguiUtf32 property, tguiTexture* value)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyBool(tguiRenderer* thisRenderer, tguiUtf32 property, tguiBool value)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), *value->This);
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), value != 0);
 }
 
-void tguiWidgetRenderer_setPropertyTextStyle(tguiRenderer* renderer, tguiUtf32 property, tguiUint32 value)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyFont(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiFont* value)
 {
-    renderer->This->setProperty(ctgui::toCppStr(property), tgui::TextStyles(value));
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), *value->This);
 }
 
-void tguiWidgetRenderer_setPropertyRendererData(tguiRenderer* renderer, tguiUtf32 property, tguiRendererData* value)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyColor(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiColor* value)
 {
-    return renderer->This->setProperty(ctgui::toCppStr(property), value->This);
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), ctgui::toCppColor(value));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyString(tguiRenderer* thisRenderer, tguiUtf32 property, tguiUtf32 value)
+{
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), ctgui::toCppStr(value));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyNumber(tguiRenderer* thisRenderer, tguiUtf32 property, float value)
+{
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), value);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyOutline(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiOutline* value)
+{
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), value->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyTexture(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), *value->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyTextStyle(tguiRenderer* thisRenderer, tguiUtf32 property, tguiUint32 value)
+{
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), value);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_setPropertyRendererData(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), value->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -223,4 +210,14 @@ tguiUint32 tguiWidgetRenderer_getPropertyTextStyle(const tguiRenderer* renderer,
 tguiRendererData* tguiWidgetRenderer_getPropertyRendererData(const tguiRenderer* renderer, tguiUtf32 property)
 {
     return new tguiRendererData(renderer->This->getProperty(ctgui::toCppStr(property)).getRenderer());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidgetRenderer_free(tguiRenderer* renderer)
+{
+    if (renderer->AllocatedInWrapper)
+        delete renderer->This;
+
+    delete renderer;
 }

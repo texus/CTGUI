@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/ChildWindow.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -40,128 +17,134 @@ tguiWidget* tguiChildWindow_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setClientSize(tguiWidget* widget, tguiVector2f size)
+void tguiChildWindow_setClientSize(tguiWidget* thisWidget, tguiVector2f size)
 {
-    DOWNCAST(widget->This)->setClientSize({size.x, size.y});
-}
-
-void tguiChildWindow_setClientSizeFromLayout(tguiWidget* widget, tguiLayout2d* layout)
-{
-    DOWNCAST(widget->This)->setClientSize(layout->This);
-}
-
-tguiVector2f tguiChildWindow_getClientSize(const tguiWidget* widget)
-{
-    const tgui::Vector2f size = DOWNCAST(widget->This)->getClientSize();
-    return {size.x, size.y};
+    DOWNCAST(thisWidget->This)->setClientSize({size.x, size.y});
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setMaximumSize(tguiWidget* widget, tguiVector2f maxSize)
+void tguiChildWindow_setClientSizeFromLayout(tguiWidget* thisWidget, const tguiLayout2d* layout)
 {
-    DOWNCAST(widget->This)->setMaximumSize({maxSize.x, maxSize.y});
-}
-
-tguiVector2f tguiChildWindow_getMaximumSize(const tguiWidget* widget)
-{
-    tgui::Vector2f size = DOWNCAST(widget->This)->getMaximumSize();
-    return {size.x, size.y};
+    DOWNCAST(thisWidget->This)->setClientSize(layout->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setMinimumSize(tguiWidget* widget, tguiVector2f minSize)
+tguiVector2f tguiChildWindow_getClientSize(tguiWidget* thisWidget)
 {
-    DOWNCAST(widget->This)->setMinimumSize({minSize.x, minSize.y});
-}
-
-tguiVector2f tguiChildWindow_getMinimumSize(const tguiWidget* widget)
-{
-    tgui::Vector2f size = DOWNCAST(widget->This)->getMinimumSize();
-    return {size.x, size.y};
+    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getClientSize();
+    return {value.x, value.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setTitle(tguiWidget* widget, tguiUtf32 text)
+void tguiChildWindow_setMaximumSize(tguiWidget* thisWidget, tguiVector2f value)
 {
-    DOWNCAST(widget->This)->setTitle(ctgui::toCppStr(text));
+    DOWNCAST(thisWidget->This)->setMaximumSize({value.x, value.y});
 }
 
-tguiUtf32 tguiChildWindow_getTitle(const tguiWidget* widget)
+tguiVector2f tguiChildWindow_getMaximumSize(const tguiWidget* thisWidget)
 {
-    return ctgui::fromCppStr(DOWNCAST(widget->This)->getTitle());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChildWindow_setTitleTextSize(tguiWidget* widget, unsigned int textSize)
-{
-    DOWNCAST(widget->This)->setTitleTextSize(textSize);
-}
-
-unsigned int tguiChildWindow_getTitleTextSize(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTitleTextSize();
+    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getMaximumSize();
+    return {value.x, value.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setTitleAlignment(tguiWidget* widget, tguiHorizontalAlignment alignment)
+void tguiChildWindow_setMinimumSize(tguiWidget* thisWidget, tguiVector2f value)
 {
-    DOWNCAST(widget->This)->setTitleAlignment(static_cast<tgui::ChildWindow::TitleAlignment>(alignment));
+    DOWNCAST(thisWidget->This)->setMinimumSize({value.x, value.y});
 }
 
-tguiHorizontalAlignment tguiChildWindow_getTitleAlignment(const tguiWidget* widget)
+tguiVector2f tguiChildWindow_getMinimumSize(const tguiWidget* thisWidget)
 {
-    return static_cast<tguiHorizontalAlignment>(DOWNCAST(widget->This)->getTitleAlignment());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChildWindow_setTitleButtons(tguiWidget* widget, unsigned int buttons)
-{
-    DOWNCAST(widget->This)->setTitleButtons(buttons);
-}
-
-unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getTitleButtons();
+    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getMinimumSize();
+    return {value.x, value.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setResizable(tguiWidget* widget, tguiBool resizable)
+void tguiChildWindow_setTitle(tguiWidget* thisWidget, tguiUtf32 value)
 {
-    DOWNCAST(widget->This)->setResizable(resizable != 0);
+    DOWNCAST(thisWidget->This)->setTitle(ctgui::toCppStr(value));
 }
 
-tguiBool tguiChildWindow_isResizable(const tguiWidget* widget)
+tguiUtf32 tguiChildWindow_getTitle(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->isResizable();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiChildWindow_setKeepInParent(tguiWidget* widget, tguiBool keepInParent)
-{
-    DOWNCAST(widget->This)->setKeepInParent(keepInParent != 0);
-}
-
-tguiBool tguiChildWindow_isKeptInParent(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->isKeptInParent();
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getTitle());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindow_setPositionLocked(tguiWidget* widget, tguiBool positionLocked)
+void tguiChildWindow_setTitleTextSize(tguiWidget* thisWidget, unsigned int value)
 {
-    DOWNCAST(widget->This)->setPositionLocked(positionLocked != 0);
+    DOWNCAST(thisWidget->This)->setTitleTextSize(value);
 }
 
-tguiBool tguiChildWindow_isPositionLocked(const tguiWidget* widget)
+unsigned int tguiChildWindow_getTitleTextSize(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->isPositionLocked();
+    return DOWNCAST(thisWidget->This)->getTitleTextSize();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setTitleAlignment(tguiWidget* thisWidget, tguiHorizontalAlignment value)
+{
+    DOWNCAST(thisWidget->This)->setTitleAlignment(static_cast<tgui::HorizontalAlignment>(value));
+}
+
+tguiHorizontalAlignment tguiChildWindow_getTitleAlignment(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiHorizontalAlignment>(DOWNCAST(thisWidget->This)->getTitleAlignment());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setTitleButtons(tguiWidget* thisWidget, unsigned int value)
+{
+    DOWNCAST(thisWidget->This)->setTitleButtons(value);
+}
+
+unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getTitleButtons();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setResizable(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setResizable(value != 0);
+}
+
+tguiBool tguiChildWindow_isResizable(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->isResizable();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setKeepInParent(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setKeepInParent(value != 0);
+}
+
+tguiBool tguiChildWindow_getKeepInParent(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getKeepInParent();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiChildWindow_setPositionLocked(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setPositionLocked(value != 0);
+}
+
+tguiBool tguiChildWindow_isPositionLocked(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->isPositionLocked();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,8 +1,9 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/SpinButtonRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/SpinButtonRenderer.hpp>
 
@@ -15,141 +16,141 @@ tguiRenderer* tguiSpinButtonRenderer_create(void)
     return new tguiRenderer(new tgui::SpinButtonRenderer);
 }
 
-tguiRenderer* tguiSpinButtonRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiSpinButtonRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::SpinButtonRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::SpinButtonRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiSpinButtonRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiSpinButtonRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiSpinButtonRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinButtonRenderer_setBorderBetweenArrows(tguiRenderer* renderer, float value)
-{
-    DOWNCAST(renderer->This)->setBorderBetweenArrows(value);
-}
-
-float tguiSpinButtonRenderer_getBorderBetweenArrows(const tguiRenderer* renderer)
-{
-    return DOWNCAST(renderer->This)->getBorderBetweenArrows();
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
+void tguiSpinButtonRenderer_setBorderBetweenArrows(tguiRenderer* thisRenderer, float value)
 {
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBorderBetweenArrows(value);
 }
 
-tguiColor* tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* renderer)
+float tguiSpinButtonRenderer_getBorderBetweenArrows(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColorHover());
+    return DOWNCAST(thisRenderer->This)->getBorderBetweenArrows();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* renderer, tguiColor* color)
+void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setArrowColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* renderer)
+const tguiColor* tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setArrowColorHover(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getArrowColorHover());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* renderer)
+const tguiColor* tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinButtonRenderer_setTextureArrowUp(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureArrowUp(*texture->This);
-}
-
-tguiTexture* tguiSpinButtonRenderer_getTextureArrowUp(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowUp()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setTextureArrowUpHover(tguiRenderer* renderer, tguiTexture* texture)
+void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureArrowUpHover(*texture->This);
+    DOWNCAST(thisRenderer->This)->setArrowColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiSpinButtonRenderer_getTextureArrowUpHover(const tguiRenderer* renderer)
+const tguiColor* tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowUpHover()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinButtonRenderer_setTextureArrowDown(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureArrowDown(*texture->This);
-}
-
-tguiTexture* tguiSpinButtonRenderer_getTextureArrowDown(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowDown()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setTextureArrowDownHover(tguiRenderer* renderer, tguiTexture* texture)
+void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureArrowDownHover(*texture->This);
+    DOWNCAST(thisRenderer->This)->setArrowColorHover(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiSpinButtonRenderer_getTextureArrowDownHover(const tguiRenderer* renderer)
+const tguiColor* tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureArrowDownHover()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+{
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
+}
+
+const tguiColor* tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+{
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButtonRenderer_setTextureArrowUp(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrowUp(*value->This);
+}
+
+const tguiTexture* tguiSpinButtonRenderer_getTextureArrowUp(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrowUp()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButtonRenderer_setTextureArrowUpHover(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrowUpHover(*value->This);
+}
+
+const tguiTexture* tguiSpinButtonRenderer_getTextureArrowUpHover(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrowUpHover()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButtonRenderer_setTextureArrowDown(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrowDown(*value->This);
+}
+
+const tguiTexture* tguiSpinButtonRenderer_getTextureArrowDown(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrowDown()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSpinButtonRenderer_setTextureArrowDownHover(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureArrowDownHover(*value->This);
+}
+
+const tguiTexture* tguiSpinButtonRenderer_getTextureArrowDownHover(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureArrowDownHover()));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

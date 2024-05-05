@@ -8,52 +8,52 @@
 CTGUI_API tguiRenderer* tguiScrollbarRenderer_create(void);
 CTGUI_API tguiRenderer* tguiScrollbarRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiScrollbarRenderer_setTrackColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getTrackColor(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTrackColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getTrackColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setThumbColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getThumbColor(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getThumbColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setArrowColor(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getArrowColor(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getArrowColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* renderer, tguiColor* color);
-CTGUI_API tguiColor* tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
+CTGUI_API const tguiColor* tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureTrack(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureTrack(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureTrack(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureTrack(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureTrackHover(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureTrackHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureTrackHover(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureTrackHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureThumb(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureThumb(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureThumb(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureThumb(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureThumbHover(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureThumbHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureThumbHover(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureThumbHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureArrowUp(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureArrowUp(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureArrowUp(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureArrowUp(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureArrowUpHover(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureArrowUpHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureArrowUpHover(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureArrowUpHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureArrowDown(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureArrowDown(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureArrowDown(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureArrowDown(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiScrollbarRenderer_setTextureArrowDownHover(tguiRenderer* renderer, tguiTexture* texture);
-CTGUI_API tguiTexture* tguiScrollbarRenderer_getTextureArrowDownHover(const tguiRenderer* renderer);
+CTGUI_API void tguiScrollbarRenderer_setTextureArrowDownHover(tguiRenderer* thisRenderer, const tguiTexture* value);
+CTGUI_API const tguiTexture* tguiScrollbarRenderer_getTextureArrowDownHover(const tguiRenderer* thisRenderer);
 
 #endif // CTGUI_SCROLLBARRENDERER_H

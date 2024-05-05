@@ -1,0 +1,14 @@
+inherits ClickableWidget
+
+/// @brief Renderer containing properties that determine how the spin buttons part of the widget is displayed
+property-widget-renderer SpinButtonRenderer SpinButton
+
+/// @brief Renderer containing properties that determine how the edit box part of the widget is displayed
+property-widget-renderer EditBoxRenderer SpinText
+
+property float Minimum
+property float Maximum
+property float Value
+property float Step
+property uint DecimalPlaces
+property bool UseWideArrows

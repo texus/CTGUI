@@ -1,8 +1,9 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/PanelRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/PanelRenderer.hpp>
 
@@ -15,69 +16,69 @@ tguiRenderer* tguiPanelRenderer_create(void)
     return new tguiRenderer(new tgui::PanelRenderer);
 }
 
-tguiRenderer* tguiPanelRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiPanelRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::PanelRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::PanelRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiPanelRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiPanelRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiPanelRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiPanelRenderer_setBackgroundColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBackgroundColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiPanelRenderer_getBackgroundColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBackgroundColor());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
+void tguiPanelRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiPanelRenderer_getBorderColor(const tguiRenderer* renderer)
+const tguiColor* tguiPanelRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiPanelRenderer_setTextureBackground(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureBackground(*texture->This);
-}
-
-tguiTexture* tguiPanelRenderer_getTextureBackground(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureBackground()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setRoundedBorderRadius(tguiRenderer* renderer, float value)
+void tguiPanelRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setRoundedBorderRadius(value);
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-float tguiPanelRenderer_getRoundedBorderRadius(const tguiRenderer* renderer)
+const tguiColor* tguiPanelRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getRoundedBorderRadius();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPanelRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureBackground(*value->This);
+}
+
+const tguiTexture* tguiPanelRenderer_getTextureBackground(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureBackground()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiPanelRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setRoundedBorderRadius(value);
+}
+
+float tguiPanelRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getRoundedBorderRadius();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

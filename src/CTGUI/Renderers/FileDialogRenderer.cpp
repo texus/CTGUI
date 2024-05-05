@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/FileDialogRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 
 #include <TGUI/Renderers/FileDialogRenderer.hpp>
@@ -15,117 +15,117 @@ tguiRenderer* tguiFileDialogRenderer_create(void)
     return new tguiRenderer(new tgui::FileDialogRenderer);
 }
 
-tguiRenderer* tguiFileDialogRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiFileDialogRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::FileDialogRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::FileDialogRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFileDialogRenderer_setListView(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiFileDialogRenderer_setListView(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setListView(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setListView(value->This);
 }
 
-tguiRendererData* tguiFileDialogRenderer_getListView(const tguiRenderer* renderer)
+const tguiRendererData* tguiFileDialogRenderer_getListView(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getListView());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialogRenderer_setEditBox(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setEditBox(rendererData->This);
-}
-
-tguiRendererData* tguiFileDialogRenderer_getEditBox(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getEditBox());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getListView());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFileDialogRenderer_setFilenameLabel(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiFileDialogRenderer_setEditBox(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setFilenameLabel(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setEditBox(value->This);
 }
 
-tguiRendererData* tguiFileDialogRenderer_getFilenameLabel(const tguiRenderer* renderer)
+const tguiRendererData* tguiFileDialogRenderer_getEditBox(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getFilenameLabel());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialogRenderer_setFileTypeComboBox(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setFileTypeComboBox(rendererData->This);
-}
-
-tguiRendererData* tguiFileDialogRenderer_getFileTypeComboBox(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getFileTypeComboBox());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getEditBox());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFileDialogRenderer_setButton(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiFileDialogRenderer_setFilenameLabel(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setButton(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setFilenameLabel(value->This);
 }
 
-tguiRendererData* tguiFileDialogRenderer_getButton(const tguiRenderer* renderer)
+const tguiRendererData* tguiFileDialogRenderer_getFilenameLabel(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getButton());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialogRenderer_setBackButton(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setBackButton(rendererData->This);
-}
-
-tguiRendererData* tguiFileDialogRenderer_getBackButton(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getBackButton());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getFilenameLabel());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFileDialogRenderer_setForwardButton(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiFileDialogRenderer_setFileTypeComboBox(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setForwardButton(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setFileTypeComboBox(value->This);
 }
 
-tguiRendererData* tguiFileDialogRenderer_getForwardButton(const tguiRenderer* renderer)
+const tguiRendererData* tguiFileDialogRenderer_getFileTypeComboBox(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getForwardButton());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFileDialogRenderer_setUpButton(tguiRenderer* renderer, tguiRendererData* rendererData)
-{
-    DOWNCAST(renderer->This)->setUpButton(rendererData->This);
-}
-
-tguiRendererData* tguiFileDialogRenderer_getUpButton(const tguiRenderer* renderer)
-{
-    return new tguiRendererData(DOWNCAST(renderer->This)->getUpButton());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getFileTypeComboBox());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFileDialogRenderer_setArrowsOnNavigationButtonsVisible(tguiRenderer* renderer, tguiBool value)
+void tguiFileDialogRenderer_setButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setArrowsOnNavigationButtonsVisible(value != 0);
+    DOWNCAST(thisRenderer->This)->setButton(value->This);
 }
 
-tguiBool tguiFileDialogRenderer_getArrowsOnNavigationButtonsVisible(const tguiRenderer* renderer)
+const tguiRendererData* tguiFileDialogRenderer_getButton(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getArrowsOnNavigationButtonsVisible();
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getButton());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialogRenderer_setBackButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setBackButton(value->This);
+}
+
+const tguiRendererData* tguiFileDialogRenderer_getBackButton(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getBackButton());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialogRenderer_setForwardButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setForwardButton(value->This);
+}
+
+const tguiRendererData* tguiFileDialogRenderer_getForwardButton(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getForwardButton());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialogRenderer_setUpButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setUpButton(value->This);
+}
+
+const tguiRendererData* tguiFileDialogRenderer_getUpButton(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getUpButton());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFileDialogRenderer_setArrowsOnNavigationButtonsVisible(tguiRenderer* thisRenderer, tguiBool value)
+{
+    DOWNCAST(thisRenderer->This)->setArrowsOnNavigationButtonsVisible(value != 0);
+}
+
+tguiBool tguiFileDialogRenderer_getArrowsOnNavigationButtonsVisible(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getArrowsOnNavigationButtonsVisible();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,18 @@
+inherits Container
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ChildWindowRenderer
+
+function setClientSize(Vector2f size)
+function setClientSizeFromLayout setClientSize(Layout2d layout)
+function getClientSize() -> Vector2f
+
+property Vector2f MaximumSize
+property Vector2f MinimumSize
+property string Title
+property uint TitleTextSize
+property HorizontalAlignment TitleAlignment
+property uint TitleButtons
+property-bool-is Resizable
+property bool KeepInParent
+property-bool-is PositionLocked

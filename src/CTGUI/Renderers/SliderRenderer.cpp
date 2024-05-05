@@ -1,8 +1,9 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/SliderRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/TextureStruct.hpp>
 
 #include <TGUI/Renderers/SliderRenderer.hpp>
 
@@ -15,153 +16,153 @@ tguiRenderer* tguiSliderRenderer_create(void)
     return new tguiRenderer(new tgui::SliderRenderer);
 }
 
-tguiRenderer* tguiSliderRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiSliderRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::SliderRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::SliderRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setBorders(tguiRenderer* renderer, tguiOutline* outline)
+void tguiSliderRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value)
 {
-    DOWNCAST(renderer->This)->setBorders(outline->This);
+    DOWNCAST(thisRenderer->This)->setBorders(value->This);
 }
 
-tguiOutline* tguiSliderRenderer_getBorders(const tguiRenderer* renderer)
+const tguiOutline* tguiSliderRenderer_getBorders(const tguiRenderer* thisRenderer)
 {
-    return new tguiOutline(DOWNCAST(renderer->This)->getBorders());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSliderRenderer_setTrackColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setTrackColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiSliderRenderer_getTrackColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColor());
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getBorders());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setTrackColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiSliderRenderer_setTrackColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTrackColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTrackColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiSliderRenderer_getTrackColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiSliderRenderer_getTrackColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTrackColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSliderRenderer_setThumbColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setThumbColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiSliderRenderer_getThumbColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTrackColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setThumbColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiSliderRenderer_setTrackColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setThumbColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTrackColorHover(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiSliderRenderer_getThumbColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiSliderRenderer_getTrackColorHover(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getThumbColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSliderRenderer_setBorderColor(tguiRenderer* renderer, tguiColor* color)
-{
-    DOWNCAST(renderer->This)->setBorderColor(ctgui::toCppColor(color));
-}
-
-tguiColor* tguiSliderRenderer_getBorderColor(const tguiRenderer* renderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setBorderColorHover(tguiRenderer* renderer, tguiColor* color)
+void tguiSliderRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setBorderColorHover(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setThumbColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiSliderRenderer_getBorderColorHover(const tguiRenderer* renderer)
+const tguiColor* tguiSliderRenderer_getThumbColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getBorderColorHover());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSliderRenderer_setTextureTrack(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureTrack(*texture->This);
-}
-
-tguiTexture* tguiSliderRenderer_getTextureTrack(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrack()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setTextureTrackHover(tguiRenderer* renderer, tguiTexture* texture)
+void tguiSliderRenderer_setThumbColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureTrackHover(*texture->This);
+    DOWNCAST(thisRenderer->This)->setThumbColorHover(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiSliderRenderer_getTextureTrackHover(const tguiRenderer* renderer)
+const tguiColor* tguiSliderRenderer_getThumbColorHover(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureTrackHover()));
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSliderRenderer_setTextureThumb(tguiRenderer* renderer, tguiTexture* texture)
-{
-    DOWNCAST(renderer->This)->setTextureThumb(*texture->This);
-}
-
-tguiTexture* tguiSliderRenderer_getTextureThumb(const tguiRenderer* renderer)
-{
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumb()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setTextureThumbHover(tguiRenderer* renderer, tguiTexture* texture)
+void tguiSliderRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextureThumbHover(*texture->This);
+    DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-tguiTexture* tguiSliderRenderer_getTextureThumbHover(const tguiRenderer* renderer)
+const tguiColor* tguiSliderRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(renderer->This)->getTextureThumbHover()));
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setThumbWithinTrack(tguiRenderer* renderer, tguiBool value)
+void tguiSliderRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setThumbWithinTrack(value != 0);
+    DOWNCAST(thisRenderer->This)->setBorderColorHover(ctgui::toCppColor(value));
 }
 
-tguiBool tguiSliderRenderer_getThumbWithinTrack(const tguiRenderer* renderer)
+const tguiColor* tguiSliderRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
 {
-    return DOWNCAST(renderer->This)->getThumbWithinTrack();
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorHover());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSliderRenderer_setTextureTrack(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureTrack(*value->This);
+}
+
+const tguiTexture* tguiSliderRenderer_getTextureTrack(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureTrack()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSliderRenderer_setTextureTrackHover(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureTrackHover(*value->This);
+}
+
+const tguiTexture* tguiSliderRenderer_getTextureTrackHover(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureTrackHover()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSliderRenderer_setTextureThumb(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureThumb(*value->This);
+}
+
+const tguiTexture* tguiSliderRenderer_getTextureThumb(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureThumb()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSliderRenderer_setTextureThumbHover(tguiRenderer* thisRenderer, const tguiTexture* value)
+{
+    DOWNCAST(thisRenderer->This)->setTextureThumbHover(*value->This);
+}
+
+const tguiTexture* tguiSliderRenderer_getTextureThumbHover(const tguiRenderer* thisRenderer)
+{
+    return new tguiTexture(std::make_unique<tgui::Texture>(DOWNCAST(thisRenderer->This)->getTextureThumbHover()));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSliderRenderer_setThumbWithinTrack(tguiRenderer* thisRenderer, tguiBool value)
+{
+    DOWNCAST(thisRenderer->This)->setThumbWithinTrack(value != 0);
+}
+
+tguiBool tguiSliderRenderer_getThumbWithinTrack(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getThumbWithinTrack();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

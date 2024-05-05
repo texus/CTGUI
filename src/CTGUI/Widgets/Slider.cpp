@@ -1,27 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/Slider.h>
 #include <CTGUI/WidgetStruct.hpp>
@@ -39,84 +16,86 @@ tguiWidget* tguiSlider_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setMinimum(tguiWidget* widget, float minimum)
+void tguiSlider_setMinimum(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setMinimum(minimum);
+    DOWNCAST(thisWidget->This)->setMinimum(value);
 }
 
-float tguiSlider_getMinimum(const tguiWidget* widget)
+float tguiSlider_getMinimum(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getMinimum();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSlider_setMaximum(tguiWidget* widget, float maximum)
-{
-    DOWNCAST(widget->This)->setMaximum(maximum);
-}
-
-float tguiSlider_getMaximum(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getMaximum();
+    return DOWNCAST(thisWidget->This)->getMinimum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setValue(tguiWidget* widget, float value)
+void tguiSlider_setMaximum(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setValue(value);
+    DOWNCAST(thisWidget->This)->setMaximum(value);
 }
 
-float tguiSlider_getValue(const tguiWidget* widget)
+float tguiSlider_getMaximum(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSlider_setStep(tguiWidget* widget, float step)
-{
-    DOWNCAST(widget->This)->setStep(step);
-}
-
-float tguiSlider_getStep(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getStep();
+    return DOWNCAST(thisWidget->This)->getMaximum();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setVerticalScroll(tguiWidget* widget, tguiBool vertical)
+void tguiSlider_setValue(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setVerticalScroll(vertical != 0);
+    DOWNCAST(thisWidget->This)->setValue(value);
 }
 
-tguiBool tguiSlider_getVerticalScroll(const tguiWidget* widget)
+float tguiSlider_getValue(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getVerticalScroll();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSlider_setInvertedDirection(tguiWidget* widget, tguiBool invertedDirection)
-{
-    DOWNCAST(widget->This)->setInvertedDirection(invertedDirection != 0);
-}
-
-tguiBool tguiSlider_getInvertedDirection(const tguiWidget* widget)
-{
-    return DOWNCAST(widget->This)->getInvertedDirection();
+    return DOWNCAST(thisWidget->This)->getValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setChangeValueOnScroll(tguiWidget* widget, tguiBool changeValueOnScroll)
+void tguiSlider_setStep(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(widget->This)->setChangeValueOnScroll(changeValueOnScroll != 0);
+    DOWNCAST(thisWidget->This)->setStep(value);
 }
 
-tguiBool tguiSlider_getChangeValueOnScroll(const tguiWidget* widget)
+float tguiSlider_getStep(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(widget->This)->getChangeValueOnScroll();
+    return DOWNCAST(thisWidget->This)->getStep();
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSlider_setVerticalScroll(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setVerticalScroll(value != 0);
+}
+
+tguiBool tguiSlider_getVerticalScroll(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScroll();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSlider_setInvertedDirection(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setInvertedDirection(value != 0);
+}
+
+tguiBool tguiSlider_getInvertedDirection(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getInvertedDirection();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiSlider_setChangeValueOnScroll(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setChangeValueOnScroll(value != 0);
+}
+
+tguiBool tguiSlider_getChangeValueOnScroll(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getChangeValueOnScroll();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

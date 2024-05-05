@@ -1,0 +1,15 @@
+inherits SubwidgetContainer
+
+/// @brief Renderer containing properties that determine how the edit box part of the widget is displayed
+property-widget-renderer EditBoxRenderer EditBox
+
+/// @brief Renderer containing properties that determine how the slider part of the widget is displayed
+property-widget-renderer SliderRenderer Slider
+
+property float Minimum
+property float Maximum
+property float Value
+property float Step
+property uint DecimalPlaces
+property HorizontalAlignment TextAlignment
+

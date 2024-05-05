@@ -1,7 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/MessageBoxRenderer.h>
-#include <CTGUI/Renderers/RendererStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 
 #include <TGUI/Renderers/MessageBoxRenderer.hpp>
@@ -15,33 +15,33 @@ tguiRenderer* tguiMessageBoxRenderer_create(void)
     return new tguiRenderer(new tgui::MessageBoxRenderer);
 }
 
-tguiRenderer* tguiMessageBoxRenderer_copy(const tguiRenderer* renderer)
+tguiRenderer* tguiMessageBoxRenderer_copy(const tguiRenderer* thisRenderer)
 {
-    return new tguiRenderer(new tgui::MessageBoxRenderer(*DOWNCAST(renderer->This)));
+    return new tguiRenderer(new tgui::MessageBoxRenderer(*DOWNCAST(thisRenderer->This)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBoxRenderer_setTextColor(tguiRenderer* renderer, tguiColor* color)
+void tguiMessageBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
-    DOWNCAST(renderer->This)->setTextColor(ctgui::toCppColor(color));
+    DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-tguiColor* tguiMessageBoxRenderer_getTextColor(const tguiRenderer* renderer)
+const tguiColor* tguiMessageBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
-    return ctgui::fromCppColor(DOWNCAST(renderer->This)->getTextColor());
+    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBoxRenderer_setButton(tguiRenderer* renderer, tguiRendererData* rendererData)
+void tguiMessageBoxRenderer_setButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
 {
-    DOWNCAST(renderer->This)->setButton(rendererData->This);
+    DOWNCAST(thisRenderer->This)->setButton(value->This);
 }
 
-tguiRendererData* tguiMessageBoxRenderer_getButton(const tguiRenderer* renderer)
+const tguiRendererData* tguiMessageBoxRenderer_getButton(const tguiRenderer* thisRenderer)
 {
-    return new tguiRendererData(DOWNCAST(renderer->This)->getButton());
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getButton());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
