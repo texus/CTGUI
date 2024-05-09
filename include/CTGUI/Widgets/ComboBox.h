@@ -21,9 +21,9 @@ CTGUI_API size_t tguiComboBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tg
 
 CTGUI_API tguiUtf32 tguiComboBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id);
 
-CTGUI_API const tguiUtf32* tguiComboBox_getItems(tguiWidget* thisWidget, size_t* returnCount);
+CTGUI_API const tguiUtf32* tguiComboBox_getItems(const tguiWidget* thisWidget, size_t* returnCount);
 
-CTGUI_API const tguiUtf32* tguiComboBox_getItemIds(tguiWidget* thisWidget, size_t* returnCount);
+CTGUI_API const tguiUtf32* tguiComboBox_getItemIds(const tguiWidget* thisWidget, size_t* returnCount);
 
 CTGUI_API tguiBool tguiComboBox_setSelectedItem(tguiWidget* thisWidget, tguiUtf32 item);
 

@@ -235,7 +235,7 @@ void tguiListView_setSelectedItems(tguiWidget* thisWidget, const size_t* indices
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int tguiListView_getSelectedItemIndex(tguiWidget* thisWidget)
+int tguiListView_getSelectedItemIndex(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getSelectedItemIndex();
 }
@@ -322,21 +322,21 @@ size_t tguiListView_getItemCount(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiListView_getItem(tguiWidget* thisWidget, size_t index)
+tguiUtf32 tguiListView_getItem(const tguiWidget* thisWidget, size_t index)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItem(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiListView_getItemCell(tguiWidget* thisWidget, size_t rowIndex, size_t columnIndex)
+tguiUtf32 tguiListView_getItemCell(const tguiWidget* thisWidget, size_t rowIndex, size_t columnIndex)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemCell(rowIndex, columnIndex));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiUtf32* tguiListView_getItemRow(tguiWidget* thisWidget, size_t index, size_t* returnCount)
+const tguiUtf32* tguiListView_getItemRow(const tguiWidget* thisWidget, size_t index, size_t* returnCount)
 {
     static std::vector<tgui::String> cppStrings;
     cppStrings = DOWNCAST(thisWidget->This)->getItemRow(index);

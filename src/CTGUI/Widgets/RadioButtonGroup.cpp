@@ -23,13 +23,7 @@ void tguiRadioButtonGroup_uncheckRadioButtons(tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiRadioButtonGroup_getCheckedRadioButton(tguiWidget* thisWidget)
+tguiWidget* getCheckedRadioButton(tguiWidget* widget)
 {
-    tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisWidget->This)->getCheckedRadioButton();
-    if (widgetToReturn)
-        return new tguiWidget(widgetToReturn);
-    else
-        return nullptr;
+    return ctgui::addWidgetRef(DOWNCAST(widget->This)->getCheckedRadioButton());
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

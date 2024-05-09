@@ -59,4 +59,3 @@ void tguiWidgetRenderer_free(tguiRenderer* renderer)
 
     delete renderer;
 }
-

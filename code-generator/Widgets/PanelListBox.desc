@@ -21,9 +21,8 @@ function getItemIds() const -> List<string>
 
 property size_t MaximumItems
 
-function containsId(string id) -> bool
+function containsId(string id) const -> bool
 
 function getItemsWidth() const -> Layout
 
-function setItemsHeight(Layout height);
-function getItemsHeight() const -> Layout
+property Layout ItemsHeight

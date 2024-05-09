@@ -47,7 +47,7 @@ void tguiMessageBox_changeButtons(tguiWidget* thisWidget, const tguiUtf32* butto
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiUtf32* tguiMessageBox_getButtons(tguiWidget* thisWidget, size_t* returnCount)
+const tguiUtf32* tguiMessageBox_getButtons(const tguiWidget* thisWidget, size_t* returnCount)
 {
     static std::vector<tgui::String> cppStrings;
     cppStrings = DOWNCAST(thisWidget->This)->getButtons();

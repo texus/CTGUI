@@ -32,11 +32,12 @@ CTGUI_API tguiBool tguiEditBox_isReadOnly(const tguiWidget* thisWidget);
 CTGUI_API void tguiEditBox_setCaretPosition(tguiWidget* thisWidget, size_t value);
 CTGUI_API size_t tguiEditBox_getCaretPosition(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiEditBox_setInputValidator(tguiWidget* thisWidget, tguiUtf32 value);
-CTGUI_API tguiUtf32 tguiEditBox_getInputValidator(const tguiWidget* thisWidget);
-
 CTGUI_API void tguiEditBox_setSuffix(tguiWidget* thisWidget, tguiUtf32 value);
 CTGUI_API tguiUtf32 tguiEditBox_getSuffix(const tguiWidget* thisWidget);
+
+CTGUI_API tguiBool tguiEditBox_setInputValidator(tguiWidget* thisWidget, tguiUtf32 regex);
+
+CTGUI_API tguiUtf32 tguiEditBox_getInputValidator(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiEditBox_selectText(tguiWidget* thisWidget, size_t start, size_t length);
 

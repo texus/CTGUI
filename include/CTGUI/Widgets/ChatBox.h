@@ -13,17 +13,17 @@ CTGUI_API void tguiChatBox_addLineWithColor(tguiWidget* thisWidget, tguiUtf32 te
 
 CTGUI_API void tguiChatBox_addLineWithColorAndStyle(tguiWidget* thisWidget, tguiUtf32 text, const tguiColor* color, tguiUint32 style);
 
-CTGUI_API tguiUtf32 tguiChatBox_getLine(tguiWidget* thisWidget, size_t lineIndex);
+CTGUI_API tguiUtf32 tguiChatBox_getLine(const tguiWidget* thisWidget, size_t lineIndex);
 
-CTGUI_API const tguiColor* tguiChatBox_getLineColor(tguiWidget* thisWidget, size_t lineIndex);
+CTGUI_API const tguiColor* tguiChatBox_getLineColor(const tguiWidget* thisWidget, size_t lineIndex);
 
-CTGUI_API tguiUint32 tguiChatBox_getLineTextStyle(tguiWidget* thisWidget, size_t lineIndex);
+CTGUI_API tguiUint32 tguiChatBox_getLineTextStyle(const tguiWidget* thisWidget, size_t lineIndex);
 
 CTGUI_API tguiBool tguiChatBox_removeLine(tguiWidget* thisWidget, size_t lineIndex);
 
 CTGUI_API void tguiChatBox_removeAllLines(tguiWidget* thisWidget);
 
-CTGUI_API size_t tguiChatBox_getLineAmount(tguiWidget* thisWidget);
+CTGUI_API size_t tguiChatBox_getLineAmount(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiChatBox_setLineLimit(tguiWidget* thisWidget, size_t value);
 CTGUI_API size_t tguiChatBox_getLineLimit(const tguiWidget* thisWidget);

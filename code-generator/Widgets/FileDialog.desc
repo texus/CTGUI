@@ -16,4 +16,3 @@ property bool AllowCreateFolder
 property bool FileMustExist
 property bool SelectingDirectory
 property bool MultiSelect
-

@@ -2,3 +2,6 @@ inherits Group
 
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer PanelRenderer
+
+static-function setEventBubbling(bool useEventBubbling)
+static-function getEventBubbling() -> bool

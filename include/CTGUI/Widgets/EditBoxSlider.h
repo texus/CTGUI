@@ -14,14 +14,15 @@ CTGUI_API tguiRenderer* tguiEditBoxSlider_getEditBoxSharedRenderer(const tguiWid
 CTGUI_API tguiRenderer* tguiEditBoxSlider_getSliderRenderer(const tguiWidget* thisWidget);
 CTGUI_API tguiRenderer* tguiEditBoxSlider_getSliderSharedRenderer(const tguiWidget* thisWidget);
 
+CTGUI_API tguiBool tguiEditBoxSlider_setValue(tguiWidget* thisWidget, float value);
+
+CTGUI_API float tguiEditBoxSlider_getValue(const tguiWidget* thisWidget);
+
 CTGUI_API void tguiEditBoxSlider_setMinimum(tguiWidget* thisWidget, float value);
 CTGUI_API float tguiEditBoxSlider_getMinimum(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiEditBoxSlider_setMaximum(tguiWidget* thisWidget, float value);
 CTGUI_API float tguiEditBoxSlider_getMaximum(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiEditBoxSlider_setValue(tguiWidget* thisWidget, float value);
-CTGUI_API float tguiEditBoxSlider_getValue(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiEditBoxSlider_setStep(tguiWidget* thisWidget, float value);
 CTGUI_API float tguiEditBoxSlider_getStep(const tguiWidget* thisWidget);

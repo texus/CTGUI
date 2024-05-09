@@ -37,21 +37,21 @@ void tguiChatBox_addLineWithColorAndStyle(tguiWidget* thisWidget, tguiUtf32 text
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiChatBox_getLine(tguiWidget* thisWidget, size_t lineIndex)
+tguiUtf32 tguiChatBox_getLine(const tguiWidget* thisWidget, size_t lineIndex)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getLine(lineIndex));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiColor* tguiChatBox_getLineColor(tguiWidget* thisWidget, size_t lineIndex)
+const tguiColor* tguiChatBox_getLineColor(const tguiWidget* thisWidget, size_t lineIndex)
 {
     return ctgui::fromCppColor(DOWNCAST(thisWidget->This)->getLineColor(lineIndex));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUint32 tguiChatBox_getLineTextStyle(tguiWidget* thisWidget, size_t lineIndex)
+tguiUint32 tguiChatBox_getLineTextStyle(const tguiWidget* thisWidget, size_t lineIndex)
 {
     return DOWNCAST(thisWidget->This)->getLineTextStyle(lineIndex);
 }
@@ -72,7 +72,7 @@ void tguiChatBox_removeAllLines(tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiChatBox_getLineAmount(tguiWidget* thisWidget)
+size_t tguiChatBox_getLineAmount(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getLineAmount();
 }

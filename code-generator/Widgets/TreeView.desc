@@ -23,4 +23,3 @@ function getSelectedItem() const -> List<string>
 
 function selectItem(List<string> hierarchy) -> bool
 function removeItem(List<string> hierarchy, bool removeParentsWhenEmpty) -> bool
-

@@ -50,12 +50,13 @@ class SegmentPropertyWidgetRenderer(Segment):
         self.prefix = namePrefix
 
 class SegmentFunction(Segment):
-    def __init__(self, nameC, name, returnType, params, const):
+    def __init__(self, nameC, name, returnType, params, const, static):
         self.nameC = nameC
         self.name = name
         self.returnType = returnType
         self.params = params # List of tuples containing type and name
         self.const = const
+        self.static = static
 
 class SegmentEnum(Segment):
     def __init__(self, enumName, enumValues):
@@ -143,7 +144,7 @@ def parseDescriptionFile(descFileName):
                     else:
                         raise RuntimeError('"property-bool-is" instruction should be followed by a name')
 
-                elif parts[0] == 'function':
+                elif parts[0] == 'function' or parts[0] == 'static-function':
                     if len(parts) >= 2:
                         openBracketPos = line.find('(')
                         closeBracketPos = line.find(')')
@@ -172,7 +173,10 @@ def parseDescriptionFile(descFileName):
                                 if len(param) != 2:
                                     raise RuntimeError('Parameter "' + ' '.join(param) + '" does not consist of exactly 2 parts (type and name)')
 
-                        name = line[9:openBracketPos].strip()
+                        if parts[0] == 'static-function':
+                            name = line[16:openBracketPos].strip()
+                        else:
+                            name = line[9:openBracketPos].strip()
                         if ' ' in name:
                             nameParts = name.split(' ')
                             if len(nameParts) != 2:
@@ -182,7 +186,11 @@ def parseDescriptionFile(descFileName):
                         else:
                             nameC = name
 
-                        segments.append(SegmentFunction(nameC, name, returnType, params, const))
+                        static = (parts[0] == 'static-function')
+                        if static and const:
+                            raise RuntimeError('static-function can not be const')
+
+                        segments.append(SegmentFunction(nameC, name, returnType, params, const, static))
                     else:
                         raise RuntimeError('"function" instruction should have format "function name(params)", with " -> returnType" behind it for non-void functions')
 

@@ -15,7 +15,7 @@ CTGUI_API void tguiMessageBox_addButton(tguiWidget* thisWidget, tguiUtf32 text);
 
 CTGUI_API void tguiMessageBox_changeButtons(tguiWidget* thisWidget, const tguiUtf32* buttonCaptions, size_t buttonCaptionsLength);
 
-CTGUI_API const tguiUtf32* tguiMessageBox_getButtons(tguiWidget* thisWidget, size_t* returnCount);
+CTGUI_API const tguiUtf32* tguiMessageBox_getButtons(const tguiWidget* thisWidget, size_t* returnCount);
 
 CTGUI_API void tguiMessageBox_setLabelAlignment(tguiWidget* thisWidget, tguiHorizontalAlignment value);
 CTGUI_API tguiHorizontalAlignment tguiMessageBox_getLabelAlignment(const tguiWidget* thisWidget);

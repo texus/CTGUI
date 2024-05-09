@@ -4,4 +4,3 @@ inherits ChildWindow
 property-widget-renderer ColorPickerRenderer
 
 property Color Color
-

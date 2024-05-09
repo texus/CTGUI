@@ -112,18 +112,6 @@ size_t tguiEditBox_getCaretPosition(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBox_setInputValidator(tguiWidget* thisWidget, tguiUtf32 value)
-{
-    DOWNCAST(thisWidget->This)->setInputValidator(ctgui::toCppStr(value));
-}
-
-tguiUtf32 tguiEditBox_getInputValidator(const tguiWidget* thisWidget)
-{
-    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getInputValidator());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiEditBox_setSuffix(tguiWidget* thisWidget, tguiUtf32 value)
 {
     DOWNCAST(thisWidget->This)->setSuffix(ctgui::toCppStr(value));
@@ -132,6 +120,20 @@ void tguiEditBox_setSuffix(tguiWidget* thisWidget, tguiUtf32 value)
 tguiUtf32 tguiEditBox_getSuffix(const tguiWidget* thisWidget)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getSuffix());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiEditBox_setInputValidator(tguiWidget* thisWidget, tguiUtf32 regex)
+{
+    return DOWNCAST(thisWidget->This)->setInputValidator(ctgui::toCppStr(regex));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiUtf32 tguiEditBox_getInputValidator(const tguiWidget* thisWidget)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getInputValidator());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

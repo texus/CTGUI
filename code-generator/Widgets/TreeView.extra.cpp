@@ -81,4 +81,3 @@ tguiTreeViewConstNode** tguiTreeView_getNodes(const tguiWidget* widget, size_t* 
     *count = cppNodes.size();
     return cNodes.data();
 }
-

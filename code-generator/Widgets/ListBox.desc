@@ -5,10 +5,10 @@ property-widget-renderer ListBoxRenderer
 
 function addItem(string item, string id) -> size_t
 
-function getItemById(string id) -> string
-function getItemByIndex(size_t index) -> string
-function getIndexById(string id) -> int
-function getIdByIndex(size_t index) -> string
+function getItemById(string id) const -> string
+function getItemByIndex(size_t index) const -> string
+function getIndexById(string id) const -> int
+function getIdByIndex(size_t index) const -> string
 
 function setSelectedItem(string item) -> bool
 function setSelectedItemById(string id) -> bool
@@ -24,9 +24,9 @@ function getSelectedItem() const -> string
 function getSelectedItemId() const -> string
 function getSelectedItemIndex() const -> int
 
-function changeItem(string originalValue, string newValue)
-function changeItemById(string id, string newValue)
-function changeItemByIndex(size_t index, string newValue)
+function changeItem(string originalValue, string newValue) -> bool
+function changeItemById(string id, string newValue) -> bool
+function changeItemByIndex(size_t index, string newValue) -> bool
 
 function getItemCount() const -> size_t
 
@@ -34,7 +34,7 @@ function getItems() const -> List<string>
 function getItemIds() const -> List<string>
 
 function setItemData(size_t index, AnyObject data)
-function getItemData(size_t index) -> AnyObject
+function getItemData(size_t index) const -> AnyObject
 
 property uint ItemHeight
 property size_t MaximumItems
@@ -42,5 +42,5 @@ property bool AutoScroll
 property HorizontalAlignment TextAlignment
 property uint ScrollbarValue
 
-function contains(string item) -> bool
-function containsId(string id) -> bool
+function contains(string item) const -> bool
+function containsId(string id) const -> bool

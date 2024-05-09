@@ -58,7 +58,7 @@ def generateAdditionalIncludesInSourceFile(segments):
 
 #################################################################################################################################
 
-def generateFunctionSignatureC(className, funcName, funcParams, returnType, constFunc, selfType, selfName, enums):
+def generateFunctionSignatureC(className, funcName, funcParams, returnType, constFunc, staticFunc, selfType, selfName, enums):
     TYPE_MAP = {
         'void' : 'void',
         'bool' : 'tguiBool',
@@ -107,6 +107,14 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
     if returnType.startswith('List<') or returnType.startswith('Set<'):
         params += ', size_t* returnCount'
 
+    if staticFunc:
+        # Remove the self parameter
+        if ', ' in params:
+            params = params[params.find(', ')+2:]
+        else:
+            assert(',' not in params)
+            params = ''
+
     if returnType in enums:
         return 'tgui' + className + returnType + ' tgui' + className + '_' + funcName + '(' + params + ')'
     else:
@@ -114,7 +122,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
 
 #################################################################################################################################
 
-def generateFunctionCallC(className, funcName, funcParams, returnType, selfName, enums):
+def generateFunctionCallC(className, funcName, funcParams, returnType, staticFunc, selfName, enums):
     generatedLines = []
     funcCallParams = []
     for param in funcParams:
@@ -163,7 +171,10 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, selfName,
         else:
             raise RuntimeError('Type ' + paramType + ' is not supported as function parameter')
 
-    funcCall = 'DOWNCAST(' + selfName + '->This)->' + funcName + '(' + ', '.join(funcCallParams) + ')'
+    if staticFunc:
+        funcCall = 'tgui::' + className + '::' + funcName + '(' + ', '.join(funcCallParams) + ')'
+    else:
+        funcCall = 'DOWNCAST(' + selfName + '->This)->' + funcName + '(' + ', '.join(funcCallParams) + ')'
 
     returnType = returnType
     if returnType in enums:
@@ -284,20 +295,20 @@ def generatePropertySourceC(className, segment, enums, selfType, selfName):
         raise RuntimeError('"is" prefix in property is only allowed for bool types')
 
     generatedLines = []
-    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfType, selfName, enums))
+    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, enums))
     generatedLines.append('{')
-    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', selfName, enums))
+    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfName, enums))
     generatedLines.append('}')
     generatedLines.append('')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
-        generatedLines.append(generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, selfType, selfName, {}))
+        generatedLines.append(generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, False, selfType, selfName, {}))
     else:
-        generatedLines.append(generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, selfType, selfName, enums))
+        generatedLines.append(generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, False, selfType, selfName, enums))
     generatedLines.append('{')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
-        generatedLines.extend(generateFunctionCallC(className, 'is' + propertyName, [], propertyType, selfName, {}))
+        generatedLines.extend(generateFunctionCallC(className, 'is' + propertyName, [], propertyType, False, selfName, {}))
     else:
-        generatedLines.extend(generateFunctionCallC(className, 'get' + propertyName, [], propertyType, selfName, enums))
+        generatedLines.extend(generateFunctionCallC(className, 'get' + propertyName, [], propertyType, False, selfName, enums))
     generatedLines.append('}')
     return generatedLines
 
@@ -311,13 +322,13 @@ def generatePropertyHeaderC(className, segment, enums, selfType, selfName):
 
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
         return [
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfType, selfName, {}) + ';',
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, selfType, selfName, {}) + ';'
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, {}) + ';',
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, False, selfType, selfName, {}) + ';'
         ]
     else:
         return [
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfType, selfName, enums) + ';',
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, selfType, selfName, enums) + ';'
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, enums) + ';',
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, False, selfType, selfName, enums) + ';'
         ]
 
 #################################################################################################################################
@@ -349,7 +360,7 @@ def generateRendererHeaderFileC(srcFile, destFile, className):
             elif isinstance(segment, SegmentFunction):
                 # Functions are allowed in the base class, but not in the derived classes which are only allowed to use properties
                 if className == 'WidgetRenderer':
-                    generatedLines.append('CTGUI_API ' + generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, 'tguiRenderer', 'thisRenderer', {}) + ';')
+                    generatedLines.append('CTGUI_API ' + generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, 'tguiRenderer', 'thisRenderer', {}) + ';')
                 else:
                     raise RuntimeError('function is not supported in a renderer')
             elif isinstance(segment, SegmentAbstractClass):
@@ -427,9 +438,9 @@ def generateRendererSourceFileC(srcFile, destFile, className):
             elif isinstance(segment, SegmentFunction):
                 # Functions are allowed in the base class, but not in the derived classes which are only allowed to use properties
                 if className == 'WidgetRenderer':
-                    generatedLines.append(generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, 'tguiRenderer', 'thisRenderer', {}))
+                    generatedLines.append(generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, 'tguiRenderer', 'thisRenderer', {}))
                     generatedLines.append('{')
-                    generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, 'thisRenderer', {}))
+                    generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, segment.static, 'thisRenderer', {}))
                     generatedLines.append('}')
                 else:
                     raise RuntimeError('function is not supported in a renderer')
@@ -547,7 +558,7 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
             elif isinstance(segment, SegmentProperty):
                 generatedLines.extend(generatePropertyHeaderC(className, segment, enums, 'tguiWidget', 'thisWidget'))
             elif isinstance(segment, SegmentFunction):
-                generatedLines.append('CTGUI_API ' + generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, 'tguiWidget', 'thisWidget', enums) + ';')
+                generatedLines.append('CTGUI_API ' + generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, 'tguiWidget', 'thisWidget', enums) + ';')
             elif isinstance(segment, SegmentAbstractClass) or isinstance(segment, SegmentEnum):
                 continue # Already handled earlier
             else:
@@ -635,9 +646,9 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
             elif isinstance(segment, SegmentProperty):
                 generatedLines.extend(generatePropertySourceC(className, segment, enums, 'tguiWidget', 'thisWidget'))
             elif isinstance(segment, SegmentFunction):
-                generatedLines.append(generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, 'tguiWidget', 'thisWidget', enums))
+                generatedLines.append(generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, 'tguiWidget', 'thisWidget', enums))
                 generatedLines.append('{')
-                generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, 'thisWidget', enums))
+                generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, segment.static, 'thisWidget', enums))
                 generatedLines.append('}')
             elif isinstance(segment, SegmentAbstractClass) or isinstance(segment, SegmentEnum):
                 continue # Already handled earlier

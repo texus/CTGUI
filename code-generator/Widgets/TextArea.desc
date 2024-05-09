@@ -16,9 +16,8 @@ function getSelectionEnd() const -> size_t
 
 property size_t MaximumCharacters
 property string TabString
+property size_t CaretPosition
 
-function setCaretPosition(size_t charactersBeforeCaret)
-function getCaretPosition() const -> size_t
 function getCaretLine() const -> size_t
 function getCaretColumn() const -> size_t
 
@@ -32,5 +31,4 @@ property uint HorizontalScrollbarValue
 
 function enableMonospacedFontOptimization(bool enable)
 
-function getLinesCount() -> size_t
-
+function getLinesCount() const -> size_t

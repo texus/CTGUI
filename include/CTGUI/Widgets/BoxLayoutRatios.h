@@ -13,9 +13,9 @@ CTGUI_API void tguiBoxLayoutRatios_addSpace(tguiWidget* thisWidget, float ratio)
 
 CTGUI_API void tguiBoxLayoutRatios_insertSpace(tguiWidget* thisWidget, size_t index, float ratio);
 
-CTGUI_API void tguiBoxLayoutRatios_setRatio(tguiWidget* thisWidget, tguiWidget* widget, float ratio);
+CTGUI_API tguiBool tguiBoxLayoutRatios_setRatio(tguiWidget* thisWidget, tguiWidget* widget, float ratio);
 
-CTGUI_API void tguiBoxLayoutRatios_setRatioAtIndex(tguiWidget* thisWidget, size_t index, float ratio);
+CTGUI_API tguiBool tguiBoxLayoutRatios_setRatioAtIndex(tguiWidget* thisWidget, size_t index, float ratio);
 
 CTGUI_API float tguiBoxLayoutRatios_getRatio(const tguiWidget* thisWidget, tguiWidget* widget);
 

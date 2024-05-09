@@ -13,4 +13,3 @@ function incrementValue() -> uint
 
 property string Text
 property FillDirection FillDirection
-

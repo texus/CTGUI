@@ -19,4 +19,3 @@ CTGUI_API void tguiMenuBarMenuList_free(tguiMenuBarMenuList* menuList);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CTGUI_API tguiMenuBarMenuList* tguiMenuBar_getMenus(tguiWidget* widget);  // You must call tguiMenuBarMenuList_free on the returned value
-

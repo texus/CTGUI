@@ -5,7 +5,7 @@ property-widget-renderer ChildWindowRenderer
 
 function setClientSize(Vector2f size)
 function setClientSizeFromLayout setClientSize(Layout2d layout)
-function getClientSize() -> Vector2f
+function getClientSize() const -> Vector2f
 
 property Vector2f MaximumSize
 property Vector2f MinimumSize

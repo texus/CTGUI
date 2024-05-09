@@ -10,13 +10,13 @@ CTGUI_API tguiWidget* tguiListBox_create(void);
 
 CTGUI_API size_t tguiListBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tguiUtf32 id);
 
-CTGUI_API tguiUtf32 tguiListBox_getItemById(tguiWidget* thisWidget, tguiUtf32 id);
+CTGUI_API tguiUtf32 tguiListBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id);
 
-CTGUI_API tguiUtf32 tguiListBox_getItemByIndex(tguiWidget* thisWidget, size_t index);
+CTGUI_API tguiUtf32 tguiListBox_getItemByIndex(const tguiWidget* thisWidget, size_t index);
 
-CTGUI_API int tguiListBox_getIndexById(tguiWidget* thisWidget, tguiUtf32 id);
+CTGUI_API int tguiListBox_getIndexById(const tguiWidget* thisWidget, tguiUtf32 id);
 
-CTGUI_API tguiUtf32 tguiListBox_getIdByIndex(tguiWidget* thisWidget, size_t index);
+CTGUI_API tguiUtf32 tguiListBox_getIdByIndex(const tguiWidget* thisWidget, size_t index);
 
 CTGUI_API tguiBool tguiListBox_setSelectedItem(tguiWidget* thisWidget, tguiUtf32 item);
 
@@ -40,11 +40,11 @@ CTGUI_API tguiUtf32 tguiListBox_getSelectedItemId(const tguiWidget* thisWidget);
 
 CTGUI_API int tguiListBox_getSelectedItemIndex(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiListBox_changeItem(tguiWidget* thisWidget, tguiUtf32 originalValue, tguiUtf32 newValue);
+CTGUI_API tguiBool tguiListBox_changeItem(tguiWidget* thisWidget, tguiUtf32 originalValue, tguiUtf32 newValue);
 
-CTGUI_API void tguiListBox_changeItemById(tguiWidget* thisWidget, tguiUtf32 id, tguiUtf32 newValue);
+CTGUI_API tguiBool tguiListBox_changeItemById(tguiWidget* thisWidget, tguiUtf32 id, tguiUtf32 newValue);
 
-CTGUI_API void tguiListBox_changeItemByIndex(tguiWidget* thisWidget, size_t index, tguiUtf32 newValue);
+CTGUI_API tguiBool tguiListBox_changeItemByIndex(tguiWidget* thisWidget, size_t index, tguiUtf32 newValue);
 
 CTGUI_API size_t tguiListBox_getItemCount(const tguiWidget* thisWidget);
 
@@ -54,7 +54,7 @@ CTGUI_API const tguiUtf32* tguiListBox_getItemIds(const tguiWidget* thisWidget, 
 
 CTGUI_API void tguiListBox_setItemData(tguiWidget* thisWidget, size_t index, void* data);
 
-CTGUI_API void* tguiListBox_getItemData(tguiWidget* thisWidget, size_t index);
+CTGUI_API void* tguiListBox_getItemData(const tguiWidget* thisWidget, size_t index);
 
 CTGUI_API void tguiListBox_setItemHeight(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiListBox_getItemHeight(const tguiWidget* thisWidget);
@@ -71,8 +71,8 @@ CTGUI_API tguiHorizontalAlignment tguiListBox_getTextAlignment(const tguiWidget*
 CTGUI_API void tguiListBox_setScrollbarValue(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiListBox_getScrollbarValue(const tguiWidget* thisWidget);
 
-CTGUI_API tguiBool tguiListBox_contains(tguiWidget* thisWidget, tguiUtf32 item);
+CTGUI_API tguiBool tguiListBox_contains(const tguiWidget* thisWidget, tguiUtf32 item);
 
-CTGUI_API tguiBool tguiListBox_containsId(tguiWidget* thisWidget, tguiUtf32 id);
+CTGUI_API tguiBool tguiListBox_containsId(const tguiWidget* thisWidget, tguiUtf32 id);
 
 #endif // CTGUI_LISTBOX_H

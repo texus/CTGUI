@@ -65,7 +65,7 @@ CTGUI_API void tguiListView_setSelectedItem(tguiWidget* thisWidget, size_t index
 
 CTGUI_API void tguiListView_setSelectedItems(tguiWidget* thisWidget, const size_t* indices, size_t indicesLength);
 
-CTGUI_API int tguiListView_getSelectedItemIndex(tguiWidget* thisWidget);
+CTGUI_API int tguiListView_getSelectedItemIndex(const tguiWidget* thisWidget);
 
 CTGUI_API const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* thisWidget, size_t* returnCount);
 
@@ -82,11 +82,11 @@ CTGUI_API void tguiListView_setItemIcon(tguiWidget* thisWidget, size_t index, co
 
 CTGUI_API size_t tguiListView_getItemCount(const tguiWidget* thisWidget);
 
-CTGUI_API tguiUtf32 tguiListView_getItem(tguiWidget* thisWidget, size_t index);
+CTGUI_API tguiUtf32 tguiListView_getItem(const tguiWidget* thisWidget, size_t index);
 
-CTGUI_API tguiUtf32 tguiListView_getItemCell(tguiWidget* thisWidget, size_t rowIndex, size_t columnIndex);
+CTGUI_API tguiUtf32 tguiListView_getItemCell(const tguiWidget* thisWidget, size_t rowIndex, size_t columnIndex);
 
-CTGUI_API const tguiUtf32* tguiListView_getItemRow(tguiWidget* thisWidget, size_t index, size_t* returnCount);
+CTGUI_API const tguiUtf32* tguiListView_getItemRow(const tguiWidget* thisWidget, size_t index, size_t* returnCount);
 
 CTGUI_API const tguiUtf32* tguiListView_getItems(const tguiWidget* thisWidget, size_t* returnCount);
 
@@ -133,5 +133,4 @@ CTGUI_API void tguiListView_setResizableColumns(tguiWidget* thisWidget, tguiBool
 CTGUI_API tguiBool tguiListView_getResizableColumns(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiListView_sort(tguiWidget* widget, size_t index, tguiBool (*function)(tguiUtf32, tguiUtf32));
-
 #endif // CTGUI_LISTVIEW_H

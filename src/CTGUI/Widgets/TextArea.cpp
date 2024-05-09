@@ -99,12 +99,10 @@ tguiUtf32 tguiTextArea_getTabString(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setCaretPosition(tguiWidget* thisWidget, size_t charactersBeforeCaret)
+void tguiTextArea_setCaretPosition(tguiWidget* thisWidget, size_t value)
 {
-    DOWNCAST(thisWidget->This)->setCaretPosition(charactersBeforeCaret);
+    DOWNCAST(thisWidget->This)->setCaretPosition(value);
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 size_t tguiTextArea_getCaretPosition(const tguiWidget* thisWidget)
 {
@@ -194,7 +192,7 @@ void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiB
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiTextArea_getLinesCount(tguiWidget* thisWidget)
+size_t tguiTextArea_getLinesCount(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getLinesCount();
 }

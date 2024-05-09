@@ -43,7 +43,7 @@ void tguiGrid_setWidgetCell(tguiWidget* thisWidget, tguiWidget* widget, size_t r
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiWidget* tguiGrid_getWidget(tguiWidget* thisWidget, size_t row, size_t col)
+tguiWidget* tguiGrid_getWidget(const tguiWidget* thisWidget, size_t row, size_t col)
 {
     tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisWidget->This)->getWidget(row, col);
     if (widgetToReturn)

@@ -1,79 +1,268 @@
 import os
 import re
 from FileParser import *
+from collections import defaultdict
 
 TGUI_DIR = '../../TGUI'
 
 VALID_CPP_TYPES = {
+    'void' : ['void'],
     'float' : ['float'],
     'int' : ['int'],
     'uint' : ['unsigned int'],
     'bool' : ['bool'],
-    'Color' : ['Color'],
+    'string' : ['String', 'const String&'],
+    'Color' : ['Color', 'const Color&'],
+    'Font' : ['const Font&'],
     'Texture' : ['const Texture&'],
     'TextStyle' : ['TextStyles'],
     'RendererData' : ['std::shared_ptr<RendererData>'],
-    'Outline' : ['const Outline&', 'const Borders&', 'const Padding&'],
+    'Outline' : ['const Outline&', 'const Borders&', 'const Padding&', 'Borders', 'Padding', 'Outline'],
+    'HorizontalAlignment' : ['HorizontalAlignment', 'tgui::HorizontalAlignment'],
+    'VerticalAlignment' : ['VerticalAlignment', 'tgui::VerticalAlignment'],
+    'ScrollbarPolicy' : ['Scrollbar::Policy'],
+    'Vector2f' : ['Vector2f'],
+    'Char32' : ['char32_t'],
+    'size_t' : ['std::size_t'],
+    'Layout' : ['Layout', 'const Layout&'],
+    'Layout2d' : ['const Layout2d&'],
+    'List<string>' : ['std::vector<String>', 'const std::vector<String>&'],
+    'Set<size_t>' : ['std::set<std::size_t>', 'const std::set<std::size_t>&'],
+    'AnyObject' : ['Any', 'DataType'],
+    'Widget' : ['Widget::Ptr', 'const Widget::Ptr&'],
+}
+
+IGNORE_MISSING_PROPERTIES = {
+    'FileDialog' : ['IconLoader']
 }
 
 error = False
-for filename in os.listdir('Renderers'):
-    if filename.endswith('.desc'):
-        descFile = os.path.join('Renderers', filename)
-        className = filename[:-5]
-        cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', 'Renderers', className + '.hpp'))
-        cppProperties = set()
-        cppPropertyTypes = {}
-        cppInherits = None
-        for line in open(cppFile, 'r').readlines():
-            if line.strip().startswith('//'):
-                continue
-
-            match = re.search(' : public ([a-zA-Z]+)', line)
-            if match:
-                cppInherits = match.group(1)
-
-            match = re.search('void set(.*)\((.*) [a-zA-Z]+\)', line)
-            if match:
-                propertyName = match.group(1)
-                propertyType = match.group(2)
-                cppProperties.add(propertyName)
-                cppPropertyTypes[propertyName] = propertyType
-
-        assert(cppInherits)
-
-        matchedCppProperties = set()
-        segments = parseDescriptionFile(descFile)
-        inherits = None
-        for segment in segments:
-            if isinstance(segment, SegmentInherits):
-                inherits = segment.parentName
-
-            if isinstance(segment, SegmentProperty):
-                propertyType = segment.type
-                propertyName = segment.name
-                if propertyName not in cppProperties:
-                    print(className + ': Property ' + propertyName + ' does not exist in c++')
-                    error = True
+for subfolder in ['Widgets', 'Renderers']:
+    for filename in os.listdir(subfolder):
+        if filename.endswith('.desc'):
+            descFile = os.path.join(subfolder, filename)
+            className = filename[:-5]
+            cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', subfolder, className + '.hpp'))
+            cppEnums = set()
+            cppSetters = set()
+            cppGetters = set()
+            cppBoolIsGetters = set()
+            cppPropertyTypes = {}
+            cppDeprecated = set()
+            cppFunctions = defaultdict(list)
+            cppPotentialMultilineFunctions = set()
+            cppInherits = None
+            for line in open(cppFile, 'r').readlines():
+                line = line.strip()
+                if line.startswith('//'):
                     continue
 
-                matchedCppProperties.add(propertyName)
-                
-                validCppTypes = VALID_CPP_TYPES[propertyType]
-                if cppPropertyTypes[propertyName] not in validCppTypes:
-                    print(className + ': Type mismatch for property ' + propertyName)
+                # Look for enums
+                match = re.search('enum class ([a-zA-Z]+)', line)
+                if match:
+                    cppEnums.add(match.group(1))
+
+                # Look for inheritance
+                match = re.search(' ' + className + ' : public ([a-zA-Z]+)', line)
+                if match:
+                    cppInherits = match.group(1)
+
+                # Look for setter functions
+                match = re.search('void set([a-zA-Z]+)\(([^,=)]*) [a-zA-Z]+( = .*)?\)', line)
+                if match:
+                    propertyName = match.group(1)
+                    propertyType = match.group(2)
+                    cppSetters.add(propertyName)
+                    cppPropertyTypes[propertyName] = propertyType
+
+                # Look for getter functions
+                match = re.search(' get([a-zA-Z]+)\(\)', line)
+                if match:
+                    propertyName = match.group(1)
+                    cppGetters.add(propertyName)
+                    if 'TGUI_DEPRECATED' in line:
+                        cppDeprecated.add(propertyName)
+                    if 'TGUI_NODISCARD' not in line:
+                        print(className + ': C++ getter "get' + propertyName + '" is missing [[nodiscard]] attribute')
+                    if ' const' not in line and not ' static ' in line and not propertyName.endswith('Renderer'):
+                        print(className + ': C++ getter "get' + propertyName + '" is missing const modifier')
+
+                # Look for getters with the "is" prefix
+                match = re.search('bool is([a-zA-Z]+)\(\)', line)
+                if match:
+                    propertyName = match.group(1)
+                    cppGetters.add(propertyName)
+                    cppBoolIsGetters.add(propertyName)
+                    if 'TGUI_NODISCARD' not in line:
+                        print(className + ': C++ getter "is' + propertyName + '" is missing [[nodiscard]] attribute')
+                    if ' const' not in line and not ' static ' in line:
+                        print(className + ': C++ getter "is' + propertyName + '" is missing const modifier')
+
+                # Look for any function
+                match = re.search(' ([a-zA-Z]+)\(([^)]*)\)', line)
+                if match:
+                    # Parameters like "T x = {a, b}" aren't parsed properly (they match 2 parameters "T x = {a" and "b}").
+                    # We ignore this for now as this isn't an issue unless the C code wraps such a function.
+                    functionName = match.group(1)
+                    params = [param.split('=')[0].strip() for param in match.group(2).split(',')]
+                    params = [' '.join(param.split(' ')[:-1]).strip() for param in params]
+                    if len(params) == 1 and not params[0]: # If there are no parameter then params contains [''] now
+                        params = []
+                    returnType = line[:line.rfind('(')-len(functionName)].strip()
+                    if returnType.startswith('TGUI_DEPRECATED'):
+                        returnType = returnType[returnType.find('")')+2:].strip()
+                    returnType = ' '.join([part for part in returnType.split(' ') if part != 'static' and part != 'virtual' and part != 'TGUI_NODISCARD' and not part.startswith('TGUI_DEPRECATED')])
+                    isConst = line.endswith(' const;') or line.endswith(' const noexcept;') or line.endswith(' const override;') or line.endswith(' const noexcept override;') \
+                              or line.endswith(' const') or line.endswith(' const noexcept') or line.endswith(' const override') or line.endswith(' const noexcept override')
+                    isStatic = line.startswith('static') or ' static ' in line
+                    cppFunctions[functionName].append((returnType, params, isConst, isStatic))
+
+                # Look for functions that have many parameters that are split over multiple lines
+                match = re.search(' ([a-zA-Z]+)\(([^)]+)$', line)
+                if match:
+                    functionName = match.group(1)
+                    cppPotentialMultilineFunctions.add(functionName)
+
+            cppProperties = cppSetters.intersection(cppGetters)
+
+            assert(cppInherits or className == 'WidgetRenderer')
+
+            segments = parseDescriptionFile(descFile)
+
+            encounteredFunctions = set()
+            functionsWithOverloads = set()
+            for segment in segments:
+                if isinstance(segment, SegmentFunction):
+                    if segment.name in encounteredFunctions:
+                        functionsWithOverloads.add(segment.name)
+                    encounteredFunctions.add(segment.name)
+
+            matchedCppProperties = set()
+            encounteredFunctions = set()
+            inherits = None
+            for segment in segments:
+                if isinstance(segment, SegmentInherits):
+                    inherits = segment.parentName
+
+                if isinstance(segment, SegmentProperty):
+                    propertyType = segment.type
+                    propertyName = segment.name
+                    if propertyName not in cppProperties:
+                        print(className + ': Property ' + propertyName + ' does not exist in c++')
+                        error = True
+                        continue
+
+                    if segment.getterUsesIsPrefix and propertyName not in cppBoolIsGetters:
+                        print(className + ': Property ' + propertyName + ' does not use "is" prefix in c++')
+                        error = True
+                        continue
+                    if not segment.getterUsesIsPrefix and propertyName in cppBoolIsGetters:
+                        print(className + ': Property ' + propertyName + ' uses "is" instead of "get" prefix in c++')
+                        error = True
+                        continue
+
+                    matchedCppProperties.add(propertyName)
+
+                    validCppTypes = VALID_CPP_TYPES[propertyType] if propertyType not in cppEnums else [propertyType]
+                    if cppPropertyTypes[propertyName] not in validCppTypes:
+                        print(className + ': Type mismatch for property ' + propertyName)
+                        error = True
+                        continue
+
+                if isinstance(segment, SegmentFunction):
+                    encounteredFunctions.add(segment.name)
+                    cppCandidates = cppFunctions[segment.name]
+                    if not cppCandidates:
+                        if segment.name in cppPotentialMultilineFunctions:
+                            continue
+                        print(className + ': Function ' + segment.name + ' not found in c++')
+                        error = True
+                        continue
+
+                    if len(cppCandidates) == 1:
+                        cppCandidateReturnType, cppCandidateParams, cppCandidateIsConst, cppCandidateIsStatic = cppCandidates[0]
+                        if cppCandidateIsConst != segment.const:
+                            print(className + ': Constness mismatch in ' + segment.name)
+                            error = True
+                        if cppCandidateIsStatic != segment.static:
+                            print(className + ': Staticness mismatch in ' + segment.name)
+                            error = True
+
+                        validCppReturnTypes = VALID_CPP_TYPES[segment.returnType] if segment.returnType not in cppEnums else [segment.returnType]
+                        if cppCandidateReturnType not in validCppReturnTypes:
+                            print(className + ': Return type mismatch for function ' + segment.name)
+                            error = True
+
+                        if len(cppCandidateParams) != len(segment.params):
+                            print(className + ': Parameter count does not match for function ' + segment.name)
+                            error = True
+                        elif not segment.name in functionsWithOverloads:
+                            for i in range(len(segment.params)):
+                                paramType = segment.params[i][0]
+                                validCppParamTypes = VALID_CPP_TYPES[paramType] if paramType not in cppEnums else [paramType]
+                                if cppCandidateParams[i] not in validCppParamTypes:
+                                    print(className + ': Parameter type mismatch for function ' + segment.name + ' for parameter ' + segment.params[i][1])
+                                    error = True
+
+                    if len(cppCandidates) >= 2:
+                        matchFound = False
+                        for cppCandidate in cppCandidates:
+                            cppCandidateReturnType, cppCandidateParams, cppCandidateIsConst, cppCandidateIsStatic = cppCandidate
+                            if cppCandidateIsConst != segment.const:
+                                continue
+                            if cppCandidateIsStatic != segment.static:
+                                continue
+                            validCppReturnTypes = VALID_CPP_TYPES[segment.returnType] if segment.returnType not in cppEnums else [segment.returnType]
+                            if cppCandidateReturnType not in validCppReturnTypes:
+                                continue
+                            if len(cppCandidateParams) != len(segment.params):
+                                continue
+                            allParamsMatch = True
+                            for i in range(len(segment.params)):
+                                paramType = segment.params[i][0]
+                                validCppParamTypes = VALID_CPP_TYPES[paramType] if paramType not in cppEnums else [paramType]
+                                if cppCandidateParams[i] not in validCppParamTypes:
+                                    allParamsMatch = False
+                                    break
+                            if allParamsMatch:
+                                matchFound = True
+
+                        if not matchFound:
+                            print(className + ': Failed to find a matching overload for function ' + segment.name)
+
+            if className != 'WidgetRenderer':
+                if cppInherits != 'WidgetRenderer' and cppInherits != inherits:
+                    if not inherits:
+                        print(className + ': Missing inheritance from ' + cppInherits)
+                    else:
+                        print(className + ': Inheritance type mismatch')
                     error = True
+
+            manualHeaderFileContents = ''
+            if os.path.isfile(os.path.join(subfolder, className + '.extra.h')):
+                for line in open(os.path.join(subfolder, className + '.extra.h'), 'r').readlines():
+                    line = line.strip()
+                    if line and not line.startswith('//'):
+                        manualHeaderFileContents += line
+
+            for propertyName in cppProperties.difference(matchedCppProperties):
+                if propertyName in cppDeprecated:
                     continue
 
-        if cppInherits != 'WidgetRenderer' and cppInherits != inherits:
-            if not inherits:
-                print(className + ': Missing inheritance from ' + cppInherits)
-            else:
-                print(className + ': Inheritance type mismatch')
-            error = True
+                if className in IGNORE_MISSING_PROPERTIES and propertyName in IGNORE_MISSING_PROPERTIES[className]:
+                    continue
 
-        for propertyName in cppProperties.difference(matchedCppProperties):
-            print(className + ': Property ' + propertyName + ' is missing')
-            error = True
+                hasSetterFunction = ('set' + propertyName) in encounteredFunctions
+                hasGetterFunction = ('get' + propertyName) in encounteredFunctions or ('is' + propertyName) in encounteredFunctions
+                if hasSetterFunction and hasGetterFunction:
+                    continue
+
+                hasManualSetter = manualHeaderFileContents.find('set' + propertyName) >= 0
+                hasManualGetter = (manualHeaderFileContents.find('get' + propertyName) >= 0) or (manualHeaderFileContents.find('is' + propertyName) >= 0)
+                if hasManualSetter and hasManualGetter:
+                    continue
+
+                print(className + ': Property ' + propertyName + ' is missing')
+                error = True
 
 exit(error)

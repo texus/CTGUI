@@ -38,4 +38,3 @@ property ScrollbarPolicy ScrollbarPolicy
 
 /// @brief Thumb position of the scrollbar
 property uint ScrollbarValue
-

@@ -30,12 +30,11 @@ CTGUI_API const tguiUtf32* tguiPanelListBox_getItemIds(const tguiWidget* thisWid
 CTGUI_API void tguiPanelListBox_setMaximumItems(tguiWidget* thisWidget, size_t value);
 CTGUI_API size_t tguiPanelListBox_getMaximumItems(const tguiWidget* thisWidget);
 
-CTGUI_API tguiBool tguiPanelListBox_containsId(tguiWidget* thisWidget, tguiUtf32 id);
+CTGUI_API tguiBool tguiPanelListBox_containsId(const tguiWidget* thisWidget, tguiUtf32 id);
 
 CTGUI_API const tguiLayout* tguiPanelListBox_getItemsWidth(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiPanelListBox_setItemsHeight(tguiWidget* thisWidget, const tguiLayout* height);
-
+CTGUI_API void tguiPanelListBox_setItemsHeight(tguiWidget* thisWidget, const tguiLayout* value);
 CTGUI_API const tguiLayout* tguiPanelListBox_getItemsHeight(const tguiWidget* thisWidget);
 
 CTGUI_API tguiWidget* tguiPanelListBox_addItem(tguiWidget* widget, tguiUtf32 id);

@@ -7,14 +7,14 @@ function addLine(string text)
 function addLineWithColor addLine(string text, Color color)
 function addLineWithColorAndStyle addLine(string text, Color color, TextStyle style)
 
-function getLine(size_t lineIndex) -> string
-function getLineColor(size_t lineIndex) -> Color
-function getLineTextStyle(size_t lineIndex) -> TextStyle
+function getLine(size_t lineIndex) const -> string
+function getLineColor(size_t lineIndex) const -> Color
+function getLineTextStyle(size_t lineIndex) const -> TextStyle
 
 function removeLine(size_t lineIndex) -> bool
 function removeAllLines()
 
-function getLineAmount() -> size_t
+function getLineAmount() const -> size_t
 
 property size_t LineLimit
 property Color TextColor
@@ -22,4 +22,3 @@ property TextStyle TextStyle
 property bool LinesStartFromTop
 property bool NewLinesBelowOthers
 property uint ScrollbarValue
-

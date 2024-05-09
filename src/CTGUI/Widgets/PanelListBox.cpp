@@ -109,7 +109,7 @@ size_t tguiPanelListBox_getMaximumItems(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiPanelListBox_containsId(tguiWidget* thisWidget, tguiUtf32 id)
+tguiBool tguiPanelListBox_containsId(const tguiWidget* thisWidget, tguiUtf32 id)
 {
     return DOWNCAST(thisWidget->This)->containsId(ctgui::toCppStr(id));
 }
@@ -123,12 +123,10 @@ const tguiLayout* tguiPanelListBox_getItemsWidth(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelListBox_setItemsHeight(tguiWidget* thisWidget, const tguiLayout* height)
+void tguiPanelListBox_setItemsHeight(tguiWidget* thisWidget, const tguiLayout* value)
 {
-    DOWNCAST(thisWidget->This)->setItemsHeight(height->This);
+    DOWNCAST(thisWidget->This)->setItemsHeight(value->This);
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const tguiLayout* tguiPanelListBox_getItemsHeight(const tguiWidget* thisWidget)
 {

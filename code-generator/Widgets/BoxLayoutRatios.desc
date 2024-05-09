@@ -7,8 +7,8 @@ function insert(size_t index, Widget widget, float ratio, string widgetName)
 function addSpace(float ratio)
 function insertSpace(size_t index, float ratio)
 
-function setRatio(Widget widget, float ratio)
-function setRatioAtIndex setRatio(size_t index, float ratio)
+function setRatio(Widget widget, float ratio) -> bool
+function setRatioAtIndex setRatio(size_t index, float ratio) -> bool
 
 function getRatio(Widget widget) const -> float
 function getRatioAtIndex getRatio(size_t index) const -> float

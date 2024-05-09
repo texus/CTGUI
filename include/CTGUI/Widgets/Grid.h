@@ -27,7 +27,7 @@ CTGUI_API void tguiGrid_addWidget(tguiWidget* thisWidget, tguiWidget* widget, si
 
 CTGUI_API void tguiGrid_setWidgetCell(tguiWidget* thisWidget, tguiWidget* widget, size_t row, size_t col, tguiGridAlignment alignment, const tguiOutline* padding);
 
-CTGUI_API tguiWidget* tguiGrid_getWidget(tguiWidget* thisWidget, size_t row, size_t col);
+CTGUI_API tguiWidget* tguiGrid_getWidget(const tguiWidget* thisWidget, size_t row, size_t col);
 
 CTGUI_API void tguiGrid_setWidgetAlignment(tguiWidget* thisWidget, tguiWidget* widget, tguiGridAlignment alignment);
 

@@ -41,6 +41,20 @@ tguiRenderer* tguiSpinControl_getSpinTextSharedRenderer(const tguiWidget* thisWi
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+tguiBool tguiSpinControl_setValue(tguiWidget* thisWidget, float value)
+{
+    return DOWNCAST(thisWidget->This)->setValue(value);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+float tguiSpinControl_getValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiSpinControl_setMinimum(tguiWidget* thisWidget, float value)
 {
     DOWNCAST(thisWidget->This)->setMinimum(value);
@@ -61,18 +75,6 @@ void tguiSpinControl_setMaximum(tguiWidget* thisWidget, float value)
 float tguiSpinControl_getMaximum(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getMaximum();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinControl_setValue(tguiWidget* thisWidget, float value)
-{
-    DOWNCAST(thisWidget->This)->setValue(value);
-}
-
-float tguiSpinControl_getValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

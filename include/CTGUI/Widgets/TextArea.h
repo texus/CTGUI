@@ -30,8 +30,7 @@ CTGUI_API size_t tguiTextArea_getMaximumCharacters(const tguiWidget* thisWidget)
 CTGUI_API void tguiTextArea_setTabString(tguiWidget* thisWidget, tguiUtf32 value);
 CTGUI_API tguiUtf32 tguiTextArea_getTabString(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiTextArea_setCaretPosition(tguiWidget* thisWidget, size_t charactersBeforeCaret);
-
+CTGUI_API void tguiTextArea_setCaretPosition(tguiWidget* thisWidget, size_t value);
 CTGUI_API size_t tguiTextArea_getCaretPosition(const tguiWidget* thisWidget);
 
 CTGUI_API size_t tguiTextArea_getCaretLine(const tguiWidget* thisWidget);
@@ -55,6 +54,6 @@ CTGUI_API unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget
 
 CTGUI_API void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiBool enable);
 
-CTGUI_API size_t tguiTextArea_getLinesCount(tguiWidget* thisWidget);
+CTGUI_API size_t tguiTextArea_getLinesCount(const tguiWidget* thisWidget);
 
 #endif // CTGUI_TEXTAREA_H

@@ -42,7 +42,7 @@ tguiUtf32 tguiComboBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiUtf32* tguiComboBox_getItems(tguiWidget* thisWidget, size_t* returnCount)
+const tguiUtf32* tguiComboBox_getItems(const tguiWidget* thisWidget, size_t* returnCount)
 {
     static std::vector<tgui::String> cppStrings;
     cppStrings = DOWNCAST(thisWidget->This)->getItems();
@@ -59,7 +59,7 @@ return cStrings.data();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiUtf32* tguiComboBox_getItemIds(tguiWidget* thisWidget, size_t* returnCount)
+const tguiUtf32* tguiComboBox_getItemIds(const tguiWidget* thisWidget, size_t* returnCount)
 {
     static std::vector<tgui::String> cppStrings;
     cppStrings = DOWNCAST(thisWidget->This)->getItemIds();

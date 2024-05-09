@@ -6,4 +6,3 @@ property-widget-renderer RadioButtonRenderer
 property-bool-is Checked
 property string Text
 property-bool-is TextClickable
-

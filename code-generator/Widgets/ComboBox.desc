@@ -10,8 +10,8 @@ property size_t ItemsToDisplay
 function addItem(string item, string id) -> size_t
 function getItemById(string id) const -> string
 
-function getItems() -> List<string>
-function getItemIds() -> List<string>
+function getItems() const -> List<string>
+function getItemIds() const -> List<string>
 
 function setSelectedItem(string item) -> bool
 function setSelectedItemById(string item) -> bool
@@ -40,4 +40,3 @@ property bool ChangeItemOnScroll
 
 function contains(string item) const -> bool
 function containsId(string id) const -> bool
-

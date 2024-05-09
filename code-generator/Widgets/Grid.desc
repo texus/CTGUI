@@ -6,7 +6,7 @@ property bool AutoSize
 
 function addWidget(Widget widget, size_t row, size_t col, Alignment alignment, Outline padding)
 function setWidgetCell(Widget widget, size_t row, size_t col, Alignment alignment, Outline padding)
-function getWidget(size_t row, size_t col) -> Widget
+function getWidget(size_t row, size_t col) const -> Widget
 
 function setWidgetAlignment(Widget widget, Alignment alignment)
 function setWidgetAlignmentByCell setWidgetAlignment(size_t row, size_t col, Alignment alignment)

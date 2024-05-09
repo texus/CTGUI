@@ -41,6 +41,20 @@ tguiRenderer* tguiEditBoxSlider_getSliderSharedRenderer(const tguiWidget* thisWi
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+tguiBool tguiEditBoxSlider_setValue(tguiWidget* thisWidget, float value)
+{
+    return DOWNCAST(thisWidget->This)->setValue(value);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+float tguiEditBoxSlider_getValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiEditBoxSlider_setMinimum(tguiWidget* thisWidget, float value)
 {
     DOWNCAST(thisWidget->This)->setMinimum(value);
@@ -61,18 +75,6 @@ void tguiEditBoxSlider_setMaximum(tguiWidget* thisWidget, float value)
 float tguiEditBoxSlider_getMaximum(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getMaximum();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiEditBoxSlider_setValue(tguiWidget* thisWidget, float value)
-{
-    DOWNCAST(thisWidget->This)->setValue(value);
-}
-
-float tguiEditBoxSlider_getValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

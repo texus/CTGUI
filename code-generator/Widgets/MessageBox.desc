@@ -7,8 +7,7 @@ property string Text
 
 function addButton(string text)
 function changeButtons(List<string> buttonCaptions)
-function getButtons() -> List<string>
+function getButtons() const -> List<string>
 
 property HorizontalAlignment LabelAlignment
 property HorizontalAlignment ButtonAlignment
-

@@ -37,16 +37,16 @@ void tguiBoxLayoutRatios_insertSpace(tguiWidget* thisWidget, size_t index, float
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiBoxLayoutRatios_setRatio(tguiWidget* thisWidget, tguiWidget* widget, float ratio)
+tguiBool tguiBoxLayoutRatios_setRatio(tguiWidget* thisWidget, tguiWidget* widget, float ratio)
 {
-    DOWNCAST(thisWidget->This)->setRatio(widget->This, ratio);
+    return DOWNCAST(thisWidget->This)->setRatio(widget->This, ratio);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiBoxLayoutRatios_setRatioAtIndex(tguiWidget* thisWidget, size_t index, float ratio)
+tguiBool tguiBoxLayoutRatios_setRatioAtIndex(tguiWidget* thisWidget, size_t index, float ratio)
 {
-    DOWNCAST(thisWidget->This)->setRatio(index, ratio);
+    return DOWNCAST(thisWidget->This)->setRatio(index, ratio);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

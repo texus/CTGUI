@@ -26,4 +26,3 @@ function closeMenu()
 
 property float MinimumSubMenuWidth
 property bool InvertedMenuDirection
-

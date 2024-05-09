@@ -9,6 +9,5 @@ CTGUI_API tguiWidget* tguiRadioButtonGroup_create(void);
 
 CTGUI_API void tguiRadioButtonGroup_uncheckRadioButtons(tguiWidget* thisWidget);
 
-CTGUI_API tguiWidget* tguiRadioButtonGroup_getCheckedRadioButton(tguiWidget* thisWidget);
-
+CTGUI_API tguiWidget* getCheckedRadioButton(tguiWidget* widget);
 #endif // CTGUI_RADIOBUTTONGROUP_H

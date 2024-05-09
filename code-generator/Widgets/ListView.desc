@@ -1,4 +1,4 @@
-inherits ChildWindow
+inherits Widget
 
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ListViewRenderer
@@ -43,7 +43,7 @@ function removeAllItems()
 
 function setSelectedItem(size_t index)
 function setSelectedItems(Set<size_t> indices)
-function getSelectedItemIndex() -> int
+function getSelectedItemIndex() const -> int
 function getSelectedItemIndices() const -> Set<size_t>
 function deselectItems()
 
@@ -56,9 +56,9 @@ function setItemIcon(size_t index, Texture texture)
 
 function getItemCount() const -> size_t
 
-function getItem(size_t index) -> string
-function getItemCell(size_t rowIndex, size_t columnIndex) -> string
-function getItemRow(size_t index) -> List<string>
+function getItem(size_t index) const -> string
+function getItemCell(size_t rowIndex, size_t columnIndex) const -> string
+function getItemRow(size_t index) const -> List<string>
 function getItems() const -> List<string>
 
 property uint ItemHeight

@@ -42,7 +42,7 @@ void tguiTabs_insert(tguiWidget* thisWidget, size_t index, tguiUtf32 text, tguiB
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiTabs_getText(tguiWidget* thisWidget, size_t index)
+tguiUtf32 tguiTabs_getText(const tguiWidget* thisWidget, size_t index)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getText(index));
 }
@@ -70,21 +70,21 @@ void tguiTabs_removeAll(tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiTabs_getSelected(tguiWidget* thisWidget)
+tguiUtf32 tguiTabs_getSelected(const tguiWidget* thisWidget)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getSelected());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int tguiTabs_getSelectedIndex(tguiWidget* thisWidget)
+int tguiTabs_getSelectedIndex(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getSelectedIndex();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-size_t tguiTabs_getTabsCount(tguiWidget* thisWidget)
+size_t tguiTabs_getTabsCount(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getTabsCount();
 }
@@ -98,7 +98,7 @@ void tguiTabs_setTabVisible(tguiWidget* thisWidget, size_t index, tguiBool visib
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiTabs_getTabVisible(tguiWidget* thisWidget, size_t index)
+tguiBool tguiTabs_getTabVisible(const tguiWidget* thisWidget, size_t index)
 {
     return DOWNCAST(thisWidget->This)->getTabVisible(index);
 }
@@ -112,7 +112,7 @@ void tguiTabs_setTabEnabled(tguiWidget* thisWidget, size_t index, tguiBool visib
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiTabs_getTabEnabled(tguiWidget* thisWidget, size_t index)
+tguiBool tguiTabs_getTabEnabled(const tguiWidget* thisWidget, size_t index)
 {
     return DOWNCAST(thisWidget->This)->getTabEnabled(index);
 }

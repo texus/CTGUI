@@ -31,7 +31,7 @@ void tguiChildWindow_setClientSizeFromLayout(tguiWidget* thisWidget, const tguiL
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiVector2f tguiChildWindow_getClientSize(tguiWidget* thisWidget)
+tguiVector2f tguiChildWindow_getClientSize(const tguiWidget* thisWidget)
 {
     const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getClientSize();
     return {value.x, value.y};

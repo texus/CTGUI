@@ -12,7 +12,7 @@ CTGUI_API void tguiChildWindow_setClientSize(tguiWidget* thisWidget, tguiVector2
 
 CTGUI_API void tguiChildWindow_setClientSizeFromLayout(tguiWidget* thisWidget, const tguiLayout2d* layout);
 
-CTGUI_API tguiVector2f tguiChildWindow_getClientSize(tguiWidget* thisWidget);
+CTGUI_API tguiVector2f tguiChildWindow_getClientSize(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiChildWindow_setMaximumSize(tguiWidget* thisWidget, tguiVector2f value);
 CTGUI_API tguiVector2f tguiChildWindow_getMaximumSize(const tguiWidget* thisWidget);

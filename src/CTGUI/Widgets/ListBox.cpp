@@ -23,28 +23,28 @@ size_t tguiListBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tguiUtf32 id)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiListBox_getItemById(tguiWidget* thisWidget, tguiUtf32 id)
+tguiUtf32 tguiListBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemById(ctgui::toCppStr(id)));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiListBox_getItemByIndex(tguiWidget* thisWidget, size_t index)
+tguiUtf32 tguiListBox_getItemByIndex(const tguiWidget* thisWidget, size_t index)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemByIndex(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int tguiListBox_getIndexById(tguiWidget* thisWidget, tguiUtf32 id)
+int tguiListBox_getIndexById(const tguiWidget* thisWidget, tguiUtf32 id)
 {
     return DOWNCAST(thisWidget->This)->getIndexById(ctgui::toCppStr(id));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiListBox_getIdByIndex(tguiWidget* thisWidget, size_t index)
+tguiUtf32 tguiListBox_getIdByIndex(const tguiWidget* thisWidget, size_t index)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getIdByIndex(index));
 }
@@ -128,23 +128,23 @@ int tguiListBox_getSelectedItemIndex(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBox_changeItem(tguiWidget* thisWidget, tguiUtf32 originalValue, tguiUtf32 newValue)
+tguiBool tguiListBox_changeItem(tguiWidget* thisWidget, tguiUtf32 originalValue, tguiUtf32 newValue)
 {
-    DOWNCAST(thisWidget->This)->changeItem(ctgui::toCppStr(originalValue), ctgui::toCppStr(newValue));
+    return DOWNCAST(thisWidget->This)->changeItem(ctgui::toCppStr(originalValue), ctgui::toCppStr(newValue));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBox_changeItemById(tguiWidget* thisWidget, tguiUtf32 id, tguiUtf32 newValue)
+tguiBool tguiListBox_changeItemById(tguiWidget* thisWidget, tguiUtf32 id, tguiUtf32 newValue)
 {
-    DOWNCAST(thisWidget->This)->changeItemById(ctgui::toCppStr(id), ctgui::toCppStr(newValue));
+    return DOWNCAST(thisWidget->This)->changeItemById(ctgui::toCppStr(id), ctgui::toCppStr(newValue));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBox_changeItemByIndex(tguiWidget* thisWidget, size_t index, tguiUtf32 newValue)
+tguiBool tguiListBox_changeItemByIndex(tguiWidget* thisWidget, size_t index, tguiUtf32 newValue)
 {
-    DOWNCAST(thisWidget->This)->changeItemByIndex(index, ctgui::toCppStr(newValue));
+    return DOWNCAST(thisWidget->This)->changeItemByIndex(index, ctgui::toCppStr(newValue));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -197,7 +197,7 @@ void tguiListBox_setItemData(tguiWidget* thisWidget, size_t index, void* data)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void* tguiListBox_getItemData(tguiWidget* thisWidget, size_t index)
+void* tguiListBox_getItemData(const tguiWidget* thisWidget, size_t index)
 {
     try
     {
@@ -281,14 +281,14 @@ unsigned int tguiListBox_getScrollbarValue(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiListBox_contains(tguiWidget* thisWidget, tguiUtf32 item)
+tguiBool tguiListBox_contains(const tguiWidget* thisWidget, tguiUtf32 item)
 {
     return DOWNCAST(thisWidget->This)->contains(ctgui::toCppStr(item));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiListBox_containsId(tguiWidget* thisWidget, tguiUtf32 id)
+tguiBool tguiListBox_containsId(const tguiWidget* thisWidget, tguiUtf32 id)
 {
     return DOWNCAST(thisWidget->This)->containsId(ctgui::toCppStr(id));
 }

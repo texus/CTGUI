@@ -33,4 +33,3 @@ tguiWidget* tguiTabContainer_getTabs(const tguiWidget* widget)
 {
     return ctgui::addWidgetRef(DOWNCAST(widget->This)->getTabs());
 }
-

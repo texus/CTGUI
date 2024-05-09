@@ -11,9 +11,10 @@ property HorizontalAlignment Alignment
 property-bool-is TextWidthLimited
 property-bool-is ReadOnly
 property size_t CaretPosition
-property string InputValidator
 property string Suffix
+
+function setInputValidator(string regex) -> bool
+function getInputValidator() const -> string
 
 function selectText(size_t start, size_t length)
 function getSelectedText() const -> string
-
