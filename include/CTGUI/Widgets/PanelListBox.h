@@ -56,4 +56,5 @@ CTGUI_API tguiUtf32 tguiPanelListBox_getIdByIndex(const tguiWidget* widget, size
 CTGUI_API tguiWidget** tguiPanelListBox_getItems(const tguiWidget* widget, size_t* count); // tguiWidget_free must be called on each element in the returned array, count is set by the function to indicate the array length
 
 CTGUI_API tguiBool tguiPanelListBox_contains(const tguiWidget* widget, const tguiWidget* panelPtr);
+
 #endif // CTGUI_PANELLISTBOX_H

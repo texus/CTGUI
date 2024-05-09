@@ -1,0 +1,16 @@
+property float Opacity
+property float OpacityDisabled
+property Font Font
+property uint TextSize
+property bool TransparentTexture
+property RendererData Data
+
+function void setPropertyBool setProperty(string property, bool value)
+function void setPropertyFont setProperty(string property, Font value)
+function void setPropertyColor setProperty(string property, Color value)
+function void setPropertyString setProperty(string property, string value)
+function void setPropertyNumber setProperty(string property, float value)
+function void setPropertyOutline setProperty(string property, Outline value)
+function void setPropertyTexture setProperty(string property, Texture value)
+function void setPropertyTextStyle setProperty(string property, TextStyle value)
+function void setPropertyRendererData setProperty(string property, RendererData value)

@@ -53,8 +53,8 @@ const tguiUtf32* tguiComboBox_getItems(const tguiWidget* thisWidget, size_t* ret
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,8 +70,8 @@ const tguiUtf32* tguiComboBox_getItemIds(const tguiWidget* thisWidget, size_t* r
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,9 +1,0 @@
-abstract-class
-inherits Group
-
-/// @brief Renderer containing properties that determine how the widget is displayed
-property-widget-renderer BoxLayoutRenderer
-
-function insert(size_t index, Widget widgetToAdd, string widgetName)
-function removeAtIndex remove(size_t index) -> bool
-function getAtIndex get(size_t index) const -> Widget

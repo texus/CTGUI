@@ -10,4 +10,4 @@ property uint ScrollAmount
 property bool AutoHide
 property bool VerticalScroll
 
-function getDefaultWidth() const -> float
+const-function float getDefaultWidth()

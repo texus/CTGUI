@@ -133,4 +133,5 @@ CTGUI_API void tguiListView_setResizableColumns(tguiWidget* thisWidget, tguiBool
 CTGUI_API tguiBool tguiListView_getResizableColumns(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiListView_sort(tguiWidget* widget, size_t index, tguiBool (*function)(tguiUtf32, tguiUtf32));
+
 #endif // CTGUI_LISTVIEW_H

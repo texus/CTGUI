@@ -5,7 +5,7 @@ property-widget-renderer ScrollbablePanelRenderer
 
 property Vector2f ContentSize
 
-function getScrollbarWidth() const -> float
+const-function float getScrollbarWidth()
 
 property ScrollbarPolicy VerticalScrollbarPolicy
 property ScrollbarPolicy HorizontalScrollbarPolicy
@@ -16,7 +16,7 @@ property uint HorizontalScrollAmount
 property uint VerticalScrollbarValue
 property uint HorizontalScrollbarValue
 
-function isVerticalScrollbarShown() const -> bool
-function isHorizontalScrollbarShown() const -> bool
+const-function bool isVerticalScrollbarShown()
+const-function bool isHorizontalScrollbarShown()
 
-function getContentOffset() const -> Vector2f
+const-function Vector2f getContentOffset()

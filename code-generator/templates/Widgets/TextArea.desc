@@ -5,21 +5,21 @@ property-widget-renderer TextAreaRenderer
 
 property string Text
 
-function addText(string text)
+function void addText(string text)
 
 property string DefaultText
 
-function setSelectedText(size_t selectionStartIndex, size_t selectionEndIndex)
-function getSelectedText() const -> string
-function getSelectionStart() const -> size_t
-function getSelectionEnd() const -> size_t
+function void setSelectedText(size_t selectionStartIndex, size_t selectionEndIndex)
+const-function string getSelectedText()
+const-function size_t getSelectionStart()
+const-function size_t getSelectionEnd()
 
 property size_t MaximumCharacters
 property string TabString
 property size_t CaretPosition
 
-function getCaretLine() const -> size_t
-function getCaretColumn() const -> size_t
+const-function size_t getCaretLine()
+const-function size_t getCaretColumn()
 
 property-bool-is ReadOnly
 
@@ -29,6 +29,6 @@ property ScrollbarPolicy HorizontalScrollbarPolicy
 property uint VerticalScrollbarValue
 property uint HorizontalScrollbarValue
 
-function enableMonospacedFontOptimization(bool enable)
+function void enableMonospacedFontOptimization(bool enable)
 
-function getLinesCount() const -> size_t
+const-function size_t getLinesCount()

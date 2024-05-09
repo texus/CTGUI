@@ -58,8 +58,8 @@ const tguiUtf32* tguiMessageBox_getButtons(const tguiWidget* thisWidget, size_t*
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

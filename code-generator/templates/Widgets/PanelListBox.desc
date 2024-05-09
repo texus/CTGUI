@@ -1,0 +1,28 @@
+inherits ScrollablePanel
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer PanelListBoxRenderer
+
+function void deselectItem()
+function void removeAllItems()
+
+function bool setSelectedItemById(string id)
+function bool setSelectedItemByIndex(size_t index)
+
+function bool removeItemById(string id)
+function bool removeItemByIndex(size_t index)
+
+const-function string getSelectedItemId()
+const-function int getSelectedItemIndex()
+
+const-function size_t getItemCount()
+
+const-function List<string> getItemIds()
+
+property size_t MaximumItems
+
+const-function bool containsId(string id)
+
+const-function Layout getItemsWidth()
+
+property Layout ItemsHeight

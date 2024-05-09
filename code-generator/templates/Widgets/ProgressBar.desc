@@ -9,7 +9,7 @@ property uint Minimum
 property uint Maximum
 property uint Value
 
-function incrementValue() -> uint
+function uint incrementValue()
 
 property string Text
 property FillDirection FillDirection

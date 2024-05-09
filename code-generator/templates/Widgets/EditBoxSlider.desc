@@ -6,8 +6,8 @@ property-widget-renderer EditBoxRenderer EditBox
 /// @brief Renderer containing properties that determine how the slider part of the widget is displayed
 property-widget-renderer SliderRenderer Slider
 
-function setValue(float value) -> bool
-function getValue() const -> float
+function bool setValue(float value)
+const-function float getValue()
 
 property float Minimum
 property float Maximum

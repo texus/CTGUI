@@ -1,0 +1,46 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ListBoxRenderer
+
+function size_t addItem(string item, string id)
+
+const-function string getItemById(string id)
+const-function string getItemByIndex(size_t index)
+const-function int getIndexById(string id)
+const-function string getIdByIndex(size_t index)
+
+function bool setSelectedItem(string item)
+function bool setSelectedItemById(string id)
+function bool setSelectedItemByIndex(size_t index)
+function void deselectItem()
+
+function bool removeItem(string item)
+function bool removeItemById(string id)
+function bool removeItemByIndex(size_t index)
+function void removeAllItems()
+
+const-function string getSelectedItem()
+const-function string getSelectedItemId()
+const-function int getSelectedItemIndex()
+
+function bool changeItem(string originalValue, string newValue)
+function bool changeItemById(string id, string newValue)
+function bool changeItemByIndex(size_t index, string newValue)
+
+const-function size_t getItemCount()
+
+const-function List<string> getItems()
+const-function List<string> getItemIds()
+
+function void setItemData(size_t index, AnyObject data)
+const-function AnyObject getItemData(size_t index)
+
+property uint ItemHeight
+property size_t MaximumItems
+property bool AutoScroll
+property HorizontalAlignment TextAlignment
+property uint ScrollbarValue
+
+const-function bool contains(string item)
+const-function bool containsId(string id)

@@ -1,0 +1,78 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ListViewRenderer
+
+function size_t addColumn(string text, float width, HorizontalAlignment columnAlignment)
+
+function void setColumnText(size_t index, string text)
+const-function string getColumnText(size_t index)
+
+function void setColumnWidth(size_t index, float width)
+const-function float getColumnWidth(size_t index)
+const-function float getColumnDesignWidth(size_t index)
+
+function void setColumnAlignment(size_t index, HorizontalAlignment columnAlignment)
+const-function HorizontalAlignment getColumnAlignment(size_t index)
+
+function void setColumnAutoResize(size_t index, bool autoResize)
+const-function bool getColumnAutoResize(size_t index)
+
+function void setColumnExpanded(size_t index, bool expand)
+const-function bool getColumnExpanded(size_t index)
+
+function void removeAllColumns()
+
+const-function size_t getColumnCount()
+
+property bool HeaderVisible
+property float HeaderHeight
+const-function float getCurrentHeaderHeight()
+
+function size_t addItem(string text)
+function size_t addItemRow addItem(List<string> item)
+
+function void insertItem(size_t index, string text)
+function void insertItemRow insertItem(size_t index, List<string> item)
+
+function bool changeItem(size_t index, List<string> item)
+function bool changeSubItem(size_t index, size_t column, string text)
+
+function bool removeItem(size_t index)
+function void removeAllItems()
+
+function void setSelectedItem(size_t index)
+function void setSelectedItems(Set<size_t> indices)
+const-function int getSelectedItemIndex()
+const-function Set<size_t> getSelectedItemIndices()
+function void deselectItems()
+
+property bool MultiSelect
+
+function void setItemData(size_t index, AnyObject data)
+const-function AnyObject getItemData(size_t index)
+
+function void setItemIcon(size_t index, Texture texture)
+
+const-function size_t getItemCount()
+
+const-function string getItem(size_t index)
+const-function string getItemCell(size_t rowIndex, size_t columnIndex)
+const-function List<string> getItemRow(size_t index)
+const-function List<string> getItems()
+
+property uint ItemHeight
+property uint HeaderTextSize
+property uint SeparatorWidth
+property uint HeaderSeparatorHeight
+property uint GridLinesWidth
+property bool AutoScroll
+property bool ShowVerticalGridLines
+property bool ShowHorizontalGridLines
+property ScrollbarPolicy VerticalScrollbarPolicy
+property ScrollbarPolicy HorizontalScrollbarPolicy
+property uint VerticalScrollbarValue
+property uint HorizontalScrollbarValue
+property Vector2f FixedIconSize
+property bool ResizableColumns
+

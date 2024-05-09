@@ -167,8 +167,8 @@ const tguiUtf32* tguiListBox_getItems(const tguiWidget* thisWidget, size_t* retu
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,8 +184,8 @@ const tguiUtf32* tguiListBox_getItemIds(const tguiWidget* thisWidget, size_t* re
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -216,7 +216,6 @@ void* tguiListBox_getItemData(const tguiWidget* thisWidget, size_t index)
            return nullptr;
         }
     }
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

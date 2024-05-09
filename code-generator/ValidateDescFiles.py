@@ -38,9 +38,9 @@ IGNORE_MISSING_PROPERTIES = {
 
 error = False
 for subfolder in ['Widgets', 'Renderers']:
-    for filename in os.listdir(subfolder):
+    for filename in os.listdir(os.path.join('templates', subfolder)):
         if filename.endswith('.desc'):
-            descFile = os.path.join(subfolder, filename)
+            descFile = os.path.join('templates', subfolder, filename)
             className = filename[:-5]
             cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', subfolder, className + '.hpp'))
             cppEnums = set()
@@ -239,8 +239,9 @@ for subfolder in ['Widgets', 'Renderers']:
                     error = True
 
             manualHeaderFileContents = ''
-            if os.path.isfile(os.path.join(subfolder, className + '.extra.h')):
-                for line in open(os.path.join(subfolder, className + '.extra.h'), 'r').readlines():
+            extraHeaderFilename = os.path.join('templates', subfolder, className + '.extra.h')
+            if os.path.isfile(extraHeaderFilename):
+                for line in open(extraHeaderFilename, 'r').readlines():
                     line = line.strip()
                     if line and not line.startswith('//'):
                         manualHeaderFileContents += line

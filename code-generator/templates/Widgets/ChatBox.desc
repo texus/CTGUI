@@ -1,0 +1,24 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ChatBoxRenderer
+
+function void addLine(string text)
+function void addLineWithColor addLine(string text, Color color)
+function void addLineWithColorAndStyle addLine(string text, Color color, TextStyle style)
+
+const-function string getLine(size_t lineIndex)
+const-function Color getLineColor(size_t lineIndex)
+const-function TextStyle getLineTextStyle(size_t lineIndex)
+
+function bool removeLine(size_t lineIndex)
+function void removeAllLines()
+
+const-function size_t getLineAmount()
+
+property size_t LineLimit
+property Color TextColor
+property TextStyle TextStyle
+property bool LinesStartFromTop
+property bool NewLinesBelowOthers
+property uint ScrollbarValue

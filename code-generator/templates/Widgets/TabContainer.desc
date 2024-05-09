@@ -1,0 +1,25 @@
+inherits Container
+
+enum TabAlign { Top, Bottom }
+
+/// @brief Renderer containing properties that determine how the tabs part of the widget is displayed
+property-widget-renderer TabsRenderer Tabs
+
+function void select(size_t index)
+
+const-function size_t getPanelCount()
+
+const-function int getSelectedIndex()
+
+const-function string getTabText(size_t index)
+
+function bool changeTabText(size_t index, string text)
+
+property float TabFixedSize
+property TabAlign TabAlignment
+
+function void setTabsHeight(float height)
+function void setTabsHeightFromLayout setTabsHeight(Layout layout)
+
+function bool removeTabWithName removeTab(string text)
+function bool removeTabWithIndex removeTab(size_t index)

@@ -5,9 +5,9 @@ property-widget-renderer MessageBoxRenderer
 
 property string Text
 
-function addButton(string text)
-function changeButtons(List<string> buttonCaptions)
-function getButtons() const -> List<string>
+function void addButton(string text)
+function void changeButtons(List<string> buttonCaptions)
+const-function List<string> getButtons()
 
 property HorizontalAlignment LabelAlignment
 property HorizontalAlignment ButtonAlignment

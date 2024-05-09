@@ -3,9 +3,9 @@ inherits Container
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ChildWindowRenderer
 
-function setClientSize(Vector2f size)
-function setClientSizeFromLayout setClientSize(Layout2d layout)
-function getClientSize() const -> Vector2f
+function void setClientSize(Vector2f size)
+function void setClientSizeFromLayout setClientSize(Layout2d layout)
+const-function Vector2f getClientSize()
 
 property Vector2f MaximumSize
 property Vector2f MinimumSize

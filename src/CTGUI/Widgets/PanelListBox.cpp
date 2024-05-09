@@ -91,8 +91,8 @@ const tguiUtf32* tguiPanelListBox_getItemIds(const tguiWidget* thisWidget, size_
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

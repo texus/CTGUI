@@ -139,8 +139,8 @@ const tguiUtf32* tguiTreeView_getSelectedItem(const tguiWidget* thisWidget, size
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

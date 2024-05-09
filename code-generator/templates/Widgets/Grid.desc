@@ -1,0 +1,19 @@
+inherits Container
+
+enum Alignment { Center, UpperLeft, Up, UpperRight, Right, BottomRight, Bottom, BottomLeft, Left }
+
+property bool AutoSize
+
+function void addWidget(Widget widget, size_t row, size_t col, Alignment alignment, Outline padding)
+function void setWidgetCell(Widget widget, size_t row, size_t col, Alignment alignment, Outline padding)
+const-function Widget getWidget(size_t row, size_t col)
+
+function void setWidgetAlignment(Widget widget, Alignment alignment)
+function void setWidgetAlignmentByCell setWidgetAlignment(size_t row, size_t col, Alignment alignment)
+const-function Alignment getWidgetAlignment(Widget widget)
+const-function Alignment getWidgetAlignmentByCell getWidgetAlignment(size_t row, size_t col)
+
+function void setWidgetPadding(Widget widget, Outline padding)
+function void setWidgetPaddingByCell setWidgetPadding(size_t row, size_t col, Outline padding)
+const-function Outline getWidgetPadding(Widget widget)
+const-function Outline getWidgetPaddingByCell getWidgetPadding(size_t row, size_t col)

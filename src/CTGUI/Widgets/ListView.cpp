@@ -252,8 +252,8 @@ const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* thisWidget, 
     for (size_t index : indices)
         cIndices.emplace_back(index);
 
-*returnCount = cIndices.size();
-return cIndices.data();
+    *returnCount = cIndices.size();
+    return cIndices.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -303,7 +303,6 @@ void* tguiListView_getItemData(const tguiWidget* thisWidget, size_t index)
            return nullptr;
         }
     }
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -347,8 +346,8 @@ const tguiUtf32* tguiListView_getItemRow(const tguiWidget* thisWidget, size_t in
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -364,8 +363,8 @@ const tguiUtf32* tguiListView_getItems(const tguiWidget* thisWidget, size_t* ret
     for (const auto& item : cppStrings)
         cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
 
-*returnCount = cStrings.size();
-return cStrings.data();
+    *returnCount = cStrings.size();
+    return cStrings.data();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

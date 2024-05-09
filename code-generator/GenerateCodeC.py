@@ -238,8 +238,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             '        {',
             '           return nullptr;',
             '        }',
-            '    }',
-            ''
+            '    }'
         ])
     elif returnType == 'List<Widget>':
         generatedLines.extend([
@@ -251,8 +250,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             '    for (const auto& widget : widgets)',
             '        cWidgets.emplace_back(ctgui::addWidgetRef(widget));',
             '',
-            '*returnCount = cWidgets.size();',
-            'return cWidgets.data();',
+            '    *returnCount = cWidgets.size();',
+            '    return cWidgets.data();',
         ])
     elif returnType == 'List<string>':
         generatedLines.extend([
@@ -265,8 +264,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             '    for (const auto& item : cppStrings)',
             '        cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));',
             '',
-            '*returnCount = cStrings.size();',
-            'return cStrings.data();',
+            '    *returnCount = cStrings.size();',
+            '    return cStrings.data();',
         ])
     elif returnType == 'List<size_t>' or returnType == 'Set<size_t>':
         generatedLines.extend([
@@ -278,8 +277,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             '    for (size_t index : indices)',
             '        cIndices.emplace_back(index);',
             '',
-            '*returnCount = cIndices.size();',
-            'return cIndices.data();',
+            '    *returnCount = cIndices.size();',
+            '    return cIndices.data();',
         ])
     else:
         raise RuntimeError('function return type ' + returnType + ' is not supported')
@@ -575,6 +574,9 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
         for line in extraFile.readlines():
             generatedLines.append(line.rstrip())
 
+    if generatedLines[-1] != '':
+        generatedLines.append('')
+
     generatedLines.append('#endif // CTGUI_' + className.upper() + '_H')
 
     outFile = open(destFile, 'w')
@@ -689,18 +691,18 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
 #################################################################################################################################
 
 def main():
-    for filename in os.listdir('Renderers'):
+    for filename in os.listdir('templates/Renderers'):
         if filename.endswith('.desc'):
-            srcFile = os.path.join('Renderers', filename)
+            srcFile = os.path.join('templates', 'Renderers', filename)
             className = filename[:-5]
             destSrcFile = os.path.join('..', 'src', 'CTGUI', 'Renderers', className + '.cpp')
             destIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Renderers', className + '.h')
             generateRendererSourceFileC(srcFile, destSrcFile, className)
             generateRendererHeaderFileC(srcFile, destIncludeFile, className)
 
-    for filename in os.listdir('Widgets'):
+    for filename in os.listdir('templates/Widgets'):
         if filename.endswith('.desc'):
-            srcFile = os.path.join('Widgets', filename)
+            srcFile = os.path.join('templates', 'Widgets', filename)
             className = filename[:-5]
             destSrcFile = os.path.join('..', 'src', 'CTGUI', 'Widgets', className + '.cpp')
             destIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Widgets', className + '.h')

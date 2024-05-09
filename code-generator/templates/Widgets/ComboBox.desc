@@ -1,0 +1,42 @@
+inherits Widget
+
+enum ExpandDirection { Down, Up, Automatic }
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ComboBoxRenderer
+
+property size_t ItemsToDisplay
+
+function size_t addItem(string item, string id)
+const-function string getItemById(string id)
+
+const-function List<string> getItems()
+const-function List<string> getItemIds()
+
+function bool setSelectedItem(string item)
+function bool setSelectedItemById(string item)
+function bool setSelectedItemByIndex(size_t index)
+function void deselectItem()
+
+function bool removeItem(string item)
+function bool removeItemById(string id)
+function bool removeItemByIndex(size_t index)
+function void removeAllItems()
+
+const-function string getSelectedItem()
+const-function string getSelectedItemId()
+const-function int getSelectedItemIndex()
+
+function bool changeItem(string originalValue, string newValue)
+function bool changeItemById(string id, string newValue)
+function bool changeItemByIndex(size_t index, string newValue)
+
+const-function size_t getItemCount()
+
+property size_t MaximumItems
+property string DefaultText
+property ExpandDirection ExpandDirection
+property bool ChangeItemOnScroll
+
+const-function bool contains(string item)
+const-function bool containsId(string id)

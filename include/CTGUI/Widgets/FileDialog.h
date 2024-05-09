@@ -58,4 +58,5 @@ CTGUI_API void tguiFileDialog_setListViewColumnCaptions(tguiWidget* widget, tgui
 CTGUI_API tguiUtf32 tguiFileDialog_getListViewColumnCaptionsName(const tguiWidget* widget);
 CTGUI_API tguiUtf32 tguiFileDialog_getListViewColumnCaptionsSize(const tguiWidget* widget);
 CTGUI_API tguiUtf32 tguiFileDialog_getListViewColumnCaptionsModified(const tguiWidget* widget);
+
 #endif // CTGUI_FILEDIALOG_H

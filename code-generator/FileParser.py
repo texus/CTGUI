@@ -144,10 +144,15 @@ def parseDescriptionFile(descFileName):
                     else:
                         raise RuntimeError('"property-bool-is" instruction should be followed by a name')
 
-                elif parts[0] == 'function' or parts[0] == 'static-function':
-                    if len(parts) >= 2:
-                        openBracketPos = line.find('(')
-                        closeBracketPos = line.find(')')
+                elif parts[0] == 'function' or parts[0] == 'const-function' or parts[0] == 'static-function':
+                    if len(parts) >= 3:
+                        const = (parts[0] == 'const-function')
+                        static = (parts[0] == 'static-function')
+                        returnType = parts[1]
+
+                        functionPart = ' '.join(parts[2:])
+                        openBracketPos = functionPart.find('(')
+                        closeBracketPos = functionPart.find(')')
                         if openBracketPos == -1:
                             raise RuntimeError('Opening bracket missing in "function" instruction')
                         if closeBracketPos == -1:
@@ -155,28 +160,15 @@ def parseDescriptionFile(descFileName):
                         if closeBracketPos <= openBracketPos:
                             raise RuntimeError('"function" instruction had closing bracket before opening one')
 
-                        const = False
-                        if parts[-2] == '->':
-                            returnType = parts[-1]
-                            if parts[-3] == 'const':
-                                const = True
-                        else:
-                            returnType = 'void'
-                            if parts[-1] == 'const':
-                                const = True
-
-                        if closeBracketPos == openBracketPos+1 or line[openBracketPos+1:closeBracketPos] == 'void':
+                        if closeBracketPos == openBracketPos+1 or functionPart[openBracketPos+1:closeBracketPos] == 'void':
                             params = []
                         else:
-                            params = [tuple(param.strip().split(' ')) for param in line[openBracketPos+1:closeBracketPos].split(',')]
+                            params = [tuple(param.strip().split(' ')) for param in functionPart[openBracketPos+1:closeBracketPos].split(',')]
                             for param in params:
                                 if len(param) != 2:
                                     raise RuntimeError('Parameter "' + ' '.join(param) + '" does not consist of exactly 2 parts (type and name)')
 
-                        if parts[0] == 'static-function':
-                            name = line[16:openBracketPos].strip()
-                        else:
-                            name = line[9:openBracketPos].strip()
+                        name = functionPart[:openBracketPos].strip()
                         if ' ' in name:
                             nameParts = name.split(' ')
                             if len(nameParts) != 2:
@@ -185,10 +177,6 @@ def parseDescriptionFile(descFileName):
                             name = nameParts[1]
                         else:
                             nameC = name
-
-                        static = (parts[0] == 'static-function')
-                        if static and const:
-                            raise RuntimeError('static-function can not be const')
 
                         segments.append(SegmentFunction(nameC, name, returnType, params, const, static))
                     else:

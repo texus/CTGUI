@@ -1,0 +1,28 @@
+inherits Widget
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer MenuBarRenderer
+
+function void addMenu(string text)
+function bool addMenuItem(string menu, string text)
+function bool addMenuItemToLastMenu addMenuItem(string text)
+function bool addMenuItemHierarchy addMenuItem(List<string> hierarchy, bool createParents)
+
+function bool changeMenuItem(List<string> hierarchy, string text)
+
+function bool removeMenu(string menu)
+function bool removeMenuItem(string menu, string menuItem)
+function bool removeMenuItemHierarchy removeMenuItem(List<string> hierarchy, bool removeParentsWhenEmpty)
+function void removeAllMenus()
+
+function bool setMenuEnabled(string text, bool enabled)
+const-function bool getMenuEnabled(string text)
+function bool setMenuItemEnabled(string menu, string text, bool enabled)
+const-function bool getMenuItemEnabled(string menu, string text)
+function bool setMenuItemEnabledHierarchy setMenuItemEnabled(List<string> hierarchy, bool enabled)
+const-function bool getMenuItemEnabledHierarchy getMenuItemEnabled(List<string> hierarchy)
+
+function void closeMenu()
+
+property float MinimumSubMenuWidth
+property bool InvertedMenuDirection

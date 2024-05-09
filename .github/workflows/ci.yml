@@ -170,7 +170,7 @@ jobs:
         id: find-dependencies
         shell: bash
         run: |
-          echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+          echo "tgui-revision=$(git ls-remote https://github.com/texus/TGUI HEAD | cut -f1)" >> $GITHUB_OUTPUT
 
       - name: Cache TGUI
         uses: actions/cache@v4
@@ -236,7 +236,7 @@ jobs:
         id: find-dependencies
         shell: bash
         run: |
-          echo "tgui-revision=$(git ls-remote $TGUI_GITHUB_URL HEAD | cut -f1)" >> $GITHUB_OUTPUT
+          echo "tgui-revision=$(git ls-remote https://github.com/texus/TGUI HEAD | cut -f1)" >> $GITHUB_OUTPUT
 
       - name: Cache TGUI
         uses: actions/cache@v4
