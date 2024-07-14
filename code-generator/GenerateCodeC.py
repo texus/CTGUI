@@ -25,6 +25,8 @@
 import os
 from FileParser import *
 
+#################################################################################################################################
+
 def generateAdditionalIncludesInSourceFile(segments):
     usedTypes = set()
     usesRenderer = False
@@ -58,6 +60,46 @@ def generateAdditionalIncludesInSourceFile(segments):
 
 #################################################################################################################################
 
+def generateAdditionalIncludesInHeaderFile(className, segments):
+    usedTypes = set()
+    for segment in segments:
+        if isinstance(segment, SegmentProperty):
+            usedTypes.add(segment.type)
+        elif isinstance(segment, SegmentFunction):
+            usedTypes.add(segment.returnType)
+            for param in segment.params:
+                usedTypes.add(param[0])
+
+    generatedLines = []
+    if 'HorizontalAlignment' in usedTypes or 'VerticalAlignment' in usedTypes:
+        generatedLines.append('#include <CTGUI/Alignment.h>')
+    if 'ScrollbarPolicy' in usedTypes:
+        generatedLines.append('#include <CTGUI/ScrollbarPolicy.h>')
+    if 'Orientation' in usedTypes:
+        generatedLines.append('#include <CTGUI/Orientation.h>')
+
+    if generatedLines:
+        generatedLines.append('')
+
+    enums = {}
+    for segment in segments:
+        if isinstance(segment, SegmentEnum):
+            enums[segment.name] = segment.values
+            generatedLines.extend([
+                'typedef enum',
+                '{',
+            ])
+            for value in segment.values:
+                generatedLines.append('    tgui' + className + segment.name + value + ',')
+            generatedLines.extend([
+                '} tgui' + className + segment.name + ';',
+                ''
+            ])
+
+    return generatedLines
+
+#################################################################################################################################
+
 def generateFunctionSignatureC(className, funcName, funcParams, returnType, constFunc, staticFunc, selfType, selfName, enums):
     TYPE_MAP = {
         'void' : 'void',
@@ -79,6 +121,11 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'Widget' : 'tguiWidget*',
         'ConstWidget' : 'const tguiWidget*',
         'Vector2f' : 'tguiVector2f',
+        'Vector2u' : 'tguiVector2u',
+        'Vector2i' : 'tguiVector2i',
+        'FloatRect' : 'tguiFloatRect',
+        'UIntRect' : 'tguiUIntRect',
+        'IntRect' : 'tguiIntRect',
         'AnyObject' : 'void*',
         'List<string>' : 'const tguiUtf32*',
         'List<Widget>' : 'const tguiWidget*',
@@ -86,6 +133,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'ScrollbarPolicy': 'tguiScrollbarPolicy',
         'VerticalAlignment': 'tguiVerticalAlignment',
         'HorizontalAlignment': 'tguiHorizontalAlignment',
+        'Orientation': 'tguiOrientation',
     }
 
     params = selfType + '* ' + selfName
@@ -143,18 +191,22 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         elif paramType == 'Widget' or  paramType == 'ConstWidget' or paramType == 'Outline' \
         or paramType == 'Layout' or paramType == 'Layout2d' or paramType == 'RendererData':
             funcCallParams.append(paramName + '->This')
-        elif paramType == 'Vector2f':
+        elif paramType == 'Vector2f' or paramType == 'Vector2u' or paramType == 'Vector2i':
             funcCallParams.append('{' + paramName + '.x, ' + paramName + '.y}')
+        elif paramType == 'FloatRect' or paramType == 'UIntRect' or paramType == 'IntRect':
+            funcCallParams.append('{' + paramName + '.left, ' + paramName + '.top, ' + paramName + '.width, ' + paramName + '.height}')
         elif paramType == 'VerticalAlignment':
             funcCallParams.append('static_cast<tgui::VerticalAlignment>(' + paramName + ')')
         elif paramType == 'HorizontalAlignment':
             funcCallParams.append('static_cast<tgui::HorizontalAlignment>(' + paramName + ')')
         elif paramType == 'ScrollbarPolicy':
             funcCallParams.append('static_cast<tgui::Scrollbar::Policy>(' + paramName + ')')
+        elif paramType == 'Orientation':
+            funcCallParams.append('static_cast<tgui::Orientation>(' + paramName + ')')
         elif paramType == 'AnyObject':
             funcCallParams.append(paramName)
         elif paramType == 'List<string>':
-            localVariableName = 'converted' + paramName.capitalize()
+            localVariableName = 'converted' + paramName[0].upper() + paramName[1:]
             generatedLines.append('    std::vector<tgui::String> ' + localVariableName + ';')
             generatedLines.append('    ' + localVariableName + '.reserve(' + paramName + 'Length);')
             generatedLines.append('    for (size_t i = 0; i < ' + paramName + 'Length; ++i)')
@@ -162,7 +214,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             generatedLines.append('')
             funcCallParams.append('std::move(' + localVariableName + ')')
         elif paramType == 'Set<size_t>':
-            localVariableName = 'converted' + paramName.capitalize()
+            localVariableName = 'converted' + paramName[0].upper() + paramName[1:]
             generatedLines.append('    std::set<size_t> ' + localVariableName + ';')
             generatedLines.append('    for (size_t i = 0; i < ' + paramName + 'Length; ++i)')
             generatedLines.append('        ' + localVariableName + '.insert(' + paramName + '[i]);')
@@ -192,10 +244,15 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             '    else',
             '        return nullptr;'
         ])
-    elif returnType == 'Vector2f':
+    elif returnType == 'Vector2f' or returnType == 'Vector2u' or returnType == 'Vector2i':
         generatedLines.extend([
-            '    const tgui::Vector2f value = ' + funcCall + ';',
+            '    const auto value = ' + funcCall + ';',
             '    return {value.x, value.y};'
+        ])
+    elif returnType == 'FloatRect' or returnType == 'UIntRect' or returnType == 'IntRect':
+        generatedLines.extend([
+            '    const auto rect = ' + funcCall + ';',
+            '    return {rect.left, rect.top, rect.width, rect.height};'
         ])
     elif returnType == 'string':
         generatedLines.append('    return ctgui::fromCppStr(' + funcCall + ');')
@@ -219,6 +276,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         generatedLines.append('    return static_cast<tguiHorizontalAlignment>(' + funcCall + ');')
     elif returnType == 'ScrollbarPolicy':
         generatedLines.append('    return static_cast<tguiScrollbarPolicy>(' + funcCall + ');')
+    elif returnType == 'Orientation':
+        generatedLines.append('    return static_cast<tguiOrientation>(' + funcCall + ');')
     elif returnType == 'AnyObject':
         bracketPos = funcCall.find(funcName) + len(funcName)
         generatedLines.extend([
@@ -352,7 +411,7 @@ def generateRendererHeaderFileC(srcFile, destFile, className):
         for segment in segments:
             if isinstance(segment, SegmentInherits):
                 continue # We don't use this information in the C header file
-            if isinstance(segment, SegmentPropertyWidgetRenderer):
+            elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 raise RuntimeError('property-widget-renderer is not supported in a renderer')
             elif isinstance(segment, SegmentProperty):
                 generatedLines.extend(generatePropertyHeaderC(className, segment, {}, 'tguiRenderer', 'thisRenderer'))
@@ -430,7 +489,7 @@ def generateRendererSourceFileC(srcFile, destFile, className):
         for segment in segments:
             if isinstance(segment, SegmentInherits):
                 continue # We don't use this information in the C source file
-            if isinstance(segment, SegmentPropertyWidgetRenderer):
+            elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 raise RuntimeError('property-widget-renderer is not supported in a renderer')
             elif isinstance(segment, SegmentProperty):
                 generatedLines.extend(generatePropertySourceC(className, segment, {}, 'tguiRenderer', 'thisRenderer'))
@@ -487,26 +546,12 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
     segments = parseDescriptionFile(srcFile)
 
     abstractClass = False
-    usesAlignment = False
-    usesScrollbarPolicy = False
+    enums = {}
     for segment in segments:
         if isinstance(segment, SegmentAbstractClass):
             abstractClass = True
-        elif isinstance(segment, SegmentProperty):
-            propertyType = segment.type
-            if propertyType == 'HorizontalAlignment' or propertyType == 'VerticalAlignment':
-                usesAlignment = True
-            elif propertyType == 'ScrollbarPolicy':
-                usesScrollbarPolicy = True
-        elif isinstance(segment, SegmentFunction):
-            typesToCheck = [segment.returnType]
-            for param in segment.params:
-                typesToCheck.append(param[0])
-            for typeName in typesToCheck:
-                if typeName == 'HorizontalAlignment' or typeName == 'VerticalAlignment':
-                    usesAlignment = True
-                elif typeName == 'ScrollbarPolicy':
-                    usesScrollbarPolicy = True
+        elif isinstance(segment, SegmentEnum):
+            enums[segment.name] = segment.values
 
     generatedLines = [
         '// This file is generated, it should not be edited directly.',
@@ -515,27 +560,9 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
         '#define CTGUI_' + className.upper() + '_H',
         '',
         '#include <CTGUI/Widget.h>',
+        '',
     ]
-    if usesAlignment:
-        generatedLines.append('#include <CTGUI/Alignment.h>')
-    if usesScrollbarPolicy:
-        generatedLines.append('#include <CTGUI/ScrollbarPolicy.h>')
-    generatedLines.append('')
-
-    enums = {}
-    for segment in segments:
-        if isinstance(segment, SegmentEnum):
-            enums[segment.name] = segment.values
-            generatedLines.extend([
-                'typedef enum',
-                '{',
-            ])
-            for value in segment.values:
-                generatedLines.append('    tgui' + className + segment.name + value + ',')
-            generatedLines.extend([
-                '} tgui' + className + segment.name + ';',
-                ''
-            ])
+    generatedLines.extend(generateAdditionalIncludesInHeaderFile(className, segments))
 
     if not abstractClass:
         generatedLines.extend([
@@ -547,7 +574,7 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
         for segment in segments:
             if isinstance(segment, SegmentInherits):
                 continue # We don't use this information in the C header file
-            if isinstance(segment, SegmentPropertyWidgetRenderer):
+            elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 if not segment.prefix:
                     continue # We don't create a function in C for our own renderer (as the one from tguiWidget can be used)
                 generatedLines.extend([
@@ -630,7 +657,7 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
         for segment in segments:
             if isinstance(segment, SegmentInherits):
                 continue # We don't use this information in the C source file
-            if isinstance(segment, SegmentPropertyWidgetRenderer):
+            elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 if not segment.prefix:
                     continue # We don't create a function in C for our own renderer (as the one from tguiWidget can be used)
                 generatedLines.extend([
@@ -693,21 +720,21 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
 def main():
     for filename in os.listdir('templates/Renderers'):
         if filename.endswith('.desc'):
-            srcFile = os.path.join('templates', 'Renderers', filename)
             className = filename[:-5]
-            destSrcFile = os.path.join('..', 'src', 'CTGUI', 'Renderers', className + '.cpp')
-            destIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Renderers', className + '.h')
-            generateRendererSourceFileC(srcFile, destSrcFile, className)
-            generateRendererHeaderFileC(srcFile, destIncludeFile, className)
+            inputDescFile = os.path.join('templates', 'Renderers', filename)
+            outputSourceFile = os.path.join('..', 'src', 'CTGUI', 'Renderers', className + '.cpp')
+            outputIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Renderers', className + '.h')
+            generateRendererSourceFileC(inputDescFile, outputSourceFile, className)
+            generateRendererHeaderFileC(inputDescFile, outputIncludeFile, className)
 
     for filename in os.listdir('templates/Widgets'):
         if filename.endswith('.desc'):
-            srcFile = os.path.join('templates', 'Widgets', filename)
             className = filename[:-5]
-            destSrcFile = os.path.join('..', 'src', 'CTGUI', 'Widgets', className + '.cpp')
-            destIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Widgets', className + '.h')
-            generateWidgetSourceFileC(srcFile, destSrcFile, className)
-            generateWidgetHeaderFileC(srcFile, destIncludeFile, className)
+            inputDescFile = os.path.join('templates', 'Widgets', filename)
+            outputSourceFile = os.path.join('..', 'src', 'CTGUI', 'Widgets', className + '.cpp')
+            outputIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Widgets', className + '.h')
+            generateWidgetSourceFileC(inputDescFile, outputSourceFile, className)
+            generateWidgetHeaderFileC(inputDescFile, outputIncludeFile, className)
 
 #################################################################################################################################
 

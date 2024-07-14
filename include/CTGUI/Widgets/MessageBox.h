@@ -4,6 +4,7 @@
 #define CTGUI_MESSAGEBOX_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/Alignment.h>
 
 CTGUI_API tguiWidget* tguiMessageBox_create(void);

@@ -4,6 +4,7 @@
 #define CTGUI_LABEL_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/Alignment.h>
 #include <CTGUI/ScrollbarPolicy.h>
 
@@ -29,5 +30,7 @@ CTGUI_API tguiScrollbarPolicy tguiLabel_getScrollbarPolicy(const tguiWidget* thi
 
 CTGUI_API void tguiLabel_setScrollbarValue(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiLabel_getScrollbarValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiLabel_getScrollbarMaxValue(const tguiWidget* thisWidget);
 
 #endif // CTGUI_LABEL_H

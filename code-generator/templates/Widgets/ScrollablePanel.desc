@@ -16,6 +16,9 @@ property uint HorizontalScrollAmount
 property uint VerticalScrollbarValue
 property uint HorizontalScrollbarValue
 
+const-function uint getVerticalScrollbarMaxValue()
+const-function uint getHorizontalScrollbarMaxValue()
+
 const-function bool isVerticalScrollbarShown()
 const-function bool isHorizontalScrollbarShown()
 

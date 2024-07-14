@@ -369,6 +369,20 @@ const tguiUtf32* tguiListView_getItems(const tguiWidget* thisWidget, size_t* ret
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+unsigned int tguiListView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+unsigned int tguiListView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiListView_setItemHeight(tguiWidget* thisWidget, unsigned int value)
 {
     DOWNCAST(thisWidget->This)->setItemHeight(value);
@@ -520,7 +534,7 @@ void tguiListView_setFixedIconSize(tguiWidget* thisWidget, tguiVector2f value)
 
 tguiVector2f tguiListView_getFixedIconSize(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getFixedIconSize();
+    const auto value = DOWNCAST(thisWidget->This)->getFixedIconSize();
     return {value.x, value.y};
 }
 

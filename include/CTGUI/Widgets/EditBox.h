@@ -4,6 +4,7 @@
 #define CTGUI_EDITBOX_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/Alignment.h>
 
 CTGUI_API tguiWidget* tguiEditBox_create(void);

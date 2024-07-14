@@ -1,0 +1,15 @@
+inherits Group
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer SplitContainerRenderer
+
+property Orientation Orientation
+property float SplitterWidth
+property float MinimumGrabWidth
+
+function void setMinValidSplitterOffset(float minOffset)
+function void setMaxValidSplitterOffset(float maxOffset)
+function void setSplitterOffset(float offset)
+const-function float getMinValidSplitterOffset()
+const-function float getMaxValidSplitterOffset()
+const-function float getSplitterOffset()

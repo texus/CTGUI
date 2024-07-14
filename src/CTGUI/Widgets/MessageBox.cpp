@@ -37,12 +37,12 @@ void tguiMessageBox_addButton(tguiWidget* thisWidget, tguiUtf32 text)
 
 void tguiMessageBox_changeButtons(tguiWidget* thisWidget, const tguiUtf32* buttonCaptions, size_t buttonCaptionsLength)
 {
-    std::vector<tgui::String> convertedButtoncaptions;
-    convertedButtoncaptions.reserve(buttonCaptionsLength);
+    std::vector<tgui::String> convertedButtonCaptions;
+    convertedButtonCaptions.reserve(buttonCaptionsLength);
     for (size_t i = 0; i < buttonCaptionsLength; ++i)
-        convertedButtoncaptions.push_back(ctgui::toCppStr(buttonCaptions[i]));
+        convertedButtonCaptions.push_back(ctgui::toCppStr(buttonCaptions[i]));
 
-    DOWNCAST(thisWidget->This)->changeButtons(std::move(convertedButtoncaptions));
+    DOWNCAST(thisWidget->This)->changeButtons(std::move(convertedButtonCaptions));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

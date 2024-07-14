@@ -7,4 +7,4 @@ property float Minimum
 property float Maximum
 property float Value
 property float Step
-property bool VerticalScroll
+property Orientation Orientation

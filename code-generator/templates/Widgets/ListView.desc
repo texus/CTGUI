@@ -61,6 +61,9 @@ const-function string getItemCell(size_t rowIndex, size_t columnIndex)
 const-function List<string> getItemRow(size_t index)
 const-function List<string> getItems()
 
+const-function uint getVerticalScrollbarMaxValue()
+const-function uint getHorizontalScrollbarMaxValue()
+
 property uint ItemHeight
 property uint HeaderTextSize
 property uint SeparatorWidth

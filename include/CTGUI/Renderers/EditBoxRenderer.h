@@ -53,9 +53,6 @@ CTGUI_API const tguiColor* tguiEditBoxRenderer_getCaretColor(const tguiRenderer*
 CTGUI_API void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
 CTGUI_API const tguiColor* tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setCaretColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getCaretColorFocused(const tguiRenderer* thisRenderer);
-
 CTGUI_API void tguiEditBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
 CTGUI_API const tguiColor* tguiEditBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 

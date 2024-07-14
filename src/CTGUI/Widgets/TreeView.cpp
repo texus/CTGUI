@@ -52,6 +52,20 @@ unsigned int tguiTreeView_getHorizontalScrollbarValue(const tguiWidget* thisWidg
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+unsigned int tguiTreeView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+unsigned int tguiTreeView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiBool tguiTreeView_addItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool createParents)
 {
     std::vector<tgui::String> convertedHierarchy;

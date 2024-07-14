@@ -203,18 +203,6 @@ const tguiColor* tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* this
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiEditBoxRenderer_setCaretColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
-{
-    DOWNCAST(thisRenderer->This)->setCaretColorFocused(ctgui::toCppColor(value));
-}
-
-const tguiColor* tguiEditBoxRenderer_getCaretColorFocused(const tguiRenderer* thisRenderer)
-{
-    return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCaretColorFocused());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiEditBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));

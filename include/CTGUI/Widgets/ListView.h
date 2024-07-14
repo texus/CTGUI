@@ -4,6 +4,7 @@
 #define CTGUI_LISTVIEW_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/Alignment.h>
 #include <CTGUI/ScrollbarPolicy.h>
 
@@ -89,6 +90,10 @@ CTGUI_API tguiUtf32 tguiListView_getItemCell(const tguiWidget* thisWidget, size_
 CTGUI_API const tguiUtf32* tguiListView_getItemRow(const tguiWidget* thisWidget, size_t index, size_t* returnCount);
 
 CTGUI_API const tguiUtf32* tguiListView_getItems(const tguiWidget* thisWidget, size_t* returnCount);
+
+CTGUI_API unsigned int tguiListView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiListView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiListView_setItemHeight(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiListView_getItemHeight(const tguiWidget* thisWidget);

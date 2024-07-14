@@ -64,14 +64,14 @@ float tguiSlider_getStep(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSlider_setVerticalScroll(tguiWidget* thisWidget, tguiBool value)
+void tguiSlider_setOrientation(tguiWidget* thisWidget, tguiOrientation value)
 {
-    DOWNCAST(thisWidget->This)->setVerticalScroll(value != 0);
+    DOWNCAST(thisWidget->This)->setOrientation(static_cast<tgui::Orientation>(value));
 }
 
-tguiBool tguiSlider_getVerticalScroll(const tguiWidget* thisWidget)
+tguiOrientation tguiSlider_getOrientation(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(thisWidget->This)->getVerticalScroll();
+    return static_cast<tguiOrientation>(DOWNCAST(thisWidget->This)->getOrientation());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

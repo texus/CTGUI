@@ -16,7 +16,6 @@ property Color BackgroundColorDisabled
 
 property Color CaretColor
 property Color CaretColorHover
-property Color CaretColorFocused
 
 property Color BorderColor
 property Color BorderColorHover

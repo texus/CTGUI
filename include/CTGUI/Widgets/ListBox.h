@@ -4,6 +4,7 @@
 #define CTGUI_LISTBOX_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/Alignment.h>
 
 CTGUI_API tguiWidget* tguiListBox_create(void);
@@ -70,6 +71,8 @@ CTGUI_API tguiHorizontalAlignment tguiListBox_getTextAlignment(const tguiWidget*
 
 CTGUI_API void tguiListBox_setScrollbarValue(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiListBox_getScrollbarValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiListBox_getScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API tguiBool tguiListBox_contains(const tguiWidget* thisWidget, tguiUtf32 item);
 

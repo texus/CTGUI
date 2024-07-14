@@ -280,6 +280,13 @@ unsigned int tguiListBox_getScrollbarValue(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+unsigned int tguiListBox_getScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiBool tguiListBox_contains(const tguiWidget* thisWidget, tguiUtf32 item)
 {
     return DOWNCAST(thisWidget->This)->contains(ctgui::toCppStr(item));

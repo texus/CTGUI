@@ -38,3 +38,6 @@ property ScrollbarPolicy ScrollbarPolicy
 
 /// @brief Thumb position of the scrollbar
 property uint ScrollbarValue
+
+/// @brief Returns the maximum thumb position of the scrollbar
+const-function uint getScrollbarMaxValue()

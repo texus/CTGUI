@@ -16,6 +16,10 @@ CTGUI_API unsigned int tguiTreeView_getVerticalScrollbarValue(const tguiWidget* 
 CTGUI_API void tguiTreeView_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiTreeView_getHorizontalScrollbarValue(const tguiWidget* thisWidget);
 
+CTGUI_API unsigned int tguiTreeView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiTreeView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
+
 CTGUI_API tguiBool tguiTreeView_addItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool createParents);
 
 CTGUI_API tguiBool tguiTreeView_changeItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiUtf32 leafText);

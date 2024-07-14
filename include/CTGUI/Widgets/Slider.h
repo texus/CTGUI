@@ -5,6 +5,8 @@
 
 #include <CTGUI/Widget.h>
 
+#include <CTGUI/Orientation.h>
+
 CTGUI_API tguiWidget* tguiSlider_create(void);
 
 CTGUI_API void tguiSlider_setMinimum(tguiWidget* thisWidget, float value);
@@ -19,8 +21,8 @@ CTGUI_API float tguiSlider_getValue(const tguiWidget* thisWidget);
 CTGUI_API void tguiSlider_setStep(tguiWidget* thisWidget, float value);
 CTGUI_API float tguiSlider_getStep(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiSlider_setVerticalScroll(tguiWidget* thisWidget, tguiBool value);
-CTGUI_API tguiBool tguiSlider_getVerticalScroll(const tguiWidget* thisWidget);
+CTGUI_API void tguiSlider_setOrientation(tguiWidget* thisWidget, tguiOrientation value);
+CTGUI_API tguiOrientation tguiSlider_getOrientation(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiSlider_setInvertedDirection(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiSlider_getInvertedDirection(const tguiWidget* thisWidget);

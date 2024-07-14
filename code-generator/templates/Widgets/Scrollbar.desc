@@ -8,6 +8,7 @@ property uint Maximum
 property uint Value
 property uint ScrollAmount
 property bool AutoHide
-property bool VerticalScroll
+property Orientation Orientation
 
+const-function uint getMaxValue()
 const-function float getDefaultWidth()

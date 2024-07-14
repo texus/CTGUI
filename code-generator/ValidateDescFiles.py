@@ -7,7 +7,7 @@ TGUI_DIR = '../../TGUI'
 
 VALID_CPP_TYPES = {
     'void' : ['void'],
-    'float' : ['float'],
+    'float' : ['float', 'AbsoluteOrRelativeValue'], # TODO: Properly implement AbsoluteOrRelativeValue to allow relative values
     'int' : ['int'],
     'uint' : ['unsigned int'],
     'bool' : ['bool'],
@@ -21,6 +21,7 @@ VALID_CPP_TYPES = {
     'HorizontalAlignment' : ['HorizontalAlignment', 'tgui::HorizontalAlignment'],
     'VerticalAlignment' : ['VerticalAlignment', 'tgui::VerticalAlignment'],
     'ScrollbarPolicy' : ['Scrollbar::Policy'],
+    'Orientation' : ['Orientation'],
     'Vector2f' : ['Vector2f'],
     'Char32' : ['char32_t'],
     'size_t' : ['std::size_t'],
@@ -68,7 +69,7 @@ for subfolder in ['Widgets', 'Renderers']:
                     cppInherits = match.group(1)
 
                 # Look for setter functions
-                match = re.search('void set([a-zA-Z]+)\(([^,=)]*) [a-zA-Z]+( = .*)?\)', line)
+                match = re.search('void set([a-zA-Z]+)\\(([^,=)]*) [a-zA-Z]+( = .*)?\\)', line)
                 if match:
                     propertyName = match.group(1)
                     propertyType = match.group(2)
@@ -76,7 +77,7 @@ for subfolder in ['Widgets', 'Renderers']:
                     cppPropertyTypes[propertyName] = propertyType
 
                 # Look for getter functions
-                match = re.search(' get([a-zA-Z]+)\(\)', line)
+                match = re.search(' get([a-zA-Z]+)\\(\\)', line)
                 if match:
                     propertyName = match.group(1)
                     cppGetters.add(propertyName)
@@ -88,7 +89,7 @@ for subfolder in ['Widgets', 'Renderers']:
                         print(className + ': C++ getter "get' + propertyName + '" is missing const modifier')
 
                 # Look for getters with the "is" prefix
-                match = re.search('bool is([a-zA-Z]+)\(\)', line)
+                match = re.search('bool is([a-zA-Z]+)\\(\\)', line)
                 if match:
                     propertyName = match.group(1)
                     cppGetters.add(propertyName)
@@ -99,7 +100,7 @@ for subfolder in ['Widgets', 'Renderers']:
                         print(className + ': C++ getter "is' + propertyName + '" is missing const modifier')
 
                 # Look for any function
-                match = re.search(' ([a-zA-Z]+)\(([^)]*)\)', line)
+                match = re.search(' ([a-zA-Z]+)\\(([^)]*)\\)', line)
                 if match:
                     # Parameters like "T x = {a, b}" aren't parsed properly (they match 2 parameters "T x = {a" and "b}").
                     # We ignore this for now as this isn't an issue unless the C code wraps such a function.
@@ -118,7 +119,7 @@ for subfolder in ['Widgets', 'Renderers']:
                     cppFunctions[functionName].append((returnType, params, isConst, isStatic))
 
                 # Look for functions that have many parameters that are split over multiple lines
-                match = re.search(' ([a-zA-Z]+)\(([^)]+)$', line)
+                match = re.search(' ([a-zA-Z]+)\\(([^)]+)$', line)
                 if match:
                     functionName = match.group(1)
                     cppPotentialMultilineFunctions.add(functionName)

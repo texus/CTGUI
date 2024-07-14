@@ -22,3 +22,5 @@ property TextStyle TextStyle
 property bool LinesStartFromTop
 property bool NewLinesBelowOthers
 property uint ScrollbarValue
+
+const-function uint getScrollbarMaxValue()

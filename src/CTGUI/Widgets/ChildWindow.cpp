@@ -33,7 +33,7 @@ void tguiChildWindow_setClientSizeFromLayout(tguiWidget* thisWidget, const tguiL
 
 tguiVector2f tguiChildWindow_getClientSize(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getClientSize();
+    const auto value = DOWNCAST(thisWidget->This)->getClientSize();
     return {value.x, value.y};
 }
 
@@ -46,7 +46,7 @@ void tguiChildWindow_setMaximumSize(tguiWidget* thisWidget, tguiVector2f value)
 
 tguiVector2f tguiChildWindow_getMaximumSize(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getMaximumSize();
+    const auto value = DOWNCAST(thisWidget->This)->getMaximumSize();
     return {value.x, value.y};
 }
 
@@ -59,7 +59,7 @@ void tguiChildWindow_setMinimumSize(tguiWidget* thisWidget, tguiVector2f value)
 
 tguiVector2f tguiChildWindow_getMinimumSize(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getMinimumSize();
+    const auto value = DOWNCAST(thisWidget->This)->getMinimumSize();
     return {value.x, value.y};
 }
 

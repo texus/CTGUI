@@ -4,6 +4,7 @@
 #define CTGUI_TEXTAREA_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/ScrollbarPolicy.h>
 
 CTGUI_API tguiWidget* tguiTextArea_create(void);
@@ -51,6 +52,10 @@ CTGUI_API unsigned int tguiTextArea_getVerticalScrollbarValue(const tguiWidget* 
 
 CTGUI_API void tguiTextArea_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiTextArea_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiTextArea_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiBool enable);
 

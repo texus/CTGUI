@@ -33,6 +33,9 @@ function bool changeItemByIndex(size_t index, string newValue)
 
 const-function size_t getItemCount()
 
+function void setItemData(size_t index, AnyObject data)
+const-function AnyObject getItemData(size_t index)
+
 property size_t MaximumItems
 property string DefaultText
 property ExpandDirection ExpandDirection

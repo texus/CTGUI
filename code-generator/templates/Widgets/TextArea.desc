@@ -29,6 +29,9 @@ property ScrollbarPolicy HorizontalScrollbarPolicy
 property uint VerticalScrollbarValue
 property uint HorizontalScrollbarValue
 
+const-function uint getVerticalScrollbarMaxValue()
+const-function uint getHorizontalScrollbarMaxValue()
+
 function void enableMonospacedFontOptimization(bool enable)
 
 const-function size_t getLinesCount()

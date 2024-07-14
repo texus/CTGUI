@@ -7,6 +7,9 @@ property uint ItemHeight
 property uint VerticalScrollbarValue
 property uint HorizontalScrollbarValue
 
+const-function uint getVerticalScrollbarMaxValue()
+const-function uint getHorizontalScrollbarMaxValue()
+
 function bool addItem(List<string> hierarchy, bool createParents)
 function bool changeItem(List<string> hierarchy, string leafText)
 

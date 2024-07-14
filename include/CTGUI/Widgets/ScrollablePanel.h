@@ -4,6 +4,7 @@
 #define CTGUI_SCROLLABLEPANEL_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/ScrollbarPolicy.h>
 
 CTGUI_API tguiWidget* tguiScrollablePanel_create(void);
@@ -30,6 +31,10 @@ CTGUI_API unsigned int tguiScrollablePanel_getVerticalScrollbarValue(const tguiW
 
 CTGUI_API void tguiScrollablePanel_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiScrollablePanel_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
+
+CTGUI_API unsigned int tguiScrollablePanel_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API tguiBool tguiScrollablePanel_isVerticalScrollbarShown(const tguiWidget* thisWidget);
 

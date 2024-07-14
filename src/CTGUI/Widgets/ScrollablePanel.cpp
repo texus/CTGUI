@@ -23,7 +23,7 @@ void tguiScrollablePanel_setContentSize(tguiWidget* thisWidget, tguiVector2f val
 
 tguiVector2f tguiScrollablePanel_getContentSize(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getContentSize();
+    const auto value = DOWNCAST(thisWidget->This)->getContentSize();
     return {value.x, value.y};
 }
 
@@ -108,6 +108,20 @@ unsigned int tguiScrollablePanel_getHorizontalScrollbarValue(const tguiWidget* t
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+unsigned int tguiScrollablePanel_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+unsigned int tguiScrollablePanel_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiBool tguiScrollablePanel_isVerticalScrollbarShown(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->isVerticalScrollbarShown();
@@ -124,7 +138,7 @@ tguiBool tguiScrollablePanel_isHorizontalScrollbarShown(const tguiWidget* thisWi
 
 tguiVector2f tguiScrollablePanel_getContentOffset(const tguiWidget* thisWidget)
 {
-    const tgui::Vector2f value = DOWNCAST(thisWidget->This)->getContentOffset();
+    const auto value = DOWNCAST(thisWidget->This)->getContentOffset();
     return {value.x, value.y};
 }
 

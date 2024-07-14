@@ -42,5 +42,7 @@ property bool AutoScroll
 property HorizontalAlignment TextAlignment
 property uint ScrollbarValue
 
+const-function uint getScrollbarMaxValue()
+
 const-function bool contains(string item)
 const-function bool containsId(string id)

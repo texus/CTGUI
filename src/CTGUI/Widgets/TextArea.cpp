@@ -185,6 +185,20 @@ unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget* thisWidg
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+unsigned int tguiTextArea_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+unsigned int tguiTextArea_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiBool enable)
 {
     DOWNCAST(thisWidget->This)->enableMonospacedFontOptimization(enable != 0);

@@ -64,14 +64,14 @@ float tguiSpinButton_getStep(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButton_setVerticalScroll(tguiWidget* thisWidget, tguiBool value)
+void tguiSpinButton_setOrientation(tguiWidget* thisWidget, tguiOrientation value)
 {
-    DOWNCAST(thisWidget->This)->setVerticalScroll(value != 0);
+    DOWNCAST(thisWidget->This)->setOrientation(static_cast<tgui::Orientation>(value));
 }
 
-tguiBool tguiSpinButton_getVerticalScroll(const tguiWidget* thisWidget)
+tguiOrientation tguiSpinButton_getOrientation(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(thisWidget->This)->getVerticalScroll();
+    return static_cast<tguiOrientation>(DOWNCAST(thisWidget->This)->getOrientation());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

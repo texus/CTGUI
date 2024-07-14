@@ -1,0 +1,4 @@
+inherits GroupRenderer
+
+property Color SplitterColor
+property Color SplitterColorHover

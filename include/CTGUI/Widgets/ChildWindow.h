@@ -4,6 +4,7 @@
 #define CTGUI_CHILDWINDOW_H
 
 #include <CTGUI/Widget.h>
+
 #include <CTGUI/Alignment.h>
 
 CTGUI_API tguiWidget* tguiChildWindow_create(void);
