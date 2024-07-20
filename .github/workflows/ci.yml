@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  linux:
+  linux-SFML3-SDL3:
     runs-on: ubuntu-latest
     env:
       SFML_GITHUB_URL: https://github.com/SFML/SFML
@@ -135,15 +135,6 @@ jobs:
 
   #----------------------------------------
 
-  # TODO: The latest released CSFML version is 2.6.0, but we need at least 2.6.1, so the following code is not yet added to the windows build:
-  #   Install dependencies:
-  #     C:\msys64\usr\bin\wget.exe -nv https://github.com/SFML/CSFML/releases/download/${env:CSFML_VERSION}/CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
-  #     7z x CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
-  #   Build CTGUI:
-  #     -DCSFML_INCLUDE_DIR="${env:GITHUB_WORKSPACE}/CSFML/include"
-  #     -DCSFML_LIBRARIES_DIR="${env:GITHUB_WORKSPACE}/CSFML/lib/msvc"
-  #     -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
-
   windows:
     runs-on: windows-latest
     env:
@@ -160,9 +151,11 @@ jobs:
       - name: Install dependencies
         run: |
           C:\msys64\usr\bin\wget.exe -nv https://cmake.org/files/v${env:CMAKE_VERSION}/cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386.zip
+          C:\msys64\usr\bin\wget.exe -nv https://github.com/SFML/CSFML/releases/download/${env:CSFML_VERSION}/CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
           C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL/releases/download/release-${env:SDL_VERSION}/SDL2-devel-${env:SDL_VERSION}-VC.zip
           C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL_ttf/releases/download/release-${env:SDL_TTF_VERSION}/SDL2_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
           7z x cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386.zip
+          7z x CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
           7z x SDL2-devel-${env:SDL_VERSION}-VC.zip
           7z x SDL2_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
 
@@ -207,6 +200,8 @@ jobs:
           & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe"
           -B build -T v${env:MSVC_TOOLSET_VERSION} -A Win32
           -DTGUI_ROOT="${env:GITHUB_WORKSPACE}/TGUI_INSTALL"
+          -DCSFML_INCLUDE_DIR="${env:GITHUB_WORKSPACE}/CSFML/include"
+          -DCSFML_LIBRARIES_DIR="${env:GITHUB_WORKSPACE}/CSFML/lib/msvc"
           -DSDL2_ROOT="${env:GITHUB_WORKSPACE}/SDL2-${env:SDL_VERSION}/"
           -DSDL2_ttf_ROOT="${env:GITHUB_WORKSPACE}/SDL2_ttf-${env:SDL_TTF_VERSION}/"
           -DBUILD_SHARED_LIBS=ON
@@ -214,13 +209,12 @@ jobs:
           -DCMAKE_BUILD_TYPE=Release
           -DCTGUI_WARNINGS_AS_ERRORS=ON
           -DCTGUI_BUILD_EXAMPLE=ON
+          -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
           -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
 
           & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe" --build build --config Release
 
   #----------------------------------------
-
-  # TODO: -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON needs to be added to "Build CTGUI" section once CSFML version in brew is 2.6.1 or higher
 
   macos:
     runs-on: macos-latest
@@ -274,6 +268,7 @@ jobs:
           -DCMAKE_BUILD_TYPE=Release
           -DCTGUI_WARNINGS_AS_ERRORS=ON
           -DCTGUI_BUILD_EXAMPLE=ON
+          -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
           -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
 
           cmake --build build --config Release
