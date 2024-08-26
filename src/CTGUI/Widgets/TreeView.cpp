@@ -28,44 +28,6 @@ unsigned int tguiTreeView_getItemHeight(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeView_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setVerticalScrollbarValue(value);
-}
-
-unsigned int tguiTreeView_getVerticalScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getVerticalScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTreeView_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setHorizontalScrollbarValue(value);
-}
-
-unsigned int tguiTreeView_getHorizontalScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiTreeView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiTreeView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 tguiBool tguiTreeView_addItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool createParents)
 {
     std::vector<tgui::String> convertedHierarchy;
@@ -155,6 +117,47 @@ const tguiUtf32* tguiTreeView_getSelectedItem(const tguiWidget* thisWidget, size
 
     *returnCount = cStrings.size();
     return cStrings.data();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const tguiUtf32* tguiTreeView_getHoveredItem(const tguiWidget* thisWidget, size_t* returnCount)
+{
+    static std::vector<tgui::String> cppStrings;
+    cppStrings = DOWNCAST(thisWidget->This)->getHoveredItem();
+
+    static std::vector<tguiUtf32> cStrings;
+    cStrings.clear();
+    cStrings.reserve(cppStrings.size());
+    for (const auto& item : cppStrings)
+        cStrings.emplace_back(reinterpret_cast<tguiUtf32>(item.c_str()));
+
+    *returnCount = cStrings.size();
+    return cStrings.data();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiTreeView_setItemIndexInParent(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, size_t index)
+{
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (size_t i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
+
+    return DOWNCAST(thisWidget->This)->setItemIndexInParent(std::move(convertedHierarchy), index);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int tguiTreeView_getItemIndexInParent(const tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength)
+{
+    std::vector<tgui::String> convertedHierarchy;
+    convertedHierarchy.reserve(hierarchyLength);
+    for (size_t i = 0; i < hierarchyLength; ++i)
+        convertedHierarchy.push_back(ctgui::toCppStr(hierarchy[i]));
+
+    return DOWNCAST(thisWidget->This)->getItemIndexInParent(std::move(convertedHierarchy));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,9 +1,9 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/TabContainer.h>
-#include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/LayoutStruct.hpp>
 #include <CTGUI/RendererStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/TabContainer.hpp>
 

@@ -1,11 +1,11 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/WidgetRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
 #include <CTGUI/FontStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/WidgetRenderer.hpp>
 

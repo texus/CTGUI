@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/MessageBoxRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/MessageBoxRenderer.hpp>
 

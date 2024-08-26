@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/BitmapButton.h>
-#include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/BitmapButton.hpp>
 

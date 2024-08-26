@@ -23,7 +23,7 @@ void tguiPanel_setEventBubbling(tguiBool useEventBubbling)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiPanel_getEventBubbling()
+tguiBool tguiPanel_getEventBubbling(void)
 {
     return tgui::Panel::getEventBubbling();
 }

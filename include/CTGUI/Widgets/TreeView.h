@@ -10,16 +10,6 @@ CTGUI_API tguiWidget* tguiTreeView_create(void);
 CTGUI_API void tguiTreeView_setItemHeight(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiTreeView_getItemHeight(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiTreeView_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiTreeView_getVerticalScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiTreeView_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiTreeView_getHorizontalScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiTreeView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiTreeView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
-
 CTGUI_API tguiBool tguiTreeView_addItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiBool createParents);
 
 CTGUI_API tguiBool tguiTreeView_changeItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, tguiUtf32 leafText);
@@ -37,6 +27,12 @@ CTGUI_API void tguiTreeView_deselectItem(tguiWidget* thisWidget);
 CTGUI_API void tguiTreeView_removeAllItems(tguiWidget* thisWidget);
 
 CTGUI_API const tguiUtf32* tguiTreeView_getSelectedItem(const tguiWidget* thisWidget, size_t* returnCount);
+
+CTGUI_API const tguiUtf32* tguiTreeView_getHoveredItem(const tguiWidget* thisWidget, size_t* returnCount);
+
+CTGUI_API tguiBool tguiTreeView_setItemIndexInParent(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength, size_t index);
+
+CTGUI_API int tguiTreeView_getItemIndexInParent(const tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength);
 
 CTGUI_API tguiBool tguiTreeView_selectItem(tguiWidget* thisWidget, const tguiUtf32* hierarchy, size_t hierarchyLength);
 

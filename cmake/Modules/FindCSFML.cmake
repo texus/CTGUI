@@ -10,9 +10,16 @@ set(FIND_CSFML_PATHS
     /opt)
 
 # find the CSFML include directory
-find_path(CSFML_INCLUDE_DIR SFML/Config.h
-          PATH_SUFFIXES include
-          PATHS ${FIND_CSFML_PATHS})
+if (NOT CSFML_FIND_VERSION OR NOT CSFML_FIND_VERSION_MAJOR OR CSFML_FIND_VERSION_MAJOR GREATER_EQUAL 3)
+    find_path(CSFML_INCLUDE_DIR CSFML/Config.h
+              PATH_SUFFIXES include
+              PATHS ${FIND_CSFML_PATHS})
+endif()
+if (NOT CSFML_FIND_VERSION OR NOT CSFML_FIND_VERSION_MAJOR OR CSFML_FIND_VERSION_MAJOR EQUAL 2)
+    find_path(CSFML_INCLUDE_DIR SFML/Config.h
+              PATH_SUFFIXES include
+              PATHS ${FIND_CSFML_PATHS})
+endif()
 
 # check the version number
 set(CSFML_VERSION_OK TRUE)
@@ -23,7 +30,11 @@ else()
 endif()
 if (CSFML_FIND_VERSION AND CSFML_INCLUDE_DIR)
     # extract the major and minor version numbers from SFML/Config.h
-    set(CSFML_CONFIG_H_INPUT "${CSFML_INCLUDE_DIR}/SFML/Config.h")
+    if (CSFML_FIND_VERSION_MAJOR GREATER_EQUAL 3)
+        set(CSFML_CONFIG_H_INPUT "${CSFML_INCLUDE_DIR}/CSFML/Config.h")
+    else()
+        set(CSFML_CONFIG_H_INPUT "${CSFML_INCLUDE_DIR}/SFML/Config.h")
+    endif()
     FILE(READ "${CSFML_CONFIG_H_INPUT}" CSFML_CONFIG_H_CONTENTS)
     STRING(REGEX REPLACE ".*#define CSFML_VERSION_MAJOR ([0-9]+).*" "\\1" CSFML_VERSION_MAJOR "${CSFML_CONFIG_H_CONTENTS}")
     STRING(REGEX REPLACE ".*#define CSFML_VERSION_MINOR ([0-9]+).*" "\\1" CSFML_VERSION_MINOR "${CSFML_CONFIG_H_CONTENTS}")

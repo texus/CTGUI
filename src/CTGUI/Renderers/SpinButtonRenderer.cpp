@@ -1,9 +1,9 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/SpinButtonRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/SpinButtonRenderer.hpp>
 

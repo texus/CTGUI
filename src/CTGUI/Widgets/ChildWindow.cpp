@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/ChildWindow.h>
-#include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/LayoutStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/ChildWindow.hpp>
 

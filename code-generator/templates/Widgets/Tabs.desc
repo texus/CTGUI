@@ -15,6 +15,7 @@ function void removeAll()
 
 const-function string getSelected()
 const-function int getSelectedIndex()
+const-function int getHoveredIndex()
 
 const-function size_t getTabsCount()
 

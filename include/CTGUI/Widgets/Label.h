@@ -6,7 +6,6 @@
 #include <CTGUI/Widget.h>
 
 #include <CTGUI/Alignment.h>
-#include <CTGUI/ScrollbarPolicy.h>
 
 CTGUI_API tguiWidget* tguiLabel_create(void);
 
@@ -24,13 +23,5 @@ CTGUI_API tguiBool tguiLabel_getAutoSize(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiLabel_setMaximumTextWidth(tguiWidget* thisWidget, float value);
 CTGUI_API float tguiLabel_getMaximumTextWidth(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiLabel_setScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value);
-CTGUI_API tguiScrollbarPolicy tguiLabel_getScrollbarPolicy(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiLabel_setScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiLabel_getScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiLabel_getScrollbarMaxValue(const tguiWidget* thisWidget);
 
 #endif // CTGUI_LABEL_H

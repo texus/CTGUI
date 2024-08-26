@@ -128,6 +128,13 @@ int tguiListBox_getSelectedItemIndex(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int tguiListBox_getHoveredItemIndex(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHoveredItemIndex();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiBool tguiListBox_changeItem(tguiWidget* thisWidget, tguiUtf32 originalValue, tguiUtf32 newValue)
 {
     return DOWNCAST(thisWidget->This)->changeItem(ctgui::toCppStr(originalValue), ctgui::toCppStr(newValue));
@@ -264,25 +271,6 @@ void tguiListBox_setTextAlignment(tguiWidget* thisWidget, tguiHorizontalAlignmen
 tguiHorizontalAlignment tguiListBox_getTextAlignment(const tguiWidget* thisWidget)
 {
     return static_cast<tguiHorizontalAlignment>(DOWNCAST(thisWidget->This)->getTextAlignment());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiListBox_setScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setScrollbarValue(value);
-}
-
-unsigned int tguiListBox_getScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiListBox_getScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getScrollbarMaxValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,5 @@
 inherits ClickableWidget
+inherits ScrollbarChildInterface
 
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer LabelRenderer
@@ -32,12 +33,3 @@ property bool AutoSize
 /// When the label is auto-sizing then the maximum width is used to split the text over several lines when its width would exceed the configured value.
 /// Setting this property to 0 while the label is auto-sizing would disable the maximum text width.
 property float MaximumTextWidth
-
-/// @brief When the vertical scrollbar should be displayed
-property ScrollbarPolicy ScrollbarPolicy
-
-/// @brief Thumb position of the scrollbar
-property uint ScrollbarValue
-
-/// @brief Returns the maximum thumb position of the scrollbar
-const-function uint getScrollbarMaxValue()

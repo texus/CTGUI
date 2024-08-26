@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/FileDialogRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/FileDialogRenderer.hpp>
 

@@ -75,34 +75,3 @@ float tguiLabel_getMaximumTextWidth(const tguiWidget* thisWidget)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabel_setScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
-{
-    DOWNCAST(thisWidget->This)->setScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
-}
-
-tguiScrollbarPolicy tguiLabel_getScrollbarPolicy(const tguiWidget* thisWidget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiLabel_setScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setScrollbarValue(value);
-}
-
-unsigned int tguiLabel_getScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiLabel_getScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -5,3 +5,4 @@ inherits ClickableWidget
 property-widget-renderer ButtonRenderer
 
 property string Text
+property bool IgnoreKeyEvents

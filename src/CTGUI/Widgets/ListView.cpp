@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/ListView.h>
-#include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/ListView.hpp>
 
@@ -242,6 +242,13 @@ int tguiListView_getSelectedItemIndex(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int tguiListView_getHoveredItemIndex(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHoveredItemIndex();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* thisWidget, size_t* returnCount)
 {
     const auto& indices = DOWNCAST(thisWidget->This)->getSelectedItemIndices();
@@ -369,20 +376,6 @@ const tguiUtf32* tguiListView_getItems(const tguiWidget* thisWidget, size_t* ret
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-unsigned int tguiListView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiListView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiListView_setItemHeight(tguiWidget* thisWidget, unsigned int value)
 {
     DOWNCAST(thisWidget->This)->setItemHeight(value);
@@ -475,54 +468,6 @@ void tguiListView_setShowHorizontalGridLines(tguiWidget* thisWidget, tguiBool va
 tguiBool tguiListView_getShowHorizontalGridLines(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getShowHorizontalGridLines();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiListView_setVerticalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
-{
-    DOWNCAST(thisWidget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
-}
-
-tguiScrollbarPolicy tguiListView_getVerticalScrollbarPolicy(const tguiWidget* thisWidget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getVerticalScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiListView_setHorizontalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
-{
-    DOWNCAST(thisWidget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
-}
-
-tguiScrollbarPolicy tguiListView_getHorizontalScrollbarPolicy(const tguiWidget* thisWidget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getHorizontalScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiListView_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setVerticalScrollbarValue(value);
-}
-
-unsigned int tguiListView_getVerticalScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getVerticalScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiListView_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setHorizontalScrollbarValue(value);
-}
-
-unsigned int tguiListView_getHorizontalScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

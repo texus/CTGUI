@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ScrollbarRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/ScrollbarRenderer.hpp>
 

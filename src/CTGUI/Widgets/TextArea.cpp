@@ -137,68 +137,6 @@ tguiBool tguiTextArea_isReadOnly(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextArea_setVerticalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
-{
-    DOWNCAST(thisWidget->This)->setVerticalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
-}
-
-tguiScrollbarPolicy tguiTextArea_getVerticalScrollbarPolicy(const tguiWidget* thisWidget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getVerticalScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextArea_setHorizontalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
-{
-    DOWNCAST(thisWidget->This)->setHorizontalScrollbarPolicy(static_cast<tgui::Scrollbar::Policy>(value));
-}
-
-tguiScrollbarPolicy tguiTextArea_getHorizontalScrollbarPolicy(const tguiWidget* thisWidget)
-{
-    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getHorizontalScrollbarPolicy());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextArea_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setVerticalScrollbarValue(value);
-}
-
-unsigned int tguiTextArea_getVerticalScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getVerticalScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTextArea_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value)
-{
-    DOWNCAST(thisWidget->This)->setHorizontalScrollbarValue(value);
-}
-
-unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiTextArea_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getVerticalScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-unsigned int tguiTextArea_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget)
-{
-    return DOWNCAST(thisWidget->This)->getHorizontalScrollbarMaxValue();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiBool enable)
 {
     DOWNCAST(thisWidget->This)->enableMonospacedFontOptimization(enable != 0);

@@ -23,6 +23,8 @@ CTGUI_API tguiUtf32 tguiPanelListBox_getSelectedItemId(const tguiWidget* thisWid
 
 CTGUI_API int tguiPanelListBox_getSelectedItemIndex(const tguiWidget* thisWidget);
 
+CTGUI_API int tguiPanelListBox_getHoveredItemIndex(const tguiWidget* thisWidget);
+
 CTGUI_API size_t tguiPanelListBox_getItemCount(const tguiWidget* thisWidget);
 
 CTGUI_API const tguiUtf32* tguiPanelListBox_getItemIds(const tguiWidget* thisWidget, size_t* returnCount);

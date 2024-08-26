@@ -42,6 +42,8 @@ def generateAdditionalIncludesInSourceFile(segments):
                 usedTypes.add(param[0])
 
     generatedLines = []
+    if 'Widget' in usedTypes:
+        generatedLines.append('#include <CTGUI/WidgetStruct.hpp>')
     if 'Outline' in usedTypes:
         generatedLines.append('#include <CTGUI/OutlineStruct.hpp>')
     if 'RendererData' in usedTypes:
@@ -161,7 +163,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
             params = params[params.find(', ')+2:]
         else:
             assert(',' not in params)
-            params = ''
+            params = 'void'
 
     if returnType in enums:
         return 'tgui' + className + returnType + ' tgui' + className + '_' + funcName + '(' + params + ')'
@@ -170,7 +172,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
 
 #################################################################################################################################
 
-def generateFunctionCallC(className, funcName, funcParams, returnType, staticFunc, selfName, enums):
+def generateFunctionCallC(className, funcName, funcParams, returnType, staticFunc, selfName, enums, downcast = True):
     generatedLines = []
     funcCallParams = []
     for param in funcParams:
@@ -225,8 +227,10 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
 
     if staticFunc:
         funcCall = 'tgui::' + className + '::' + funcName + '(' + ', '.join(funcCallParams) + ')'
-    else:
+    elif downcast:
         funcCall = 'DOWNCAST(' + selfName + '->This)->' + funcName + '(' + ', '.join(funcCallParams) + ')'
+    else:
+        funcCall = selfName + '->This->' + funcName + '(' + ', '.join(funcCallParams) + ')'
 
     returnType = returnType
     if returnType in enums:
@@ -346,7 +350,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
 
 #################################################################################################################################
 
-def generatePropertySourceC(className, segment, enums, selfType, selfName):
+def generatePropertySourceC(className, segment, enums, selfType, selfName, downcast = True):
     propertyType = segment.type
     propertyName = segment.name
     if segment.getterUsesIsPrefix and propertyType != 'bool':
@@ -355,7 +359,7 @@ def generatePropertySourceC(className, segment, enums, selfType, selfName):
     generatedLines = []
     generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, enums))
     generatedLines.append('{')
-    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfName, enums))
+    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfName, enums, downcast=downcast))
     generatedLines.append('}')
     generatedLines.append('')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
@@ -364,9 +368,9 @@ def generatePropertySourceC(className, segment, enums, selfType, selfName):
         generatedLines.append(generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, False, selfType, selfName, enums))
     generatedLines.append('{')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
-        generatedLines.extend(generateFunctionCallC(className, 'is' + propertyName, [], propertyType, False, selfName, {}))
+        generatedLines.extend(generateFunctionCallC(className, 'is' + propertyName, [], propertyType, False, selfName, {}, downcast=downcast))
     else:
-        generatedLines.extend(generateFunctionCallC(className, 'get' + propertyName, [], propertyType, False, selfName, enums))
+        generatedLines.extend(generateFunctionCallC(className, 'get' + propertyName, [], propertyType, False, selfName, enums, downcast=downcast))
     generatedLines.append('}')
     return generatedLines
 
@@ -435,7 +439,7 @@ def generateRendererHeaderFileC(srcFile, destFile, className):
 
     assert(srcFile.endswith('.desc'))
     if os.path.isfile(srcFile[:-5] + '.extra.h'):
-        extraFile = open(srcFile[:-5] + '.extra.h')
+        extraFile = open(srcFile[:-5] + '.extra.h', 'r')
         for line in extraFile.readlines():
             generatedLines.append(line.rstrip())
 
@@ -460,9 +464,10 @@ def generateRendererSourceFileC(srcFile, destFile, className):
         '// This file is generated, it should not be edited directly.',
         '',
         '#include <CTGUI/Renderers/' + className + '.h>',
-        '#include <CTGUI/RendererStruct.hpp>',
     ]
     generatedLines.extend(generateAdditionalIncludesInSourceFile(segments))
+    if '#include <CTGUI/RendererStruct.hpp>' not in generatedLines:
+        generatedLines.append('#include <CTGUI/RendererStruct.hpp>')
     generatedLines.extend([
         '',
         '#include <TGUI/Renderers/' + className + '.hpp>',
@@ -520,7 +525,7 @@ def generateRendererSourceFileC(srcFile, destFile, className):
 
     assert(srcFile.endswith('.desc'))
     if os.path.isfile(srcFile[:-5] + '.extra.cpp'):
-        extraFile = open(srcFile[:-5] + '.extra.cpp')
+        extraFile = open(srcFile[:-5] + '.extra.cpp', 'r')
         for line in extraFile.readlines():
             generatedLines.append(line.rstrip())
 
@@ -597,7 +602,7 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
 
     assert(srcFile.endswith('.desc'))
     if os.path.isfile(srcFile[:-5] + '.extra.h'):
-        extraFile = open(srcFile[:-5] + '.extra.h')
+        extraFile = open(srcFile[:-5] + '.extra.h', 'r')
         for line in extraFile.readlines():
             generatedLines.append(line.rstrip())
 
@@ -630,9 +635,10 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
         '// This file is generated, it should not be edited directly.',
         '',
         '#include <CTGUI/Widgets/' + className + '.h>',
-        '#include <CTGUI/WidgetStruct.hpp>',
     ]
     generatedLines.extend(generateAdditionalIncludesInSourceFile(segments))
+    if '#include <CTGUI/WidgetStruct.hpp>' not in generatedLines:
+        generatedLines.append('#include <CTGUI/WidgetStruct.hpp>')
     generatedLines.extend([
         '',
         '#include <TGUI/Widgets/' + className + '.hpp>',
@@ -695,7 +701,7 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
 
     assert(srcFile.endswith('.desc'))
     if os.path.isfile(srcFile[:-5] + '.extra.cpp'):
-        extraFile = open(srcFile[:-5] + '.extra.cpp')
+        extraFile = open(srcFile[:-5] + '.extra.cpp', 'r')
         for line in extraFile.readlines():
             generatedLines.append(line.rstrip())
 
@@ -717,6 +723,141 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
 
 #################################################################################################################################
 
+def generateOtherHeaderFileC(inputDescFile, inputHeaderFile, outputIncludeFile, className):
+    segments = parseDescriptionFile(inputDescFile)
+
+    selfType = 'tgui' + className
+    selfName = 'this' + className
+
+    generatedHeadLines = generateAdditionalIncludesInHeaderFile(className, segments)
+
+    enums = {}
+    for segment in segments:
+        if isinstance(segment, SegmentEnum):
+            enums[segment.name] = segment.values
+
+    generatedLines = []
+    try:
+        for segment in segments:
+            if isinstance(segment, SegmentAbstractClass):
+                raise RuntimeError('abstract-class is not supported here')
+            elif isinstance(segment, SegmentInherits):
+                continue # We don't use this information in the C header file
+            elif isinstance(segment, SegmentPropertyWidgetRenderer):
+                raise RuntimeError('property-widget-renderer is not supported here')
+            elif isinstance(segment, SegmentProperty):
+                generatedLines.extend(generatePropertyHeaderC(className, segment, enums, selfType, selfName))
+            elif isinstance(segment, SegmentFunction):
+                generatedLines.append('CTGUI_API ' + generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, selfType, selfName, enums) + ';')
+            elif isinstance(segment, SegmentEnum):
+                continue # Already handled earlier
+            else:
+                raise RuntimeError('Unsupported instruction in description file')
+
+            # Add a newline behind each segment
+            generatedLines.append('')
+    except RuntimeError as e:
+        raise RuntimeError('Error generating "' + outputIncludeFile + '": ' + str(e))
+
+    if generatedHeadLines and generatedHeadLines[-1] == '':
+        generatedHeadLines = generatedHeadLines[:-1]
+    if generatedLines and generatedLines[-1] == '':
+        generatedLines = generatedLines[:-1]
+
+    inFile = open(inputHeaderFile, 'r')
+    outFile = open(outputIncludeFile, 'w')
+    outFile.write('// This file is generated, it should not be edited directly.\n\n')
+    for line in inFile.readlines():
+        if '@TGUI_GENERATED_HEAD@' in line:
+            indentation = line.find('@')
+            for line in generatedHeadLines:
+                if line:
+                    outFile.write(' '*indentation + line + '\n')
+                else:
+                    outFile.write('\n')
+        elif '@TGUI_GENERATED_BODY@' in line:
+            indentation = line.find('@')
+            for line in generatedLines:
+                if line:
+                    outFile.write(' '*indentation + line + '\n')
+                else:
+                    outFile.write('\n')
+        else: # We can just copy the line
+            outFile.write(line)
+
+#################################################################################################################################
+
+def generateOtherSourceFileC(inputDescFile, inputSourceFile, outputSourceFile, className):
+    segments = parseDescriptionFile(inputDescFile)
+
+    selfType = 'tgui' + className
+    selfName = 'this' + className
+
+    generatedHeadLines = generateAdditionalIncludesInSourceFile(segments)
+
+    enums = {}
+    for segment in segments:
+        if isinstance(segment, SegmentEnum):
+            enums[segment.name] = segment.values
+
+    generatedLines = []
+    try:
+        for segment in segments:
+            if isinstance(segment, SegmentAbstractClass):
+                raise RuntimeError('abstract-class is not supported here')
+            elif isinstance(segment, SegmentInherits):
+                continue # We don't use this information in the C source file
+            elif isinstance(segment, SegmentPropertyWidgetRenderer):
+                raise RuntimeError('property-widget-renderer is not supported here')
+            elif isinstance(segment, SegmentProperty):
+                generatedLines.extend(generatePropertySourceC(className, segment, enums, selfType, selfName, downcast=False))
+            elif isinstance(segment, SegmentFunction):
+                generatedLines.append(generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, selfType, selfName, enums))
+                generatedLines.append('{')
+                generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, segment.static, selfName, enums, downcast=False))
+                generatedLines.append('}')
+            elif isinstance(segment, SegmentEnum):
+                continue # Already handled earlier
+            else:
+                raise RuntimeError('Unsupported instruction in description file')
+
+            # Add a newline behind each segment
+            generatedLines.extend([
+                '',
+                '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////',
+                ''
+            ])
+    except RuntimeError as e:
+        raise RuntimeError('Error generating "' + outputSourceFile + '": ' + str(e))
+
+    if generatedHeadLines and generatedHeadLines[-1] == '':
+        generatedHeadLines = generatedHeadLines[:-1]
+    if generatedLines and generatedLines[-1] == '':
+        generatedLines = generatedLines[:-1]
+
+    inFile = open(inputSourceFile, 'r')
+    outFile = open(outputSourceFile, 'w')
+    outFile.write('// This file is generated, it should not be edited directly.\n\n')
+    for line in inFile.readlines():
+        if '@TGUI_GENERATED_HEAD@' in line:
+            indentation = line.find('@')
+            for line in generatedHeadLines:
+                if line:
+                    outFile.write(' '*indentation + line + '\n')
+                else:
+                    outFile.write('\n')
+        elif '@TGUI_GENERATED_BODY@' in line:
+            indentation = line.find('@')
+            for line in generatedLines:
+                if line:
+                    outFile.write(' '*indentation + line + '\n')
+                else:
+                    outFile.write('\n')
+        else: # We can just copy the line
+            outFile.write(line)
+
+#################################################################################################################################
+
 def main():
     for filename in os.listdir('templates/Renderers'):
         if filename.endswith('.desc'):
@@ -735,6 +876,17 @@ def main():
             outputIncludeFile = os.path.join('..', 'include', 'CTGUI', 'Widgets', className + '.h')
             generateWidgetSourceFileC(inputDescFile, outputSourceFile, className)
             generateWidgetHeaderFileC(inputDescFile, outputIncludeFile, className)
+
+    for filename in os.listdir('templates'):
+        if filename.endswith('.desc'):
+            className = filename[:-5]
+            inputDescFile = os.path.join('templates', filename)
+            inputSourceFile = os.path.join('templates', className + '.cpp')
+            inputHeaderFile = os.path.join('templates', className + '.h')
+            outputSourceFile = os.path.join('..', 'src', 'CTGUI', className + '.cpp')
+            outputIncludeFile = os.path.join('..', 'include', 'CTGUI', className + '.h')
+            generateOtherSourceFileC(inputDescFile, inputSourceFile, outputSourceFile, className)
+            generateOtherHeaderFileC(inputDescFile, inputHeaderFile, outputIncludeFile, className)
 
 #################################################################################################################################
 

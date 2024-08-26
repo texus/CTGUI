@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/SpinControl.h>
-#include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/RendererStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/SpinControl.hpp>
 

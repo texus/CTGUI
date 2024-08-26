@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Widgets/PanelListBox.h>
-#include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/LayoutStruct.hpp>
+#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Widgets/PanelListBox.hpp>
 
@@ -69,6 +69,13 @@ tguiUtf32 tguiPanelListBox_getSelectedItemId(const tguiWidget* thisWidget)
 int tguiPanelListBox_getSelectedItemIndex(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getSelectedItemIndex();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int tguiPanelListBox_getHoveredItemIndex(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getHoveredItemIndex();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -6,7 +6,6 @@
 #include <CTGUI/Widget.h>
 
 #include <CTGUI/Alignment.h>
-#include <CTGUI/ScrollbarPolicy.h>
 
 CTGUI_API tguiWidget* tguiListView_create(void);
 
@@ -68,6 +67,8 @@ CTGUI_API void tguiListView_setSelectedItems(tguiWidget* thisWidget, const size_
 
 CTGUI_API int tguiListView_getSelectedItemIndex(const tguiWidget* thisWidget);
 
+CTGUI_API int tguiListView_getHoveredItemIndex(const tguiWidget* thisWidget);
+
 CTGUI_API const size_t* tguiListView_getSelectedItemIndices(const tguiWidget* thisWidget, size_t* returnCount);
 
 CTGUI_API void tguiListView_deselectItems(tguiWidget* thisWidget);
@@ -90,10 +91,6 @@ CTGUI_API tguiUtf32 tguiListView_getItemCell(const tguiWidget* thisWidget, size_
 CTGUI_API const tguiUtf32* tguiListView_getItemRow(const tguiWidget* thisWidget, size_t index, size_t* returnCount);
 
 CTGUI_API const tguiUtf32* tguiListView_getItems(const tguiWidget* thisWidget, size_t* returnCount);
-
-CTGUI_API unsigned int tguiListView_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiListView_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiListView_setItemHeight(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiListView_getItemHeight(const tguiWidget* thisWidget);
@@ -118,18 +115,6 @@ CTGUI_API tguiBool tguiListView_getShowVerticalGridLines(const tguiWidget* thisW
 
 CTGUI_API void tguiListView_setShowHorizontalGridLines(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiListView_getShowHorizontalGridLines(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiListView_setVerticalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value);
-CTGUI_API tguiScrollbarPolicy tguiListView_getVerticalScrollbarPolicy(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiListView_setHorizontalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value);
-CTGUI_API tguiScrollbarPolicy tguiListView_getHorizontalScrollbarPolicy(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiListView_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiListView_getVerticalScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiListView_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiListView_getHorizontalScrollbarValue(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiListView_setFixedIconSize(tguiWidget* thisWidget, tguiVector2f value);
 CTGUI_API tguiVector2f tguiListView_getFixedIconSize(const tguiWidget* thisWidget);

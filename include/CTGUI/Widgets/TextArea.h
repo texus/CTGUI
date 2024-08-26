@@ -5,8 +5,6 @@
 
 #include <CTGUI/Widget.h>
 
-#include <CTGUI/ScrollbarPolicy.h>
-
 CTGUI_API tguiWidget* tguiTextArea_create(void);
 
 CTGUI_API void tguiTextArea_setText(tguiWidget* thisWidget, tguiUtf32 value);
@@ -40,22 +38,6 @@ CTGUI_API size_t tguiTextArea_getCaretColumn(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiTextArea_setReadOnly(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiTextArea_isReadOnly(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiTextArea_setVerticalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value);
-CTGUI_API tguiScrollbarPolicy tguiTextArea_getVerticalScrollbarPolicy(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiTextArea_setHorizontalScrollbarPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value);
-CTGUI_API tguiScrollbarPolicy tguiTextArea_getHorizontalScrollbarPolicy(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiTextArea_setVerticalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiTextArea_getVerticalScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiTextArea_setHorizontalScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiTextArea_getHorizontalScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiTextArea_getVerticalScrollbarMaxValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiTextArea_getHorizontalScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiTextArea_enableMonospacedFontOptimization(tguiWidget* thisWidget, tguiBool enable);
 

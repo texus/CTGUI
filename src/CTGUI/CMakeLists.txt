@@ -43,6 +43,8 @@ set(SRC
     ${SRCROOT}/RendererDataStruct.hpp
     ${INCROOT}/RendererData.h
     ${SRCROOT}/RendererStruct.hpp
+    ${SRCROOT}/ScrollbarAccessor.cpp
+    ${INCROOT}/ScrollbarAccessor.h
     ${INCROOT}/ScrollbarPolicy.h
     ${SRCROOT}/Sprite.cpp
     ${SRCROOT}/SpriteStruct.hpp

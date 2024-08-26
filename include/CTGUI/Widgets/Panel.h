@@ -9,6 +9,6 @@ CTGUI_API tguiWidget* tguiPanel_create(void);
 
 CTGUI_API void tguiPanel_setEventBubbling(tguiBool useEventBubbling);
 
-CTGUI_API tguiBool tguiPanel_getEventBubbling();
+CTGUI_API tguiBool tguiPanel_getEventBubbling(void);
 
 #endif // CTGUI_PANEL_H

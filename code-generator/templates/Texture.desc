@@ -1,0 +1,12 @@
+property Color Color
+property UIntRect MiddleRect
+
+const-function string getId()
+const-function Vector2u getImageSize()
+const-function UIntRect getPartRect()
+const-function bool isSmooth()
+
+const-function bool isTransparentPixel(Vector2u pos)
+
+static-function void setDefaultSmooth(bool smooth)
+static-function bool getDefaultSmooth()

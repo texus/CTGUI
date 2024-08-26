@@ -64,14 +64,14 @@ unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbar_setAutoHide(tguiWidget* thisWidget, tguiBool value)
+void tguiScrollbar_setPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value)
 {
-    DOWNCAST(thisWidget->This)->setAutoHide(value != 0);
+    DOWNCAST(thisWidget->This)->setPolicy(static_cast<tgui::Scrollbar::Policy>(value));
 }
 
-tguiBool tguiScrollbar_getAutoHide(const tguiWidget* thisWidget)
+tguiScrollbarPolicy tguiScrollbar_getPolicy(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(thisWidget->This)->getAutoHide();
+    return static_cast<tguiScrollbarPolicy>(DOWNCAST(thisWidget->This)->getPolicy());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +84,13 @@ void tguiScrollbar_setOrientation(tguiWidget* thisWidget, tguiOrientation value)
 tguiOrientation tguiScrollbar_getOrientation(const tguiWidget* thisWidget)
 {
     return static_cast<tguiOrientation>(DOWNCAST(thisWidget->This)->getOrientation());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiScrollbar_isShown(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->isShown();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

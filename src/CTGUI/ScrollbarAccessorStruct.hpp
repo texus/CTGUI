@@ -22,48 +22,20 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CTGUI_SCROLLBAR_ACCESSOR_STRUCT_H
+#define CTGUI_SCROLLBAR_ACCESSOR_STRUCT_H
 
-#ifndef CTGUI_TYPES_H
-#define CTGUI_TYPES_H
+#include <CTGUI/InternalGlobal.hpp>
+#include <TGUI/Widgets/Scrollbar.hpp>
 
-#include <stddef.h>
-#include <stdint.h>
+struct tguiScrollbarAccessor
+{
+    tgui::ScrollbarAccessor* This;
 
-typedef struct tguiFont tguiFont;
-typedef struct tguiGui tguiGui;
-typedef struct tguiLayout tguiLayout;
-typedef struct tguiLayout2d tguiLayout2d;
-typedef struct tguiOutline tguiOutline;
-typedef struct tguiRenderer tguiRenderer;
-typedef struct tguiRendererData tguiRendererData;
-typedef struct tguiScrollbarAccessor tguiScrollbarAccessor;
-typedef struct tguiBackendRenderTarget tguiBackendRenderTarget;
-typedef struct tguiSprite tguiSprite;
-typedef struct tguiText tguiText;
-typedef struct tguiTexture tguiTexture;
-typedef struct tguiTheme tguiTheme;
-typedef struct tguiWidget tguiWidget;
-typedef struct tguiTimer tguiTimer;
+    tguiScrollbarAccessor(tgui::ScrollbarAccessor* accessor) :
+        This{accessor}
+    {
+    }
+};
 
-// Use uint32_t instead of char32_t because macOS has no uchar.h header
-typedef uint32_t tguiChar32;
-typedef const uint32_t* tguiUtf32;
-
-typedef int8_t tguiInt8;
-typedef uint8_t tguiUint8;
-
-typedef int16_t tguiInt16;
-typedef uint16_t tguiUint16;
-
-typedef int32_t tguiInt32;
-typedef uint32_t tguiUint32;
-
-typedef int64_t tguiInt64;
-typedef uint64_t tguiUint64;
-
-typedef int tguiBool;
-#define tguiFalse 0
-#define tguiTrue  1
-
-#endif // CTGUI_TYPES_H
-
+#endif // CTGUI_SCROLLBAR_ACCESSOR_STRUCT_H

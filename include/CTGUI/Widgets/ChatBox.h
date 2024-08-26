@@ -40,9 +40,4 @@ CTGUI_API tguiBool tguiChatBox_getLinesStartFromTop(const tguiWidget* thisWidget
 CTGUI_API void tguiChatBox_setNewLinesBelowOthers(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiChatBox_getNewLinesBelowOthers(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiChatBox_setScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiChatBox_getScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiChatBox_getScrollbarMaxValue(const tguiWidget* thisWidget);
-
 #endif // CTGUI_CHATBOX_H

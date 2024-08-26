@@ -1,25 +1,9 @@
 inherits Panel
+inherits DualScrollbarChildInterface
 
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ScrollbablePanelRenderer
 
 property Vector2f ContentSize
-
-const-function float getScrollbarWidth()
-
-property ScrollbarPolicy VerticalScrollbarPolicy
-property ScrollbarPolicy HorizontalScrollbarPolicy
-
-property uint VerticalScrollAmount
-property uint HorizontalScrollAmount
-
-property uint VerticalScrollbarValue
-property uint HorizontalScrollbarValue
-
-const-function uint getVerticalScrollbarMaxValue()
-const-function uint getHorizontalScrollbarMaxValue()
-
-const-function bool isVerticalScrollbarShown()
-const-function bool isHorizontalScrollbarShown()
 
 const-function Vector2f getContentOffset()

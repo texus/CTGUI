@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/ScrollablePanelRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/ScrollablePanelRenderer.hpp>
 

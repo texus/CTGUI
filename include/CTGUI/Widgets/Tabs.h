@@ -26,6 +26,8 @@ CTGUI_API tguiUtf32 tguiTabs_getSelected(const tguiWidget* thisWidget);
 
 CTGUI_API int tguiTabs_getSelectedIndex(const tguiWidget* thisWidget);
 
+CTGUI_API int tguiTabs_getHoveredIndex(const tguiWidget* thisWidget);
+
 CTGUI_API size_t tguiTabs_getTabsCount(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiTabs_setTabVisible(tguiWidget* thisWidget, size_t index, tguiBool visible);

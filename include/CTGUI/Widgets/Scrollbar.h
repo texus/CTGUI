@@ -5,6 +5,7 @@
 
 #include <CTGUI/Widget.h>
 
+#include <CTGUI/ScrollbarPolicy.h>
 #include <CTGUI/Orientation.h>
 
 CTGUI_API tguiWidget* tguiScrollbar_create(void);
@@ -21,11 +22,13 @@ CTGUI_API unsigned int tguiScrollbar_getValue(const tguiWidget* thisWidget);
 CTGUI_API void tguiScrollbar_setScrollAmount(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiScrollbar_getScrollAmount(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiScrollbar_setAutoHide(tguiWidget* thisWidget, tguiBool value);
-CTGUI_API tguiBool tguiScrollbar_getAutoHide(const tguiWidget* thisWidget);
+CTGUI_API void tguiScrollbar_setPolicy(tguiWidget* thisWidget, tguiScrollbarPolicy value);
+CTGUI_API tguiScrollbarPolicy tguiScrollbar_getPolicy(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiScrollbar_setOrientation(tguiWidget* thisWidget, tguiOrientation value);
 CTGUI_API tguiOrientation tguiScrollbar_getOrientation(const tguiWidget* thisWidget);
+
+CTGUI_API tguiBool tguiScrollbar_isShown(const tguiWidget* thisWidget);
 
 CTGUI_API unsigned int tguiScrollbar_getMaxValue(const tguiWidget* thisWidget);
 

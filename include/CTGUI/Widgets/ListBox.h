@@ -41,6 +41,8 @@ CTGUI_API tguiUtf32 tguiListBox_getSelectedItemId(const tguiWidget* thisWidget);
 
 CTGUI_API int tguiListBox_getSelectedItemIndex(const tguiWidget* thisWidget);
 
+CTGUI_API int tguiListBox_getHoveredItemIndex(const tguiWidget* thisWidget);
+
 CTGUI_API tguiBool tguiListBox_changeItem(tguiWidget* thisWidget, tguiUtf32 originalValue, tguiUtf32 newValue);
 
 CTGUI_API tguiBool tguiListBox_changeItemById(tguiWidget* thisWidget, tguiUtf32 id, tguiUtf32 newValue);
@@ -68,11 +70,6 @@ CTGUI_API tguiBool tguiListBox_getAutoScroll(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiListBox_setTextAlignment(tguiWidget* thisWidget, tguiHorizontalAlignment value);
 CTGUI_API tguiHorizontalAlignment tguiListBox_getTextAlignment(const tguiWidget* thisWidget);
-
-CTGUI_API void tguiListBox_setScrollbarValue(tguiWidget* thisWidget, unsigned int value);
-CTGUI_API unsigned int tguiListBox_getScrollbarValue(const tguiWidget* thisWidget);
-
-CTGUI_API unsigned int tguiListBox_getScrollbarMaxValue(const tguiWidget* thisWidget);
 
 CTGUI_API tguiBool tguiListBox_contains(const tguiWidget* thisWidget, tguiUtf32 item);
 

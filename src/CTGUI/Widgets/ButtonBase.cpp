@@ -21,6 +21,18 @@ tguiUtf32 tguiButtonBase_getText(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiButtonBase_setIgnoreKeyEvents(tguiWidget* thisWidget, tguiBool value)
+{
+    DOWNCAST(thisWidget->This)->setIgnoreKeyEvents(value != 0);
+}
+
+tguiBool tguiButtonBase_getIgnoreKeyEvents(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getIgnoreKeyEvents();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiButtonBase_setTextPositionAbs(tguiWidget* widget, tguiVector2f position, tguiVector2f origin)
 {
     DOWNCAST(widget->This)->setTextPosition({position.x, position.y}, {origin.x, origin.y});

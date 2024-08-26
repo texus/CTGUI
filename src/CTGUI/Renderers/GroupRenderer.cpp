@@ -1,8 +1,8 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Renderers/GroupRenderer.h>
-#include <CTGUI/RendererStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
+#include <CTGUI/RendererStruct.hpp>
 
 #include <TGUI/Renderers/GroupRenderer.hpp>
 
