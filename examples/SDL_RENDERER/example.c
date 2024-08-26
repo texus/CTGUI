@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 
 #if SDL_MAJOR_VERSION >= 3
     SDL_Window* window = SDL_CreateWindow("CTGUI example (SDL-Renderer)", 400, 300, 0);
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, NULL, 0);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, NULL);
 #else
     SDL_Window* window = SDL_CreateWindow("CTGUI example (SDL-Renderer)",
                                           SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
