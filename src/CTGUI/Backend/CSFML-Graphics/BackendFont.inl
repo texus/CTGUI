@@ -28,7 +28,6 @@
 #include <CTGUI/Global.h>
 #include <TGUI/Backend/Font/BackendFont.hpp>
 #include <TGUI/Backend/Window/Backend.hpp>
-#include <SFML/Graphics.h>
 #include <unordered_set>
 #include <cassert>
 #include <memory>
@@ -74,6 +73,20 @@ namespace ctgui
 
             tgui::FontGlyph glyph;
             glyph.advance = glyphSFML.advance / m_fontScale;
+#if CTGUI_USE_CSFML_VERSION >= 3
+            glyph.bounds = {glyphSFML.bounds.position.x / m_fontScale, glyphSFML.bounds.position.y / m_fontScale, glyphSFML.bounds.size.x / m_fontScale, glyphSFML.bounds.size.y / m_fontScale};
+
+            // SFML uses an IntRect, but all values are unsigned
+            assert(glyphSFML.textureRect.position.x >= 0);
+            assert(glyphSFML.textureRect.position.y >= 0);
+            assert(glyphSFML.textureRect.size.x >= 0);
+            assert(glyphSFML.textureRect.size.y >= 0);
+            glyph.textureRect = {
+                static_cast<unsigned int>(glyphSFML.textureRect.position.x),
+                static_cast<unsigned int>(glyphSFML.textureRect.position.y),
+                static_cast<unsigned int>(glyphSFML.textureRect.size.x),
+                static_cast<unsigned int>(glyphSFML.textureRect.size.y)};
+#else
             glyph.bounds = {glyphSFML.bounds.left / m_fontScale, glyphSFML.bounds.top / m_fontScale, glyphSFML.bounds.width / m_fontScale, glyphSFML.bounds.height / m_fontScale};
 
             // SFML uses an IntRect, but all values are unsigned
@@ -86,7 +99,7 @@ namespace ctgui
                 static_cast<unsigned int>(glyphSFML.textureRect.top),
                 static_cast<unsigned int>(glyphSFML.textureRect.width),
                 static_cast<unsigned int>(glyphSFML.textureRect.height)};
-
+#endif
             return glyph;
         }
 

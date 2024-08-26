@@ -28,7 +28,6 @@
 #include <CTGUI/Global.h>
 #include <TGUI/Backend/Renderer/BackendRenderTarget.hpp>
 #include <TGUI/Container.hpp>
-#include <SFML/Graphics.h>
 #include <cmath>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,12 +144,21 @@ namespace ctgui
                 m_pixelsPerPoint = {clipViewport.width / clipRect.width, clipViewport.height / clipRect.height};
 
                 // Rounding clipRect to pixel coordinates is needed to avoid blurry text
+#if CTGUI_USE_CSFML_VERSION >= 3
+                sfView* newView = sfView_createFromRect({{std::round(clipRect.left * m_pixelsPerPoint.x) / m_pixelsPerPoint.x,
+                                                          std::round(clipRect.top * m_pixelsPerPoint.y) / m_pixelsPerPoint.y},
+                                                         {std::round(clipRect.width * m_pixelsPerPoint.x) / m_pixelsPerPoint.x,
+                                                          std::round(clipRect.height * m_pixelsPerPoint.y) / m_pixelsPerPoint.y}});
+                sfView_setViewport(newView, {{clipViewport.left / m_targetSize.x, clipViewport.top / m_targetSize.y},
+                                             {clipViewport.width / m_targetSize.x, clipViewport.height / m_targetSize.y}});
+#else
                 sfView* newView = sfView_createFromRect({std::round(clipRect.left * m_pixelsPerPoint.x) / m_pixelsPerPoint.x,
                                                          std::round(clipRect.top * m_pixelsPerPoint.y) / m_pixelsPerPoint.y,
                                                          std::round(clipRect.width * m_pixelsPerPoint.x) / m_pixelsPerPoint.x,
                                                          std::round(clipRect.height * m_pixelsPerPoint.y) / m_pixelsPerPoint.y});
                 sfView_setViewport(newView, {clipViewport.left / m_targetSize.x, clipViewport.top / m_targetSize.y,
                                              clipViewport.width / m_targetSize.x, clipViewport.height / m_targetSize.y});
+#endif
                 sfRenderWindow_setView(m_target, newView);
                 sfView_destroy(newView);
             }
@@ -158,8 +166,13 @@ namespace ctgui
             {
                 m_pixelsPerPoint = {1, 1};
 
+#if CTGUI_USE_CSFML_VERSION >= 3
+                sfView* clippingView = sfView_createFromRect({{0, 0}, {0, 0}});
+                sfView_setViewport(clippingView, {{0, 0}, {0, 0}});
+#else
                 sfView* clippingView = sfView_createFromRect({0, 0, 0, 0});
                 sfView_setViewport(clippingView, {0, 0, 0, 0});
+#endif
                 sfRenderWindow_setView(m_target, clippingView);
                 sfView_destroy(clippingView);
             }

@@ -154,6 +154,18 @@ namespace ctgui
     {
         switch (eventSFML.type)
         {
+#if CTGUI_USE_CSFML_VERSION >= 3
+            case sfEvtFocusLost:
+            {
+                eventTGUI.type = tgui::Event::Type::LostFocus;
+                return true;
+            }
+            case sfEvtFocusGained:
+            {
+                eventTGUI.type = tgui::Event::Type::GainedFocus;
+                return true;
+            }
+#else
             case sfEvtLostFocus:
             {
                 eventTGUI.type = tgui::Event::Type::LostFocus;
@@ -164,6 +176,7 @@ namespace ctgui
                 eventTGUI.type = tgui::Event::Type::GainedFocus;
                 return true;
             }
+#endif
             case sfEvtResized:
             {
                 eventTGUI.type = tgui::Event::Type::Resized;

@@ -27,7 +27,6 @@
 
 #include <CTGUI/Global.h>
 #include <TGUI/Backend/Window/Backend.hpp>
-#include <SFML/Graphics.h>
 #include <unordered_map>
 #include <memory>
 

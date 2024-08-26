@@ -32,8 +32,8 @@
     #error "CTGUI wasn't build with the CSFML_GRAPHICS backend"
 #endif
 
-#if CTGUI_USE_CSFML_VERSION == 3
-    #include <SFML/Graphics.h>
+#if CTGUI_USE_CSFML_VERSION >= 3
+    #include <CSFML/Graphics.h>
 #elif CTGUI_USE_CSFML_VERSION == 2
     #include <SFML/Graphics.h>
 #else
