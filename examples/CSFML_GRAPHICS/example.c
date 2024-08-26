@@ -7,7 +7,7 @@ void func(void)
     printf("Button clicked\n");
 }
 
-void main()
+int main()
 {
     sfVideoMode videoMode = {400, 300, 32};
 #if CSFML_VERSION_MAJOR >= 3
@@ -56,4 +56,5 @@ void main()
     tguiGuiCSFMLGraphics_free(gui);
 
     sfRenderWindow_destroy(window);
+    return 0;
 }
