@@ -43,6 +43,7 @@ const-function bool isAnimationPlaying()
 
 property uint TextSize
 property string WidgetName
+property CursorType MouseCursor
 
 property Widget NavigationUp
 property Widget NavigationDown

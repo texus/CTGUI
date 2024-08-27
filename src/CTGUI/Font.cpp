@@ -1,43 +1,10 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// TGUI - Texus' Graphical User Interface
-// Copyright (C) 2012-2024 Bruno Van de Velde (vdv_b@tgui.eu)
-//
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
-//
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
-//
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
-//
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
-//
-// 3. This notice may not be removed or altered from any source distribution.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// This file is generated, it should not be edited directly.
 
 #include <CTGUI/Font.h>
 #include <CTGUI/FontStruct.hpp>
 #include <CTGUI/InternalGlobal.hpp>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiFont_setGlobalFont(tguiFont* font)
-{
-    tgui::Font::setGlobalFont(*font->This);
-}
-
-tguiFont* tguiFont_getGlobalFont(void)
-{
-    return new tguiFont(std::make_unique<tgui::Font>(tgui::Font::getGlobalFont()));
-}
+#include <CTGUI/FontStruct.hpp>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -65,11 +32,6 @@ void tguiFont_free(tguiFont* font)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiUtf32 tguiFont_getId(const tguiFont* font)
-{
-    return ctgui::fromCppStr(font->This->getId());
-}
-
 tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, tguiChar32 codePoint, unsigned int characterSize, tguiBool bold, float outlineThickness)
 {
     const auto& cppGlyph = font->This->getGlyph(codePoint, characterSize, bold != 0, outlineThickness);
@@ -87,29 +49,58 @@ tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, tguiChar32 codePoint, unsi
     return glyph;
 }
 
-float tguiFont_getKerning(const tguiFont* font, tguiChar32 first, tguiChar32 second, unsigned int characterSize, tguiBool bold)
-{
-    return font->This->getKerning(static_cast<char32_t>(first), static_cast<char32_t>(second), characterSize, bold != 0);
-}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-float tguiFont_getLineSpacing(const tguiFont* font, unsigned int characterSize)
+void tguiFont_setGlobalFont(const tguiFont* font)
 {
-    return font->This->getLineSpacing(characterSize);
-}
-
-float tguiFont_getFontHeight(const tguiFont* font, unsigned int characterSize)
-{
-    return font->This->getFontHeight(characterSize);
+    tgui::Font::setGlobalFont(*font->This);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFont_setSmooth(const tguiFont* font, tguiBool smooth)
+const tguiFont* tguiFont_getGlobalFont(void)
 {
-    return font->This->setSmooth(smooth != 0);
+    return new tguiFont(std::make_unique<tgui::Font>(tgui::Font::getGlobalFont()));
 }
 
-tguiBool tguiFont_isSmooth(const tguiFont* font)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiUtf32 tguiFont_getId(const tguiFont* thisFont)
 {
-    return font->This->isSmooth();
+    return ctgui::fromCppStr(thisFont->This->getId());
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+float tguiFont_getKerning(const tguiFont* thisFont, tguiChar32 first, tguiChar32 second, unsigned int characterSize, tguiBool bold)
+{
+    return thisFont->This->getKerning(first, second, characterSize, bold != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+float tguiFont_getLineSpacing(const tguiFont* thisFont, unsigned int characterSize)
+{
+    return thisFont->This->getLineSpacing(characterSize);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+float tguiFont_getFontHeight(const tguiFont* thisFont, unsigned int characterSize)
+{
+    return thisFont->This->getFontHeight(characterSize);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiFont_setSmooth(tguiFont* thisFont, tguiBool value)
+{
+    thisFont->This->setSmooth(value != 0);
+}
+
+tguiBool tguiFont_isSmooth(const tguiFont* thisFont)
+{
+    return thisFont->This->isSmooth();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

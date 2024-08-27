@@ -1,10 +1,9 @@
-// This file is generated, it should not be edited directly.
-
 #ifndef CTGUI_THEME_H
 #define CTGUI_THEME_H
 
 #include <CTGUI/Global.h>
 
+@TGUI_GENERATED_HEAD@
 
 CTGUI_API tguiTheme* tguiTheme_create(void);
 CTGUI_API tguiTheme* tguiTheme_copy(const tguiTheme* theme);
@@ -37,15 +36,7 @@ CTGUI_API tguiUtf32 tguiTheme_getRendererDefaultSubwidget(tguiUtf32 widgetType, 
 CTGUI_API void tguiTheme_addRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 globalProperty);
 CTGUI_API tguiUtf32 tguiTheme_getRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property);
 
-CTGUI_API void tguiTheme_addRenderer(tguiTheme* thisTheme, tguiUtf32 id, const tguiRendererData* renderer);
-
-CTGUI_API tguiBool tguiTheme_removeRenderer(tguiTheme* thisTheme, tguiUtf32 id);
-
-CTGUI_API tguiUtf32 tguiTheme_getPrimary(const tguiTheme* thisTheme);
-
-CTGUI_API void tguiTheme_addRendererInheritanceParent(tguiUtf32 widgetType, tguiUtf32 parentType);
-
-CTGUI_API tguiUtf32 tguiTheme_getRendererInheritanceParent(tguiUtf32 widgetType);
+@TGUI_GENERATED_BODY@
 
 #endif // CTGUI_THEME_H
 

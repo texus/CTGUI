@@ -22,23 +22,51 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef CTGUI_SPRITE_STRUCT_H
-#define CTGUI_SPRITE_STRUCT_H
+#include <CTGUI/Gui.h>
+#include <CTGUI/GuiStruct.hpp>
+#include <CTGUI/InternalGlobal.hpp>
 
-#include <CTGUI/Texture.h>
-#include <CTGUI/TextureStruct.hpp>
-#include <TGUI/Sprite.hpp>
+@TGUI_GENERATED_HEAD@
 
-struct tguiSprite
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiGui_draw(tguiGui* gui)
 {
-    std::unique_ptr<tgui::Sprite> This = std::make_unique<tgui::Sprite>();
+    gui->This->draw();
 
-    tguiSprite(tguiTexture* texture)
+    ctgui::cleanupWidgets(); // Fully destroy widgets that no longer exist
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, const char* filename, tguiBool replaceExisting)
+{
+    try
     {
-        if (texture)
-            This->setTexture(*texture->This);
+        gui->This->loadWidgetsFromFile(filename, replaceExisting);
+        return true;
     }
-};
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
+}
 
+tguiBool tguiGui_saveWidgetsToFile(tguiGui* gui, const char* filename)
+{
+    try
+    {
+        gui->This->saveWidgetsToFile(filename);
+        return true;
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
+}
 
-#endif // CTGUI_SPRITE_STRUCT_H
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@TGUI_GENERATED_BODY@

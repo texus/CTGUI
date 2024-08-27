@@ -1,0 +1,7 @@
+function void addRenderer(string id, RendererData renderer)
+function bool removeRenderer(string id)
+
+const-function string getPrimary()
+
+static-function void addRendererInheritanceParent(string widgetType, string parentType)
+static-function string getRendererInheritanceParent(string widgetType)

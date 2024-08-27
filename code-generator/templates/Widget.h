@@ -55,9 +55,6 @@ CTGUI_API tguiWidget* tguiWidget_getToolTip(const tguiWidget* widget);
 
 CTGUI_API tguiWidget* tguiWidget_getParent(const tguiWidget* widget);
 
-CTGUI_API void tguiWidget_setMouseCursor(tguiWidget* widget, tguiCursorType cursor);
-CTGUI_API tguiCursorType tguiWidget_getMouseCursor(const tguiWidget* widget);
-
 CTGUI_API void tguiWidget_updateTime(tguiWidget* widget, tguiDuration duration);
 
 @TGUI_GENERATED_BODY@

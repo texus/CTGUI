@@ -27,7 +27,7 @@ tguiWidget* tguiBoxLayout_getAtIndex(const tguiWidget* thisWidget, size_t index)
 {
     tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisWidget->This)->get(index);
     if (widgetToReturn)
-        return new tguiWidget(widgetToReturn);
+        return ctgui::addWidgetRef(widgetToReturn);
     else
         return nullptr;
 }

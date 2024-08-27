@@ -1,3 +1,5 @@
+// This file is generated, it should not be edited directly.
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // TGUI - Texus' Graphical User Interface
@@ -24,147 +26,12 @@
 
 
 #include <CTGUI/Container.h>
-#include <CTGUI/WidgetStruct.hpp>
 
 #include <TGUI/Container.hpp>
 
+#include <CTGUI/WidgetStruct.hpp>
+
 #define DOWNCAST(x) std::static_pointer_cast<tgui::Container>(x)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiContainer_add(tguiWidget* container, tguiWidget* widget, tguiUtf32 widgetName)
-{
-    DOWNCAST(container->This)->add(widget->This, ctgui::toCppStr(widgetName));
-}
-
-tguiWidget* tguiContainer_get(tguiWidget* container, tguiUtf32 widgetName)
-{
-    tgui::Widget::Ptr widget = DOWNCAST(container->This)->get(ctgui::toCppStr(widgetName));
-    if (widget)
-        return ctgui::addWidgetRef(widget);
-    else
-        return nullptr;
-}
-
-tguiWidget** tguiContainer_getWidgets(tguiWidget* container, size_t* count)
-{
-    const auto& widgets = DOWNCAST(container->This)->getWidgets();
-
-    static std::vector<tguiWidget*> cWidgets;
-    cWidgets.resize(widgets.size());
-
-    for (std::size_t i = 0; i < widgets.size(); ++i)
-        cWidgets[i] = ctgui::addWidgetRef(widgets[i]);
-
-    *count = cWidgets.size();
-    return cWidgets.data();
-}
-
-tguiBool tguiContainer_remove(tguiWidget* container, tguiWidget* widget)
-{
-    return DOWNCAST(container->This)->remove(widget->This);
-}
-
-void tguiContainer_removeAllWidgets(tguiWidget* container)
-{
-    DOWNCAST(container->This)->removeAllWidgets();
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiContainer_moveWidgetToFront(tguiWidget* container, tguiWidget* widget)
-{
-    DOWNCAST(container->This)->moveWidgetToFront(widget->This);
-}
-
-void tguiContainer_moveWidgetToBack(tguiWidget* container, tguiWidget* widget)
-{
-    DOWNCAST(container->This)->moveWidgetToBack(widget->This);
-}
-
-size_t tguiContainer_moveWidgetForward(tguiWidget* container, tguiWidget* widget)
-{
-    return DOWNCAST(container->This)->moveWidgetForward(widget->This);
-}
-
-size_t tguiContainer_moveWidgetBackward(tguiWidget* container, tguiWidget* widget)
-{
-    return DOWNCAST(container->This)->moveWidgetBackward(widget->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiContainer_setWidgetIndex(tguiWidget* container, tguiWidget* widget, size_t index)
-{
-    return DOWNCAST(container->This)->setWidgetIndex(widget->This, index);
-}
-
-int tguiContainer_getWidgetIndex(tguiWidget* container, tguiWidget* widget)
-{
-    return DOWNCAST(container->This)->getWidgetIndex(widget->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiWidget* tguiContainer_getFocusedChild(tguiWidget* container)
-{
-    const auto focusedWidget = DOWNCAST(container->This)->getFocusedChild();
-    if (focusedWidget)
-    {
-        const auto& widgets = DOWNCAST(container->This)->getWidgets();
-        for (std::size_t i = 0; i < widgets.size(); ++i)
-        {
-            if (widgets[i] == focusedWidget)
-                return ctgui::addWidgetRef(focusedWidget);
-        }
-    }
-
-    return nullptr;
-}
-
-tguiWidget* tguiContainer_getFocusedLeaf(tguiWidget* container)
-{
-    const auto leafWidget = DOWNCAST(container->This)->getFocusedLeaf();
-    if (leafWidget)
-        return ctgui::addWidgetRef(leafWidget);
-    else
-        return nullptr;
-}
-
-tguiWidget* tguiContainer_getWidgetAtPos(tguiWidget* container, tguiVector2f pos, tguiBool recursive)
-{
-    const auto leafWidgetAtPos = DOWNCAST(container->This)->getWidgetAtPos({pos.x, pos.y}, recursive != 0);
-    if (leafWidgetAtPos)
-        return ctgui::addWidgetRef(leafWidgetAtPos);
-    else
-        return nullptr;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiContainer_focusNextWidget(tguiWidget* container, tguiBool recursive)
-{
-    return DOWNCAST(container->This)->focusNextWidget(recursive != 0);
-}
-
-tguiBool tguiContainer_focusPreviousWidget(tguiWidget* container, tguiBool recursive)
-{
-    return DOWNCAST(container->This)->focusPreviousWidget(recursive != 0);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiVector2f tguiContainer_getInnerSize(tguiWidget* container)
-{
-    const tgui::Vector2f offset = DOWNCAST(container->This)->getInnerSize();
-    return {offset.x, offset.y};
-}
-
-tguiVector2f tguiContainer_getChildWidgetsOffset(tguiWidget* container)
-{
-    tgui::Vector2f offset = DOWNCAST(container->This)->getChildWidgetsOffset();
-    return {offset.x, offset.y};
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -195,3 +62,158 @@ tguiBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* file
         return false;
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiContainer_add(tguiWidget* thisContainer, tguiWidget* widget, tguiUtf32 widgetName)
+{
+    DOWNCAST(thisContainer->This)->add(widget->This, ctgui::toCppStr(widgetName));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiContainer_get(const tguiWidget* thisContainer, tguiUtf32 widgetName)
+{
+    tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisContainer->This)->get(ctgui::toCppStr(widgetName));
+    if (widgetToReturn)
+        return ctgui::addWidgetRef(widgetToReturn);
+    else
+        return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget** tguiContainer_getWidgets(const tguiWidget* thisContainer, size_t* returnCount)
+{
+    const auto& widgets = DOWNCAST(thisContainer->This)->getWidgets();
+
+    static std::vector<tguiWidget*> cWidgets;
+    cWidgets.clear();
+    cWidgets.reserve(widgets.size());
+    for (const auto& widget : widgets)
+        cWidgets.emplace_back(ctgui::addWidgetRef(widget));
+
+    *returnCount = cWidgets.size();
+    return cWidgets.data();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiContainer_remove(tguiWidget* thisContainer, tguiWidget* widget)
+{
+    return DOWNCAST(thisContainer->This)->remove(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiContainer_removeAllWidgets(tguiWidget* thisContainer)
+{
+    DOWNCAST(thisContainer->This)->removeAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiContainer_moveWidgetToFront(tguiWidget* thisContainer, tguiWidget* widget)
+{
+    DOWNCAST(thisContainer->This)->moveWidgetToFront(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiContainer_moveWidgetToBack(tguiWidget* thisContainer, tguiWidget* widget)
+{
+    DOWNCAST(thisContainer->This)->moveWidgetToBack(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiContainer_moveWidgetForward(tguiWidget* thisContainer, tguiWidget* widget)
+{
+    return DOWNCAST(thisContainer->This)->moveWidgetForward(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiContainer_moveWidgetBackward(tguiWidget* thisContainer, tguiWidget* widget)
+{
+    return DOWNCAST(thisContainer->This)->moveWidgetBackward(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiContainer_setWidgetIndex(tguiWidget* thisContainer, tguiWidget* widget, size_t index)
+{
+    return DOWNCAST(thisContainer->This)->setWidgetIndex(widget->This, index);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int tguiContainer_getWidgetIndex(const tguiWidget* thisContainer, tguiWidget* widget)
+{
+    return DOWNCAST(thisContainer->This)->getWidgetIndex(widget->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiContainer_getFocusedChild(const tguiWidget* thisContainer)
+{
+    tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisContainer->This)->getFocusedChild();
+    if (widgetToReturn)
+        return ctgui::addWidgetRef(widgetToReturn);
+    else
+        return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiContainer_getFocusedLeaf(const tguiWidget* thisContainer)
+{
+    tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisContainer->This)->getFocusedLeaf();
+    if (widgetToReturn)
+        return ctgui::addWidgetRef(widgetToReturn);
+    else
+        return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiContainer_getWidgetAtPos(const tguiWidget* thisContainer, tguiVector2f pos, tguiBool recursive)
+{
+    tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisContainer->This)->getWidgetAtPos({pos.x, pos.y}, recursive != 0);
+    if (widgetToReturn)
+        return ctgui::addWidgetRef(widgetToReturn);
+    else
+        return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiContainer_focusNextWidget(tguiWidget* thisContainer, tguiBool recursive)
+{
+    return DOWNCAST(thisContainer->This)->focusNextWidget(recursive != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiContainer_focusPreviousWidget(tguiWidget* thisContainer, tguiBool recursive)
+{
+    return DOWNCAST(thisContainer->This)->focusPreviousWidget(recursive != 0);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiVector2f tguiContainer_getInnerSize(const tguiWidget* thisContainer)
+{
+    const auto value = DOWNCAST(thisContainer->This)->getInnerSize();
+    return {value.x, value.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiVector2f tguiContainer_getChildWidgetsOffset(const tguiWidget* thisContainer)
+{
+    const auto value = DOWNCAST(thisContainer->This)->getChildWidgetsOffset();
+    return {value.x, value.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

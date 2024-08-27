@@ -1,0 +1,10 @@
+const-function bool isSet()
+
+property Texture Texture
+property Vector2f Position
+property Vector2f Size
+property float Opacity
+property FloatRect VisibleRect
+property float Rotation
+
+const-function bool isTransparentPixel(Vector2f pos)

@@ -47,7 +47,7 @@ tguiWidget* tguiGrid_getWidget(const tguiWidget* thisWidget, size_t row, size_t 
 {
     tgui::Widget::Ptr widgetToReturn = DOWNCAST(thisWidget->This)->getWidget(row, col);
     if (widgetToReturn)
-        return new tguiWidget(widgetToReturn);
+        return ctgui::addWidgetRef(widgetToReturn);
     else
         return nullptr;
 }

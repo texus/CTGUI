@@ -56,9 +56,6 @@ CTGUI_API tguiWidget* tguiWidget_getToolTip(const tguiWidget* widget);
 
 CTGUI_API tguiWidget* tguiWidget_getParent(const tguiWidget* widget);
 
-CTGUI_API void tguiWidget_setMouseCursor(tguiWidget* widget, tguiCursorType cursor);
-CTGUI_API tguiCursorType tguiWidget_getMouseCursor(const tguiWidget* widget);
-
 CTGUI_API void tguiWidget_updateTime(tguiWidget* widget, tguiDuration duration);
 
 CTGUI_API void tguiWidget_setPosition(tguiWidget* thisWidget, tguiVector2f position);
@@ -138,6 +135,9 @@ CTGUI_API unsigned int tguiWidget_getTextSize(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiWidget_setWidgetName(tguiWidget* thisWidget, tguiUtf32 value);
 CTGUI_API tguiUtf32 tguiWidget_getWidgetName(const tguiWidget* thisWidget);
+
+CTGUI_API void tguiWidget_setMouseCursor(tguiWidget* thisWidget, tguiCursorType value);
+CTGUI_API tguiCursorType tguiWidget_getMouseCursor(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiWidget_setNavigationUp(tguiWidget* thisWidget, tguiWidget* value);
 CTGUI_API tguiWidget* tguiWidget_getNavigationUp(const tguiWidget* thisWidget);

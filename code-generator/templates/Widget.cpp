@@ -406,18 +406,6 @@ tguiWidget* tguiWidget_getParent(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_setMouseCursor(tguiWidget* widget, tguiCursorType cursor)
-{
-    widget->This->setMouseCursor(static_cast<tgui::Cursor::Type>(cursor));
-}
-
-tguiCursorType tguiWidget_getMouseCursor(const tguiWidget* widget)
-{
-    return static_cast<tguiCursorType>(widget->This->getMouseCursor());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void tguiWidget_updateTime(tguiWidget* widget, tguiDuration duration)
 {
     widget->This->updateTime(std::chrono::nanoseconds(duration.nanoseconds));

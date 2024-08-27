@@ -180,7 +180,7 @@ def parseDescriptionFile(descFileName):
 
                         segments.append(SegmentFunction(nameC, name, returnType, params, const, static))
                     else:
-                        raise RuntimeError('"function" instruction should have format "function name(params)", with " -> returnType" behind it for non-void functions')
+                        raise RuntimeError('"function" instruction should have format "function returnValue name(params)"')
 
                 elif parts[0] == 'enum':
                     openBracePos = line.find('{')

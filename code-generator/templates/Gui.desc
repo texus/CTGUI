@@ -1,0 +1,53 @@
+function void setAbsoluteViewport(FloatRect viewport)
+function void setRelativeViewport(FloatRect viewport)
+const-function FloatRect getViewport()
+
+function void setAbsoluteView(FloatRect view)
+function void setRelativeView(FloatRect view)
+const-function FloatRect getView()
+
+property-bool-is TabKeyUsageEnabled
+
+property Font Font
+
+function void add(Widget widget, string widgetName)
+const-function Widget get(string widgetName)
+const-function List<Widget> getWidgets()
+function bool remove(Widget widget)
+function void removeAllWidgets()
+
+const-function Widget getFocusedChild()
+const-function Widget getFocusedLeaf()
+const-function Widget getWidgetAtPos(Vector2f pos, bool recursive)
+const-function Widget getWidgetBelowMouseCursor(Vector2i mousePos, bool recursive)
+
+function bool focusNextWidget(bool recursive)
+function bool focusPreviousWidget(bool recursive)
+
+function void unfocusAllWidgets()
+
+function void moveWidgetToFront(Widget widget)
+function void moveWidgetToBack(Widget widget)
+function size_t moveWidgetForward(Widget widget)
+function size_t moveWidgetBackward(Widget widget)
+
+function bool setWidgetIndex(Widget widget, size_t index)
+const-function int getWidgetIndex(Widget widget)
+
+property float Opacity
+property uint TextSize
+
+function void setDrawingUpdatesTime(bool drawUpdatesTime)
+
+function bool updateTime()
+
+function void setOverrideMouseCursor(CursorType type)
+function void restoreOverrideMouseCursor()
+function void requestMouseCursor(CursorType type)
+
+const-function Vector2f mapPixelToCoords(Vector2i pixel)
+const-function Vector2f mapCoordsToPixel(Vector2f coord)
+
+property-bool-is KeyboardNavigationEnabled
+
+function void mainLoop(Color clearColor)

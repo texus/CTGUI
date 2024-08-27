@@ -27,6 +27,43 @@ from FileParser import *
 
 #################################################################################################################################
 
+def writeOtherFileC(inputFilename, outputFilename, linesHead, linesBody):
+    headFound = False
+    bodyFound = False
+    inFile = open(inputFilename, 'r')
+    outFile = open(outputFilename, 'w')
+    outFile.write('// This file is generated, it should not be edited directly.\n\n')
+    for line in inFile.readlines():
+        if '@TGUI_GENERATED_HEAD@' in line:
+            if headFound:
+                raise RuntimeError('Error generating "' + outputFilename + '": @TGUI_GENERATED_HEAD@ placeholder found twice')
+            headFound = True
+            indentation = line.find('@')
+            for line in linesHead:
+                if line:
+                    outFile.write(' '*indentation + line + '\n')
+                else:
+                    outFile.write('\n')
+        elif '@TGUI_GENERATED_BODY@' in line:
+            if bodyFound:
+                raise RuntimeError('Error generating "' + outputFilename + '": @TGUI_GENERATED_BODY@ placeholder found twice')
+            bodyFound = True
+            indentation = line.find('@')
+            for line in linesBody:
+                if line:
+                    outFile.write(' '*indentation + line + '\n')
+                else:
+                    outFile.write('\n')
+        else: # We can just copy the line
+            outFile.write(line)
+
+    if not headFound:
+        raise RuntimeError('Error generating "' + outputFilename + '": @TGUI_GENERATED_HEAD@ placeholder not found')
+    if not bodyFound:
+        raise RuntimeError('Error generating "' + outputFilename + '": @TGUI_GENERATED_BODY@ placeholder not found')
+
+#################################################################################################################################
+
 def generateAdditionalIncludesInSourceFile(segments):
     usedTypes = set()
     usesRenderer = False
@@ -130,12 +167,13 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'IntRect' : 'tguiIntRect',
         'AnyObject' : 'void*',
         'List<string>' : 'const tguiUtf32*',
-        'List<Widget>' : 'const tguiWidget*',
+        'List<Widget>' : 'tguiWidget**',
         'Set<size_t>' : 'const size_t*',
         'ScrollbarPolicy': 'tguiScrollbarPolicy',
         'VerticalAlignment': 'tguiVerticalAlignment',
         'HorizontalAlignment': 'tguiHorizontalAlignment',
         'Orientation': 'tguiOrientation',
+        'CursorType': 'tguiCursorType',
     }
 
     params = selfType + '* ' + selfName
@@ -205,6 +243,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             funcCallParams.append('static_cast<tgui::Scrollbar::Policy>(' + paramName + ')')
         elif paramType == 'Orientation':
             funcCallParams.append('static_cast<tgui::Orientation>(' + paramName + ')')
+        elif paramType == 'CursorType':
+            funcCallParams.append('static_cast<tgui::Cursor::Type>(' + paramName + ')')
         elif paramType == 'AnyObject':
             funcCallParams.append(paramName)
         elif paramType == 'List<string>':
@@ -244,7 +284,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         generatedLines.extend([
             '    tgui::Widget::Ptr widgetToReturn = ' + funcCall + ';',
             '    if (widgetToReturn)',
-            '        return new tguiWidget(widgetToReturn);',
+            '        return ctgui::addWidgetRef(widgetToReturn);',
             '    else',
             '        return nullptr;'
         ])
@@ -256,7 +296,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
     elif returnType == 'FloatRect' or returnType == 'UIntRect' or returnType == 'IntRect':
         generatedLines.extend([
             '    const auto rect = ' + funcCall + ';',
-            '    return {rect.left, rect.top, rect.width, rect.height};'
+            '    return {rect.getPosition().x, rect.getPosition().y, rect.getSize().x, rect.getSize().y};'
         ])
     elif returnType == 'string':
         generatedLines.append('    return ctgui::fromCppStr(' + funcCall + ');')
@@ -282,6 +322,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         generatedLines.append('    return static_cast<tguiScrollbarPolicy>(' + funcCall + ');')
     elif returnType == 'Orientation':
         generatedLines.append('    return static_cast<tguiOrientation>(' + funcCall + ');')
+    elif returnType == 'CursorType':
+        generatedLines.append('    return static_cast<tguiCursorType>(' + funcCall + ');')
     elif returnType == 'AnyObject':
         bracketPos = funcCall.find(funcName) + len(funcName)
         generatedLines.extend([
@@ -726,8 +768,11 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
 def generateOtherHeaderFileC(inputDescFile, inputHeaderFile, outputIncludeFile, className):
     segments = parseDescriptionFile(inputDescFile)
 
-    selfType = 'tgui' + className
     selfName = 'this' + className
+    if className == 'Container':
+        selfType = 'tguiWidget'
+    else:
+        selfType = 'tgui' + className
 
     generatedHeadLines = generateAdditionalIncludesInHeaderFile(className, segments)
 
@@ -764,34 +809,20 @@ def generateOtherHeaderFileC(inputDescFile, inputHeaderFile, outputIncludeFile, 
     if generatedLines and generatedLines[-1] == '':
         generatedLines = generatedLines[:-1]
 
-    inFile = open(inputHeaderFile, 'r')
-    outFile = open(outputIncludeFile, 'w')
-    outFile.write('// This file is generated, it should not be edited directly.\n\n')
-    for line in inFile.readlines():
-        if '@TGUI_GENERATED_HEAD@' in line:
-            indentation = line.find('@')
-            for line in generatedHeadLines:
-                if line:
-                    outFile.write(' '*indentation + line + '\n')
-                else:
-                    outFile.write('\n')
-        elif '@TGUI_GENERATED_BODY@' in line:
-            indentation = line.find('@')
-            for line in generatedLines:
-                if line:
-                    outFile.write(' '*indentation + line + '\n')
-                else:
-                    outFile.write('\n')
-        else: # We can just copy the line
-            outFile.write(line)
+    writeOtherFileC(inputHeaderFile, outputIncludeFile, generatedHeadLines, generatedLines)
 
 #################################################################################################################################
 
 def generateOtherSourceFileC(inputDescFile, inputSourceFile, outputSourceFile, className):
     segments = parseDescriptionFile(inputDescFile)
 
-    selfType = 'tgui' + className
     selfName = 'this' + className
+    if className == 'Container':
+        selfType = 'tguiWidget'
+        downcast = True
+    else:
+        selfType = 'tgui' + className
+        downcast = False
 
     generatedHeadLines = generateAdditionalIncludesInSourceFile(segments)
 
@@ -810,11 +841,11 @@ def generateOtherSourceFileC(inputDescFile, inputSourceFile, outputSourceFile, c
             elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 raise RuntimeError('property-widget-renderer is not supported here')
             elif isinstance(segment, SegmentProperty):
-                generatedLines.extend(generatePropertySourceC(className, segment, enums, selfType, selfName, downcast=False))
+                generatedLines.extend(generatePropertySourceC(className, segment, enums, selfType, selfName, downcast=downcast))
             elif isinstance(segment, SegmentFunction):
                 generatedLines.append(generateFunctionSignatureC(className, segment.nameC, segment.params, segment.returnType, segment.const, segment.static, selfType, selfName, enums))
                 generatedLines.append('{')
-                generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, segment.static, selfName, enums, downcast=False))
+                generatedLines.extend(generateFunctionCallC(className, segment.name, segment.params, segment.returnType, segment.static, selfName, enums, downcast=downcast))
                 generatedLines.append('}')
             elif isinstance(segment, SegmentEnum):
                 continue # Already handled earlier
@@ -835,26 +866,7 @@ def generateOtherSourceFileC(inputDescFile, inputSourceFile, outputSourceFile, c
     if generatedLines and generatedLines[-1] == '':
         generatedLines = generatedLines[:-1]
 
-    inFile = open(inputSourceFile, 'r')
-    outFile = open(outputSourceFile, 'w')
-    outFile.write('// This file is generated, it should not be edited directly.\n\n')
-    for line in inFile.readlines():
-        if '@TGUI_GENERATED_HEAD@' in line:
-            indentation = line.find('@')
-            for line in generatedHeadLines:
-                if line:
-                    outFile.write(' '*indentation + line + '\n')
-                else:
-                    outFile.write('\n')
-        elif '@TGUI_GENERATED_BODY@' in line:
-            indentation = line.find('@')
-            for line in generatedLines:
-                if line:
-                    outFile.write(' '*indentation + line + '\n')
-                else:
-                    outFile.write('\n')
-        else: # We can just copy the line
-            outFile.write(line)
+    writeOtherFileC(inputSourceFile, outputSourceFile, generatedHeadLines, generatedLines)
 
 #################################################################################################################################
 

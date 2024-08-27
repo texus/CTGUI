@@ -112,7 +112,7 @@ void tguiTexture_setMiddleRect(tguiTexture* thisTexture, tguiUIntRect value)
 tguiUIntRect tguiTexture_getMiddleRect(const tguiTexture* thisTexture)
 {
     const auto rect = thisTexture->This->getMiddleRect();
-    return {rect.left, rect.top, rect.width, rect.height};
+    return {rect.getPosition().x, rect.getPosition().y, rect.getSize().x, rect.getSize().y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,7 +135,7 @@ tguiVector2u tguiTexture_getImageSize(const tguiTexture* thisTexture)
 tguiUIntRect tguiTexture_getPartRect(const tguiTexture* thisTexture)
 {
     const auto rect = thisTexture->This->getPartRect();
-    return {rect.left, rect.top, rect.width, rect.height};
+    return {rect.getPosition().x, rect.getPosition().y, rect.getSize().x, rect.getSize().y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

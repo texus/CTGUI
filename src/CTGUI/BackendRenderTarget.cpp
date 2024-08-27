@@ -67,12 +67,12 @@ void tguiBackendRenderTarget_removeClippingLayer(tguiBackendRenderTarget* target
 
 void tguiBackendRenderTarget_drawSprite(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiSprite* sprite)
 {
-    target->This->drawSprite(convertRenderStates(states), sprite->This);
+    target->This->drawSprite(convertRenderStates(states), *sprite->This);
 }
 
 void tguiBackendRenderTarget_drawText(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiText* text)
 {
-    target->This->drawText(convertRenderStates(states), text->This);
+    target->This->drawText(convertRenderStates(states), *text->This);
 }
 
 void tguiBackendRenderTarget_drawTriangle(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVertex point1, tguiVertex point2, tguiVertex point3)

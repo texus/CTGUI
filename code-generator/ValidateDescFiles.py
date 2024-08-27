@@ -13,7 +13,7 @@ VALID_CPP_TYPES = {
     'bool' : ['bool'],
     'string' : ['String', 'const String&'],
     'Color' : ['Color', 'const Color&'],
-    'Font' : ['const Font&'],
+    'Font' : ['Font', 'const Font&'],
     'Texture' : ['const Texture&'],
     'TextStyle' : ['TextStyles'],
     'RendererData' : ['std::shared_ptr<RendererData>'],
@@ -22,16 +22,18 @@ VALID_CPP_TYPES = {
     'VerticalAlignment' : ['VerticalAlignment', 'tgui::VerticalAlignment'],
     'ScrollbarPolicy' : ['Scrollbar::Policy'],
     'Orientation' : ['Orientation'],
+    'CursorType' : ['Cursor::Type'],
     'Vector2f' : ['Vector2f'],
     'Vector2i' : ['Vector2i'],
     'Vector2u' : ['Vector2u'],
-    'FloatRect' : ['FloatRect', 'const FloatRect&'],
+    'FloatRect' : ['FloatRect', 'const FloatRect&', 'RelFloatRect'],
     'IntRect' : ['IntRect', 'const IntRect&'],
     'UIntRect' : ['UIntRect', 'const UIntRect&'],
     'Char32' : ['char32_t'],
     'size_t' : ['std::size_t'],
     'Layout' : ['Layout', 'const Layout&'],
     'Layout2d' : ['const Layout2d&'],
+    'List<Widget>' : ['const std::vector<Widget::Ptr>&'],
     'List<string>' : ['std::vector<String>', 'const std::vector<String>&'],
     'Set<size_t>' : ['std::set<std::size_t>', 'const std::set<std::size_t>&'],
     'AnyObject' : ['Any', 'DataType'],
@@ -40,8 +42,9 @@ VALID_CPP_TYPES = {
 
 IGNORE_MISSING_PROPERTIES = {
     'FileDialog' : ['IconLoader'],
-    'Widget' : ['InheritedFont', 'InheritedOpacity', 'Parent'],
     'Texture' : ['Shader', 'BackendTextureLoader', 'TextureLoader'],
+    'Theme' : ['ThemeLoader'],
+    'Widget' : ['InheritedFont', 'InheritedOpacity', 'Parent'],
 }
 
 error = False
@@ -55,7 +58,14 @@ for subfolder in ['Widgets', 'Renderers', '.']:
 
         descFile = os.path.join('templates', subfolder, filename)
         className = filename[:-5]
-        cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', subfolder, className + '.hpp'))
+
+        if filename == 'Gui.desc':
+            cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', 'Backend', 'Window', 'BackendGui.hpp'))
+        elif filename == 'Theme.desc':
+            cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', 'Loading', 'Theme.hpp'))
+        else:
+            cppFile = os.path.join(os.path.join(TGUI_DIR, 'include', 'TGUI', subfolder, className + '.hpp'))
+
         cppEnums = set()
         cppSetters = set()
         cppGetters = set()
@@ -126,10 +136,14 @@ for subfolder in ['Widgets', 'Renderers', '.']:
             # Look for any function
             match = re.search(' ([a-zA-Z]+)\\(([^)]*)\\)', line)
             if match:
-                # Parameters like "T x = {a, b}" aren't parsed properly (they match 2 parameters "T x = {a" and "b}").
-                # We ignore this for now as this isn't an issue unless the C code wraps such a function.
                 functionName = match.group(1)
-                params = [param.split('=')[0].strip() for param in match.group(2).split(',')]
+                params = match.group(2)
+                while ' = {' in params: # Parameters like "T x = {a, b}" are converted to "T x" to parse them correctly
+                    defaultAggValStartPos = params.find(' = {')
+                    defaultAggValEndPos = params.find('}', defaultAggValStartPos)
+                    assert(defaultAggValEndPos != -1)
+                    params = params[:defaultAggValStartPos] + params[defaultAggValEndPos+1:]
+                params = [param.split('=')[0].strip() for param in params.split(',')]
                 params = [' '.join(param.split(' ')[:-1]).strip() for param in params]
                 if len(params) == 1 and not params[0]: # If there are no parameter then params contains [''] now
                     params = []

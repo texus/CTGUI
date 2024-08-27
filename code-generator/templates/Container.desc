@@ -1,0 +1,25 @@
+inherits Widget
+
+function void add(Widget widget, string widgetName)
+const-function Widget get(string widgetName)
+const-function List<Widget> getWidgets()
+function bool remove(Widget widget)
+function void removeAllWidgets()
+
+function void moveWidgetToFront(Widget widget)
+function void moveWidgetToBack(Widget widget)
+function size_t moveWidgetForward(Widget widget)
+function size_t moveWidgetBackward(Widget widget)
+
+function bool setWidgetIndex(Widget widget, size_t index)
+const-function int getWidgetIndex(Widget widget)
+
+const-function Widget getFocusedChild()
+const-function Widget getFocusedLeaf()
+const-function Widget getWidgetAtPos(Vector2f pos, bool recursive)
+
+function bool focusNextWidget(bool recursive)
+function bool focusPreviousWidget(bool recursive)
+
+const-function Vector2f getInnerSize()
+const-function Vector2f getChildWidgetsOffset()

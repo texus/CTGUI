@@ -1,0 +1,21 @@
+static-function uint findBestTextSize(Font font, float height, int fit)
+static-function string wordWrap(float maxWidth, string text, Font font, uint textSize, bool bold)
+
+const-function Vector2f getSize()
+
+property Vector2f Position
+property string String
+property uint CharacterSize
+property Color Color
+property float Opacity
+property Font Font
+property TextStyle Style
+property Color OutlineColor
+property float OutlineThickness
+
+const-function Vector2f findCharacterPos(size_t index)
+
+const-function float getExtraHorizontalPadding()
+const-function float getExtraHorizontalOffset()
+const-function float getLineHeight()
+const-function float getLineWidth()
