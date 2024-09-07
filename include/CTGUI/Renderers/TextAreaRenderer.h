@@ -14,26 +14,26 @@ CTGUI_API const tguiOutline* tguiTextAreaRenderer_getBorders(const tguiRenderer*
 CTGUI_API void tguiTextAreaRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiTextAreaRenderer_getPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setSelectedTextBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getSelectedTextBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setSelectedTextBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getSelectedTextBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setCaretColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTextAreaRenderer_getCaretColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setCaretColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTextAreaRenderer_getCaretColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiTextAreaRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiTextAreaRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

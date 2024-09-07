@@ -21,12 +21,12 @@ tguiRenderer* tguiSeparatorLineRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSeparatorLineRenderer_setColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSeparatorLineRenderer_setColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSeparatorLineRenderer_getColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSeparatorLineRenderer_getColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getColor());
 }

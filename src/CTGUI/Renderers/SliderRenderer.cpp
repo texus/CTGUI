@@ -35,72 +35,72 @@ const tguiOutline* tguiSliderRenderer_getBorders(const tguiRenderer* thisRendere
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setTrackColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSliderRenderer_setTrackColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTrackColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSliderRenderer_getTrackColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSliderRenderer_getTrackColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTrackColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setTrackColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSliderRenderer_setTrackColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTrackColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSliderRenderer_getTrackColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiSliderRenderer_getTrackColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSliderRenderer_setThumbColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setThumbColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSliderRenderer_getThumbColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSliderRenderer_getThumbColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setThumbColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSliderRenderer_setThumbColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setThumbColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSliderRenderer_getThumbColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiSliderRenderer_getThumbColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSliderRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSliderRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSliderRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSliderRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSliderRenderer_setBorderColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSliderRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiSliderRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorHover());
 }

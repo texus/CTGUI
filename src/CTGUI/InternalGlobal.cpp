@@ -57,24 +57,18 @@ namespace ctgui
         return {reinterpret_cast<const char32_t*>(str)};
     }
 
-    tguiColor* fromCppColor(tgui::Color cppColor)
+    tguiColor fromCppColor(tgui::Color cppColor)
     {
-        static tguiColor color;
-
-        if (!cppColor.isSet())
-            return nullptr;
-
-        color.r = cppColor.getRed();
-        color.g = cppColor.getGreen();
-        color.b = cppColor.getBlue();
-        color.a = cppColor.getAlpha();
-        return &color;
+        if (cppColor.isSet())
+            return {cppColor.getRed(), cppColor.getGreen(), cppColor.getBlue(), cppColor.getAlpha(), true};
+        else
+            return {0, 0, 0, 0, false};
     }
 
-    tgui::Color toCppColor(const tguiColor* color)
+    tgui::Color toCppColor(tguiColor color)
     {
-        if (color)
-            return {color->r, color->g, color->b, color->a};
+        if (color.isSet)
+            return {color.r, color.g, color.b, color.a};
         else
             return {};
     }

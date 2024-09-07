@@ -11,14 +11,14 @@ CTGUI_API tguiRenderer* tguiKnobRenderer_copy(const tguiRenderer* other);
 CTGUI_API void tguiKnobRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiKnobRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiKnobRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiKnobRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiKnobRenderer_getThumbColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiKnobRenderer_setThumbColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiKnobRenderer_getThumbColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiKnobRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiKnobRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiKnobRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiKnobRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiKnobRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiKnobRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

@@ -22,72 +22,72 @@ tguiRenderer* tguiMenuBarRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMenuBarRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiMenuBarRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSeparatorColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* thisRenderer)
+tguiColor tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSeparatorColor());
 }

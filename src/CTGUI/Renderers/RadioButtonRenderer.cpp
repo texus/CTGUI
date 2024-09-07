@@ -47,276 +47,276 @@ const tguiOutline* tguiRadioButtonRenderer_getBorders(const tguiRenderer* thisRe
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextColorChecked(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setTextColorChecked(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorChecked(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getTextColorChecked(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getTextColorChecked(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorChecked());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextColorCheckedHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setTextColorCheckedHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorCheckedHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getTextColorCheckedHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getTextColorCheckedHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorCheckedHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setTextColorCheckedDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setTextColorCheckedDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorCheckedDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getTextColorCheckedDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getTextColorCheckedDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorCheckedDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBackgroundColorChecked(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBackgroundColorChecked(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorChecked(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBackgroundColorChecked(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBackgroundColorChecked(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorChecked());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBackgroundColorCheckedHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBackgroundColorCheckedHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorCheckedHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBackgroundColorCheckedHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBackgroundColorCheckedHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorCheckedHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBackgroundColorCheckedDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBackgroundColorCheckedDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorCheckedDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBackgroundColorCheckedDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBackgroundColorCheckedDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorCheckedDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorChecked(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorChecked(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorChecked(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorChecked(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorChecked(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorChecked());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorCheckedHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorCheckedHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorCheckedHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorCheckedHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorCheckedHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorCheckedFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorCheckedFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorCheckedFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorCheckedFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorCheckedFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorCheckedFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setBorderColorCheckedDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorCheckedDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getBorderColorCheckedDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getBorderColorCheckedDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorCheckedDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setCheckColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setCheckColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setCheckColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getCheckColor(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getCheckColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCheckColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setCheckColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setCheckColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setCheckColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getCheckColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getCheckColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCheckColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRadioButtonRenderer_setCheckColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRadioButtonRenderer_setCheckColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setCheckColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRadioButtonRenderer_getCheckColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiRadioButtonRenderer_getCheckColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getCheckColorDisabled());
 }

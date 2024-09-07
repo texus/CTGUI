@@ -36,60 +36,60 @@ const tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* thisRe
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTitleBarColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* thisRenderer)
+tguiColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTitleBarColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setTitleColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChildWindowRenderer_setTitleColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTitleColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChildWindowRenderer_getTitleColor(const tguiRenderer* thisRenderer)
+tguiColor tguiChildWindowRenderer_getTitleColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTitleColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChildWindowRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChildWindowRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorFocused());
 }

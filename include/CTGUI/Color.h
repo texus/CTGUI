@@ -36,6 +36,7 @@ typedef struct
     tguiUint8 g;
     tguiUint8 b;
     tguiUint8 a;
+    tguiBool  isSet;
 } tguiColor;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +53,7 @@ CTGUI_API tguiColor tguiColorTransparent; ///< Transparent (black) predefined co
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+CTGUI_API tguiColor tguiColor_createNull(void);
 CTGUI_API tguiColor tguiColor_fromRGB(tguiUint8 red, tguiUint8 green, tguiUint8 blue);
 CTGUI_API tguiColor tguiColor_fromRGBA(tguiUint8 red, tguiUint8 green, tguiUint8 blue, tguiUint8 alpha);
 CTGUI_API tguiColor tguiColor_fromString(const char* string);

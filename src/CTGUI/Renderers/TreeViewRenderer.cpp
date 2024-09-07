@@ -48,108 +48,108 @@ const tguiOutline* tguiTreeViewRenderer_getPadding(const tguiRenderer* thisRende
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTextColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiTreeViewRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTreeViewRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiTreeViewRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

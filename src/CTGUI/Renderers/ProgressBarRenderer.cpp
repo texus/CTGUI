@@ -35,60 +35,60 @@ const tguiOutline* tguiProgressBarRenderer_getBorders(const tguiRenderer* thisRe
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiProgressBarRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiProgressBarRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiProgressBarRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiProgressBarRenderer_setTextColorFilled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorFilled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* thisRenderer)
+tguiColor tguiProgressBarRenderer_getTextColorFilled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorFilled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiProgressBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiProgressBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setFillColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiProgressBarRenderer_setFillColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setFillColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiProgressBarRenderer_getFillColor(const tguiRenderer* thisRenderer)
+tguiColor tguiProgressBarRenderer_getFillColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getFillColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiProgressBarRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiProgressBarRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiProgressBarRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }
@@ -131,12 +131,12 @@ tguiUint32 tguiProgressBarRenderer_getTextStyle(const tguiRenderer* thisRenderer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiProgressBarRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiProgressBarRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextOutlineColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiProgressBarRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
+tguiColor tguiProgressBarRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextOutlineColor());
 }

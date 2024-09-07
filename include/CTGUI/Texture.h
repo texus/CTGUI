@@ -21,8 +21,8 @@ CTGUI_API tguiTexture* tguiTexture_createFromBase64Ex(const char* imageAsBase64,
 
 CTGUI_API void tguiTexture_free(tguiTexture* texture);
 
-CTGUI_API void tguiTexture_setColor(tguiTexture* thisTexture, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTexture_getColor(const tguiTexture* thisTexture);
+CTGUI_API void tguiTexture_setColor(tguiTexture* thisTexture, tguiColor value);
+CTGUI_API tguiColor tguiTexture_getColor(const tguiTexture* thisTexture);
 
 CTGUI_API void tguiTexture_setMiddleRect(tguiTexture* thisTexture, tguiUIntRect value);
 CTGUI_API tguiUIntRect tguiTexture_getMiddleRect(const tguiTexture* thisTexture);

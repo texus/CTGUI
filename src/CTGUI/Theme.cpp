@@ -100,7 +100,7 @@ tguiFont* tguiTheme_getGlobalPropertyFont(const tguiTheme* theme, tguiUtf32 prop
     return new tguiFont(std::make_unique<tgui::Font>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getFont()));
 }
 
-tguiColor* tguiTheme_getGlobalPropertyColor(const tguiTheme* theme, tguiUtf32 property)
+tguiColor tguiTheme_getGlobalPropertyColor(const tguiTheme* theme, tguiUtf32 property)
 {
     return ctgui::fromCppColor(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getColor());
 }

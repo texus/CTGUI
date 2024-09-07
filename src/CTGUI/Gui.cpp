@@ -382,7 +382,7 @@ tguiBool tguiGui_isKeyboardNavigationEnabled(const tguiGui* thisGui)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiGui_mainLoop(tguiGui* thisGui, const tguiColor* clearColor)
+void tguiGui_mainLoop(tguiGui* thisGui, tguiColor clearColor)
 {
     thisGui->This->mainLoop(ctgui::toCppColor(clearColor));
 }

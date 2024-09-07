@@ -48,24 +48,24 @@ const tguiOutline* tguiChatBoxRenderer_getPadding(const tguiRenderer* thisRender
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiChatBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChatBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiChatBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

@@ -47,8 +47,8 @@ namespace ctgui
 
     tgui::String toCppStr(tguiUtf32 str);
 
-    tguiColor* fromCppColor(tgui::Color color);
-    tgui::Color toCppColor(const tguiColor* color);
+    tguiColor fromCppColor(tgui::Color color);
+    tgui::Color toCppColor(tguiColor color);
 }
 
 #endif // CTGUI_INTERNAL_GLOBAL_H

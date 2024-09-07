@@ -16,12 +16,12 @@ tguiWidget* tguiColorPicker_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPicker_setColor(tguiWidget* thisWidget, const tguiColor* value)
+void tguiColorPicker_setColor(tguiWidget* thisWidget, tguiColor value)
 {
     DOWNCAST(thisWidget->This)->setColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiColorPicker_getColor(const tguiWidget* thisWidget)
+tguiColor tguiColorPicker_getColor(const tguiWidget* thisWidget)
 {
     return ctgui::fromCppColor(DOWNCAST(thisWidget->This)->getColor());
 }

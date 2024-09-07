@@ -14,11 +14,11 @@ CTGUI_API const tguiOutline* tguiChatBoxRenderer_getBorders(const tguiRenderer* 
 CTGUI_API void tguiChatBoxRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiChatBoxRenderer_getPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChatBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChatBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChatBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChatBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChatBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChatBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiChatBoxRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

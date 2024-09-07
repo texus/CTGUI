@@ -2,7 +2,7 @@ CTGUI_API tguiBool tguiWidgetRenderer_hasProperty(const tguiRenderer* renderer, 
 
 CTGUI_API tguiBool tguiWidgetRenderer_getPropertyBool(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiFont* tguiWidgetRenderer_getPropertyFont(const tguiRenderer* renderer, tguiUtf32 property);
-CTGUI_API tguiColor* tguiWidgetRenderer_getPropertyColor(const tguiRenderer* renderer, tguiUtf32 property);
+CTGUI_API tguiColor tguiWidgetRenderer_getPropertyColor(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiUtf32 tguiWidgetRenderer_getPropertyString(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API float tguiWidgetRenderer_getPropertyNumber(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiOutline* tguiWidgetRenderer_getPropertyOutline(const tguiRenderer* renderer, tguiUtf32 property);

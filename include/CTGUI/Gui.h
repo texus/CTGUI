@@ -93,7 +93,7 @@ CTGUI_API tguiVector2f tguiGui_mapCoordsToPixel(const tguiGui* thisGui, tguiVect
 CTGUI_API void tguiGui_setKeyboardNavigationEnabled(tguiGui* thisGui, tguiBool value);
 CTGUI_API tguiBool tguiGui_isKeyboardNavigationEnabled(const tguiGui* thisGui);
 
-CTGUI_API void tguiGui_mainLoop(tguiGui* thisGui, const tguiColor* clearColor);
+CTGUI_API void tguiGui_mainLoop(tguiGui* thisGui, tguiColor clearColor);
 
 #endif // CTGUI_GUI_H
 

@@ -82,22 +82,22 @@ void tguiBackendRenderTarget_drawTriangle(tguiBackendRenderTarget* target, const
                                                             {{point3.position.x, point3.position.y}, {point3.color.r, point3.color.g, point3.color.b, point3.color.a}, {point3.texCoords.x, point3.texCoords.y}});
 }
 
-void tguiBackendRenderTarget_drawBorders(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiOutline* borders, tguiVector2f size, const tguiColor* color)
+void tguiBackendRenderTarget_drawBorders(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiOutline* borders, tguiVector2f size, tguiColor color)
 {
     target->This->drawBorders(convertRenderStates(states), borders->This, {size.x, size.y}, ctgui::toCppColor(color));
 }
 
-void tguiBackendRenderTarget_drawFilledRect(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVector2f size, const tguiColor* color)
+void tguiBackendRenderTarget_drawFilledRect(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVector2f size, tguiColor color)
 {
     target->This->drawFilledRect(convertRenderStates(states), {size.x, size.y}, ctgui::toCppColor(color));
 }
 
-void tguiBackendRenderTarget_drawCircle(tguiBackendRenderTarget* target, const tguiRenderStates* states, float size, const tguiColor* backgroundColor, float borderThickness, const tguiColor* borderColor)
+void tguiBackendRenderTarget_drawCircle(tguiBackendRenderTarget* target, const tguiRenderStates* states, float size, tguiColor backgroundColor, float borderThickness, tguiColor borderColor)
 {
     target->This->drawCircle(convertRenderStates(states), size, ctgui::toCppColor(backgroundColor), borderThickness, ctgui::toCppColor(borderColor));
 }
 
-void tguiBackendRenderTarget_drawRoundedRectangle(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVector2f size, const tguiColor* backgroundColor, float radius, const tguiOutline* borders, const tguiColor* borderColor)
+void tguiBackendRenderTarget_drawRoundedRectangle(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVector2f size, tguiColor backgroundColor, float radius, const tguiOutline* borders, tguiColor borderColor)
 {
     target->This->drawRoundedRectangle(convertRenderStates(states), {size.x, size.y}, ctgui::toCppColor(backgroundColor), radius, borders->This, ctgui::toCppColor(borderColor));
 }

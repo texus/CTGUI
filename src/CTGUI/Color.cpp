@@ -40,6 +40,17 @@ tguiColor tguiColorTransparent = tguiColor_fromRGBA( 0,   0,   0, 0);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+tguiColor tguiColor_createNull(void)
+{
+    tguiColor color;
+    color.r = 0;
+    color.g = 0;
+    color.b = 0;
+    color.a = 0;
+    color.isSet = tguiFalse;
+    return color;
+}
+
 tguiColor tguiColor_fromRGB(tguiUint8 red, tguiUint8 green, tguiUint8 blue)
 {
     return tguiColor_fromRGBA(red, green, blue, 255);
@@ -52,6 +63,7 @@ tguiColor tguiColor_fromRGBA(tguiUint8 red, tguiUint8 green, tguiUint8 blue, tgu
     color.g = green;
     color.b = blue;
     color.a = alpha;
+    color.isSet = tguiTrue;
     return color;
 }
 

@@ -22,12 +22,12 @@ tguiRenderer* tguiMessageBoxRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiMessageBoxRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiMessageBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiMessageBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }

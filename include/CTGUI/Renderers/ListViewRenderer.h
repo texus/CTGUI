@@ -14,44 +14,44 @@ CTGUI_API const tguiOutline* tguiListViewRenderer_getBorders(const tguiRenderer*
 CTGUI_API void tguiListViewRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiListViewRenderer_getPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setHeaderBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getHeaderBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setHeaderBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getHeaderBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setHeaderTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getHeaderTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setHeaderTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getHeaderTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setSeparatorColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getSeparatorColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setSeparatorColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getSeparatorColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setGridLinesColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListViewRenderer_getGridLinesColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setGridLinesColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListViewRenderer_getGridLinesColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiListViewRenderer_setTextureHeaderBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiListViewRenderer_getTextureHeaderBackground(const tguiRenderer* thisRenderer);

@@ -22,24 +22,24 @@ tguiRenderer* tguiRangeSliderRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setSelectedTrackColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRangeSliderRenderer_setSelectedTrackColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTrackColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRangeSliderRenderer_getSelectedTrackColor(const tguiRenderer* thisRenderer)
+tguiColor tguiRangeSliderRenderer_getSelectedTrackColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTrackColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiRangeSliderRenderer_setSelectedTrackColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiRangeSliderRenderer_setSelectedTrackColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTrackColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiRangeSliderRenderer_getSelectedTrackColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiRangeSliderRenderer_getSelectedTrackColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTrackColorHover());
 }

@@ -27,12 +27,19 @@
 #define CTGUI_VERTEX_H
 
 #include <CTGUI/Vector2.h>
-#include <CTGUI/Color.h>
+
+typedef struct
+{
+    tguiUint8 r;
+    tguiUint8 g;
+    tguiUint8 b;
+    tguiUint8 a;
+} tguiVertexColor;
 
 typedef struct
 {
     tguiVector2f position;
-    tguiColor    color;
+    tguiVertexColor color;
     tguiVector2f texCoords;
 } tguiVertex;
 

@@ -35,24 +35,24 @@ const tguiOutline* tguiPanelRenderer_getBorders(const tguiRenderer* thisRenderer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiPanelRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiPanelRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiPanelRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiPanelRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiPanelRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiPanelRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiPanelRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

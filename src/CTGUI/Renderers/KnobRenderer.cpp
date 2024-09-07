@@ -35,36 +35,36 @@ const tguiOutline* tguiKnobRenderer_getBorders(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnobRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiKnobRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiKnobRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiKnobRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnobRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiKnobRenderer_setThumbColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setThumbColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiKnobRenderer_getThumbColor(const tguiRenderer* thisRenderer)
+tguiColor tguiKnobRenderer_getThumbColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiKnobRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiKnobRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiKnobRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiKnobRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

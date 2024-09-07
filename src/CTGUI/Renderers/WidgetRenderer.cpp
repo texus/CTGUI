@@ -111,7 +111,7 @@ void tguiWidgetRenderer_setPropertyFont(tguiRenderer* thisRenderer, tguiUtf32 pr
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setPropertyColor(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiColor* value)
+void tguiWidgetRenderer_setPropertyColor(tguiRenderer* thisRenderer, tguiUtf32 property, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), ctgui::toCppColor(value));
 }
@@ -177,7 +177,7 @@ tguiFont* tguiWidgetRenderer_getPropertyFont(const tguiRenderer* renderer, tguiU
     return new tguiFont(std::make_unique<tgui::Font>(renderer->This->getProperty(ctgui::toCppStr(property)).getFont()));
 }
 
-tguiColor* tguiWidgetRenderer_getPropertyColor(const tguiRenderer* renderer, tguiUtf32 property)
+tguiColor tguiWidgetRenderer_getPropertyColor(const tguiRenderer* renderer, tguiUtf32 property)
 {
     return ctgui::fromCppColor(renderer->This->getProperty(ctgui::toCppStr(property)).getColor());
 }

@@ -22,7 +22,7 @@ CTGUI_API tguiBool tguiTheme_hasGlobalProperty(const tguiTheme* theme, tguiUtf32
 
 CTGUI_API tguiBool tguiTheme_getGlobalPropertyBool(const tguiTheme* theme, tguiUtf32 property);
 CTGUI_API tguiFont* tguiTheme_getGlobalPropertyFont(const tguiTheme* theme, tguiUtf32 property);
-CTGUI_API tguiColor* tguiTheme_getGlobalPropertyColor(const tguiTheme* theme, tguiUtf32 property);
+CTGUI_API tguiColor tguiTheme_getGlobalPropertyColor(const tguiTheme* theme, tguiUtf32 property);
 CTGUI_API tguiUtf32 tguiTheme_getGlobalPropertyString(const tguiTheme* theme, tguiUtf32 property);
 CTGUI_API float tguiTheme_getGlobalPropertyNumber(const tguiTheme* theme, tguiUtf32 property);
 CTGUI_API tguiOutline* tguiTheme_getGlobalPropertyOutline(const tguiTheme* theme, tguiUtf32 property);

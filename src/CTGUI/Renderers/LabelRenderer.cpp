@@ -48,24 +48,24 @@ const tguiOutline* tguiLabelRenderer_getPadding(const tguiRenderer* thisRenderer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiLabelRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiLabelRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiLabelRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiLabelRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextOutlineColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
+tguiColor tguiLabelRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextOutlineColor());
 }
@@ -84,24 +84,24 @@ float tguiLabelRenderer_getTextOutlineThickness(const tguiRenderer* thisRenderer
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiLabelRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiLabelRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiLabelRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiLabelRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiLabelRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiLabelRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

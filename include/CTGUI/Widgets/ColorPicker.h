@@ -7,7 +7,7 @@
 
 CTGUI_API tguiWidget* tguiColorPicker_create(void);
 
-CTGUI_API void tguiColorPicker_setColor(tguiWidget* thisWidget, const tguiColor* value);
-CTGUI_API const tguiColor* tguiColorPicker_getColor(const tguiWidget* thisWidget);
+CTGUI_API void tguiColorPicker_setColor(tguiWidget* thisWidget, tguiColor value);
+CTGUI_API tguiColor tguiColorPicker_getColor(const tguiWidget* thisWidget);
 
 #endif // CTGUI_COLORPICKER_H

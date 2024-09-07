@@ -48,108 +48,108 @@ const tguiOutline* tguiListBoxRenderer_getPadding(const tguiRenderer* thisRender
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSelectedTextColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSelectedTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiListBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiListBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiListBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

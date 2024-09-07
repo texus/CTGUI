@@ -22,96 +22,96 @@ tguiRenderer* tguiScrollbarRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setTrackColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setTrackColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTrackColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getTrackColor(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getTrackColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTrackColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setTrackColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTrackColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getTrackColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTrackColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setThumbColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setThumbColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setThumbColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getThumbColor(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getThumbColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setThumbColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setThumbColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getThumbColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getThumbColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setArrowBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setArrowBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getArrowBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setArrowBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setArrowBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getArrowBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setArrowColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setArrowColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getArrowColor(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getArrowColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiScrollbarRenderer_setArrowColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setArrowColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiScrollbarRenderer_getArrowColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColorHover());
 }

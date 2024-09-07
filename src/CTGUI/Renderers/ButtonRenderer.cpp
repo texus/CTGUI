@@ -35,288 +35,288 @@ const tguiOutline* tguiButtonRenderer_getBorders(const tguiRenderer* thisRendere
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColor(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorDown(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorDown(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDown(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorDown(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorDown(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDown());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorDownHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorDownHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDownHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorDownHover(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorDownHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDownHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorDownFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorDownFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDownFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorDownFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorDownFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDownFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextColorDownDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextColorDownDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextColorDownDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextColorDownDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextColorDownDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextColorDownDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorDown(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDown());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorDownHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorDownHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorDownHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorDownHover(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorDownHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDownHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorDownFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorDownFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorDownFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorDownFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorDownFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDownFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBackgroundColorDownDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBackgroundColorDownDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorDownDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBackgroundColorDownDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBackgroundColorDownDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorDownDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDisabled());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorDown(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorDown(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorDown(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorDown(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorDown(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDown());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorDownHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorDownHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorDownHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorDownHover(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorDownHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDownHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorDownFocused(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorDownFocused(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorDownFocused(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorDownFocused(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorDownFocused(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDownFocused());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setBorderColorDownDisabled(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setBorderColorDownDisabled(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColorDownDisabled(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getBorderColorDownDisabled(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getBorderColorDownDisabled(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColorDownDisabled());
 }
@@ -515,12 +515,12 @@ tguiUint32 tguiButtonRenderer_getTextStyleDownDisabled(const tguiRenderer* thisR
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTextOutlineColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
+tguiColor tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getTextOutlineColor());
 }

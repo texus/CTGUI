@@ -30,8 +30,8 @@ CTGUI_API tguiUtf32 tguiText_getString(const tguiText* thisText);
 CTGUI_API void tguiText_setCharacterSize(tguiText* thisText, unsigned int value);
 CTGUI_API unsigned int tguiText_getCharacterSize(const tguiText* thisText);
 
-CTGUI_API void tguiText_setColor(tguiText* thisText, const tguiColor* value);
-CTGUI_API const tguiColor* tguiText_getColor(const tguiText* thisText);
+CTGUI_API void tguiText_setColor(tguiText* thisText, tguiColor value);
+CTGUI_API tguiColor tguiText_getColor(const tguiText* thisText);
 
 CTGUI_API void tguiText_setOpacity(tguiText* thisText, float value);
 CTGUI_API float tguiText_getOpacity(const tguiText* thisText);
@@ -42,8 +42,8 @@ CTGUI_API const tguiFont* tguiText_getFont(const tguiText* thisText);
 CTGUI_API void tguiText_setStyle(tguiText* thisText, tguiUint32 value);
 CTGUI_API tguiUint32 tguiText_getStyle(const tguiText* thisText);
 
-CTGUI_API void tguiText_setOutlineColor(tguiText* thisText, const tguiColor* value);
-CTGUI_API const tguiColor* tguiText_getOutlineColor(const tguiText* thisText);
+CTGUI_API void tguiText_setOutlineColor(tguiText* thisText, tguiColor value);
+CTGUI_API tguiColor tguiText_getOutlineColor(const tguiText* thisText);
 
 CTGUI_API void tguiText_setOutlineThickness(tguiText* thisText, float value);
 CTGUI_API float tguiText_getOutlineThickness(const tguiText* thisText);

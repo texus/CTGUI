@@ -14,32 +14,32 @@ CTGUI_API const tguiOutline* tguiListBoxRenderer_getBorders(const tguiRenderer* 
 CTGUI_API void tguiListBoxRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiListBoxRenderer_getPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiListBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiListBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiListBoxRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiListBoxRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

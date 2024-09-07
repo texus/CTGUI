@@ -8,23 +8,23 @@
 CTGUI_API tguiRenderer* tguiMenuBarRenderer_create(void);
 CTGUI_API tguiRenderer* tguiMenuBarRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiMenuBarRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiMenuBarRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiMenuBarRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiMenuBarRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiMenuBarRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiMenuBarRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiMenuBarRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiMenuBarRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiMenuBarRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiMenuBarRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiMenuBarRenderer_setSeparatorColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiMenuBarRenderer_getSeparatorColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiMenuBarRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiMenuBarRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

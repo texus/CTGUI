@@ -92,12 +92,12 @@ void tguiTexture_free(tguiTexture* texture)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTexture_setColor(tguiTexture* thisTexture, const tguiColor* value)
+void tguiTexture_setColor(tguiTexture* thisTexture, tguiColor value)
 {
     thisTexture->This->setColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiTexture_getColor(const tguiTexture* thisTexture)
+tguiColor tguiTexture_getColor(const tguiTexture* thisTexture)
 {
     return ctgui::fromCppColor(thisTexture->This->getColor());
 }

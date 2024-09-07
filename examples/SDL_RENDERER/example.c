@@ -43,9 +43,8 @@ int main(int argc, char* argv[])
     tguiVector2f size = {200, 40};
     tguiWidget_setSize(button, size);
 
-    tguiColor buttonColor = tguiColor_fromRGB(128, 220, 128);
     tguiRenderer* buttonRenderer = tguiWidget_getRenderer(button);
-    tguiButtonRenderer_setBackgroundColor(buttonRenderer, &buttonColor);
+    tguiButtonRenderer_setBackgroundColor(buttonRenderer, tguiColor_fromRGB(128, 220, 128));
     tguiWidgetRenderer_free(buttonRenderer);
 
     tguiWidget_signalConnect(button, "Pressed", func);

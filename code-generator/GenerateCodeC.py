@@ -150,7 +150,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'string' : 'tguiUtf32',
         'TextStyle' : 'tguiUint32',
         'Char32' : 'tguiChar32',
-        'Color' : 'const tguiColor*',
+        'Color' : 'tguiColor',
         'Texture' : 'const tguiTexture*',
         'Outline' : 'const tguiOutline*',
         'Layout' : 'const tguiLayout*',

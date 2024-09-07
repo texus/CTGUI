@@ -23,14 +23,14 @@ void tguiChatBox_addLine(tguiWidget* thisWidget, tguiUtf32 text)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_addLineWithColor(tguiWidget* thisWidget, tguiUtf32 text, const tguiColor* color)
+void tguiChatBox_addLineWithColor(tguiWidget* thisWidget, tguiUtf32 text, tguiColor color)
 {
     DOWNCAST(thisWidget->This)->addLine(ctgui::toCppStr(text), ctgui::toCppColor(color));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_addLineWithColorAndStyle(tguiWidget* thisWidget, tguiUtf32 text, const tguiColor* color, tguiUint32 style)
+void tguiChatBox_addLineWithColorAndStyle(tguiWidget* thisWidget, tguiUtf32 text, tguiColor color, tguiUint32 style)
 {
     DOWNCAST(thisWidget->This)->addLine(ctgui::toCppStr(text), ctgui::toCppColor(color), style);
 }
@@ -44,7 +44,7 @@ tguiUtf32 tguiChatBox_getLine(const tguiWidget* thisWidget, size_t lineIndex)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiColor* tguiChatBox_getLineColor(const tguiWidget* thisWidget, size_t lineIndex)
+tguiColor tguiChatBox_getLineColor(const tguiWidget* thisWidget, size_t lineIndex)
 {
     return ctgui::fromCppColor(DOWNCAST(thisWidget->This)->getLineColor(lineIndex));
 }
@@ -91,12 +91,12 @@ size_t tguiChatBox_getLineLimit(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBox_setTextColor(tguiWidget* thisWidget, const tguiColor* value)
+void tguiChatBox_setTextColor(tguiWidget* thisWidget, tguiColor value)
 {
     DOWNCAST(thisWidget->This)->setTextColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiChatBox_getTextColor(const tguiWidget* thisWidget)
+tguiColor tguiChatBox_getTextColor(const tguiWidget* thisWidget)
 {
     return ctgui::fromCppColor(DOWNCAST(thisWidget->This)->getTextColor());
 }

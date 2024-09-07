@@ -14,41 +14,41 @@ CTGUI_API const tguiOutline* tguiComboBoxRenderer_getBorders(const tguiRenderer*
 CTGUI_API void tguiComboBoxRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiComboBoxRenderer_getPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getArrowBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getArrowBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getArrowBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getArrowBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getArrowBackgroundColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setArrowBackgroundColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getArrowBackgroundColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getArrowColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setArrowColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getArrowColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getArrowColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setArrowColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getArrowColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setArrowColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getArrowColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setArrowColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getArrowColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiComboBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiComboBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiComboBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiComboBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiComboBoxRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiComboBoxRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

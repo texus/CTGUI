@@ -11,77 +11,77 @@ CTGUI_API tguiRenderer* tguiButtonRenderer_copy(const tguiRenderer* other);
 CTGUI_API void tguiButtonRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiButtonRenderer_getBorders(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorDown(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorDown(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorDown(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorDown(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorDownHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorDownHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorDownHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorDownHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorDownFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorDownFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorDownFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorDownFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextColorDownDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextColorDownDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextColorDownDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextColorDownDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorDown(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorDown(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorDownHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorDownHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorDownHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorDownHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorDownFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorDownFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorDownFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorDownFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBackgroundColorDownDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBackgroundColorDownDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBackgroundColorDownDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBackgroundColorDownDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorDown(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorDown(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorDown(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorDown(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorDownHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorDownHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorDownHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorDownHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorDownFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorDownFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorDownFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorDownFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setBorderColorDownDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getBorderColorDownDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setBorderColorDownDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getBorderColorDownDisabled(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiButtonRenderer_setTexture(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiButtonRenderer_getTexture(const tguiRenderer* thisRenderer);
@@ -131,8 +131,8 @@ CTGUI_API tguiUint32 tguiButtonRenderer_getTextStyleDownFocused(const tguiRender
 CTGUI_API void tguiButtonRenderer_setTextStyleDownDisabled(tguiRenderer* thisRenderer, tguiUint32 value);
 CTGUI_API tguiUint32 tguiButtonRenderer_getTextStyleDownDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiButtonRenderer_setTextOutlineColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiButtonRenderer_getTextOutlineColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiButtonRenderer_setTextOutlineThickness(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiButtonRenderer_getTextOutlineThickness(const tguiRenderer* thisRenderer);

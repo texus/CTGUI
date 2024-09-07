@@ -14,20 +14,20 @@ CTGUI_API const tguiOutline* tguiSpinButtonRenderer_getBorders(const tguiRendere
 CTGUI_API void tguiSpinButtonRenderer_setBorderBetweenArrows(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiSpinButtonRenderer_getBorderBetweenArrows(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiSpinButtonRenderer_setTextureArrowUp(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiSpinButtonRenderer_getTextureArrowUp(const tguiRenderer* thisRenderer);

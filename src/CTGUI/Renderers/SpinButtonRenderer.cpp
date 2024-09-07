@@ -47,60 +47,60 @@ float tguiSpinButtonRenderer_getBorderBetweenArrows(const tguiRenderer* thisRend
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSpinButtonRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSpinButtonRenderer_getBackgroundColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSpinButtonRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBackgroundColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiSpinButtonRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBackgroundColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSpinButtonRenderer_setArrowColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setArrowColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSpinButtonRenderer_getArrowColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSpinButtonRenderer_setArrowColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setArrowColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiSpinButtonRenderer_getArrowColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getArrowColorHover());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSpinButtonRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setBorderColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSpinButtonRenderer_getBorderColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getBorderColor());
 }

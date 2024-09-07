@@ -17,53 +17,53 @@ CTGUI_API const tguiOutline* tguiEditBoxRenderer_getPadding(const tguiRenderer* 
 CTGUI_API void tguiEditBoxRenderer_setCaretWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiEditBoxRenderer_getCaretWidth(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setDefaultTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getDefaultTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setTextColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getTextColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setTextColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getTextColorFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setTextColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getTextColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getSelectedTextBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setSelectedTextBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getSelectedTextBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBackgroundColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBackgroundColorFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBackgroundColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBackgroundColorDisabled(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setCaretColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getCaretColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setCaretColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getCaretColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setCaretColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getCaretColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBorderColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBorderColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiEditBoxRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiEditBoxRenderer_setBorderColorDisabled(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiEditBoxRenderer_getBorderColorDisabled(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiEditBoxRenderer_setTexture(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiEditBoxRenderer_getTexture(const tguiRenderer* thisRenderer);

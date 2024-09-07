@@ -14,32 +14,32 @@ CTGUI_API const tguiOutline* tguiTreeViewRenderer_getBorders(const tguiRenderer*
 CTGUI_API void tguiTreeViewRenderer_setPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiTreeViewRenderer_getPadding(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getSelectedBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedBackgroundColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getSelectedBackgroundColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedTextColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getSelectedTextColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setSelectedTextColorHover(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getSelectedTextColorHover(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiTreeViewRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiTreeViewRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiTreeViewRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiTreeViewRenderer_getTextureBackground(const tguiRenderer* thisRenderer);

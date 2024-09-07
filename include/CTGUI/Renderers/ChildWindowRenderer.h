@@ -11,20 +11,20 @@ CTGUI_API tguiRenderer* tguiChildWindowRenderer_copy(const tguiRenderer* other);
 CTGUI_API void tguiChildWindowRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setTitleColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChildWindowRenderer_getTitleColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setTitleColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChildWindowRenderer_getTitleColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setBackgroundColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChildWindowRenderer_getBackgroundColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setBorderColor(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChildWindowRenderer_getBorderColor(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setBorderColor(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChildWindowRenderer_getBorderColor(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, const tguiColor* value);
-CTGUI_API const tguiColor* tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setBorderColorFocused(tguiRenderer* thisRenderer, tguiColor value);
+CTGUI_API tguiColor tguiChildWindowRenderer_getBorderColorFocused(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiChildWindowRenderer_setBorderBelowTitleBar(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiChildWindowRenderer_getBorderBelowTitleBar(const tguiRenderer* thisRenderer);

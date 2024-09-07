@@ -21,24 +21,24 @@ tguiRenderer* tguiSplitContainerRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSplitContainerRenderer_setSplitterColor(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSplitContainerRenderer_setSplitterColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSplitterColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSplitContainerRenderer_getSplitterColor(const tguiRenderer* thisRenderer)
+tguiColor tguiSplitContainerRenderer_getSplitterColor(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSplitterColor());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSplitContainerRenderer_setSplitterColorHover(tguiRenderer* thisRenderer, const tguiColor* value)
+void tguiSplitContainerRenderer_setSplitterColorHover(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setSplitterColorHover(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiSplitContainerRenderer_getSplitterColorHover(const tguiRenderer* thisRenderer)
+tguiColor tguiSplitContainerRenderer_getSplitterColorHover(const tguiRenderer* thisRenderer)
 {
     return ctgui::fromCppColor(DOWNCAST(thisRenderer->This)->getSplitterColorHover());
 }

@@ -107,12 +107,12 @@ unsigned int tguiText_getCharacterSize(const tguiText* thisText)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiText_setColor(tguiText* thisText, const tguiColor* value)
+void tguiText_setColor(tguiText* thisText, tguiColor value)
 {
     thisText->This->setColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiText_getColor(const tguiText* thisText)
+tguiColor tguiText_getColor(const tguiText* thisText)
 {
     return ctgui::fromCppColor(thisText->This->getColor());
 }
@@ -155,12 +155,12 @@ tguiUint32 tguiText_getStyle(const tguiText* thisText)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiText_setOutlineColor(tguiText* thisText, const tguiColor* value)
+void tguiText_setOutlineColor(tguiText* thisText, tguiColor value)
 {
     thisText->This->setOutlineColor(ctgui::toCppColor(value));
 }
 
-const tguiColor* tguiText_getOutlineColor(const tguiText* thisText)
+tguiColor tguiText_getOutlineColor(const tguiText* thisText)
 {
     return ctgui::fromCppColor(thisText->This->getOutlineColor());
 }

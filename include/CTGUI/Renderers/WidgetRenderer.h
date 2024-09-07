@@ -30,7 +30,7 @@ CTGUI_API void tguiWidgetRenderer_setPropertyBool(tguiRenderer* thisRenderer, tg
 
 CTGUI_API void tguiWidgetRenderer_setPropertyFont(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiFont* value);
 
-CTGUI_API void tguiWidgetRenderer_setPropertyColor(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiColor* value);
+CTGUI_API void tguiWidgetRenderer_setPropertyColor(tguiRenderer* thisRenderer, tguiUtf32 property, tguiColor value);
 
 CTGUI_API void tguiWidgetRenderer_setPropertyString(tguiRenderer* thisRenderer, tguiUtf32 property, tguiUtf32 value);
 
@@ -48,7 +48,7 @@ CTGUI_API tguiBool tguiWidgetRenderer_hasProperty(const tguiRenderer* renderer, 
 
 CTGUI_API tguiBool tguiWidgetRenderer_getPropertyBool(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiFont* tguiWidgetRenderer_getPropertyFont(const tguiRenderer* renderer, tguiUtf32 property);
-CTGUI_API tguiColor* tguiWidgetRenderer_getPropertyColor(const tguiRenderer* renderer, tguiUtf32 property);
+CTGUI_API tguiColor tguiWidgetRenderer_getPropertyColor(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiUtf32 tguiWidgetRenderer_getPropertyString(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API float tguiWidgetRenderer_getPropertyNumber(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiOutline* tguiWidgetRenderer_getPropertyOutline(const tguiRenderer* renderer, tguiUtf32 property);
