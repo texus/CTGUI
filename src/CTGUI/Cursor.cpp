@@ -28,12 +28,12 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void setStyle(tguiCursorType type, const tguiUint8* pixels, tguiVector2u size, tguiVector2u hotspot)
+void tguiCursor_setStyle(tguiCursorType type, const tguiUint8* pixels, tguiVector2u size, tguiVector2u hotspot)
 {
     tgui::Cursor::setStyle(static_cast<tgui::Cursor::Type>(type), pixels, {size.x, size.y}, {hotspot.x, hotspot.y});
 }
 
-void resetStyle(tguiCursorType type)
+void tguiCursor_resetStyle(tguiCursorType type)
 {
     tgui::Cursor::resetStyle(static_cast<tgui::Cursor::Type>(type));
 }

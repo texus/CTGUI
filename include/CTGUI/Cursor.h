@@ -48,7 +48,7 @@ typedef enum
 	tguiCursorTypeNotAllowed        //!< Action not allowed cursor
 } tguiCursorType;
 
-CTGUI_API void setStyle(tguiCursorType type, const tguiUint8* pixels, tguiVector2u size, tguiVector2u hotspot);
-CTGUI_API void resetStyle(tguiCursorType type);
+CTGUI_API void tguiCursor_setStyle(tguiCursorType type, const tguiUint8* pixels, tguiVector2u size, tguiVector2u hotspot);
+CTGUI_API void tguiCursor_resetStyle(tguiCursorType type);
 
 #endif // CTGUI_CURSOR_H
