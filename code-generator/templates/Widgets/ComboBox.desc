@@ -8,6 +8,7 @@ property-widget-renderer ComboBoxRenderer
 property size_t ItemsToDisplay
 
 function size_t addItem(string item, string id)
+function void addMultipleItems(List<string> items)
 const-function string getItemById(string id)
 
 const-function List<string> getItems()

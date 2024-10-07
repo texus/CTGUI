@@ -40,6 +40,8 @@ CTGUI_API void tguiBackendRenderTarget_drawFilledRect(tguiBackendRenderTarget* t
 
 CTGUI_API void tguiBackendRenderTarget_drawSprite(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiSprite* sprite);
 CTGUI_API void tguiBackendRenderTarget_drawText(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiText* text);
+CTGUI_API void tguiBackendRenderTarget_drawTextOutline(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiText* text);
+CTGUI_API void tguiBackendRenderTarget_drawTextWithoutOutline(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiText* text);
 CTGUI_API void tguiBackendRenderTarget_drawTriangle(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVertex point1, tguiVertex point2, tguiVertex point3);
 CTGUI_API void tguiBackendRenderTarget_drawCircle(tguiBackendRenderTarget* target, const tguiRenderStates* states, float size, tguiColor backgroundColor, float borderThickness, tguiColor borderColor);
 CTGUI_API void tguiBackendRenderTarget_drawRoundedRectangle(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVector2f size, tguiColor backgroundColor, float radius, const tguiOutline* borders, tguiColor borderColor);

@@ -13,4 +13,4 @@ property float Minimum
 property float Maximum
 property float Step
 property uint DecimalPlaces
-property bool UseWideArrows
+property float SpinButtonWidth

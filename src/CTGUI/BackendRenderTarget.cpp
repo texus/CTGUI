@@ -75,6 +75,16 @@ void tguiBackendRenderTarget_drawText(tguiBackendRenderTarget* target, const tgu
     target->This->drawText(convertRenderStates(states), *text->This);
 }
 
+void tguiBackendRenderTarget_drawTextOutline(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiText* text)
+{
+    target->This->drawTextOutline(convertRenderStates(states), *text->This);
+}
+
+void tguiBackendRenderTarget_drawTextWithoutOutline(tguiBackendRenderTarget* target, const tguiRenderStates* states, const tguiText* text)
+{
+    target->This->drawTextWithoutOutline(convertRenderStates(states), *text->This);
+}
+
 void tguiBackendRenderTarget_drawTriangle(tguiBackendRenderTarget* target, const tguiRenderStates* states, tguiVertex point1, tguiVertex point2, tguiVertex point3)
 {
     target->This->drawTriangle(convertRenderStates(states), {{point1.position.x, point1.position.y}, {point1.color.r, point1.color.g, point1.color.b, point1.color.a}, {point1.texCoords.x, point1.texCoords.y}},

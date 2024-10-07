@@ -5,6 +5,7 @@ inherits ScrollbarChildInterface
 property-widget-renderer ListBoxRenderer
 
 function size_t addItem(string item, string id)
+function void addMultipleItems(List<string> items)
 
 const-function string getItemById(string id)
 const-function string getItemByIndex(size_t index)

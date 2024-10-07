@@ -1,5 +1,7 @@
 inherits Container
 
+enum CloseBehavior { None, Hide, Remove }
+
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ChildWindowRenderer
 
@@ -13,6 +15,7 @@ property string Title
 property uint TitleTextSize
 property HorizontalAlignment TitleAlignment
 property uint TitleButtons
+property CloseBehavior CloseBehavior
 property-bool-is Resizable
 property bool KeepInParent
 property-bool-is PositionLocked

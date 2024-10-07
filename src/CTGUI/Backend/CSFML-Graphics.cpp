@@ -149,6 +149,35 @@ namespace ctgui
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#if 0
+    static tgui::Event::KeyboardKey translateKeypadKey(tgui::Event::KeyboardKey key)
+    {
+        switch (key)
+        {
+        case tgui::Event::KeyboardKey::Numpad0:
+            return tgui::Event::KeyboardKey::Insert;
+        case tgui::Event::KeyboardKey::Numpad1:
+            return tgui::Event::KeyboardKey::End;
+        case tgui::Event::KeyboardKey::Numpad2:
+            return tgui::Event::KeyboardKey::Down;
+        case tgui::Event::KeyboardKey::Numpad3:
+            return tgui::Event::KeyboardKey::PageDown;
+        case tgui::Event::KeyboardKey::Numpad4:
+            return tgui::Event::KeyboardKey::Left;
+        case tgui::Event::KeyboardKey::Numpad6:
+            return tgui::Event::KeyboardKey::Right;
+        case tgui::Event::KeyboardKey::Numpad7:
+            return tgui::Event::KeyboardKey::Home;
+        case tgui::Event::KeyboardKey::Numpad8:
+            return tgui::Event::KeyboardKey::Up;
+        case tgui::Event::KeyboardKey::Numpad9:
+            return tgui::Event::KeyboardKey::PageUp;
+        default: // tgui::Event::KeyboardKey::Numpad5
+            return tgui::Event::KeyboardKey::Unknown; // Let's ignore this key press
+        };
+    }
+#endif
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     TGUI_NODISCARD static bool convertEvent(const sfEvent& eventSFML, tgui::Event& eventTGUI)
     {
@@ -207,6 +236,21 @@ namespace ctgui
                 eventTGUI.key.control = eventSFML.key.control;
                 eventTGUI.key.shift = eventSFML.key.shift;
                 eventTGUI.key.system = eventSFML.key.system;
+
+                // If the NumLock is off then we will translate keypad key events to key events for text cursor navigation.
+                // This functionality is not yet part of SFML, but is available in PR #3238 (https://github.com/SFML/SFML/pull/3238)
+#if 0
+                static_assert(static_cast<int>(tgui::Event::KeyboardKey::Numpad0) + 9 == static_cast<int>(tgui::Event::KeyboardKey::Numpad9), "Numpad0 to Numpad9 need continous ids in KeyboardKey");
+                if (!eventSFML.key.numLock
+                 && (static_cast<int>(eventTGUI.key.code) >= static_cast<int>(tgui::Event::KeyboardKey::Numpad0))
+                 && (static_cast<int>(eventTGUI.key.code) <= static_cast<int>(tgui::Event::KeyboardKey::Numpad9)))
+                {
+                    eventTGUI.key.code = translateKeypadKey(eventTGUI.key.code);
+                    if (eventTGUI.key.code == tgui::Event::KeyboardKey::Unknown) // Numpad5 was pressed which has no function
+                        return false; // We didn't handle this key press
+                }
+#endif
+
                 return true;
             }
             case sfEvtMouseWheelScrolled:
