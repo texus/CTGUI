@@ -661,29 +661,20 @@ void tguiWidget_moveToBack(tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_setUserData(tguiWidget* thisWidget, void* value)
+void tguiWidget_setUserData(tguiWidget* thisWidget, tguiUtf32 value)
 {
-    thisWidget->This->setUserData(value);
+    thisWidget->This->setUserData(ctgui::toCppStr(value));
 }
 
-void* tguiWidget_getUserData(const tguiWidget* thisWidget)
+tguiUtf32 tguiWidget_getUserData(const tguiWidget* thisWidget)
 {
     try
     {
-        // User data will be of type void* when it was set in the C binding
-        return thisWidget->This->getUserData<void*>();
+        return ctgui::fromCppStr(thisWidget->This->getUserData<tgui::String>());
     }
     catch (const std::bad_cast&)
     {
-        try
-        {
-            // User data will be of type tgui::String when it was set by loading the widget from a form
-            return const_cast<void*>(static_cast<const void*>(ctgui::fromCppStr(thisWidget->This->getUserData<tgui::String>())));
-        }
-        catch (const std::bad_cast&)
-        {
-           return nullptr;
-        }
+        return nullptr;
     }
 }
 

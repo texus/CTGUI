@@ -181,31 +181,22 @@ size_t tguiComboBox_getItemCount(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBox_setItemData(tguiWidget* thisWidget, size_t index, void* data)
+void tguiComboBox_setItemData(tguiWidget* thisWidget, size_t index, tguiUtf32 data)
 {
-    DOWNCAST(thisWidget->This)->setItemData(index, data);
+    DOWNCAST(thisWidget->This)->setItemData(index, ctgui::toCppStr(data));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void* tguiComboBox_getItemData(const tguiWidget* thisWidget, size_t index)
+tguiUtf32 tguiComboBox_getItemData(const tguiWidget* thisWidget, size_t index)
 {
     try
     {
-        // User data will be of type void* when it was set in the C binding
-        return DOWNCAST(thisWidget->This)->getItemData<void*>(index);
+        return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemData<tgui::String>(index));
     }
     catch (const std::bad_cast&)
     {
-        try
-        {
-            // User data will be of type tgui::String when it was set by loading the widget from a form
-            return const_cast<void*>(static_cast<const void*>(ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemData<tgui::String>(index))));
-        }
-        catch (const std::bad_cast&)
-        {
-           return nullptr;
-        }
+        return nullptr;
     }
 }
 

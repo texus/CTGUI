@@ -123,8 +123,8 @@ CTGUI_API void tguiWidget_moveToFront(tguiWidget* thisWidget);
 
 CTGUI_API void tguiWidget_moveToBack(tguiWidget* thisWidget);
 
-CTGUI_API void tguiWidget_setUserData(tguiWidget* thisWidget, void* value);
-CTGUI_API void* tguiWidget_getUserData(const tguiWidget* thisWidget);
+CTGUI_API void tguiWidget_setUserData(tguiWidget* thisWidget, tguiUtf32 value);
+CTGUI_API tguiUtf32 tguiWidget_getUserData(const tguiWidget* thisWidget);
 
 CTGUI_API tguiBool tguiWidget_hasUserData(const tguiWidget* thisWidget);
 

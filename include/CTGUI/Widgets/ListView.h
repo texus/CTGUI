@@ -76,9 +76,9 @@ CTGUI_API void tguiListView_deselectItems(tguiWidget* thisWidget);
 CTGUI_API void tguiListView_setMultiSelect(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiListView_getMultiSelect(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiListView_setItemData(tguiWidget* thisWidget, size_t index, void* data);
+CTGUI_API void tguiListView_setItemData(tguiWidget* thisWidget, size_t index, tguiUtf32 data);
 
-CTGUI_API void* tguiListView_getItemData(const tguiWidget* thisWidget, size_t index);
+CTGUI_API tguiUtf32 tguiListView_getItemData(const tguiWidget* thisWidget, size_t index);
 
 CTGUI_API void tguiListView_setItemIcon(tguiWidget* thisWidget, size_t index, const tguiTexture* texture);
 

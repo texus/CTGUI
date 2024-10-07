@@ -165,7 +165,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'FloatRect' : 'tguiFloatRect',
         'UIntRect' : 'tguiUIntRect',
         'IntRect' : 'tguiIntRect',
-        'AnyObject' : 'void*',
+        'AnyObject' : 'tguiUtf32',
         'List<string>' : 'const tguiUtf32*',
         'List<Widget>' : 'tguiWidget**',
         'Set<size_t>' : 'const size_t*',
@@ -222,7 +222,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             funcCallParams.append(paramName)
         elif paramType == 'bool':
             funcCallParams.append(paramName + ' != 0')
-        elif paramType == 'string':
+        elif paramType == 'string' or paramType == 'AnyObject':
             funcCallParams.append('ctgui::toCppStr(' + paramName + ')')
         elif paramType == 'Color':
             funcCallParams.append('ctgui::toCppColor(' + paramName + ')')
@@ -245,8 +245,6 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             funcCallParams.append('static_cast<tgui::Orientation>(' + paramName + ')')
         elif paramType == 'CursorType':
             funcCallParams.append('static_cast<tgui::Cursor::Type>(' + paramName + ')')
-        elif paramType == 'AnyObject':
-            funcCallParams.append(paramName)
         elif paramType == 'List<string>':
             localVariableName = 'converted' + paramName[0].upper() + paramName[1:]
             generatedLines.append('    std::vector<tgui::String> ' + localVariableName + ';')
@@ -329,20 +327,11 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         generatedLines.extend([
             '    try',
             '    {',
-            '        // User data will be of type void* when it was set in the C binding',
-            '        return ' + funcCall[:bracketPos] + '<void*>' + funcCall[bracketPos:] + ';',
+            '        return ctgui::fromCppStr(' + funcCall[:bracketPos] + '<tgui::String>' + funcCall[bracketPos:] + ');',
             '    }',
             '    catch (const std::bad_cast&)',
             '    {',
-            '        try',
-            '        {',
-            '            // User data will be of type tgui::String when it was set by loading the widget from a form',
-            '            return const_cast<void*>(static_cast<const void*>(ctgui::fromCppStr(' + funcCall[:bracketPos] + '<tgui::String>' + funcCall[bracketPos:] + ')));',
-            '        }',
-            '        catch (const std::bad_cast&)',
-            '        {',
-            '           return nullptr;',
-            '        }',
+            '        return nullptr;',
             '    }'
         ])
     elif returnType == 'List<Widget>':

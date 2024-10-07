@@ -55,9 +55,9 @@ CTGUI_API const tguiUtf32* tguiListBox_getItems(const tguiWidget* thisWidget, si
 
 CTGUI_API const tguiUtf32* tguiListBox_getItemIds(const tguiWidget* thisWidget, size_t* returnCount);
 
-CTGUI_API void tguiListBox_setItemData(tguiWidget* thisWidget, size_t index, void* data);
+CTGUI_API void tguiListBox_setItemData(tguiWidget* thisWidget, size_t index, tguiUtf32 data);
 
-CTGUI_API void* tguiListBox_getItemData(const tguiWidget* thisWidget, size_t index);
+CTGUI_API tguiUtf32 tguiListBox_getItemData(const tguiWidget* thisWidget, size_t index);
 
 CTGUI_API void tguiListBox_setItemHeight(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiListBox_getItemHeight(const tguiWidget* thisWidget);

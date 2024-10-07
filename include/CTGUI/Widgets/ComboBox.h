@@ -55,9 +55,9 @@ CTGUI_API tguiBool tguiComboBox_changeItemByIndex(tguiWidget* thisWidget, size_t
 
 CTGUI_API size_t tguiComboBox_getItemCount(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiComboBox_setItemData(tguiWidget* thisWidget, size_t index, void* data);
+CTGUI_API void tguiComboBox_setItemData(tguiWidget* thisWidget, size_t index, tguiUtf32 data);
 
-CTGUI_API void* tguiComboBox_getItemData(const tguiWidget* thisWidget, size_t index);
+CTGUI_API tguiUtf32 tguiComboBox_getItemData(const tguiWidget* thisWidget, size_t index);
 
 CTGUI_API void tguiComboBox_setMaximumItems(tguiWidget* thisWidget, size_t value);
 CTGUI_API size_t tguiComboBox_getMaximumItems(const tguiWidget* thisWidget);
