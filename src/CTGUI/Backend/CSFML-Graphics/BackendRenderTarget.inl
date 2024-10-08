@@ -82,7 +82,11 @@ namespace ctgui
         {
             const tgui::Vector2f textureSize = texture ? tgui::Vector2f{texture->getSize()} : tgui::Vector2f{1,1};
             const std::array<float, 16>& transformMatrix = states.transform.getMatrix();
+#if CTGUI_USE_CSFML_VERSION >= 3
+            sfRenderStates statesSFML = sfRenderStates_default;
+#else
             sfRenderStates statesSFML = sfRenderStates_default();
+#endif
             statesSFML.transform = sfTransform_fromMatrix(
                 transformMatrix[0], transformMatrix[4], transformMatrix[12],
                 transformMatrix[1], transformMatrix[5], transformMatrix[13],

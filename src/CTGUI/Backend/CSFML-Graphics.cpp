@@ -194,6 +194,86 @@ namespace ctgui
                 eventTGUI.type = tgui::Event::Type::GainedFocus;
                 return true;
             }
+            case sfEvtResized:
+            {
+                eventTGUI.type = tgui::Event::Type::Resized;
+                eventTGUI.size.width = eventSFML.size.size.x;
+                eventTGUI.size.height = eventSFML.size.size.y;
+                return true;
+            }
+            case sfEvtMouseWheelScrolled:
+            {
+                if (eventSFML.mouseWheelScroll.wheel != sfMouseVerticalWheel)
+                    return false; // TGUI only handles the vertical mouse wheel
+
+                eventTGUI.type = tgui::Event::Type::MouseWheelScrolled;
+                eventTGUI.mouseWheel.delta = eventSFML.mouseWheelScroll.delta;
+                eventTGUI.mouseWheel.x = eventSFML.mouseWheelScroll.position.x;
+                eventTGUI.mouseWheel.y = eventSFML.mouseWheelScroll.position.y;
+                return true;
+            }
+            case sfEvtMouseButtonPressed:
+            case sfEvtMouseButtonReleased:
+            {
+                switch (eventSFML.mouseButton.button)
+                {
+                case sfMouseLeft:
+                    eventTGUI.mouseButton.button = tgui::Event::MouseButton::Left;
+                    break;
+                case sfMouseMiddle:
+                    eventTGUI.mouseButton.button = tgui::Event::MouseButton::Middle;
+                    break;
+                case sfMouseRight:
+                    eventTGUI.mouseButton.button = tgui::Event::MouseButton::Right;
+                    break;
+                default: // This mouse button isn't handled by TGUI
+                    return false;
+                }
+
+                if (eventSFML.type == sfEvtMouseButtonPressed)
+                    eventTGUI.type = tgui::Event::Type::MouseButtonPressed;
+                else
+                    eventTGUI.type = tgui::Event::Type::MouseButtonReleased;
+
+                eventTGUI.mouseButton.x = eventSFML.mouseButton.position.x;
+                eventTGUI.mouseButton.y = eventSFML.mouseButton.position.y;
+                return true;
+            }
+            case sfEvtMouseMoved:
+            {
+                eventTGUI.type = tgui::Event::Type::MouseMoved;
+                eventTGUI.mouseMove.x = eventSFML.mouseMove.position.x;
+                eventTGUI.mouseMove.y = eventSFML.mouseMove.position.y;
+                return true;
+            }
+            case sfEvtTouchMoved:
+            {
+                if (eventSFML.touch.finger != 0)
+                    return false; // Only the first finger is handled
+
+                // Simulate a MouseMoved event
+                eventTGUI.type = tgui::Event::Type::MouseMoved;
+                eventTGUI.mouseMove.x = eventSFML.touch.position.x;
+                eventTGUI.mouseMove.y = eventSFML.touch.position.y;
+                return true;
+            }
+            case sfEvtTouchBegan:
+            case sfEvtTouchEnded:
+            {
+                if (eventSFML.touch.finger != 0)
+                    return false; // Only the first finger is handled
+
+                // Simulate a MouseButtonPressed or MouseButtonReleased event
+                if (eventSFML.type == sfEvtTouchBegan)
+                    eventTGUI.type = tgui::Event::Type::MouseButtonPressed;
+                else
+                    eventTGUI.type = tgui::Event::Type::MouseButtonReleased;
+
+                eventTGUI.mouseButton.button = tgui::Event::MouseButton::Left;
+                eventTGUI.mouseButton.x = eventSFML.touch.position.x;
+                eventTGUI.mouseButton.y = eventSFML.touch.position.y;
+                return true;
+            }
 #else
             case sfEvtLostFocus:
             {
@@ -205,52 +285,11 @@ namespace ctgui
                 eventTGUI.type = tgui::Event::Type::GainedFocus;
                 return true;
             }
-#endif
             case sfEvtResized:
             {
                 eventTGUI.type = tgui::Event::Type::Resized;
                 eventTGUI.size.width = eventSFML.size.width;
                 eventTGUI.size.height = eventSFML.size.height;
-                return true;
-            }
-            case sfEvtClosed:
-            {
-                eventTGUI.type = tgui::Event::Type::Closed;
-                return true;
-            }
-            case sfEvtTextEntered:
-            {
-                eventTGUI.type = tgui::Event::Type::TextEntered;
-                eventTGUI.text.unicode = static_cast<tguiChar32>(eventSFML.text.unicode);
-                return true;
-            }
-            case sfEvtKeyPressed:
-            {
-                const tgui::Event::KeyboardKey code = convertKeyCode(eventSFML.key.code);
-                if (code == tgui::Event::KeyboardKey::Unknown)
-                    return false; // This key isn't handled by TGUI
-
-                eventTGUI.type = tgui::Event::Type::KeyPressed;
-                eventTGUI.key.code = code;
-                eventTGUI.key.alt = eventSFML.key.alt;
-                eventTGUI.key.control = eventSFML.key.control;
-                eventTGUI.key.shift = eventSFML.key.shift;
-                eventTGUI.key.system = eventSFML.key.system;
-
-                // If the NumLock is off then we will translate keypad key events to key events for text cursor navigation.
-                // This functionality is not yet part of SFML, but is available in PR #3238 (https://github.com/SFML/SFML/pull/3238)
-#if 0
-                static_assert(static_cast<int>(tgui::Event::KeyboardKey::Numpad0) + 9 == static_cast<int>(tgui::Event::KeyboardKey::Numpad9), "Numpad0 to Numpad9 need continous ids in KeyboardKey");
-                if (!eventSFML.key.numLock
-                 && (static_cast<int>(eventTGUI.key.code) >= static_cast<int>(tgui::Event::KeyboardKey::Numpad0))
-                 && (static_cast<int>(eventTGUI.key.code) <= static_cast<int>(tgui::Event::KeyboardKey::Numpad9)))
-                {
-                    eventTGUI.key.code = translateKeypadKey(eventTGUI.key.code);
-                    if (eventTGUI.key.code == tgui::Event::KeyboardKey::Unknown) // Numpad5 was pressed which has no function
-                        return false; // We didn't handle this key press
-                }
-#endif
-
                 return true;
             }
             case sfEvtMouseWheelScrolled:
@@ -298,16 +337,6 @@ namespace ctgui
                 eventTGUI.mouseMove.y = eventSFML.mouseMove.y;
                 return true;
             }
-            case sfEvtMouseEntered:
-            {
-                eventTGUI.type = tgui::Event::Type::MouseEntered;
-                return true;
-            }
-            case sfEvtMouseLeft:
-            {
-                eventTGUI.type = tgui::Event::Type::MouseLeft;
-                return true;
-            }
             case sfEvtTouchMoved:
             {
                 if (eventSFML.touch.finger != 0)
@@ -334,6 +363,57 @@ namespace ctgui
                 eventTGUI.mouseButton.button = tgui::Event::MouseButton::Left;
                 eventTGUI.mouseButton.x = eventSFML.touch.x;
                 eventTGUI.mouseButton.y = eventSFML.touch.y;
+                return true;
+            }
+#endif
+            case sfEvtClosed:
+            {
+                eventTGUI.type = tgui::Event::Type::Closed;
+                return true;
+            }
+            case sfEvtTextEntered:
+            {
+                eventTGUI.type = tgui::Event::Type::TextEntered;
+                eventTGUI.text.unicode = static_cast<tguiChar32>(eventSFML.text.unicode);
+                return true;
+            }
+            case sfEvtKeyPressed:
+            {
+                const tgui::Event::KeyboardKey code = convertKeyCode(eventSFML.key.code);
+                if (code == tgui::Event::KeyboardKey::Unknown)
+                    return false; // This key isn't handled by TGUI
+
+                eventTGUI.type = tgui::Event::Type::KeyPressed;
+                eventTGUI.key.code = code;
+                eventTGUI.key.alt = eventSFML.key.alt;
+                eventTGUI.key.control = eventSFML.key.control;
+                eventTGUI.key.shift = eventSFML.key.shift;
+                eventTGUI.key.system = eventSFML.key.system;
+
+                // If the NumLock is off then we will translate keypad key events to key events for text cursor navigation.
+                // This functionality is not yet part of SFML, but is available in PR #3238 (https://github.com/SFML/SFML/pull/3238)
+#if 0
+                static_assert(static_cast<int>(tgui::Event::KeyboardKey::Numpad0) + 9 == static_cast<int>(tgui::Event::KeyboardKey::Numpad9), "Numpad0 to Numpad9 need continous ids in KeyboardKey");
+                if (!eventSFML.key.numLock
+                 && (static_cast<int>(eventTGUI.key.code) >= static_cast<int>(tgui::Event::KeyboardKey::Numpad0))
+                 && (static_cast<int>(eventTGUI.key.code) <= static_cast<int>(tgui::Event::KeyboardKey::Numpad9)))
+                {
+                    eventTGUI.key.code = translateKeypadKey(eventTGUI.key.code);
+                    if (eventTGUI.key.code == tgui::Event::KeyboardKey::Unknown) // Numpad5 was pressed which has no function
+                        return false; // We didn't handle this key press
+                }
+#endif
+
+                return true;
+            }
+            case sfEvtMouseEntered:
+            {
+                eventTGUI.type = tgui::Event::Type::MouseEntered;
+                return true;
+            }
+            case sfEvtMouseLeft:
+            {
+                eventTGUI.type = tgui::Event::Type::MouseLeft;
                 return true;
             }
             default: // This event is not handled by TGUI
@@ -378,9 +458,13 @@ namespace ctgui
                 const bool wasScrolling = m_twoFingerScroll.isScrolling();
 
                 const auto fingerId = static_cast<std::intptr_t>(sfmlEvent.touch.finger);
+#if CTGUI_USE_CSFML_VERSION >= 3
+                const float x = static_cast<float>(sfmlEvent.touch.position.x);
+                const float y = static_cast<float>(sfmlEvent.touch.position.y);
+#else
                 const float x = static_cast<float>(sfmlEvent.touch.x);
                 const float y = static_cast<float>(sfmlEvent.touch.y);
-
+#endif
                 if (sfmlEvent.type == sfEvtTouchBegan)
                     m_twoFingerScroll.reportFingerDown(fingerId, x, y);
                 else if (sfmlEvent.type == sfEvtTouchEnded)

@@ -59,13 +59,23 @@ namespace ctgui
 
             if (!m_texture)
             {
+#if CTGUI_USE_CSFML_VERSION >= 3
+                m_texture = sfTexture_create({size.x, size.y});
+#else
                 m_texture = sfTexture_create(size.x, size.y);
+#endif
                 if (!m_texture)
                     return false;
             }
 
             if (pixels)
+            {
+#if CTGUI_USE_CSFML_VERSION >= 3
+                sfTexture_updateFromPixels(m_texture, pixels, {size.x, size.y}, {0, 0});
+#else
                 sfTexture_updateFromPixels(m_texture, pixels, size.x, size.y, 0, 0);
+#endif
+            }
 
             return true;
         }
