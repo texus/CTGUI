@@ -9,7 +9,11 @@ property size_t ItemsToDisplay
 
 function size_t addItem(string item, string id)
 function void addMultipleItems(List<string> items)
+
 const-function string getItemById(string id)
+const-function string getItemByIndex(size_t index)
+const-function int getIndexById(string id)
+const-function string getIdByIndex(size_t index)
 
 const-function List<string> getItems()
 const-function List<string> getItemIds()
