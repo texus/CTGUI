@@ -113,6 +113,18 @@ unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindow_setCloseBehavior(tguiWidget* thisWidget, tguiChildWindowCloseBehavior value)
+{
+    DOWNCAST(thisWidget->This)->setCloseBehavior(static_cast<tgui::ChildWindow::CloseBehavior>(value));
+}
+
+tguiChildWindowCloseBehavior tguiChildWindow_getCloseBehavior(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiChildWindowCloseBehavior>(DOWNCAST(thisWidget->This)->getCloseBehavior());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindow_setResizable(tguiWidget* thisWidget, tguiBool value)
 {
     DOWNCAST(thisWidget->This)->setResizable(value != 0);

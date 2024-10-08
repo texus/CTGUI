@@ -43,7 +43,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CTGUI_API tguiGui* tguiGuiCSFMLGraphics_create(sfRenderWindow* window);
-CTGUI_API void tguiGuiCSFMLGraphics_free(tguiGui* gui);
+CTGUI_API void tguiGuiCSFMLGraphics_destroy(tguiGui* gui);
 
 CTGUI_API void tguiGuiCSFMLGraphics_handleEvent(tguiGui* gui, const sfEvent* event);
 

@@ -68,7 +68,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CTGUI_API tguiGui* tguiGuiSDLRenderer_create(SDL_Window* window, SDL_Renderer* renderer);
-CTGUI_API void tguiGuiSDLRenderer_free(tguiGui* gui);
+CTGUI_API void tguiGuiSDLRenderer_destroy(tguiGui* gui);
 
 CTGUI_API void tguiGuiSDLRenderer_handleEvent(tguiGui* gui, const SDL_Event* event);
 

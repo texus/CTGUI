@@ -31,7 +31,7 @@ int main()
 
     tguiRenderer* buttonRenderer = tguiWidget_getRenderer(button);
     tguiButtonRenderer_setBackgroundColor(buttonRenderer, tguiColor_fromRGB(128, 220, 128));
-    tguiWidgetRenderer_free(buttonRenderer);
+    tguiWidgetRenderer_destroy(buttonRenderer);
 
     tguiWidget_signalConnect(button, "Pressed", func);
 
@@ -51,8 +51,8 @@ int main()
         sfRenderWindow_display(window);
     }
 
-    tguiWidget_free(button);
-    tguiGuiCSFMLGraphics_free(gui);
+    tguiWidget_destroy(button);
+    tguiGuiCSFMLGraphics_destroy(gui);
 
     sfRenderWindow_destroy(window);
     return 0;

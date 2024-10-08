@@ -214,7 +214,7 @@ tguiRendererData* tguiWidgetRenderer_getPropertyRendererData(const tguiRenderer*
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_free(tguiRenderer* renderer)
+void tguiWidgetRenderer_destroy(tguiRenderer* renderer)
 {
     if (renderer->AllocatedInWrapper)
         delete renderer->This;

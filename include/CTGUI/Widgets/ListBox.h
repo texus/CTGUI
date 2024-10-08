@@ -11,6 +11,8 @@ CTGUI_API tguiWidget* tguiListBox_create(void);
 
 CTGUI_API size_t tguiListBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tguiUtf32 id);
 
+CTGUI_API void tguiListBox_addMultipleItems(tguiWidget* thisWidget, const tguiUtf32* items, size_t itemsLength);
+
 CTGUI_API tguiUtf32 tguiListBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id);
 
 CTGUI_API tguiUtf32 tguiListBox_getItemByIndex(const tguiWidget* thisWidget, size_t index);

@@ -144,7 +144,7 @@ tguiFileDialogFilter* tguiFileDialogFilter_create(tguiUtf32 name)
     return filter;
 }
 
-void tguiFileDialogFilter_free(tguiFileDialogFilter* filter)
+void tguiFileDialogFilter_destroy(tguiFileDialogFilter* filter)
 {
     delete filter;
 }

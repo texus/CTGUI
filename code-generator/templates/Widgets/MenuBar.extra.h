@@ -14,8 +14,8 @@ typedef struct
     size_t menusCount;
 } tguiMenuBarMenuList;
 
-CTGUI_API void tguiMenuBarMenuList_free(tguiMenuBarMenuList* menuList);
+CTGUI_API void tguiMenuBarMenuList_destroy(tguiMenuBarMenuList* menuList);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API tguiMenuBarMenuList* tguiMenuBar_getMenus(tguiWidget* widget);  // You must call tguiMenuBarMenuList_free on the returned value
+CTGUI_API tguiMenuBarMenuList* tguiMenuBar_getMenus(tguiWidget* widget);  // You must call tguiMenuBarMenuList_destroy on the returned value

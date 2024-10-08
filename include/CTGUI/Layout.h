@@ -47,7 +47,7 @@ typedef enum
 CTGUI_API tguiLayout* tguiLayout_create(float constant);
 CTGUI_API tguiLayout* tguiLayout_createFromString(const char* expression);
 CTGUI_API tguiLayout* tguiLayout_copy(const tguiLayout* other);
-CTGUI_API void tguiLayout_free(tguiLayout* layout);
+CTGUI_API void tguiLayout_destroy(tguiLayout* layout);
 
 CTGUI_API void tguiLayout_replaceValue(tguiLayout* layout, const tguiLayout* newLayout);
 CTGUI_API float tguiLayout_getValue(const tguiLayout* layout);
@@ -59,12 +59,12 @@ CTGUI_API tguiLayout2d* tguiLayout2d_create(tguiVector2f constant);
 CTGUI_API tguiLayout2d* tguiLayout2d_createFromLayouts(tguiLayout* x, tguiLayout* y);
 CTGUI_API tguiLayout2d* tguiLayout2d_createFromString(const char* expression);
 CTGUI_API tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* other);
-CTGUI_API void tguiLayout2d_free(tguiLayout2d* layout);
+CTGUI_API void tguiLayout2d_destroy(tguiLayout2d* layout);
 
 CTGUI_API tguiVector2f tguiLayout2d_getValue(const tguiLayout2d* layout);
 
-tguiLayout* tguiLayout2d_getX(const tguiLayout2d* layout); // tguiLayout_free must be called on the return value
-tguiLayout* tguiLayout2d_getY(const tguiLayout2d* layout); // tguiLayout_free must be called on the return value
+tguiLayout* tguiLayout2d_getX(const tguiLayout2d* layout); // tguiLayout_destroy must be called on the return value
+tguiLayout* tguiLayout2d_getY(const tguiLayout2d* layout); // tguiLayout_destroy must be called on the return value
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -31,7 +31,7 @@ tguiRendererData* tguiRendererData_copy(const tguiRendererData* data)
     return new tguiRendererData(std::make_shared<tgui::RendererData>(*data->This));
 }
 
-void tguiRendererData_free(tguiRendererData* data)
+void tguiRendererData_destroy(tguiRendererData* data)
 {
     delete data;
 }

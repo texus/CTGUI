@@ -103,14 +103,14 @@ unsigned int tguiSpinControl_getDecimalPlaces(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSpinControl_setUseWideArrows(tguiWidget* thisWidget, tguiBool value)
+void tguiSpinControl_setSpinButtonWidth(tguiWidget* thisWidget, float value)
 {
-    DOWNCAST(thisWidget->This)->setUseWideArrows(value != 0);
+    DOWNCAST(thisWidget->This)->setSpinButtonWidth(value);
 }
 
-tguiBool tguiSpinControl_getUseWideArrows(const tguiWidget* thisWidget)
+float tguiSpinControl_getSpinButtonWidth(const tguiWidget* thisWidget)
 {
-    return DOWNCAST(thisWidget->This)->getUseWideArrows();
+    return DOWNCAST(thisWidget->This)->getSpinButtonWidth();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

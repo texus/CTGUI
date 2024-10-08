@@ -54,7 +54,7 @@ namespace ctgui
         if (cWidget->referenceCount > 0)
             --cWidget->referenceCount;
         else
-            std::cerr << "tguiWidget_free called too many times!\n";
+            std::cerr << "tguiWidget_destroy called too many times!\n";
 
         if (cWidget->referenceCount == 0)
         {
@@ -96,9 +96,9 @@ tguiWidget* tguiWidget_copy(const tguiWidget* widget)
     return ctgui::addWidgetRef(widget->This->clone());
 }
 
-void tguiWidget_free(tguiWidget* widget)
+void tguiWidget_destroy(tguiWidget* widget)
 {
-    // We will allow the free function to be called on a nullptr, so that you can e.g. always call tguiWidget_free after
+    // We will allow the destroy function to be called on a nullptr, so that you can e.g. always call tguiWidget_destroy after
     // a call to tguiWidget_getToolTip or tguiWidget_getParent without having to check if a non-null value was actually returned.
     if (widget)
         ctgui::removeWidgetRef(widget->This);

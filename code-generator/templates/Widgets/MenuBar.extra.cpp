@@ -9,7 +9,7 @@ static void freeMenuItem(tguiMenuBarElement& menu)
     delete[] menu.menuItems;
 }
 
-void tguiMenuBarMenuList_free(tguiMenuBarMenuList* menuList)
+void tguiMenuBarMenuList_destroy(tguiMenuBarMenuList* menuList)
 {
     if (menuList->menusCount > 0)
     {

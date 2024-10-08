@@ -39,7 +39,7 @@ tguiTimer* tguiTimer_create(void(*callback)(tguiTimer*), tguiDuration interval, 
     return new tguiTimer(callback, std::chrono::nanoseconds(interval.nanoseconds), enable != 0);
 }
 
-void tguiTimer_free(tguiTimer* timer)
+void tguiTimer_destroy(tguiTimer* timer)
 {
     delete timer;
 }

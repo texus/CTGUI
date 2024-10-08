@@ -25,7 +25,7 @@ tguiFont* tguiFont_createFromMemory(tguiUint8* data, size_t dataSize)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFont_free(tguiFont* font)
+void tguiFont_destroy(tguiFont* font)
 {
     delete font;
 }

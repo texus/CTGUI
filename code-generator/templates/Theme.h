@@ -7,7 +7,7 @@
 
 CTGUI_API tguiTheme* tguiTheme_create(void);
 CTGUI_API tguiTheme* tguiTheme_copy(const tguiTheme* theme);
-CTGUI_API void tguiTheme_free(tguiTheme* theme);
+CTGUI_API void tguiTheme_destroy(tguiTheme* theme);
 
 CTGUI_API tguiBool tguiTheme_load(tguiTheme* theme, const char* filename);
 

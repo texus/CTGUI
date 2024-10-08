@@ -19,7 +19,7 @@ CTGUI_API tguiTexture* tguiTexture_createFromPixelDataEx(tguiVector2u size, tgui
 CTGUI_API tguiTexture* tguiTexture_createFromBase64(const char* imageAsBase64, tguiUIntRect partRect, tguiUIntRect middleRect);
 CTGUI_API tguiTexture* tguiTexture_createFromBase64Ex(const char* imageAsBase64, tguiUIntRect partRect, tguiUIntRect middleRect, tguiBool smoothing);
 
-CTGUI_API void tguiTexture_free(tguiTexture* texture);
+CTGUI_API void tguiTexture_destroy(tguiTexture* texture);
 
 CTGUI_API void tguiTexture_setColor(tguiTexture* thisTexture, tguiColor value);
 CTGUI_API tguiColor tguiTexture_getColor(const tguiTexture* thisTexture);

@@ -7,6 +7,13 @@
 
 #include <CTGUI/Alignment.h>
 
+typedef enum
+{
+    tguiChildWindowCloseBehaviorNone,
+    tguiChildWindowCloseBehaviorHide,
+    tguiChildWindowCloseBehaviorRemove,
+} tguiChildWindowCloseBehavior;
+
 CTGUI_API tguiWidget* tguiChildWindow_create(void);
 
 CTGUI_API void tguiChildWindow_setClientSize(tguiWidget* thisWidget, tguiVector2f size);
@@ -32,6 +39,9 @@ CTGUI_API tguiHorizontalAlignment tguiChildWindow_getTitleAlignment(const tguiWi
 
 CTGUI_API void tguiChildWindow_setTitleButtons(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiChildWindow_getTitleButtons(const tguiWidget* thisWidget);
+
+CTGUI_API void tguiChildWindow_setCloseBehavior(tguiWidget* thisWidget, tguiChildWindowCloseBehavior value);
+CTGUI_API tguiChildWindowCloseBehavior tguiChildWindow_getCloseBehavior(const tguiWidget* thisWidget);
 
 CTGUI_API void tguiChildWindow_setResizable(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiChildWindow_isResizable(const tguiWidget* thisWidget);

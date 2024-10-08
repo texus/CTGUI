@@ -9,13 +9,13 @@
 @TGUI_GENERATED_HEAD@
 
 CTGUI_API tguiWidget* tguiWidget_copy(const tguiWidget* other);
-CTGUI_API void tguiWidget_free(tguiWidget* widget);
+CTGUI_API void tguiWidget_destroy(tguiWidget* widget);
 
 CTGUI_API void tguiWidget_setAutoLayout(const tguiWidget* widget, tguiAutoLayout layout);
 CTGUI_API tguiAutoLayout tguiWidget_getAutoLayout(const tguiWidget* widget);
 
 CTGUI_API unsigned int tguiWidget_signalConnect(tguiWidget* widget, const char* signalName, void (*function)(void));
-CTGUI_API unsigned int tguiWidget_signalConnectEx(tguiWidget* widget, const char* signalName, void (*function)(tguiWidget*, tguiUtf32)); // tguiWidget_free must be called on the first parameter in the callback function
+CTGUI_API unsigned int tguiWidget_signalConnectEx(tguiWidget* widget, const char* signalName, void (*function)(tguiWidget*, tguiUtf32)); // tguiWidget_destroy must be called on the first parameter in the callback function
 
 CTGUI_API unsigned int tguiWidget_signalIntConnect(tguiWidget* widget, const char* signalName, void (*function)(int));
 CTGUI_API unsigned int tguiWidget_signalUIntConnect(tguiWidget* widget, const char* signalName, void (*function)(unsigned int));
@@ -26,7 +26,7 @@ CTGUI_API unsigned int tguiWidget_signalStringConnect(tguiWidget* widget, const 
 CTGUI_API unsigned int tguiWidget_signalVector2fConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiVector2f));
 CTGUI_API unsigned int tguiWidget_signalFloatRectConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiFloatRect));
 CTGUI_API unsigned int tguiWidget_signalRangeConnect(tguiWidget* widget, const char* signalName, void (*function)(float, float));
-CTGUI_API unsigned int tguiWidget_signalChildWindowConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiWidget*)); // tguiWidget_free must be called on the parameter in the callback function
+CTGUI_API unsigned int tguiWidget_signalChildWindowConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiWidget*)); // tguiWidget_destroy must be called on the parameter in the callback function
 CTGUI_API unsigned int tguiWidget_signalItemConnect(tguiWidget* widget, const char* signalName, void (*function)(int));
 CTGUI_API unsigned int tguiWidget_signalPanelListBoxItemConnect(tguiWidget* widget, const char* signalName, void (*function)(int));
 CTGUI_API unsigned int tguiWidget_signalFileDialogPathsConnect(tguiWidget* widget, const char* signalName, void (*function)(size_t, const tguiUtf32*)); // List of strings (parameter should NOT be freed in callback function)

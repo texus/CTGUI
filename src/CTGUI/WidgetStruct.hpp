@@ -29,7 +29,7 @@
 #include <TGUI/Widget.hpp>
 #include <cassert>
 
-// tguiWidget_free must be called on every tguiWidget* returned by CTGUI
+// tguiWidget_destroy must be called on every tguiWidget* returned by CTGUI
 struct tguiWidget
 {
     std::shared_ptr<tgui::Widget> This;

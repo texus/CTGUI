@@ -29,7 +29,7 @@ CTGUI_API float tguiSpinControl_getStep(const tguiWidget* thisWidget);
 CTGUI_API void tguiSpinControl_setDecimalPlaces(tguiWidget* thisWidget, unsigned int value);
 CTGUI_API unsigned int tguiSpinControl_getDecimalPlaces(const tguiWidget* thisWidget);
 
-CTGUI_API void tguiSpinControl_setUseWideArrows(tguiWidget* thisWidget, tguiBool value);
-CTGUI_API tguiBool tguiSpinControl_getUseWideArrows(const tguiWidget* thisWidget);
+CTGUI_API void tguiSpinControl_setSpinButtonWidth(tguiWidget* thisWidget, float value);
+CTGUI_API float tguiSpinControl_getSpinButtonWidth(const tguiWidget* thisWidget);
 
 #endif // CTGUI_SPINCONTROL_H

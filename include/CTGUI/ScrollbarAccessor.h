@@ -16,7 +16,7 @@ CTGUI_API tguiScrollbarAccessor* tguiDualScrollbarChildInterface_getHorizontalSc
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API void tguiScrollbarAccessor_free(tguiScrollbarAccessor* accessor);
+CTGUI_API void tguiScrollbarAccessor_destroy(tguiScrollbarAccessor* accessor);
 
 CTGUI_API void tguiScrollbarAccessor_setValue(tguiScrollbarAccessor* thisScrollbarAccessor, unsigned int value);
 CTGUI_API unsigned int tguiScrollbarAccessor_getValue(const tguiScrollbarAccessor* thisScrollbarAccessor);

@@ -18,7 +18,7 @@ tguiSprite* tguiSprite_createFromTexture(tguiTexture* texture)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiSprite_free(tguiSprite* sprite)
+void tguiSprite_destroy(tguiSprite* sprite)
 {
     delete sprite;
 }

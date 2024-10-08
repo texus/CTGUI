@@ -43,7 +43,7 @@ tguiOutline* tguiOutline_copy(const tguiOutline* outline)
     return new tguiOutline(*outline);
 }
 
-void tguiOutline_free(tguiOutline* outline)
+void tguiOutline_destroy(tguiOutline* outline)
 {
     delete outline;
 }

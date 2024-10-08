@@ -29,7 +29,7 @@
 #include <CTGUI/Config.h>
 
 CTGUI_API tguiRendererData* tguiRendererData_copy(const tguiRendererData* data);
-CTGUI_API void tguiRendererData_free(tguiRendererData* data);
+CTGUI_API void tguiRendererData_destroy(tguiRendererData* data);
 
 #endif // CTGUI_RENDERER_DATA_H
 

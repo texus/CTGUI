@@ -25,7 +25,7 @@ tguiScrollbarAccessor* tguiDualScrollbarChildInterface_getHorizontalScrollbar(tg
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollbarAccessor_free(tguiScrollbarAccessor* accessor)
+void tguiScrollbarAccessor_destroy(tguiScrollbarAccessor* accessor)
 {
     delete accessor;
 }

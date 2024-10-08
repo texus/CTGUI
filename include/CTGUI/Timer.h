@@ -31,7 +31,7 @@
 CTGUI_API void tguiTimer_scheduleCallback(void(*callback)(void), tguiDuration interval);
 
 CTGUI_API tguiTimer* tguiTimer_create(void(*callback)(tguiTimer*), tguiDuration interval, tguiBool enable);
-CTGUI_API void tguiTimer_free(tguiTimer* timer);
+CTGUI_API void tguiTimer_destroy(tguiTimer* timer);
 
 CTGUI_API void tguiTimer_setInterval(tguiTimer* timer, tguiDuration interval);
 CTGUI_API tguiDuration tguiTimer_getInterval(const tguiTimer* timer);

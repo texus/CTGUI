@@ -36,7 +36,7 @@ tguiGui* tguiGuiSDLRenderer_create(SDL_Window* window, SDL_Renderer* renderer)
     return gui;
 }
 
-void tguiGuiSDLRenderer_free(tguiGui* gui)
+void tguiGuiSDLRenderer_destroy(tguiGui* gui)
 {
     delete gui;
 }

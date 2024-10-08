@@ -224,7 +224,7 @@ static void freeSubNodes(tguiTreeViewConstNode& node)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewConstNode_free(tguiTreeViewConstNode* node)
+void tguiTreeViewConstNode_destroy(tguiTreeViewConstNode* node)
 {
     if (!node)
         return;

@@ -19,7 +19,15 @@ CTGUI_API size_t tguiComboBox_getItemsToDisplay(const tguiWidget* thisWidget);
 
 CTGUI_API size_t tguiComboBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tguiUtf32 id);
 
+CTGUI_API void tguiComboBox_addMultipleItems(tguiWidget* thisWidget, const tguiUtf32* items, size_t itemsLength);
+
 CTGUI_API tguiUtf32 tguiComboBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id);
+
+CTGUI_API tguiUtf32 tguiComboBox_getItemByIndex(const tguiWidget* thisWidget, size_t index);
+
+CTGUI_API int tguiComboBox_getIndexById(const tguiWidget* thisWidget, tguiUtf32 id);
+
+CTGUI_API tguiUtf32 tguiComboBox_getIdByIndex(const tguiWidget* thisWidget, size_t index);
 
 CTGUI_API const tguiUtf32* tguiComboBox_getItems(const tguiWidget* thisWidget, size_t* returnCount);
 

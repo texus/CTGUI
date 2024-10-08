@@ -14,7 +14,7 @@ CTGUI_API tguiScrollbarAccessor* tguiDualScrollbarChildInterface_getHorizontalSc
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API void tguiScrollbarAccessor_free(tguiScrollbarAccessor* accessor);
+CTGUI_API void tguiScrollbarAccessor_destroy(tguiScrollbarAccessor* accessor);
 
 @TGUI_GENERATED_BODY@
 

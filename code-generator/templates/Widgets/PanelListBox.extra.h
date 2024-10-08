@@ -14,6 +14,6 @@ CTGUI_API int tguiPanelListBox_getIndexById(const tguiWidget* widget, tguiUtf32 
 CTGUI_API int tguiPanelListBox_getIndexByItem(const tguiWidget* widget, const tguiWidget* panelPtr);
 CTGUI_API tguiUtf32 tguiPanelListBox_getIdByIndex(const tguiWidget* widget, size_t index);
 
-CTGUI_API tguiWidget** tguiPanelListBox_getItems(const tguiWidget* widget, size_t* count); // tguiWidget_free must be called on each element in the returned array, count is set by the function to indicate the array length
+CTGUI_API tguiWidget** tguiPanelListBox_getItems(const tguiWidget* widget, size_t* count); // tguiWidget_destroy must be called on each element in the returned array, count is set by the function to indicate the array length
 
 CTGUI_API tguiBool tguiPanelListBox_contains(const tguiWidget* widget, const tguiWidget* panelPtr);

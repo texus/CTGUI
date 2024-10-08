@@ -19,10 +19,10 @@ typedef enum
 
 CTGUI_API tguiSprite* tguiSprite_createNull(void);
 
-// The texture is copied by this function, the caller still keeps ownership of the passed value and thus the caller is still responsible for freeing it.
+// The texture is copied by this function, the caller still keeps ownership of the passed value and thus the caller is still responsible for destroying it.
 CTGUI_API tguiSprite* tguiSprite_createFromTexture(tguiTexture* texture);
 
-CTGUI_API void tguiSprite_free(tguiSprite* sprite);
+CTGUI_API void tguiSprite_destroy(tguiSprite* sprite);
 
 CTGUI_API tguiSpriteScalingType tguiSprite_getScalingType(const tguiSprite* sprite);
 

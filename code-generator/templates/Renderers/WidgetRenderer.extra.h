@@ -10,4 +10,4 @@ CTGUI_API tguiTexture* tguiWidgetRenderer_getPropertyTexture(const tguiRenderer*
 CTGUI_API tguiUint32 tguiWidgetRenderer_getPropertyTextStyle(const tguiRenderer* renderer, tguiUtf32 property);
 CTGUI_API tguiRendererData* tguiWidgetRenderer_getPropertyRendererData(const tguiRenderer* renderer, tguiUtf32 property);
 
-CTGUI_API void tguiWidgetRenderer_free(tguiRenderer* renderer);
+CTGUI_API void tguiWidgetRenderer_destroy(tguiRenderer* renderer);

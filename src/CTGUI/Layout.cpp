@@ -45,7 +45,7 @@ tguiLayout* tguiLayout_copy(const tguiLayout* layout)
     return new tguiLayout(*layout);
 }
 
-void tguiLayout_free(tguiLayout* layout)
+void tguiLayout_destroy(tguiLayout* layout)
 {
     delete layout;
 }
@@ -87,7 +87,7 @@ tguiLayout2d* tguiLayout2d_copy(const tguiLayout2d* layout)
     return new tguiLayout2d(*layout);
 }
 
-void tguiLayout2d_free(tguiLayout2d* layout)
+void tguiLayout2d_destroy(tguiLayout2d* layout)
 {
     delete layout;
 }

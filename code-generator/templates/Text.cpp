@@ -39,7 +39,7 @@ tguiText* tguiText_create(void)
     return new tguiText();
 }
 
-void tguiText_free(tguiText* text)
+void tguiText_destroy(tguiText* text)
 {
     delete text;
 }

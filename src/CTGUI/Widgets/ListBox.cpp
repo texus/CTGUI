@@ -23,6 +23,18 @@ size_t tguiListBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tguiUtf32 id)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiListBox_addMultipleItems(tguiWidget* thisWidget, const tguiUtf32* items, size_t itemsLength)
+{
+    std::vector<tgui::String> convertedItems;
+    convertedItems.reserve(itemsLength);
+    for (size_t i = 0; i < itemsLength; ++i)
+        convertedItems.push_back(ctgui::toCppStr(items[i]));
+
+    DOWNCAST(thisWidget->This)->addMultipleItems(std::move(convertedItems));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiUtf32 tguiListBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemById(ctgui::toCppStr(id)));

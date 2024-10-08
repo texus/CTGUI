@@ -25,7 +25,7 @@ tguiTheme* tguiTheme_copy(const tguiTheme* theme)
     return new tguiTheme(std::make_shared<tgui::Theme>(*theme->This));
 }
 
-void tguiTheme_free(tguiTheme* theme)
+void tguiTheme_destroy(tguiTheme* theme)
 {
     delete theme;
 }

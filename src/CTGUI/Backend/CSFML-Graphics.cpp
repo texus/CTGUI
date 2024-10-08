@@ -544,7 +544,7 @@ tguiGui* tguiGuiCSFMLGraphics_create(sfRenderWindow* window)
     return gui;
 }
 
-void tguiGuiCSFMLGraphics_free(tguiGui* gui)
+void tguiGuiCSFMLGraphics_destroy(tguiGui* gui)
 {
     delete gui;
 }

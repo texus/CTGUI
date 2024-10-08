@@ -13,7 +13,7 @@ CTGUI_API float tguiText_getStaticLineHeight(const tguiFont* font, unsigned int 
 CTGUI_API float tguiText_getStaticLineWidth(tguiUtf32 text, const tguiFont* font, unsigned int characterSize, tguiUint32 style);
 
 CTGUI_API tguiText* tguiText_create(void);
-CTGUI_API void tguiText_free(tguiText* text);
+CTGUI_API void tguiText_destroy(tguiText* text);
 
 CTGUI_API unsigned int tguiText_findBestTextSize(const tguiFont* font, float height, int fit);
 

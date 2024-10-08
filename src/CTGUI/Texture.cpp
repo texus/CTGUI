@@ -85,7 +85,7 @@ tguiTexture* tguiTexture_createFromBase64Ex(const char* imageAsBase64, tguiUIntR
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTexture_free(tguiTexture* texture)
+void tguiTexture_destroy(tguiTexture* texture)
 {
     delete texture;
 }

@@ -1,4 +1,4 @@
-void tguiGridWidgetLocation_free(tguiGridWidgetLocation* locationList, size_t count)
+void tguiGridWidgetLocation_destroy(tguiGridWidgetLocation* locationList, size_t count)
 {
     if (!locationList)
         return;

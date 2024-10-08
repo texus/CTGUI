@@ -17,7 +17,7 @@ CTGUI_API tguiFont* tguiFont_createNull(void);
 CTGUI_API tguiFont* tguiFont_createFromFile(tguiUtf32 filename);
 CTGUI_API tguiFont* tguiFont_createFromMemory(tguiUint8* data, size_t dataSize);
 
-CTGUI_API void tguiFont_free(tguiFont* font);
+CTGUI_API void tguiFont_destroy(tguiFont* font);
 
 CTGUI_API tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, tguiChar32 codePoint, unsigned int characterSize, tguiBool bold, float outlineThickness);
 

@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
     tguiRenderer* buttonRenderer = tguiWidget_getRenderer(button);
     tguiButtonRenderer_setBackgroundColor(buttonRenderer, tguiColor_fromRGB(128, 220, 128));
-    tguiWidgetRenderer_free(buttonRenderer);
+    tguiWidgetRenderer_destroy(buttonRenderer);
 
     tguiWidget_signalConnect(button, "Pressed", func);
 
@@ -71,8 +71,8 @@ int main(int argc, char* argv[])
         SDL_RenderPresent(renderer);
     }
 
-    tguiWidget_free(button);
-    tguiGuiSDLRenderer_free(gui);
+    tguiWidget_destroy(button);
+    tguiGuiSDLRenderer_destroy(gui);
 
     // All CTGUI resources must be destructed before destroying SDL and SDL_ttf
     TTF_Quit();

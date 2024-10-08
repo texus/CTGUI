@@ -35,9 +35,42 @@ size_t tguiComboBox_addItem(tguiWidget* thisWidget, tguiUtf32 item, tguiUtf32 id
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiComboBox_addMultipleItems(tguiWidget* thisWidget, const tguiUtf32* items, size_t itemsLength)
+{
+    std::vector<tgui::String> convertedItems;
+    convertedItems.reserve(itemsLength);
+    for (size_t i = 0; i < itemsLength; ++i)
+        convertedItems.push_back(ctgui::toCppStr(items[i]));
+
+    DOWNCAST(thisWidget->This)->addMultipleItems(std::move(convertedItems));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiUtf32 tguiComboBox_getItemById(const tguiWidget* thisWidget, tguiUtf32 id)
 {
     return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemById(ctgui::toCppStr(id)));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiUtf32 tguiComboBox_getItemByIndex(const tguiWidget* thisWidget, size_t index)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getItemByIndex(index));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int tguiComboBox_getIndexById(const tguiWidget* thisWidget, tguiUtf32 id)
+{
+    return DOWNCAST(thisWidget->This)->getIndexById(ctgui::toCppStr(id));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiUtf32 tguiComboBox_getIdByIndex(const tguiWidget* thisWidget, size_t index)
+{
+    return ctgui::fromCppStr(DOWNCAST(thisWidget->This)->getIdByIndex(index));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
