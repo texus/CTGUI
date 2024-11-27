@@ -1,0 +1,11 @@
+#ifndef CTGUI_TOOL_TIP_H
+#define CTGUI_TOOL_TIP_H
+
+#include <CTGUI/Global.h>
+
+@TGUI_GENERATED_HEAD@
+
+@TGUI_GENERATED_BODY@
+
+#endif // CTGUI_TOOL_TIP_H
+

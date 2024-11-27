@@ -39,6 +39,7 @@ CTGUI_API void tgui_setDoubleClickTime(tguiDuration duration);
 CTGUI_API tguiDuration tgui_getDoubleClickTime(void);
 
 CTGUI_API void tgui_setResourcePath(tguiUtf32 path);
+CTGUI_API tguiUtf32 tgui_getResourcePath();
 
 CTGUI_API void tgui_setEditCursorBlinkRate(tguiDuration blinkRate);
 CTGUI_API tguiDuration tgui_getEditCursorBlinkRate(void);
@@ -49,7 +50,7 @@ CTGUI_API tguiBool tgui_writeFile(tguiUtf32 filename, const char* textToWrite);
 CTGUI_API void tgui_readFileToMemory_free(tguiUint8*);
 
 // Returns the last error message that was set in the C binding upon catching a c++ exception
-CTGUI_API const char* tgui_getLastError(void);
+CTGUI_API tguiUtf32 tgui_getLastError(void);
 
 // The BindingWidgetCleanup callback is called once per frame for each widget that was destroyed since the last check.
 // Note that the pointer passed as parameter should NOT be freed or accessed in any way by the callback function!

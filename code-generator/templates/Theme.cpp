@@ -30,11 +30,11 @@ void tguiTheme_destroy(tguiTheme* theme)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiTheme_load(tguiTheme* theme, const char* filename)
+tguiBool tguiTheme_load(tguiTheme* theme, tguiUtf32 filename)
 {
     try
     {
-        theme->This->load(filename);
+        theme->This->load(ctgui::toCppStr(filename));
         return true;
     }
     catch (const tgui::Exception& e)
@@ -53,11 +53,11 @@ void tguiTheme_replace(tguiTheme* theme, tguiTheme* otherTheme)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id)
+tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, tguiUtf32 id)
 {
     try
     {
-        std::shared_ptr<tgui::RendererData> data = theme->This->getRenderer(id);
+        std::shared_ptr<tgui::RendererData> data = theme->This->getRenderer(ctgui::toCppStr(id));
         return new tguiRendererData(data);
     }
     catch (const tgui::Exception& e)
@@ -71,7 +71,10 @@ tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, const char* id)
 
 void tguiTheme_setDefault(tguiTheme* defaultTheme)
 {
-    tgui::Theme::setDefault(defaultTheme->This);
+    if (defaultTheme)
+        tgui::Theme::setDefault(defaultTheme->This);
+    else
+        tgui::Theme::setDefault(nullptr);
 }
 
 tguiTheme* tguiTheme_getDefault(void)
@@ -88,49 +91,121 @@ tguiBool tguiTheme_hasGlobalProperty(const tguiTheme* theme, tguiUtf32 property)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiTheme_getGlobalPropertyBool(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyBool(const tguiTheme* theme, tguiUtf32 property, tguiBool* value)
 {
-    return theme->This->getGlobalProperty(ctgui::toCppStr(property)).getBool();
+    try
+    {
+        *value = theme->This->getGlobalProperty(ctgui::toCppStr(property)).getBool();
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiFont* tguiTheme_getGlobalPropertyFont(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyFont(const tguiTheme* theme, tguiUtf32 property, tguiFont** value)
 {
-    return new tguiFont(std::make_unique<tgui::Font>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getFont()));
+    try
+    {
+        *value = new tguiFont(std::make_unique<tgui::Font>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getFont()));
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiColor tguiTheme_getGlobalPropertyColor(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyColor(const tguiTheme* theme, tguiUtf32 property, tguiColor* value)
 {
-    return ctgui::fromCppColor(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getColor());
+    try
+    {
+        *value = ctgui::fromCppColor(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getColor());
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiUtf32 tguiTheme_getGlobalPropertyString(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyString(const tguiTheme* theme, tguiUtf32 property, tguiUtf32* value)
 {
-    return ctgui::fromCppStr(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getString());
+    try
+    {
+        *value = ctgui::fromCppStr(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getString());
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-float tguiTheme_getGlobalPropertyNumber(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyNumber(const tguiTheme* theme, tguiUtf32 property, float* value)
 {
-    return theme->This->getGlobalProperty(ctgui::toCppStr(property)).getNumber();
+    try
+    {
+        *value = theme->This->getGlobalProperty(ctgui::toCppStr(property)).getNumber();
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiOutline* tguiTheme_getGlobalPropertyOutline(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyOutline(const tguiTheme* theme, tguiUtf32 property, tguiOutline** value)
 {
-    return new tguiOutline(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getOutline());
+    try
+    {
+        *value = new tguiOutline(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getOutline());
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiTexture* tguiTheme_getGlobalPropertyTexture(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyTexture(const tguiTheme* theme, tguiUtf32 property, tguiTexture** value)
 {
-    return new tguiTexture(std::make_unique<tgui::Texture>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getTexture()));
+    try
+    {
+        *value = new tguiTexture(std::make_unique<tgui::Texture>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getTexture()));
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiUint32 tguiTheme_getGlobalPropertyTextStyle(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyTextStyle(const tguiTheme* theme, tguiUtf32 property, tguiUint32* value)
 {
-    return static_cast<tguiUint32>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getTextStyle());
+    try
+    {
+        *value = static_cast<tguiUint32>(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getTextStyle());
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
-tguiRendererData* tguiTheme_getGlobalPropertyRendererData(const tguiTheme* theme, tguiUtf32 property)
+tguiBool tguiTheme_getGlobalPropertyRendererData(const tguiTheme* theme, tguiUtf32 property, tguiRendererData** value)
 {
-    return new tguiRendererData(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getRenderer());
+    try
+    {
+        *value = new tguiRendererData(theme->This->getGlobalProperty(ctgui::toCppStr(property)).getRenderer());
+        return true;
+    }
+    catch (const tgui::Exception&)
+    {
+        return false;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

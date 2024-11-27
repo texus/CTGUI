@@ -27,3 +27,7 @@ property-bool-is ReadOnly
 function void enableMonospacedFontOptimization(bool enable)
 
 const-function size_t getLinesCount()
+
+signal String(text) TextChange TextChanged
+signal SelectionChange SelectionChanged
+signal CaretPositionChange CaretPositionChanged

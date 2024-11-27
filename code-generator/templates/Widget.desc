@@ -58,3 +58,11 @@ function void setAutoLayoutUpdateEnabled(bool enabled)
 
 const-function bool isMouseDown()
 const-function bool isMouseOnWidget(Vector2f pos)
+
+signal Vector2f(position) PositionChange PositionChanged
+signal Vector2f(size) SizeChange SizeChanged
+signal Focus Focused
+signal onUnfocus Unfocused
+signal MouseEnter MouseEntered
+signal MouseLeave MouseLeft
+signal ShowEffect(type,show) ShowEffectFinish ShowEffectFinished

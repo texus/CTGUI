@@ -48,3 +48,5 @@ property bool ChangeItemOnScroll
 
 const-function bool contains(string item)
 const-function bool containsId(string id)
+
+signal Item(index) ItemSelect ItemSelected

@@ -10,3 +10,5 @@ property float Step
 property Orientation Orientation
 property bool InvertedDirection
 property bool ChangeValueOnScroll
+
+signal Float(value) ValueChange ValueChanged

@@ -13,3 +13,6 @@ function uint incrementValue()
 
 property string Text
 property FillDirection FillDirection
+
+signal UInt(value) ValueChange ValueChanged
+signal Full Full

@@ -8,3 +8,5 @@ property float Maximum
 property float SelectionStart
 property float SelectionEnd
 property float Step
+
+signal Range(start,end) RangeChange RangeChanged

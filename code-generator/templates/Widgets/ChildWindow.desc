@@ -19,3 +19,10 @@ property CloseBehavior CloseBehavior
 property-bool-is Resizable
 property bool KeepInParent
 property-bool-is PositionLocked
+
+signal MousePress MousePressed
+signal ChildWindow(window) Close Closed
+signal ChildWindow(window) Minimize Minimized
+signal ChildWindow(window) Maximize Maximized
+signal ChildWindow(window) EscapeKeyPress EscapeKeyPressed
+signal BoolPtr(abort) Closing Closing

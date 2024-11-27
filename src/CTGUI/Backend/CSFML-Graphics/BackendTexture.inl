@@ -37,6 +37,7 @@ namespace ctgui
     public:
         void setSmooth(bool smooth) override
         {
+            tgui::BackendTexture::setSmooth(smooth);
             if (m_texture)
                 sfTexture_setSmooth(m_texture, smooth);
         }

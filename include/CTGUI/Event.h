@@ -152,25 +152,8 @@ typedef enum
     tguiKeyModifierAlt
 } tguiKeyModifier;
 
-typedef enum
-{
-    tguiEventTypeLostFocus,
-    tguiEventTypeGainedFocus,
-    tguiEventTypeTextEntered,
-    tguiEventTypeKeyPressed,
-    tguiEventTypeMouseWheelScrolled,
-    tguiEventTypeMouseButtonPressed,
-    tguiEventTypeMouseButtonReleased,
-    tguiEventTypeMouseMoved,
-    tguiEventTypeMouseEntered,
-    tguiEventTypeMouseLeft,
-    tguiEventTypeResized,
-    tguiEventTypeClosed
-} tguiEventType;
-
 typedef struct
 {
-    tguiEventType   type;
     tguiKeyboardKey code;
     tguiBool        alt;
     tguiBool        control;
@@ -180,20 +163,17 @@ typedef struct
 
 typedef struct
 {
-    tguiEventType type;
     tguiChar32    unicode;
 } tguiTextEvent;
 
 typedef struct
 {
-    tguiEventType type;
     int x;
     int y;
 } tguiMouseMoveEvent;
 
 typedef struct
 {
-    tguiEventType type;
     tguiMouseButton button;
     int x;
     int y;
@@ -201,7 +181,6 @@ typedef struct
 
 typedef struct
 {
-    tguiEventType type;
     float delta;
     int   x;
     int   y;
@@ -209,21 +188,9 @@ typedef struct
 
 typedef struct
 {
-    tguiEventType type;
     unsigned int width;
     unsigned int height;
 } tguiSizeEvent;
-
-typedef struct
-{
-    tguiEventType             type;
-    tguiKeyEvent              key;
-    tguiTextEvent             text;
-    tguiMouseMoveEvent        mouseMove;
-    tguiMouseButtonEvent      mouseButton;
-    tguiMouseWheelEvent       mouseWheel;
-    tguiSizeEvent             size;
-} tguiEvent;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

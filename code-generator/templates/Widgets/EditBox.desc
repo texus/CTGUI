@@ -18,3 +18,8 @@ const-function string getInputValidator()
 
 function void selectText(size_t start, size_t length)
 const-function string getSelectedText()
+
+signal String(text) TextChange TextChanged
+signal String(text) ReturnKeyPress ReturnKeyPressed
+signal String(text) ReturnOrUnfocus ReturnOrUnfocused
+signal SizeT(caretPos) CaretPositionChange CaretPositionChanged

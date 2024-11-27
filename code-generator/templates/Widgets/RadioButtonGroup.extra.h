@@ -1,1 +1,1 @@
-CTGUI_API tguiWidget* getCheckedRadioButton(tguiWidget* widget);
+CTGUI_API tguiWidget* tguiRadioButtonGroup_getCheckedRadioButton(tguiWidget* widget);

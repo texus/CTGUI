@@ -3,3 +3,4 @@ inherits ChildWindowRenderer
 property RendererData Button
 property RendererData Label
 property RendererData Slider
+property RendererData EditBox

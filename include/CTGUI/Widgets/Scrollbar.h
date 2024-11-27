@@ -5,8 +5,14 @@
 
 #include <CTGUI/Widget.h>
 
-#include <CTGUI/ScrollbarPolicy.h>
 #include <CTGUI/Orientation.h>
+
+typedef enum
+{
+    tguiScrollbarPolicyAutomatic,
+    tguiScrollbarPolicyAlways,
+    tguiScrollbarPolicyNever,
+} tguiScrollbarPolicy;
 
 CTGUI_API tguiWidget* tguiScrollbar_create(void);
 

@@ -186,11 +186,11 @@ tguiBool tguiTreeView_removeItem(tguiWidget* thisWidget, const tguiUtf32* hierar
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static std::vector<tgui::String> convertHierarchy(const tguiUtf32* hierarchy, unsigned int hierarchyLength)
+static std::vector<tgui::String> convertHierarchy(const tguiUtf32* hierarchy, size_t hierarchyLength)
 {
     std::vector<tgui::String> convertedHierarchy;
     convertedHierarchy.reserve(hierarchyLength);
-    for (unsigned int i = 0; i < hierarchyLength; ++i)
+    for (size_t i = 0; i < hierarchyLength; ++i)
         convertedHierarchy.emplace_back(ctgui::toCppStr(hierarchy[i]));
 
     return convertedHierarchy;
@@ -235,7 +235,7 @@ void tguiTreeViewConstNode_destroy(tguiTreeViewConstNode* node)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const tguiTreeViewConstNode* tguiTreeView_getNode(const tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength)
+const tguiTreeViewConstNode* tguiTreeView_getNode(const tguiWidget* widget, const tguiUtf32* hierarchy, size_t hierarchyLength)
 {
     // A copy of the text strings still needs to exist after this function finished
     static tgui::TreeView::ConstNode cppNode;

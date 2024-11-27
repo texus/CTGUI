@@ -1,5 +1,4 @@
-static-function void setGlobalFont(Font font)
-static-function Font getGlobalFont()
+static-property Font GlobalFont
 
 const-function string getId()
 const-function float getKerning(Char32 first, Char32 second, uint characterSize, bool bold)

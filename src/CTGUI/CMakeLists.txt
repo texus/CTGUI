@@ -45,10 +45,11 @@ set(SRC
     ${SRCROOT}/RendererStruct.hpp
     ${SRCROOT}/ScrollbarAccessor.cpp
     ${INCROOT}/ScrollbarAccessor.h
-    ${INCROOT}/ScrollbarPolicy.h
     ${SRCROOT}/Sprite.cpp
     ${SRCROOT}/SpriteStruct.hpp
     ${INCROOT}/Sprite.h
+    ${SRCROOT}/SubwidgetContainer.cpp
+    ${INCROOT}/SubwidgetContainer.h
     ${SRCROOT}/Text.cpp
     ${SRCROOT}/TextStruct.hpp
     ${INCROOT}/Text.h
@@ -75,6 +76,8 @@ set(SRC
     ${INCROOT}/Renderers/ButtonRenderer.h
     ${SRCROOT}/Renderers/ChatBoxRenderer.cpp
     ${INCROOT}/Renderers/ChatBoxRenderer.h
+    ${SRCROOT}/Renderers/CheckBoxRenderer.cpp
+    ${INCROOT}/Renderers/CheckBoxRenderer.h
     ${SRCROOT}/Renderers/ChildWindowRenderer.cpp
     ${INCROOT}/Renderers/ChildWindowRenderer.h
     ${SRCROOT}/Renderers/ColorPickerRenderer.cpp

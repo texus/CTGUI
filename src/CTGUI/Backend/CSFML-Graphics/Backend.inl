@@ -107,26 +107,6 @@ namespace ctgui
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        TGUI_NODISCARD bool isKeyboardModifierPressed(tgui::Event::KeyModifier modifierKey) override
-        {
-            switch (modifierKey)
-            {
-            case tgui::Event::KeyModifier::System:
-                return sfKeyboard_isKeyPressed(sfKeyLSystem) || sfKeyboard_isKeyPressed(sfKeyRSystem);
-            case tgui::Event::KeyModifier::Control:
-                return sfKeyboard_isKeyPressed(sfKeyLControl) || sfKeyboard_isKeyPressed(sfKeyRControl);
-            case tgui::Event::KeyModifier::Shift:
-                return sfKeyboard_isKeyPressed(sfKeyLShift) || sfKeyboard_isKeyPressed(sfKeyRShift);
-            case tgui::Event::KeyModifier::Alt:
-                return sfKeyboard_isKeyPressed(sfKeyLAlt) || sfKeyboard_isKeyPressed(sfKeyRAlt);
-            }
-
-            TGUI_ASSERT(false, "BackendCSFMLGraphics::isKeyboardModifierPressed called with an invalid value");
-            return false;
-        }
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         void setClipboard(const tgui::String& contents) override
         {
 #if CSFML_VERSION_MAJOR >= 3

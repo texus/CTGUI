@@ -39,9 +39,10 @@ class SegmentInherits(Segment):
         self.parentName = parentName
 
 class SegmentProperty(Segment):
-    def __init__(self, propertyType, propertyName):
+    def __init__(self, propertyType, propertyName, static):
         self.type = propertyType
         self.name = propertyName
+        self.static = static
         self.getterUsesIsPrefix = False
 
 class SegmentPropertyWidgetRenderer(Segment):
@@ -62,6 +63,13 @@ class SegmentEnum(Segment):
     def __init__(self, enumName, enumValues):
         self.name = enumName
         self.values = enumValues
+
+class SegmentSignal(Segment):
+    def __init__(self, signalType, objName, descName, paramNames):
+        self.signalType = signalType
+        self.objName = objName
+        self.descName = descName
+        self.paramNames = paramNames
 
 
 def parseDescriptionFile(descFileName):
@@ -109,7 +117,7 @@ def parseDescriptionFile(descFileName):
                     documentation = Documentation(documentationTextLine[7:].strip())
                     newLineInDocumentation = False
             else:
-                parts = [part.strip() for part in line.split(' ')]
+                parts = [part.strip() for part in line.split(' ') if len(part.strip()) > 0]
                 if parts[0] == 'inherits':
                     if len(parts) == 2:
                         segments.append(SegmentInherits(parts[1]))
@@ -130,57 +138,58 @@ def parseDescriptionFile(descFileName):
                     else:
                         raise RuntimeError('"property-widget-renderer" instruction should be followed renderer type (and optional name prefix)')
 
-                elif parts[0] == 'property':
+                elif parts[0] == 'property' or parts[0] == 'static-property':
                     if len(parts) == 3:
-                        segments.append(SegmentProperty(parts[1], parts[2]))
+                        static = (parts[0] == 'static-property')
+                        segments.append(SegmentProperty(parts[1], parts[2], static))
                     else:
                         raise RuntimeError('"property" instruction should be followed by type and name')
 
                 elif parts[0] == 'property-bool-is':
                     if len(parts) == 2:
-                        boolProperty = SegmentProperty("bool", parts[1])
+                        boolProperty = SegmentProperty("bool", parts[1], False)
                         boolProperty.getterUsesIsPrefix = True
                         segments.append(boolProperty)
                     else:
                         raise RuntimeError('"property-bool-is" instruction should be followed by a name')
 
                 elif parts[0] == 'function' or parts[0] == 'const-function' or parts[0] == 'static-function':
-                    if len(parts) >= 3:
-                        const = (parts[0] == 'const-function')
-                        static = (parts[0] == 'static-function')
-                        returnType = parts[1]
-
-                        functionPart = ' '.join(parts[2:])
-                        openBracketPos = functionPart.find('(')
-                        closeBracketPos = functionPart.find(')')
-                        if openBracketPos == -1:
-                            raise RuntimeError('Opening bracket missing in "function" instruction')
-                        if closeBracketPos == -1:
-                            raise RuntimeError('Closing bracket missing in "function" instruction')
-                        if closeBracketPos <= openBracketPos:
-                            raise RuntimeError('"function" instruction had closing bracket before opening one')
-
-                        if closeBracketPos == openBracketPos+1 or functionPart[openBracketPos+1:closeBracketPos] == 'void':
-                            params = []
-                        else:
-                            params = [tuple(param.strip().split(' ')) for param in functionPart[openBracketPos+1:closeBracketPos].split(',')]
-                            for param in params:
-                                if len(param) != 2:
-                                    raise RuntimeError('Parameter "' + ' '.join(param) + '" does not consist of exactly 2 parts (type and name)')
-
-                        name = functionPart[:openBracketPos].strip()
-                        if ' ' in name:
-                            nameParts = name.split(' ')
-                            if len(nameParts) != 2:
-                                raise RuntimeError('Name in "function" should not consists of many parts')
-                            nameC = nameParts[0]
-                            name = nameParts[1]
-                        else:
-                            nameC = name
-
-                        segments.append(SegmentFunction(nameC, name, returnType, params, const, static))
-                    else:
+                    if len(parts) < 3:
                         raise RuntimeError('"function" instruction should have format "function returnValue name(params)"')
+
+                    const = (parts[0] == 'const-function')
+                    static = (parts[0] == 'static-function')
+                    returnType = parts[1]
+
+                    functionPart = ' '.join(parts[2:])
+                    openBracketPos = functionPart.find('(')
+                    closeBracketPos = functionPart.find(')')
+                    if openBracketPos == -1:
+                        raise RuntimeError('Opening bracket missing in "function" instruction')
+                    if closeBracketPos == -1:
+                        raise RuntimeError('Closing bracket missing in "function" instruction')
+                    if closeBracketPos <= openBracketPos:
+                        raise RuntimeError('"function" instruction had closing bracket before opening one')
+
+                    if closeBracketPos == openBracketPos+1 or functionPart[openBracketPos+1:closeBracketPos] == 'void':
+                        params = []
+                    else:
+                        params = [tuple(param.strip().split(' ')) for param in functionPart[openBracketPos+1:closeBracketPos].split(',')]
+                        for param in params:
+                            if len(param) != 2:
+                                raise RuntimeError('Parameter "' + ' '.join(param) + '" does not consist of exactly 2 parts (type and name)')
+
+                    name = functionPart[:openBracketPos].strip()
+                    if ' ' in name:
+                        nameParts = name.split(' ')
+                        if len(nameParts) != 2:
+                            raise RuntimeError('Name in "function" should not consists of many parts')
+                        nameC = nameParts[0]
+                        name = nameParts[1]
+                    else:
+                        nameC = name
+
+                    segments.append(SegmentFunction(nameC, name, returnType, params, const, static))
 
                 elif parts[0] == 'enum':
                     openBracePos = line.find('{')
@@ -195,6 +204,32 @@ def parseDescriptionFile(descFileName):
                     enumName = line[5:openBracePos].strip()
                     enumValues = [value.strip() for value in line[openBracePos+1:closeBracePos].split(',')]
                     segments.append(SegmentEnum(enumName, enumValues))
+
+                elif parts[0].startswith('signal'):
+                    if len(parts) != 3 and len(parts) != 4:
+                        raise RuntimeError('"function" instruction should have format "Signal eventNamePresentTense eventNamePastTense" or "Signal Type(paramNames) eventNamePresentTense eventNamePastTense"')
+
+                    if len(parts) == 3:
+                        signalType = ''
+                        paramNames = []
+                        objName = parts[1]
+                        descName = parts[2]
+                    else:
+                        openBracketPos = parts[1].find('(')
+                        closeBracketPos = parts[1].find(')')
+                        if openBracketPos == -1:
+                            raise RuntimeError('Opening bracket missing in "signal" instruction')
+                        if closeBracketPos == -1:
+                            raise RuntimeError('Closing bracket missing in "signal" instruction')
+                        if closeBracketPos <= openBracketPos:
+                            raise RuntimeError('"signal" instruction had closing bracket before opening one')
+
+                        signalType = parts[1][:openBracketPos]
+                        paramNames = parts[1][openBracketPos+1:closeBracketPos].split(',')
+                        objName = parts[2]
+                        descName = parts[3]
+
+                    segments.append(SegmentSignal(signalType, objName, descName, paramNames))
 
                 else:
                     raise RuntimeError('Instruction "' + parts[0] + '" not recognised')

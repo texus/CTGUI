@@ -1,1 +1,8 @@
 inherits Widget
+
+signal Vector2f(mousePos) MousePress   MousePressed
+signal Vector2f(mousePos) MouseRelease MouseReleased
+signal Vector2f(mousePos) Click        Clicked
+signal Vector2f(mousePos) RightMousePress   RightMousePressed
+signal Vector2f(mousePos) RightMouseRelease RightMouseReleased
+signal Vector2f(mousePos) RightClick        RightClicked

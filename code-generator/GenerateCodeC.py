@@ -112,8 +112,8 @@ def generateAdditionalIncludesInHeaderFile(className, segments):
     generatedLines = []
     if 'HorizontalAlignment' in usedTypes or 'VerticalAlignment' in usedTypes:
         generatedLines.append('#include <CTGUI/Alignment.h>')
-    if 'ScrollbarPolicy' in usedTypes:
-        generatedLines.append('#include <CTGUI/ScrollbarPolicy.h>')
+    if 'ScrollbarPolicy' in usedTypes and className != 'Scrollbar':
+        generatedLines.append('#include <CTGUI/Widgets/Scrollbar.h>')
     if 'Orientation' in usedTypes:
         generatedLines.append('#include <CTGUI/Orientation.h>')
 
@@ -174,6 +174,7 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'HorizontalAlignment': 'tguiHorizontalAlignment',
         'Orientation': 'tguiOrientation',
         'CursorType': 'tguiCursorType',
+        'Duration': 'tguiDuration',
     }
 
     params = selfType + '* ' + selfName
@@ -245,6 +246,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             funcCallParams.append('static_cast<tgui::Orientation>(' + paramName + ')')
         elif paramType == 'CursorType':
             funcCallParams.append('static_cast<tgui::Cursor::Type>(' + paramName + ')')
+        elif paramType == 'Duration':
+            funcCallParams.append('std::chrono::nanoseconds(' + paramName + '.nanoseconds)')
         elif paramType == 'List<string>':
             localVariableName = 'converted' + paramName[0].upper() + paramName[1:]
             generatedLines.append('    std::vector<tgui::String> ' + localVariableName + ';')
@@ -322,6 +325,12 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         generatedLines.append('    return static_cast<tguiOrientation>(' + funcCall + ');')
     elif returnType == 'CursorType':
         generatedLines.append('    return static_cast<tguiCursorType>(' + funcCall + ');')
+    elif returnType == 'Duration':
+        generatedLines.extend([
+            '    tguiDuration returnedDelay;',
+            '    returnedDelay.nanoseconds = static_cast<tguiInt64>(std::chrono::nanoseconds(' + funcCall + ').count());',
+            '    return returnedDelay;',
+        ])
     elif returnType == 'AnyObject':
         bracketPos = funcCall.find(funcName) + len(funcName)
         generatedLines.extend([
@@ -388,20 +397,20 @@ def generatePropertySourceC(className, segment, enums, selfType, selfName, downc
         raise RuntimeError('"is" prefix in property is only allowed for bool types')
 
     generatedLines = []
-    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, enums))
+    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, enums))
     generatedLines.append('{')
-    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, selfName, enums, downcast=downcast))
+    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', segment.static, selfName, enums, downcast=downcast))
     generatedLines.append('}')
     generatedLines.append('')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
-        generatedLines.append(generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, False, selfType, selfName, {}))
+        generatedLines.append(generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, segment.static, selfType, selfName, {}))
     else:
-        generatedLines.append(generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, False, selfType, selfName, enums))
+        generatedLines.append(generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, segment.static, selfType, selfName, enums))
     generatedLines.append('{')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
-        generatedLines.extend(generateFunctionCallC(className, 'is' + propertyName, [], propertyType, False, selfName, {}, downcast=downcast))
+        generatedLines.extend(generateFunctionCallC(className, 'is' + propertyName, [], propertyType, segment.static, selfName, {}, downcast=downcast))
     else:
-        generatedLines.extend(generateFunctionCallC(className, 'get' + propertyName, [], propertyType, False, selfName, enums, downcast=downcast))
+        generatedLines.extend(generateFunctionCallC(className, 'get' + propertyName, [], propertyType, segment.static, selfName, enums, downcast=downcast))
     generatedLines.append('}')
     return generatedLines
 
@@ -415,13 +424,13 @@ def generatePropertyHeaderC(className, segment, enums, selfType, selfName):
 
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
         return [
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, {}) + ';',
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, False, selfType, selfName, {}) + ';'
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, {}) + ';',
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, segment.static, selfType, selfName, {}) + ';'
         ]
     else:
         return [
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, False, selfType, selfName, enums) + ';',
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, False, selfType, selfName, enums) + ';'
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, enums) + ';',
+            'CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, segment.static, selfType, selfName, enums) + ';'
         ]
 
 #################################################################################################################################
@@ -608,7 +617,7 @@ def generateWidgetHeaderFileC(srcFile, destFile, className):
 
     try:
         for segment in segments:
-            if isinstance(segment, SegmentInherits):
+            if isinstance(segment, SegmentInherits) or isinstance(segment, SegmentSignal):
                 continue # We don't use this information in the C header file
             elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 if not segment.prefix:
@@ -692,7 +701,7 @@ def generateWidgetSourceFileC(srcFile, destFile, className):
 
     try:
         for segment in segments:
-            if isinstance(segment, SegmentInherits):
+            if isinstance(segment, SegmentInherits) or isinstance(segment, SegmentSignal):
                 continue # We don't use this information in the C source file
             elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 if not segment.prefix:
@@ -775,7 +784,7 @@ def generateOtherHeaderFileC(inputDescFile, inputHeaderFile, outputIncludeFile, 
         for segment in segments:
             if isinstance(segment, SegmentAbstractClass):
                 raise RuntimeError('abstract-class is not supported here')
-            elif isinstance(segment, SegmentInherits):
+            elif isinstance(segment, SegmentInherits) or isinstance(segment, SegmentSignal):
                 continue # We don't use this information in the C header file
             elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 raise RuntimeError('property-widget-renderer is not supported here')
@@ -825,7 +834,7 @@ def generateOtherSourceFileC(inputDescFile, inputSourceFile, outputSourceFile, c
         for segment in segments:
             if isinstance(segment, SegmentAbstractClass):
                 raise RuntimeError('abstract-class is not supported here')
-            elif isinstance(segment, SegmentInherits):
+            elif isinstance(segment, SegmentInherits) or isinstance(segment, SegmentSignal):
                 continue # We don't use this information in the C source file
             elif isinstance(segment, SegmentPropertyWidgetRenderer):
                 raise RuntimeError('property-widget-renderer is not supported here')

@@ -52,7 +52,8 @@ namespace ctgui
     void CustomWidgetBase::setPosition(const tgui::Layout2d& position)
     {
         tgui::Widget::setPosition(position);
-        implPositionChanged(getPosition());
+        if (implPositionChanged)
+            implPositionChanged(getPosition());
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -60,21 +61,22 @@ namespace ctgui
     void CustomWidgetBase::setSize(const tgui::Layout2d& size)
     {
         tgui::Widget::setSize(size);
-        implSizeChanged(getSize());
+        if (implSizeChanged)
+            implSizeChanged(getSize());
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     tgui::Vector2f CustomWidgetBase::getFullSize() const
     {
-        return implGetFullSize();
+        return implGetFullSize ? implGetFullSize() : tgui::Widget::getFullSize();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     tgui::Vector2f CustomWidgetBase::getWidgetOffset() const
     {
-        return implGetWidgetOffset();
+        return implGetWidgetOffset ? implGetWidgetOffset() : tgui::Widget::getWidgetOffset();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +84,8 @@ namespace ctgui
     void CustomWidgetBase::setVisible(bool visible)
     {
         tgui::Widget::setVisible(visible);
-        implVisibleChanged(visible);
+        if (implVisibleChanged)
+            implVisibleChanged(visible);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +93,8 @@ namespace ctgui
     void CustomWidgetBase::setEnabled(bool enabled)
     {
         tgui::Widget::setEnabled(enabled);
-        implEnableChanged(enabled);
+        if (implEnableChanged)
+            implEnableChanged(enabled);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,14 +102,15 @@ namespace ctgui
     void CustomWidgetBase::setFocused(bool focused)
     {
         tgui::Widget::setFocused(focused);
-        implFocusChanged(focused);
+        if (implFocusChanged)
+            implFocusChanged(focused);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     bool CustomWidgetBase::canGainFocus() const
     {
-        return implCanGainFocus();
+        return implCanGainFocus ? implCanGainFocus() : tgui::Widget::canGainFocus();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -113,7 +118,8 @@ namespace ctgui
     bool CustomWidgetBase::updateTime(tgui::Duration elapsedTime)
     {
         bool screenRefreshRequired = tgui::Widget::updateTime(elapsedTime);
-        screenRefreshRequired |= implUpdateTimeFunction(elapsedTime);
+        if (implUpdateTimeFunction)
+            screenRefreshRequired |= implUpdateTimeFunction(elapsedTime);
         return screenRefreshRequired;
     }
 
@@ -121,7 +127,7 @@ namespace ctgui
 
     bool CustomWidgetBase::isMouseOnWidget(tgui::Vector2f pos) const
     {
-        return implMouseOnWidget(pos);
+        return implMouseOnWidget ? implMouseOnWidget(pos) : false;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,7 +135,7 @@ namespace ctgui
     bool CustomWidgetBase::leftMousePressed(tgui::Vector2f pos)
     {
         tgui::Widget::leftMousePressed(pos);
-        return implLeftMousePressed(pos);
+        return implLeftMousePressed ? implLeftMousePressed(pos) : false;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -137,7 +143,8 @@ namespace ctgui
     void CustomWidgetBase::leftMouseReleased(tgui::Vector2f pos)
     {
         tgui::Widget::leftMouseReleased(pos);
-        implLeftMouseReleased(pos);
+        if (implLeftMouseReleased)
+            implLeftMouseReleased(pos);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,7 +152,8 @@ namespace ctgui
     void CustomWidgetBase::rightMousePressed(tgui::Vector2f pos)
     {
         tgui::Widget::rightMousePressed(pos);
-        implRightMousePressed(pos);
+        if (implRightMousePressed)
+            implRightMousePressed(pos);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,7 +161,8 @@ namespace ctgui
     void CustomWidgetBase::rightMouseReleased(tgui::Vector2f pos)
     {
         tgui::Widget::rightMouseReleased(pos);
-        implRightMouseReleased(pos);
+        if (implRightMouseReleased)
+            implRightMouseReleased(pos);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,7 +170,8 @@ namespace ctgui
     void CustomWidgetBase::mouseMoved(tgui::Vector2f pos)
     {
         tgui::Widget::mouseMoved(pos);
-        implMouseMoved(pos);
+        if (implMouseMoved)
+            implMouseMoved(pos);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,7 +179,8 @@ namespace ctgui
     void CustomWidgetBase::keyPressed(const tgui::Event::KeyEvent& event)
     {
         tgui::Widget::keyPressed(event);
-        implKeyPressed(event);
+        if (implKeyPressed)
+            implKeyPressed(event);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,14 +188,15 @@ namespace ctgui
     void CustomWidgetBase::textEntered(char32_t key)
     {
         tgui::Widget::textEntered(key);
-        implTextEntered(key);
+        if (implTextEntered)
+            implTextEntered(key);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     bool CustomWidgetBase::scrolled(float delta, tgui::Vector2f pos, bool touch)
     {
-        return implScrolled(delta, pos, touch);
+        return implScrolled ? implScrolled(delta, pos, touch) : tgui::Widget::scrolled(delta, pos, touch);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,7 +204,8 @@ namespace ctgui
     void CustomWidgetBase::mouseNoLongerOnWidget()
     {
         tgui::Widget::mouseNoLongerOnWidget();
-        implMouseNoLongerOnWidget();
+        if (implMouseNoLongerOnWidget)
+            implMouseNoLongerOnWidget();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -200,14 +213,15 @@ namespace ctgui
     void CustomWidgetBase::leftMouseButtonNoLongerDown()
     {
         tgui::Widget::leftMouseButtonNoLongerDown();
-        implLeftMouseButtonNoLongerDown();
+        if (implLeftMouseButtonNoLongerDown)
+            implLeftMouseButtonNoLongerDown();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void CustomWidgetBase::rendererChanged(const tgui::String& property)
     {
-        if (!implRendererChanged(property))
+        if (!implRendererChanged || !implRendererChanged(property))
             tgui::Widget::rendererChanged(property);
     }
 
@@ -216,7 +230,8 @@ namespace ctgui
     void CustomWidgetBase::mouseEnteredWidget()
     {
         tgui::Widget::mouseEnteredWidget();
-        implMouseEnteredWidget();
+        if (implMouseEnteredWidget)
+            implMouseEnteredWidget();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -224,14 +239,16 @@ namespace ctgui
     void CustomWidgetBase::mouseLeftWidget()
     {
         tgui::Widget::mouseLeftWidget();
-        implMouseLeftWidget();
+        if (implMouseLeftWidget)
+            implMouseLeftWidget();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void CustomWidgetBase::draw(tgui::BackendRenderTarget& target, tgui::RenderStates states) const
     {
-        implDrawFunction(target, states);
+        if (implDrawFunction)
+            implDrawFunction(target, states);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

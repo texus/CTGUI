@@ -1,5 +1,7 @@
 inherits Widget
 
+enum Policy { Automatic, Always, Never }
+
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ScrollbarRenderer
 
@@ -13,3 +15,5 @@ property Orientation Orientation
 const-function bool isShown()
 const-function uint getMaxValue()
 const-function float getDefaultWidth()
+
+signal UInt(value) ValueChange ValueChanged

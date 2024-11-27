@@ -44,7 +44,6 @@
 #include <CTGUI/Rect.h>
 #include <CTGUI/RendererData.h>
 #include <CTGUI/RenderStates.h>
-#include <CTGUI/ScrollbarPolicy.h>
 #include <CTGUI/Sprite.h>
 #include <CTGUI/Text.h>
 #include <CTGUI/Texture.h>

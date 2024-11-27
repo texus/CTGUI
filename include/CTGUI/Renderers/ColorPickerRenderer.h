@@ -17,4 +17,7 @@ CTGUI_API const tguiRendererData* tguiColorPickerRenderer_getLabel(const tguiRen
 CTGUI_API void tguiColorPickerRenderer_setSlider(tguiRenderer* thisRenderer, const tguiRendererData* value);
 CTGUI_API const tguiRendererData* tguiColorPickerRenderer_getSlider(const tguiRenderer* thisRenderer);
 
+CTGUI_API void tguiColorPickerRenderer_setEditBox(tguiRenderer* thisRenderer, const tguiRendererData* value);
+CTGUI_API const tguiRendererData* tguiColorPickerRenderer_getEditBox(const tguiRenderer* thisRenderer);
+
 #endif // CTGUI_COLORPICKERRENDERER_H

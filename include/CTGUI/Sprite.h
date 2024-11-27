@@ -5,15 +5,12 @@
 
 #include <CTGUI/Global.h>
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 typedef enum
 {
-    tguiSpriteScalingTypeNormal,     //!< The image is not split and scaled normally
-    tguiSpriteScalingTypeHorizontal, //!< Image is split in Left, Middle and Right parts. Left and Right keep ratio, Middle gets stretched
-    tguiSpriteScalingTypeVertical,   //!< Image is split in Top, Middle and Bottom parts. Top and Bottom keep ratio, Middle gets stretched
-    tguiSpriteScalingTypeNineSlice   //!< Image is split in 9 parts. Corners keep size, sides are stretched in one direction, middle is stretched in both directions
+    tguiSpriteScalingTypeNormal,
+    tguiSpriteScalingTypeHorizontal,
+    tguiSpriteScalingTypeVertical,
+    tguiSpriteScalingTypeNineSlice,
 } tguiSpriteScalingType;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,8 +21,6 @@ CTGUI_API tguiSprite* tguiSprite_createNull(void);
 CTGUI_API tguiSprite* tguiSprite_createFromTexture(tguiTexture* texture);
 
 CTGUI_API void tguiSprite_destroy(tguiSprite* sprite);
-
-CTGUI_API tguiSpriteScalingType tguiSprite_getScalingType(const tguiSprite* sprite);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -50,6 +45,8 @@ CTGUI_API void tguiSprite_setRotation(tguiSprite* thisSprite, float value);
 CTGUI_API float tguiSprite_getRotation(const tguiSprite* thisSprite);
 
 CTGUI_API tguiBool tguiSprite_isTransparentPixel(const tguiSprite* thisSprite, tguiVector2f pos);
+
+CTGUI_API tguiSpriteScalingType tguiSprite_getScalingType(const tguiSprite* thisSprite);
 
 #endif // CTGUI_SPRITE_H
 

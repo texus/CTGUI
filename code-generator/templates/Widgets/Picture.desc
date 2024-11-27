@@ -2,3 +2,5 @@ inherits ClickableWidget
 
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer PictureRenderer
+
+signal Vector2f(mousePos) DoubleClick DoubleClicked

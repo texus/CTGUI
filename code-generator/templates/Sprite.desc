@@ -1,5 +1,7 @@
 const-function bool isSet()
 
+enum ScalingType { Normal, Horizontal, Vertical, NineSlice }
+
 property Texture Texture
 property Vector2f Position
 property Vector2f Size
@@ -8,3 +10,4 @@ property FloatRect VisibleRect
 property float Rotation
 
 const-function bool isTransparentPixel(Vector2f pos)
+const-function ScalingType getScalingType()

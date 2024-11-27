@@ -11,3 +11,5 @@ const-function List<string> getButtons()
 
 property HorizontalAlignment LabelAlignment
 property HorizontalAlignment ButtonAlignment
+
+signal String(buttonText) ButtonPress ButtonPressed

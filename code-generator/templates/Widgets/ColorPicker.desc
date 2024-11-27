@@ -4,3 +4,6 @@ inherits ChildWindow
 property-widget-renderer ColorPickerRenderer
 
 property Color Color
+
+signal Color(color) ColorChange ColorChanged
+signal Color(color) OkPress OkPressed

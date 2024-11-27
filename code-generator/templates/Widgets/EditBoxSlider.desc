@@ -14,3 +14,5 @@ property float Maximum
 property float Step
 property uint DecimalPlaces
 property HorizontalAlignment TextAlignment
+
+signal Float(value) ValueChange ValueChanged

@@ -26,12 +26,16 @@
 #define CTGUI_INTERNAL_GLOBAL_H
 
 #include <CTGUI/Global.h>
+#include <TGUI/Backend/Window/BackendGui.hpp>
 #include <TGUI/String.hpp>
 #include <TGUI/Color.hpp>
+#include <unordered_map>
 
 namespace ctgui
 {
-    extern std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
+    extern tgui::String tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
+
+    extern std::unordered_map<const tgui::BackendGui*, tguiGui*> guiMap;
 
     // The bindingWidgetCleanupCallback is called once per frame for each widget that was destroyed since the last check.
     // Note that the pointer passed as parameter should NOT be freed or accessed in any way by the callback function!

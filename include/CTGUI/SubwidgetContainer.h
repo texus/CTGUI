@@ -23,21 +23,12 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef CTGUI_ALIGNMENT_H
-#define CTGUI_ALIGNMENT_H
+#ifndef CTGUI_SUBWIDGET_CONTAINER_H
+#define CTGUI_SUBWIDGET_CONTAINER_H
 
-typedef enum
-{
-	tguiHorizontalAlignmentLeft,
-	tguiHorizontalAlignmentCenter,
-	tguiHorizontalAlignmentRight
-} tguiHorizontalAlignment;
+#include <CTGUI/Global.h>
 
-typedef enum
-{
-	tguiVerticalAlignmentTop,
-	tguiVerticalAlignmentCenter,
-	tguiVerticalAlignmentBottom
-} tguiVerticalAlignment;
+CTGUI_API tguiWidget* tguiSubwidgetContainer_getContainer(tguiWidget* container);
 
-#endif // CTGUI_ALIGNMENT_H
+#endif // CTGUI_SUBWIDGET_CONTAINER_H
+

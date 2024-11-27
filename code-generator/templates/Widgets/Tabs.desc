@@ -33,3 +33,5 @@ function bool selectByIndex select(size_t index)
 
 function bool removeByText remove(string text)
 function bool removeByIndex remove(size_t index)
+
+signal String(tabText) TabSelect TabSelected

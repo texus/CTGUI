@@ -62,16 +62,16 @@ namespace ctgui
     void cleanupWidgets();
 
     template <typename SignalType, typename FuncType>
-    unsigned int connectSignal(tguiWidget* widget, const char* signalName, FuncType&& function)
+    unsigned int connectSignal(tguiWidget* widget, tguiUtf32 signalName, FuncType&& function)
     {
         try
         {
-            auto* signal = dynamic_cast<SignalType*>(&widget->This->getSignal(signalName));
+            auto* signal = dynamic_cast<SignalType*>(&widget->This->getSignal(ctgui::toCppStr(signalName)));
             if (signal)
                 return signal->connect(function);
             else
             {
-                ctgui::tguiErrorMessage = "Signal '" + std::string(signalName) + "' has a wrong type for connect";
+                ctgui::tguiErrorMessage = "Signal '" + ctgui::toCppStr(signalName) + "' has a wrong type for connect";
                 return 0;
             }
         }

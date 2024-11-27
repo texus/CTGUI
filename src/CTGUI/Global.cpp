@@ -60,6 +60,11 @@ void tgui_setResourcePath(tguiUtf32 path)
     tgui::setResourcePath(ctgui::toCppStr(path));
 }
 
+tguiUtf32 tgui_getResourcePath()
+{
+    return ctgui::fromCppStr(tgui::getResourcePath().asString());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tgui_setEditCursorBlinkRate(tguiDuration blinkRate)
@@ -101,12 +106,12 @@ void tgui_readFileToMemory_free(tguiUint8* data)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const char* tgui_getLastError(void)
+tguiUtf32 tgui_getLastError(void)
 {
-    static std::string errorBuffer;
+    static tgui::String errorBuffer;
     errorBuffer = ctgui::tguiErrorMessage;
-    ctgui::tguiErrorMessage = "";
-    return errorBuffer.c_str();
+    ctgui::tguiErrorMessage.clear();
+    return reinterpret_cast<tguiUtf32>(errorBuffer.c_str());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

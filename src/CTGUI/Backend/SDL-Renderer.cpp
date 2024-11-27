@@ -33,11 +33,13 @@ tguiGui* tguiGuiSDLRenderer_create(SDL_Window* window, SDL_Renderer* renderer)
 {
     tguiGui* gui = new tguiGui();
     gui->This = std::make_unique<tgui::SDL_RENDERER::Gui>(window, renderer);
+    ctgui::guiMap[gui->This.get()] = gui;
     return gui;
 }
 
 void tguiGuiSDLRenderer_destroy(tguiGui* gui)
 {
+    ctgui::guiMap.erase(gui->This.get());
     delete gui;
 }
 

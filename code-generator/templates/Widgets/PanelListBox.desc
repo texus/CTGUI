@@ -27,3 +27,5 @@ const-function bool containsId(string id)
 const-function Layout getItemsWidth()
 
 property Layout ItemsHeight
+
+signal PanelListBoxItem(index) ItemSelect ItemSelected

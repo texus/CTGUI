@@ -26,3 +26,5 @@ function void closeMenu()
 
 property float MinimumSubMenuWidth
 property bool InvertedMenuDirection
+
+signal ItemHierarchy(hierarchy) MenuItemClick MenuItemClicked

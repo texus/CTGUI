@@ -21,8 +21,7 @@ CTGUI_API void tguiFont_destroy(tguiFont* font);
 
 CTGUI_API tguiFontGlyph tguiFont_getGlyph(const tguiFont* font, tguiChar32 codePoint, unsigned int characterSize, tguiBool bold, float outlineThickness);
 
-CTGUI_API void tguiFont_setGlobalFont(const tguiFont* font);
-
+CTGUI_API void tguiFont_setGlobalFont(const tguiFont* value);
 CTGUI_API const tguiFont* tguiFont_getGlobalFont(void);
 
 CTGUI_API tguiUtf32 tguiFont_getId(const tguiFont* thisFont);

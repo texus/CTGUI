@@ -57,3 +57,15 @@ const tguiRendererData* tguiColorPickerRenderer_getSlider(const tguiRenderer* th
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiColorPickerRenderer_setEditBox(tguiRenderer* thisRenderer, const tguiRendererData* value)
+{
+    DOWNCAST(thisRenderer->This)->setEditBox(value->This);
+}
+
+const tguiRendererData* tguiColorPickerRenderer_getEditBox(const tguiRenderer* thisRenderer)
+{
+    return new tguiRendererData(DOWNCAST(thisRenderer->This)->getEditBox());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

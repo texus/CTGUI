@@ -1,0 +1,3 @@
+static-property Duration InitialDelay
+static-property Vector2f DistanceToMouse
+static-property bool ShowOnDisabledWidget

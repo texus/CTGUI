@@ -33,7 +33,7 @@ int main()
     tguiButtonRenderer_setBackgroundColor(buttonRenderer, tguiColor_fromRGB(128, 220, 128));
     tguiWidgetRenderer_destroy(buttonRenderer);
 
-    tguiWidget_signalConnect(button, "Pressed", func);
+    tguiWidget_signalConnect(button, U"Pressed", func);
 
     while (sfRenderWindow_isOpen(window))
     {

@@ -46,3 +46,9 @@ property HorizontalAlignment TextAlignment
 
 const-function bool contains(string item)
 const-function bool containsId(string id)
+
+signal Item(index) ItemSelect   ItemSelected
+signal Item(index) MousePress   MousePressed
+signal Item(index) MouseRelease MouseReleased
+signal Item(index) DoubleClick  DoubleClicked
+signal UInt(value) Scroll       Scrolled

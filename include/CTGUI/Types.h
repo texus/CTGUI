@@ -61,9 +61,9 @@ typedef uint32_t tguiUint32;
 typedef int64_t tguiInt64;
 typedef uint64_t tguiUint64;
 
-typedef int tguiBool;
-#define tguiFalse 0
-#define tguiTrue  1
+typedef bool tguiBool;
+#define tguiFalse false
+#define tguiTrue  true
 
 #endif // CTGUI_TYPES_H
 

@@ -32,17 +32,14 @@ namespace ctgui
             if (!cWidget->This)
             {
                 assert(cWidget->referenceCount == 0);
-                cWidget->This = cppWidget;
+                cWidget->This = std::move(cppWidget);
             }
 
             ++cWidget->referenceCount;
             return cWidget.get();
         }
-        else
-        {
-            globalWidgetsMap[cppWidget.get()] = std::make_unique<tguiWidget>(std::move(cppWidget));
-            return globalWidgetsMap[cppWidget.get()].get();
-        }
+        else // The widget didn't exist yet in C, so create the C wrapper now
+            return globalWidgetsMap.insert({cppWidget.get(), std::make_unique<tguiWidget>(std::move(cppWidget))}).first->second.get();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,6 +101,13 @@ void tguiWidget_destroy(tguiWidget* widget)
         ctgui::removeWidgetRef(widget->This);
 }
 
+tguiWidget* tguiWidget_addPointerReference(tguiWidget* widget)
+{
+    // widget->This might be a nullptr when the widget was unreferenced (can happen when this function is called when processing
+    // a callback for such a widget). This is why we use widget->weakWidgetPtr instead of widget->This.
+    return ctgui::addWidgetRef(widget->weakWidgetPtr.lock());
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiWidget_setAutoLayout(const tguiWidget* widget, tguiAutoLayout layout)
@@ -118,11 +122,11 @@ tguiAutoLayout tguiWidget_getAutoLayout(const tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-unsigned int tguiWidget_signalConnect(tguiWidget* widget, const char* signalName, void (*function)(void))
+unsigned int tguiWidget_signalConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(void))
 {
     try
     {
-        return widget->This->getSignal(signalName).connect(function);
+        return widget->This->getSignal(ctgui::toCppStr(signalName)).connect(function);
     }
     catch (const tgui::Exception& e)
     {
@@ -131,13 +135,13 @@ unsigned int tguiWidget_signalConnect(tguiWidget* widget, const char* signalName
     }
 }
 
-unsigned int tguiWidget_signalConnectEx(tguiWidget* widget, const char* signalName, void (*function)(tguiWidget*, tguiUtf32))
+unsigned int tguiWidget_signalConnectEx(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiWidget*, tguiUtf32))
 {
     try
     {
-        return widget->This->getSignal(signalName).connectEx(
+        return widget->This->getSignal(ctgui::toCppStr(signalName)).connectEx(
             [function](const std::shared_ptr<tgui::Widget>& cppWidget, const tgui::String& name) {
-                function(ctgui::addWidgetRef(cppWidget), ctgui::fromCppStr(name));
+                function(ctgui::addWidgetRef(cppWidget), reinterpret_cast<tguiUtf32>(name.c_str()));
             });
     }
     catch (const tgui::Exception& e)
@@ -149,84 +153,102 @@ unsigned int tguiWidget_signalConnectEx(tguiWidget* widget, const char* signalNa
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-unsigned int tguiWidget_signalIntConnect(tguiWidget* widget, const char* signalName, void (*function)(int))
+unsigned int tguiWidget_signalIntConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(int))
 {
     return ctgui::connectSignal<tgui::SignalInt>(widget, signalName, function);
 }
 
-unsigned int tguiWidget_signalUIntConnect(tguiWidget* widget, const char* signalName, void (*function)(unsigned int))
+unsigned int tguiWidget_signalUIntConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(unsigned int))
 {
     return ctgui::connectSignal<tgui::SignalUInt>(widget, signalName, function);
 }
 
-unsigned int tguiWidget_signalBoolConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiBool))
+unsigned int tguiWidget_signalSizeTConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(size_t))
+{
+    return ctgui::connectSignal<tgui::SignalTyped<std::size_t>>(widget, signalName, function);
+}
+
+unsigned int tguiWidget_signalBoolConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiBool))
 {
     return ctgui::connectSignal<tgui::SignalBool>(widget, signalName, [function](bool value) {
         function(value);
     });
 }
 
-unsigned int tguiWidget_signalFloatConnect(tguiWidget* widget, const char* signalName, void (*function)(float))
+unsigned int tguiWidget_signalFloatConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(float))
 {
     return ctgui::connectSignal<tgui::SignalFloat>(widget, signalName, function);
 }
 
-unsigned int tguiWidget_signalColorConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiColor))
+unsigned int tguiWidget_signalColorConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiColor))
 {
     return ctgui::connectSignal<tgui::SignalColor>(widget, signalName, [function](const tgui::Color& value) {
         function(tguiColor_fromRGBA(value.getRed(), value.getGreen(), value.getBlue(), value.getAlpha()));
     });
 }
 
-unsigned int tguiWidget_signalStringConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiUtf32))
+unsigned int tguiWidget_signalStringConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiUtf32))
 {
     return ctgui::connectSignal<tgui::SignalString>(widget, signalName, [function](const tgui::String& value) {
-        function(ctgui::fromCppStr(value));
+        function(reinterpret_cast<tguiUtf32>(value.c_str()));
     });
 }
 
-unsigned int tguiWidget_signalVector2fConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiVector2f))
+unsigned int tguiWidget_signalVector2fConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiVector2f))
 {
     return ctgui::connectSignal<tgui::SignalVector2f>(widget, signalName, [function](const tgui::Vector2f& value) {
         function({value.x, value.y});
     });
 }
 
-unsigned int tguiWidget_signalFloatRectConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiFloatRect))
+unsigned int tguiWidget_signalFloatRectConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiFloatRect))
 {
     return ctgui::connectSignal<tgui::SignalFloatRect>(widget, signalName, [function](const tgui::FloatRect& value) {
-        tguiFloatRect rect;
-        rect.left = value.left;
-        rect.top = value.top;
-        rect.width = value.width;
-        rect.height = value.height;
-        function(rect);
+        function({value.left, value.top, value.width, value.height});
     });
 }
 
-unsigned int tguiWidget_signalRangeConnect(tguiWidget* widget, const char* signalName, void (*function)(float, float))
+unsigned int tguiWidget_signalBoolPtrConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiBool*))
+{
+    return ctgui::connectSignal<tgui::SignalTyped<bool*>>(widget, signalName, [function](bool* value) {
+        tguiBool cValue = *value;
+        function(&cValue);
+        *value = cValue;
+    });
+}
+
+unsigned int tguiWidget_signalRangeConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(float, float))
 {
     return ctgui::connectSignal<tgui::SignalRange>(widget, signalName, function);
 }
 
-unsigned int tguiWidget_signalChildWindowConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiWidget*))
+unsigned int tguiWidget_signalTabSelectionChangingConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(int, tguiBool*))
+{
+    return ctgui::connectSignal<tgui::SignalTyped2<int, bool*>>(widget, signalName, [function](int index, bool* abort) {
+        tguiBool cAbort = *abort;
+        function(index, &cAbort);
+        *abort = cAbort;
+    });
+}
+
+unsigned int tguiWidget_signalChildWindowConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiWidget*))
 {
     return ctgui::connectSignal<tgui::SignalChildWindow>(widget, signalName, [function](const tgui::ChildWindow::Ptr& value) {
         function(ctgui::addWidgetRef(value));
     });
 }
 
-unsigned int tguiWidget_signalItemConnect(tguiWidget* widget, const char* signalName, void (*function)(int))
+unsigned int tguiWidget_signalItemConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(int))
 {
     return ctgui::connectSignal<tgui::SignalItem>(widget, signalName, function);
 }
 
-unsigned int tguiWidget_signalPanelListBoxItemConnect(tguiWidget* widget, const char* signalName, void (*function)(int))
+unsigned int tguiWidget_signalPanelListBoxItemConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(int))
 {
     return ctgui::connectSignal<tgui::SignalPanelListBoxItem>(widget, signalName, function);
 }
 
-unsigned int tguiWidget_signalFileDialogPathsConnect(tguiWidget* widget, const char* signalName, void (*function)(size_t, const tguiUtf32*))
+unsigned int tguiWidget_signalFileDialogPathsConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(size_t, const tguiUtf32*))
 {
     return ctgui::connectSignal<tgui::SignalFileDialogPaths>(widget, signalName, [function](const std::vector<tgui::Filesystem::Path>& value) {
         std::vector<tgui::String> cppStrings;
@@ -243,21 +265,21 @@ unsigned int tguiWidget_signalFileDialogPathsConnect(tguiWidget* widget, const c
     });
 }
 
-unsigned int tguiWidget_signalShowEffectConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiShowEffectType, tguiBool))
+unsigned int tguiWidget_signalShowEffectConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiShowEffectType, tguiBool))
 {
     return ctgui::connectSignal<tgui::SignalShowEffect>(widget, signalName, [function](tgui::ShowEffectType type, bool showing) {
         function(static_cast<tguiShowEffectType>(type), showing);
     });
 }
 
-unsigned int tguiWidget_signalAnimationTypeConnect(tguiWidget* widget, const char* signalName, void (*function)(tguiAnimationType))
+unsigned int tguiWidget_signalAnimationTypeConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(tguiAnimationType))
 {
     return ctgui::connectSignal<tgui::SignalAnimationType>(widget, signalName, [function](tgui::AnimationType type) {
         function(static_cast<tguiAnimationType>(type));
     });
 }
 
-unsigned int tguiWidget_signalItemHierarchyConnect(tguiWidget* widget, const char* signalName, void (*function)(size_t, const tguiUtf32*))
+unsigned int tguiWidget_signalItemHierarchyConnect(tguiWidget* widget, tguiUtf32 signalName, void (*function)(size_t, const tguiUtf32*))
 {
     return ctgui::connectSignal<tgui::SignalItemHierarchy>(widget, signalName, [function](const std::vector<tgui::String>& value) {
         std::vector<tguiUtf32> cStrings;
@@ -270,11 +292,11 @@ unsigned int tguiWidget_signalItemHierarchyConnect(tguiWidget* widget, const cha
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiWidget_signalDisconnect(tguiWidget* widget, const char* signalName, unsigned int id)
+tguiBool tguiWidget_signalDisconnect(tguiWidget* widget, tguiUtf32 signalName, unsigned int id)
 {
     try
     {
-        return widget->This->getSignal(signalName).disconnect(id);
+        return widget->This->getSignal(ctgui::toCppStr(signalName)).disconnect(id);
     }
     catch (const tgui::Exception& e)
     {
@@ -284,11 +306,11 @@ tguiBool tguiWidget_signalDisconnect(tguiWidget* widget, const char* signalName,
     }
 }
 
-void tguiWidget_signalDisconnectAll(tguiWidget* widget, const char* signalName)
+void tguiWidget_signalDisconnectAll(tguiWidget* widget, tguiUtf32 signalName)
 {
     try
     {
-        widget->This->getSignal(signalName).disconnectAll();
+        widget->This->getSignal(ctgui::toCppStr(signalName)).disconnectAll();
     }
     catch (const tgui::Exception& e)
     {
@@ -299,11 +321,11 @@ void tguiWidget_signalDisconnectAll(tguiWidget* widget, const char* signalName)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiWidget_setSignalEnabled(tguiWidget* widget, const char* signalName, tguiBool enabled)
+tguiBool tguiWidget_setSignalEnabled(tguiWidget* widget, tguiUtf32 signalName, tguiBool enabled)
 {
     try
     {
-        widget->This->getSignal(signalName).setEnabled(enabled != 0);
+        widget->This->getSignal(ctgui::toCppStr(signalName)).setEnabled(enabled != 0);
         return true;
     }
     catch (const tgui::Exception& e)
@@ -314,11 +336,11 @@ tguiBool tguiWidget_setSignalEnabled(tguiWidget* widget, const char* signalName,
     }
 }
 
-tguiBool tguiWidget_isSignalEnabled(tguiWidget* widget, const char* signalName)
+tguiBool tguiWidget_isSignalEnabled(tguiWidget* widget, tguiUtf32 signalName)
 {
     try
     {
-        return widget->This->getSignal(signalName).isEnabled();
+        return widget->This->getSignal(ctgui::toCppStr(signalName)).isEnabled();
     }
     catch (const tgui::Exception& e)
     {
@@ -402,6 +424,14 @@ tguiWidget* tguiWidget_getParent(const tguiWidget* widget)
         return ctgui::addWidgetRef(parent->shared_from_this());
     else
         return nullptr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiGui* tguiWidget_getParentGui(const tguiWidget* widget)
+{
+    const tgui::BackendGui* gui = widget->This->getParentGui();
+    return ctgui::guiMap[gui];
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

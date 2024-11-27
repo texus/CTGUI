@@ -26,3 +26,9 @@ const-function int getItemIndexInParent(List<string> hierarchy)
 
 function bool selectItem(List<string> hierarchy)
 function bool removeItem(List<string> hierarchy, bool removeParentsWhenEmpty)
+
+signal ItemHierarchy(hierarchy) ItemSelect ItemSelected
+signal ItemHierarchy(hierarchy) DoubleClick DoubleClicked
+signal ItemHierarchy(hierarchy) Expand Expanded
+signal ItemHierarchy(hierarchy) Collapse Collapsed
+signal ItemHierarchy(hierarchy) RightClick RightClicked

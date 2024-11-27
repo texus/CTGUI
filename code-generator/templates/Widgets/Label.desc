@@ -33,3 +33,5 @@ property bool AutoSize
 /// When the label is auto-sizing then the maximum width is used to split the text over several lines when its width would exceed the configured value.
 /// Setting this property to 0 while the label is auto-sizing would disable the maximum text width.
 property float MaximumTextWidth
+
+signal String(text) DoubleClick DoubleClicked

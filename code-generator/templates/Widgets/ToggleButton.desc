@@ -1,3 +1,5 @@
 inherits ButtonBase
 
 property-bool-is Down
+
+signal Bool(down) Toggle Toggled

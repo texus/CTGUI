@@ -1,3 +1,9 @@
+static-function float getStaticExtraHorizontalPadding getExtraHorizontalPadding(Font font, uint characterSize)
+static-function float getStaticExtraHorizontalOffset getExtraHorizontalOffset(Font font, uint characterSize)
+static-function float getStaticExtraVerticalPadding getExtraVerticalPadding(uint characterSize)
+static-function float getStaticLineHeight getLineHeight(Font font, uint characterSize)
+static-function float getStaticLineWidth getLineWidth(string text, Font font, uint characterSize, TextStyle style)
+
 static-function uint findBestTextSize(Font font, float height, int fit)
 static-function string wordWrap(float maxWidth, string text, Font font, uint textSize, bool bold)
 

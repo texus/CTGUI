@@ -28,7 +28,9 @@ static_assert(sizeof(char32_t) == sizeof(uint32_t)); // Needed for reinterpret_c
 
 namespace ctgui
 {
-    std::string tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
+    tgui::String tguiErrorMessage; // Holds the error to be returned by tgui_getLastError()
+
+    std::unordered_map<const tgui::BackendGui*, tguiGui*> guiMap;
 
     // The bindingWidgetCleanupCallback is called once per frame for each widget that was destroyed since the last check.
     // Note that the pointer passed as parameter should NOT be freed or accessed in any way by the callback function!

@@ -52,7 +52,7 @@ CTGUI_API void tguiTreeViewConstNode_destroy(tguiTreeViewConstNode* node); // Ne
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CTGUI_API const tguiTreeViewConstNode* tguiTreeView_getNode(const tguiWidget* widget, const tguiUtf32* hierarchy, unsigned int hierarchyLength); // tguiTreeViewConstNode_destroy must be called on the returned value
+CTGUI_API const tguiTreeViewConstNode* tguiTreeView_getNode(const tguiWidget* widget, const tguiUtf32* hierarchy, size_t hierarchyLength); // tguiTreeViewConstNode_destroy must be called on the returned value
 CTGUI_API tguiTreeViewConstNode** tguiTreeView_getNodes(const tguiWidget* widget, size_t* count); // tguiTreeViewConstNode_destroy must be called on each element in the returned array, count is set by the function to indicate the array length. NULL is returned if the tree view is empty.
 
 #endif // CTGUI_TREEVIEW_H

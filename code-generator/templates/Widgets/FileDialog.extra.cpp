@@ -16,6 +16,11 @@ void tguiFileDialogFilter_destroy(tguiFileDialogFilter* filter)
     delete filter;
 }
 
+tguiUtf32 tguiFileDialogFilter_getName(const tguiFileDialogFilter* filter)
+{
+    return ctgui::fromCppStr(filter->name);
+}
+
 void tguiFileDialogFilter_addExpression(tguiFileDialogFilter* filter, tguiUtf32 expression)
 {
     filter->expressions.push_back(ctgui::toCppStr(expression));
@@ -67,11 +72,11 @@ const tguiUtf32* tguiFileDialog_getSelectedPaths(const tguiWidget* widget, size_
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiFileDialog_setFileTypeFilters(tguiWidget* widget, const tguiFileDialogFilter* filters, size_t filterCount, size_t defaultFilterIndex)
+void tguiFileDialog_setFileTypeFilters(tguiWidget* widget, const tguiFileDialogFilter** filters, size_t filterCount, size_t defaultFilterIndex)
 {
     std::vector<std::pair<tgui::String, std::vector<tgui::String>>> cppFilters;
     for (size_t i = 0; i < filterCount; ++i)
-        cppFilters.emplace_back(std::make_pair(filters[i].name, filters[i].expressions));
+        cppFilters.emplace_back(std::make_pair(filters[i]->name, filters[i]->expressions));
 
     DOWNCAST(widget->This)->setFileTypeFilters(cppFilters, defaultFilterIndex);
 }
@@ -91,6 +96,13 @@ tguiFileDialogFilter** tguiFileDialog_getFileTypeFilters(const tguiWidget* widge
 
     *count = cFilters.size();
     return cFilters.data();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+size_t tguiFileDialog_getFileTypeFiltersIndex(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getFileTypeFiltersIndex();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

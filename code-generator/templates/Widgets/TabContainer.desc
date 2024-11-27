@@ -23,3 +23,6 @@ function void setTabsHeightFromLayout setTabsHeight(Layout layout)
 
 function bool removeTabWithName removeTab(string text)
 function bool removeTabWithIndex removeTab(size_t index)
+
+signal Int(index) SelectionChange SelectionChanged
+signal TabSelectionChanging(index,vetoed) SelectionChanging SelectionChanging

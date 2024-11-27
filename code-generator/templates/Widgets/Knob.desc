@@ -9,3 +9,5 @@ property float Minimum
 property float Maximum
 property float Value
 property bool ClockwiseTurning
+
+signal Float(value) ValueChange ValueChanged
