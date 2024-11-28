@@ -28,6 +28,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef struct tguiFont tguiFont;
 typedef struct tguiGui tguiGui;

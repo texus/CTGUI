@@ -1,7 +1,6 @@
 #include <CTGUI/CTGUI.h>
 #include <CTGUI/Backend/SDL-Renderer.h>
 #include <stdio.h>
-#include <stdbool.h>
 
 #if SDL_MAJOR_VERSION >= 3
     #include <SDL3/SDL_main.h>
