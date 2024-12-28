@@ -140,7 +140,7 @@ namespace ctgui
             if (!sfFont_hasGlyph(m_font, U'\u00CA'))
                 return static_cast<float>(scaledTextSize) / m_fontScale;
 
-            const tgui::FontGlyph& glyph = getGlyph(U'\u00CA', scaledTextSize, false, 0);
+            const tgui::FontGlyph& glyph = getGlyph(U'\u00CA', characterSize, false, 0);
             return glyph.bounds.height;
         }
 
@@ -150,8 +150,7 @@ namespace ctgui
         {
             // SFML doesn't provide a method to access the descent of the font.
             // We extract the descent by examining the 'g' glyph, assuming it exists.
-            const unsigned int scaledTextSize = static_cast<unsigned int>(characterSize * m_fontScale);
-            const tgui::FontGlyph& glyph = getGlyph(U'g', scaledTextSize, false);
+            const tgui::FontGlyph& glyph = getGlyph(U'g', characterSize, false);
             return glyph.bounds.height + glyph.bounds.top;
         }
 
@@ -195,7 +194,8 @@ namespace ctgui
             m_textures[scaledTextSize] = texture;
             sfImage_destroy(image);
 
-            textureVersion = ++m_textureVersions[scaledTextSize];
+            textureVersion = ++m_lastTextureVersion;
+            m_textureVersions[scaledTextSize] = textureVersion;
             return texture;
         }
 
@@ -246,6 +246,10 @@ namespace ctgui
         // from breaking since sf::Font does the same.
         std::map<unsigned int, std::shared_ptr<tgui::BackendTexture>> m_textures;
         std::map<unsigned int, unsigned int> m_textureVersions;
+
+        // We use a single version that is unique across all text sizes. Otherwise switching from size by changing the font scale
+        // can result in the same version being accidentally returned and the text not realizing that the texture changed.
+        unsigned int m_lastTextureVersion = 0;
     };
 }
 

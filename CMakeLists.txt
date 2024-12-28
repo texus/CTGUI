@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.22...3.29)
+cmake_minimum_required(VERSION 3.22...3.31)
 
 # Define a macro that helps defining an option
 macro(ctgui_set_option var default type docstring)
@@ -11,7 +11,7 @@ endmacro()
 # Set a default build type if none was provided
 ctgui_set_option(CMAKE_BUILD_TYPE Release STRING "Choose the type of build (Debug or Release)")
 
-project(CTGUI VERSION 1.6.1 LANGUAGES C CXX)
+project(CTGUI VERSION 1.7.0 LANGUAGES C CXX)
 
 # Use the paths from the cmake GNUInstallDirs module as defaults (https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html)
 include(GNUInstallDirs)

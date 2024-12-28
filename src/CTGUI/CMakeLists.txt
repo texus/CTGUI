@@ -164,6 +164,10 @@ set(SRC
     ${SRCROOT}/Widgets/Grid.cpp
     ${INCROOT}/Widgets/Group.h
     ${SRCROOT}/Widgets/Group.cpp
+    ${INCROOT}/Widgets/GrowHorizontalLayout.h
+    ${SRCROOT}/Widgets/GrowHorizontalLayout.cpp
+    ${INCROOT}/Widgets/GrowVerticalLayout.h
+    ${SRCROOT}/Widgets/GrowVerticalLayout.cpp
     ${INCROOT}/Widgets/HorizontalLayout.h
     ${SRCROOT}/Widgets/HorizontalLayout.cpp
     ${INCROOT}/Widgets/HorizontalWrap.h
@@ -279,6 +283,7 @@ else()
                            -Wformat=2
                            -Wimplicit-fallthrough
                            -Wnull-dereference
+                           -Wno-deprecated-declarations
     )
 endif()
 
