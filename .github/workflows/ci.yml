@@ -261,7 +261,7 @@ jobs:
 
       - name: Build CTGUI
         run: >
-          cmake -B build
+          cmake -B build -GNinja
           -DTGUI_ROOT="$GITHUB_WORKSPACE/TGUI_INSTALL"
           -DBUILD_SHARED_LIBS=ON
           -DCTGUI_LINK_TGUI_STATICALLY=OFF

@@ -66,6 +66,8 @@ endif()
 
 if (CSFML_LIBRARIES_DIR)
     link_directories("${CSFML_LIBRARIES_DIR}")
+elseif(CSFML_INCLUDE_DIR AND IS_DIRECTORY "${CSFML_INCLUDE_DIR}/../lib")
+    link_directories("${CSFML_INCLUDE_DIR}/../lib")
 endif()
 
 # handle errors
