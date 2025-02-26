@@ -4,7 +4,7 @@ inherits DualScrollbarChildInterface
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ListViewRenderer
 
-function size_t addColumn(string text, float width, HorizontalAlignment columnAlignment)
+function size_t addColumn(string text, float width = 0, HorizontalAlignment columnAlignment = Left)
 
 function void setColumnText(size_t index, string text)
 const-function string getColumnText(size_t index)

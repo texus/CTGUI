@@ -215,7 +215,7 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
     generatedLines = []
     funcCallParams = []
     for param in funcParams:
-        paramType, paramName = param
+        paramType, paramName, defaultValue = param
         if paramType in enums:
             funcCallParams.append('static_cast<tgui::' + className + '::' + paramType + '>(' + paramName + ')')
         elif paramType == 'size_t' or paramType == 'int' or paramType == 'uint' or paramType == 'float' \
@@ -397,9 +397,9 @@ def generatePropertySourceC(className, segment, enums, selfType, selfName, downc
         raise RuntimeError('"is" prefix in property is only allowed for bool types')
 
     generatedLines = []
-    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, enums))
+    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value', None)], 'void', False, segment.static, selfType, selfName, enums))
     generatedLines.append('{')
-    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', segment.static, selfName, enums, downcast=downcast))
+    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value', None)], 'void', segment.static, selfName, enums, downcast=downcast))
     generatedLines.append('}')
     generatedLines.append('')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:

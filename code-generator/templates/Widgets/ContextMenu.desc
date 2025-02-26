@@ -1,0 +1,31 @@
+inherits MenuWidgetBase
+
+/// @brief Renderer containing properties that determine how the widget is displayed
+property-widget-renderer ContextMenuRenderer
+
+const-function bool isMenuOpen()
+
+function void openMenu()
+function void openMenuAtPos openMenu(Vector2f position)
+function void openMenuAtMouseCursor()
+function void closeMenu()
+
+function void addMenuItem(string text)
+function bool addMenuItemHierarchy addMenuItem(List<string> hierarchy, bool createParents = true)
+
+function bool changeMenuItem(List<string> hierarchy, string text)
+
+function void removeAllMenuItems()
+function bool removeMenuItem(string menuItem)
+function bool removeMenuItemHierarchy removeMenuItem(List<string> hierarchy, bool removeParentsWhenEmpty = true)
+function bool removeSubMenuItems(List<string> hierarchy)
+
+function bool setMenuItemEnabled(string menuItem, bool enabled)
+const-function bool getMenuItemEnabled(string menuItem)
+function bool setMenuItemEnabledHierarchy setMenuItemEnabled(List<string> hierarchy, bool enabled)
+const-function bool getMenuItemEnabledHierarchy getMenuItemEnabled(List<string> hierarchy)
+
+property float ItemHeight
+property float MinimumMenuWidth
+
+signal ItemHierarchy(hierarchy) MenuItemClick MenuItemClicked

@@ -8,8 +8,8 @@ function void addWidget(Widget widget, size_t row, size_t col, Alignment alignme
 function void setWidgetCell(Widget widget, size_t row, size_t col, Alignment alignment, Outline padding)
 const-function Widget getWidget(size_t row, size_t col)
 
-function void setWidgetAlignment(Widget widget, Alignment alignment)
-function void setWidgetAlignmentByCell setWidgetAlignment(size_t row, size_t col, Alignment alignment)
+function void setWidgetAlignment(Widget widget, Alignment alignment = Center)
+function void setWidgetAlignmentByCell setWidgetAlignment(size_t row, size_t col, Alignment alignment = Center)
 const-function Alignment getWidgetAlignment(Widget widget)
 const-function Alignment getWidgetAlignmentByCell getWidgetAlignment(size_t row, size_t col)
 

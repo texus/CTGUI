@@ -10,7 +10,7 @@ property-bool-is TabKeyUsageEnabled
 
 property Font Font
 
-function void add(Widget widget, string widgetName)
+function void add(Widget widget, string widgetName = '')
 const-function Widget get(string widgetName)
 const-function List<Widget> getWidgets()
 function bool remove(Widget widget)
@@ -21,8 +21,8 @@ const-function Widget getFocusedLeaf()
 const-function Widget getWidgetAtPos(Vector2f pos, bool recursive)
 const-function Widget getWidgetBelowMouseCursor(Vector2i mousePos, bool recursive)
 
-function bool focusNextWidget(bool recursive)
-function bool focusPreviousWidget(bool recursive)
+function bool focusNextWidget(bool recursive = true)
+function bool focusPreviousWidget(bool recursive = true)
 
 function void unfocusAllWidgets()
 

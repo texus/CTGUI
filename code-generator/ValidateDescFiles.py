@@ -47,6 +47,7 @@ VALID_CPP_TYPES = {
     'ScrollbarPolicy' : ['Scrollbar::Policy'],
     'Orientation' : ['Orientation'],
     'CursorType' : ['Cursor::Type'],
+    'Duration': ['Duration'],
     'Vector2f' : ['Vector2f'],
     'Vector2i' : ['Vector2i'],
     'Vector2u' : ['Vector2u'],
@@ -103,7 +104,7 @@ for subfolder in ['Widgets', 'Renderers', '.']:
         cppInheritsDualScrollbarChildInterface = False
         for line in open(cppFile, 'r').readlines():
             line = line.strip()
-            if line.startswith('//'):
+            if line.startswith('//') or line.startswith('#'):
                 continue
 
             deprecatedProperty = False
@@ -158,7 +159,7 @@ for subfolder in ['Widgets', 'Renderers', '.']:
                     print(className + ': C++ getter "is' + propertyName + '" is missing const modifier')
 
             # Look for any function
-            match = re.search(' ([a-zA-Z]+)\\(([^)]*)\\)', line)
+            match = re.search(' ([a-zA-Z]+)\\((.*)\\)', line)
             if match:
                 functionName = match.group(1)
                 params = match.group(2)

@@ -24,7 +24,7 @@ const-function size_t getCaretColumn()
 
 property-bool-is ReadOnly
 
-function void enableMonospacedFontOptimization(bool enable)
+function void enableMonospacedFontOptimization(bool enable = true)
 
 const-function size_t getLinesCount()
 

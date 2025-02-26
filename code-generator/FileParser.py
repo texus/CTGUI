@@ -55,7 +55,7 @@ class SegmentFunction(Segment):
         self.nameC = nameC
         self.name = name
         self.returnType = returnType
-        self.params = params # List of tuples containing type and name
+        self.params = params # List of tuples containing type, name and default value
         self.const = const
         self.static = static
 
@@ -171,13 +171,19 @@ def parseDescriptionFile(descFileName):
                     if closeBracketPos <= openBracketPos:
                         raise RuntimeError('"function" instruction had closing bracket before opening one')
 
-                    if closeBracketPos == openBracketPos+1 or functionPart[openBracketPos+1:closeBracketPos] == 'void':
-                        params = []
-                    else:
-                        params = [tuple(param.strip().split(' ')) for param in functionPart[openBracketPos+1:closeBracketPos].split(',')]
-                        for param in params:
-                            if len(param) != 2:
-                                raise RuntimeError('Parameter "' + ' '.join(param) + '" does not consist of exactly 2 parts (type and name)')
+                    params = []
+                    if closeBracketPos != openBracketPos+1 and functionPart[openBracketPos+1:closeBracketPos] != 'void':
+                        for param in functionPart[openBracketPos+1:closeBracketPos].split(','):
+                            equalPos = param.find('=')
+                            if equalPos != -1:
+                                paramTypeAndName = param[:equalPos]
+                                defaultValue = param[equalPos+1:].strip()
+                            else:
+                                paramTypeAndName = param
+                                defaultValue = None
+
+                            paramType, paramName = tuple(paramTypeAndName.strip().split(' '))
+                            params.append((paramType, paramName, defaultValue))
 
                     name = functionPart[:openBracketPos].strip()
                     if ' ' in name:

@@ -4,7 +4,7 @@ inherits ScrollbarChildInterface
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer ListBoxRenderer
 
-function size_t addItem(string item, string id)
+function size_t addItem(string item, string id = '')
 function void addMultipleItems(List<string> items)
 
 const-function string getItemById(string id)
@@ -51,4 +51,5 @@ signal Item(index) ItemSelect   ItemSelected
 signal Item(index) MousePress   MousePressed
 signal Item(index) MouseRelease MouseReleased
 signal Item(index) DoubleClick  DoubleClicked
+signal Item(index) RightClick   RightClicked
 signal UInt(value) Scroll       Scrolled

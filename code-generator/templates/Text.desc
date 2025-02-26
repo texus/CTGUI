@@ -4,7 +4,7 @@ static-function float getStaticExtraVerticalPadding getExtraVerticalPadding(uint
 static-function float getStaticLineHeight getLineHeight(Font font, uint characterSize)
 static-function float getStaticLineWidth getLineWidth(string text, Font font, uint characterSize, TextStyle style)
 
-static-function uint findBestTextSize(Font font, float height, int fit)
+static-function uint findBestTextSize(Font font, float height, int fit = 0)
 static-function string wordWrap(float maxWidth, string text, Font font, uint textSize, bool bold)
 
 const-function Vector2f getSize()

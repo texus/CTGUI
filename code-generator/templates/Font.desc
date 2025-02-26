@@ -1,7 +1,7 @@
 static-property Font GlobalFont
 
 const-function string getId()
-const-function float getKerning(Char32 first, Char32 second, uint characterSize, bool bold)
+const-function float getKerning(Char32 first, Char32 second, uint characterSize, bool bold = false)
 const-function float getLineSpacing(uint characterSize)
 const-function float getFontHeight(uint characterSize)
 

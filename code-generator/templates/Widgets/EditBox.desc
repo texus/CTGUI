@@ -13,7 +13,7 @@ property-bool-is ReadOnly
 property size_t CaretPosition
 property string Suffix
 
-function bool setInputValidator(string regex)
+function bool setInputValidator(string regex = '.*')
 const-function string getInputValidator()
 
 function void selectText(size_t start, size_t length)

@@ -4,6 +4,6 @@ inherits Group
 /// @brief Renderer containing properties that determine how the widget is displayed
 property-widget-renderer BoxLayoutRenderer
 
-function void insert(size_t index, Widget widgetToAdd, string widgetName)
+function void insert(size_t index, Widget widgetToAdd, string widgetName = '')
 function bool removeAtIndex remove(size_t index)
 const-function Widget getAtIndex get(size_t index)

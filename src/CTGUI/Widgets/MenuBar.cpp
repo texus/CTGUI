@@ -203,7 +203,7 @@ void tguiMenuBarMenuList_destroy(tguiMenuBarMenuList* menuList)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static void convertMenuItem(const tgui::MenuBar::GetMenusElement& cppMenu, tguiMenuBarElement& cMenu)
+static void convertMenuItem(const tgui::MenuWidgetBase::GetMenusElement& cppMenu, tguiMenuBarElement& cMenu)
 {
     cMenu.text = reinterpret_cast<tguiUtf32>(cppMenu.text.c_str());
     cMenu.enabled = cppMenu.enabled;
@@ -221,7 +221,7 @@ static void convertMenuItem(const tgui::MenuBar::GetMenusElement& cppMenu, tguiM
 tguiMenuBarMenuList* tguiMenuBar_getMenus(tguiWidget* widget)
 {
     // A copy of the strings still needs to exist after this function finished
-    static std::vector<tgui::MenuBar::GetMenusElement> cppMenus;
+    static std::vector<tgui::MenuWidgetBase::GetMenusElement> cppMenus;
     cppMenus = DOWNCAST(widget->This)->getMenus();
 
     tguiMenuBarMenuList* menuList = new tguiMenuBarMenuList;

@@ -6,7 +6,7 @@ property-widget-renderer TreeViewRenderer
 
 property uint ItemHeight
 
-function bool addItem(List<string> hierarchy, bool createParents)
+function bool addItem(List<string> hierarchy, bool createParents = true)
 function bool changeItem(List<string> hierarchy, string leafText)
 
 function void expand(List<string> hierarchy)
@@ -25,7 +25,7 @@ function bool setItemIndexInParent(List<string> hierarchy, size_t index)
 const-function int getItemIndexInParent(List<string> hierarchy)
 
 function bool selectItem(List<string> hierarchy)
-function bool removeItem(List<string> hierarchy, bool removeParentsWhenEmpty)
+function bool removeItem(List<string> hierarchy, bool removeParentsWhenEmpty = true)
 
 signal ItemHierarchy(hierarchy) ItemSelect ItemSelected
 signal ItemHierarchy(hierarchy) DoubleClick DoubleClicked

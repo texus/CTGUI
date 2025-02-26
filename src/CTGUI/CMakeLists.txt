@@ -84,6 +84,8 @@ set(SRC
     ${INCROOT}/Renderers/ColorPickerRenderer.h
     ${SRCROOT}/Renderers/ComboBoxRenderer.cpp
     ${INCROOT}/Renderers/ComboBoxRenderer.h
+    ${SRCROOT}/Renderers/ContextMenuRenderer.cpp
+    ${INCROOT}/Renderers/ContextMenuRenderer.h
     ${SRCROOT}/Renderers/EditBoxRenderer.cpp
     ${INCROOT}/Renderers/EditBoxRenderer.h
     ${SRCROOT}/Renderers/FileDialogRenderer.cpp
@@ -100,6 +102,8 @@ set(SRC
     ${INCROOT}/Renderers/ListViewRenderer.h
     ${SRCROOT}/Renderers/MenuBarRenderer.cpp
     ${INCROOT}/Renderers/MenuBarRenderer.h
+    ${SRCROOT}/Renderers/MenuWidgetBaseRenderer.cpp
+    ${INCROOT}/Renderers/MenuWidgetBaseRenderer.h
     ${SRCROOT}/Renderers/MessageBoxRenderer.cpp
     ${INCROOT}/Renderers/MessageBoxRenderer.h
     ${SRCROOT}/Renderers/PanelRenderer.cpp
@@ -154,6 +158,8 @@ set(SRC
     ${SRCROOT}/Widgets/ColorPicker.cpp
     ${INCROOT}/Widgets/ComboBox.h
     ${SRCROOT}/Widgets/ComboBox.cpp
+    ${INCROOT}/Widgets/ContextMenu.h
+    ${SRCROOT}/Widgets/ContextMenu.cpp
     ${INCROOT}/Widgets/EditBox.h
     ${SRCROOT}/Widgets/EditBox.cpp
     ${INCROOT}/Widgets/EditBoxSlider.h
@@ -182,6 +188,8 @@ set(SRC
     ${SRCROOT}/Widgets/ListView.cpp
     ${INCROOT}/Widgets/MenuBar.h
     ${SRCROOT}/Widgets/MenuBar.cpp
+    ${INCROOT}/Widgets/MenuWidgetBase.h
+    ${SRCROOT}/Widgets/MenuWidgetBase.cpp
     ${INCROOT}/Widgets/MessageBox.h
     ${SRCROOT}/Widgets/MessageBox.cpp
     ${INCROOT}/Widgets/Panel.h

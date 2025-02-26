@@ -5,8 +5,8 @@ property-widget-renderer TabsRenderer
 
 property bool AutoSize
 
-function size_t add(string text, bool select)
-function void insert(size_t index, string text, bool select)
+function size_t add(string text, bool select = true)
+function void insert(size_t index, string text, bool select = true)
 const-function string getText(size_t index)
 function bool changeText(size_t index, string text)
 
@@ -35,3 +35,4 @@ function bool removeByText remove(string text)
 function bool removeByIndex remove(size_t index)
 
 signal String(tabText) TabSelect TabSelected
+signal String(tabText) TabRightClick TabRightClicked
