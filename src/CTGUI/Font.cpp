@@ -15,12 +15,28 @@ tguiFont* tguiFont_createNull(void)
 
 tguiFont* tguiFont_createFromFile(tguiUtf32 filename)
 {
-    return new tguiFont(std::make_unique<tgui::Font>(ctgui::toCppStr(filename)));
+    try
+    {
+        return new tguiFont(std::make_unique<tgui::Font>(ctgui::toCppStr(filename)));
+    }
+    catch (const tgui::Exception &e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return nullptr;
+    }
 }
 
 tguiFont* tguiFont_createFromMemory(tguiUint8* data, size_t dataSize)
 {
-    return new tguiFont(std::make_unique<tgui::Font>(data, dataSize));
+    try
+    {
+        return new tguiFont(std::make_unique<tgui::Font>(data, dataSize));
+    }
+    catch (const tgui::Exception &e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return nullptr;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
