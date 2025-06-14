@@ -22,19 +22,19 @@ function bool removeItemById(string id)
 function bool removeItemByIndex(size_t index)
 function void removeAllItems()
 
-const-function string getSelectedItem()
-const-function string getSelectedItemId()
-const-function int getSelectedItemIndex()
-const-function int getHoveredItemIndex()
+get-property string SelectedItem
+get-property string SelectedItemId
+get-property int SelectedItemIndex
+get-property int HoveredItemIndex
 
 function bool changeItem(string originalValue, string newValue)
 function bool changeItemById(string id, string newValue)
 function bool changeItemByIndex(size_t index, string newValue)
 
-const-function size_t getItemCount()
+get-property size_t ItemCount
 
-const-function List<string> getItems()
-const-function List<string> getItemIds()
+get-property List<string> Items
+get-property List<string> ItemIds
 
 function void setItemData(size_t index, AnyObject data)
 const-function AnyObject getItemData(size_t index)

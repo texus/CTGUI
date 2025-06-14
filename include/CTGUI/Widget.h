@@ -13,6 +13,18 @@ CTGUI_API tguiWidget* tguiWidget_copy(const tguiWidget* other);
 CTGUI_API void tguiWidget_destroy(tguiWidget* widget);
 CTGUI_API tguiWidget* tguiWidget_addPointerReference(tguiWidget* widget); // An extra call to tguiWidget_destroy will be needed after calling this function. Returns the same value as the given parameter.
 
+CTGUI_API void tguiWidget_setPosition(tguiWidget* thisWidget, tguiVector2f position);
+CTGUI_API tguiVector2f tguiWidget_getPosition(const tguiWidget* thisWidget);
+
+CTGUI_API void tguiWidget_setPositionLayout(tguiWidget* thisWidget, const tguiLayout2d* layout);
+CTGUI_API tguiLayout2d* tguiWidget_getPositionLayout(const tguiWidget* thisWidget);
+
+CTGUI_API void tguiWidget_setSize(tguiWidget* thisWidget, tguiVector2f size);
+CTGUI_API tguiVector2f tguiWidget_getSize(const tguiWidget* thisWidget);
+
+CTGUI_API void tguiWidget_setSizeLayout(tguiWidget* thisWidget, const tguiLayout2d* layout);
+CTGUI_API tguiLayout2d* tguiWidget_getSizeLayout(const tguiWidget* thisWidget);
+
 CTGUI_API void tguiWidget_setAutoLayout(const tguiWidget* widget, tguiAutoLayout layout);
 CTGUI_API tguiAutoLayout tguiWidget_getAutoLayout(const tguiWidget* widget);
 
@@ -63,12 +75,6 @@ CTGUI_API tguiGui* tguiWidget_getParentGui(const tguiWidget* widget);
 
 CTGUI_API void tguiWidget_updateTime(tguiWidget* widget, tguiDuration duration);
 
-CTGUI_API void tguiWidget_setPosition(tguiWidget* thisWidget, tguiVector2f position);
-
-CTGUI_API void tguiWidget_setPositionFromLayout(tguiWidget* thisWidget, const tguiLayout2d* layout);
-
-CTGUI_API tguiVector2f tguiWidget_getPosition(const tguiWidget* thisWidget);
-
 CTGUI_API tguiVector2f tguiWidget_getAbsolutePosition(const tguiWidget* thisWidget);
 
 CTGUI_API tguiVector2f tguiWidget_getAbsolutePositionWithOffset(const tguiWidget* thisWidget, tguiVector2f offset);
@@ -82,12 +88,6 @@ CTGUI_API void tguiWidget_setWidthFromLayout(tguiWidget* thisWidget, const tguiL
 CTGUI_API void tguiWidget_setHeight(tguiWidget* thisWidget, float height);
 
 CTGUI_API void tguiWidget_setHeightFromLayout(tguiWidget* thisWidget, const tguiLayout* layout);
-
-CTGUI_API void tguiWidget_setSize(tguiWidget* thisWidget, tguiVector2f size);
-
-CTGUI_API void tguiWidget_setSizeFromLayout(tguiWidget* thisWidget, const tguiLayout2d* layout);
-
-CTGUI_API tguiVector2f tguiWidget_getSize(const tguiWidget* thisWidget);
 
 CTGUI_API tguiVector2f tguiWidget_getFullSize(const tguiWidget* thisWidget);
 

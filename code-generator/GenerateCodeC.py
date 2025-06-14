@@ -397,11 +397,12 @@ def generatePropertySourceC(className, segment, enums, selfType, selfName, downc
         raise RuntimeError('"is" prefix in property is only allowed for bool types')
 
     generatedLines = []
-    generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value', None)], 'void', False, segment.static, selfType, selfName, enums))
-    generatedLines.append('{')
-    generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value', None)], 'void', segment.static, selfName, enums, downcast=downcast))
-    generatedLines.append('}')
-    generatedLines.append('')
+    if not segment.getterOnly:
+        generatedLines.append(generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value', None)], 'void', False, segment.static, selfType, selfName, enums))
+        generatedLines.append('{')
+        generatedLines.extend(generateFunctionCallC(className, 'set' + propertyName, [(propertyType, 'value', None)], 'void', segment.static, selfName, enums, downcast=downcast))
+        generatedLines.append('}')
+        generatedLines.append('')
     if propertyType == 'bool' and segment.getterUsesIsPrefix:
         generatedLines.append(generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, segment.static, selfType, selfName, {}))
     else:
@@ -422,16 +423,22 @@ def generatePropertyHeaderC(className, segment, enums, selfType, selfName):
     if segment.getterUsesIsPrefix and propertyType != 'bool':
         raise RuntimeError('"is" prefix in property is only allowed for bool types')
 
-    if propertyType == 'bool' and segment.getterUsesIsPrefix:
-        return [
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, {}) + ';',
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, segment.static, selfType, selfName, {}) + ';'
-        ]
+    if segment.getterOnly:
+        if propertyType == 'bool' and segment.getterUsesIsPrefix:
+            return ['CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, segment.static, selfType, selfName, {}) + ';']
+        else:
+            return ['CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, segment.static, selfType, selfName, enums) + ';']
     else:
-        return [
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, enums) + ';',
-            'CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, segment.static, selfType, selfName, enums) + ';'
-        ]
+        if propertyType == 'bool' and segment.getterUsesIsPrefix:
+            return [
+                'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, {}) + ';',
+                'CTGUI_API ' + generateFunctionSignatureC(className, 'is' + propertyName, [], propertyType, True, segment.static, selfType, selfName, {}) + ';'
+            ]
+        else:
+            return [
+                'CTGUI_API ' + generateFunctionSignatureC(className, 'set' + propertyName, [(propertyType, 'value')], 'void', False, segment.static, selfType, selfName, enums) + ';',
+                'CTGUI_API ' + generateFunctionSignatureC(className, 'get' + propertyName, [], propertyType, True, segment.static, selfType, selfName, enums) + ';'
+            ]
 
 #################################################################################################################################
 

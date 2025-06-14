@@ -7,7 +7,7 @@ property string Text
 
 function void addButton(string text)
 function void changeButtons(List<string> buttonCaptions)
-const-function List<string> getButtons()
+get-property List<string> Buttons
 
 property HorizontalAlignment LabelAlignment
 property HorizontalAlignment ButtonAlignment

@@ -27,6 +27,9 @@ CTGUI_API tguiColor tguiTexture_getColor(const tguiTexture* thisTexture);
 CTGUI_API void tguiTexture_setMiddleRect(tguiTexture* thisTexture, tguiUIntRect value);
 CTGUI_API tguiUIntRect tguiTexture_getMiddleRect(const tguiTexture* thisTexture);
 
+CTGUI_API void tguiTexture_setScaledNineSlice(tguiTexture* thisTexture, tguiBool value);
+CTGUI_API tguiBool tguiTexture_getScaledNineSlice(const tguiTexture* thisTexture);
+
 CTGUI_API tguiUtf32 tguiTexture_getId(const tguiTexture* thisTexture);
 
 CTGUI_API tguiVector2u tguiTexture_getImageSize(const tguiTexture* thisTexture);

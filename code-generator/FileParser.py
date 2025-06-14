@@ -39,11 +39,12 @@ class SegmentInherits(Segment):
         self.parentName = parentName
 
 class SegmentProperty(Segment):
-    def __init__(self, propertyType, propertyName, static):
+    def __init__(self, propertyType, propertyName, static=False, getterOnly=False, getterUsesIsPrefix=False):
         self.type = propertyType
         self.name = propertyName
         self.static = static
-        self.getterUsesIsPrefix = False
+        self.getterOnly = getterOnly
+        self.getterUsesIsPrefix = getterUsesIsPrefix
 
 class SegmentPropertyWidgetRenderer(Segment):
     def __init__(self, rendererType, namePrefix = ''):
@@ -138,18 +139,18 @@ def parseDescriptionFile(descFileName):
                     else:
                         raise RuntimeError('"property-widget-renderer" instruction should be followed renderer type (and optional name prefix)')
 
-                elif parts[0] == 'property' or parts[0] == 'static-property':
+                elif parts[0] == 'property' or parts[0] == 'static-property' or parts[0] == 'get-property':
                     if len(parts) == 3:
                         static = (parts[0] == 'static-property')
-                        segments.append(SegmentProperty(parts[1], parts[2], static))
+                        getterOnly = (parts[0] == 'get-property')
+                        segments.append(SegmentProperty(parts[1], parts[2], static=static, getterOnly=getterOnly))
                     else:
                         raise RuntimeError('"property" instruction should be followed by type and name')
 
-                elif parts[0] == 'property-bool-is':
+                elif parts[0] == 'property-bool-is' or parts[0] == 'get-property-bool-is':
                     if len(parts) == 2:
-                        boolProperty = SegmentProperty("bool", parts[1], False)
-                        boolProperty.getterUsesIsPrefix = True
-                        segments.append(boolProperty)
+                        getterOnly = (parts[0] == 'get-property-bool-is')
+                        segments.append(SegmentProperty("bool", parts[1], getterOnly=getterOnly, getterUsesIsPrefix=True))
                     else:
                         raise RuntimeError('"property-bool-is" instruction should be followed by a name')
 

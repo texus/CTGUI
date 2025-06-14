@@ -7,9 +7,9 @@ property-widget-renderer TabsRenderer Tabs
 
 function void select(size_t index)
 
-const-function size_t getPanelCount()
+get-property size_t PanelCount
 
-const-function int getSelectedIndex()
+get-property int SelectedIndex
 
 const-function string getTabText(size_t index)
 

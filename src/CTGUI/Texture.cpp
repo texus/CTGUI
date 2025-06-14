@@ -149,6 +149,18 @@ tguiUIntRect tguiTexture_getMiddleRect(const tguiTexture* thisTexture)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiTexture_setScaledNineSlice(tguiTexture* thisTexture, tguiBool value)
+{
+    thisTexture->This->setScaledNineSlice(value != 0);
+}
+
+tguiBool tguiTexture_getScaledNineSlice(const tguiTexture* thisTexture)
+{
+    return thisTexture->This->getScaledNineSlice();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 tguiUtf32 tguiTexture_getId(const tguiTexture* thisTexture)
 {
     return ctgui::fromCppStr(thisTexture->This->getId());

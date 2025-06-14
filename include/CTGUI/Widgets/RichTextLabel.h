@@ -7,4 +7,6 @@
 
 CTGUI_API tguiWidget* tguiRichTextLabel_create(void);
 
+CTGUI_API tguiUtf32 tguiRichTextLabel_findLinkAtPos(const tguiWidget* thisWidget, tguiVector2f pos);
+
 #endif // CTGUI_RICHTEXTLABEL_H

@@ -5,8 +5,6 @@ property-widget-renderer SpinButtonRenderer
 
 property float Minimum
 property float Maximum
-property float Value
-property float Step
 property Orientation Orientation
 
 signal Float(value) ValueChange ValueChanged

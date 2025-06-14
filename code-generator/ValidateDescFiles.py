@@ -201,6 +201,11 @@ for subfolder in ['Widgets', 'Renderers', '.']:
                 if segment.name in encounteredFunctions:
                     functionsWithOverloads.add(segment.name)
                 encounteredFunctions.add(segment.name)
+            elif isinstance(segment, SegmentProperty) and segment.getterOnly:
+                if segment.getterUsesIsPrefix and 'is' + segment.name in encounteredFunctions:
+                    functionsWithOverloads.add('is' + segment.name)
+                if not segment.getterUsesIsPrefix and 'get' + segment.name in encounteredFunctions:
+                    functionsWithOverloads.add('get' + segment.name)
 
         matchedCppProperties = set()
         encounteredFunctions = set()
@@ -225,10 +230,20 @@ for subfolder in ['Widgets', 'Renderers', '.']:
             if isinstance(segment, SegmentProperty):
                 propertyType = segment.type
                 propertyName = segment.name
-                if propertyName not in cppProperties:
-                    print(className + ': Property ' + propertyName + ' does not exist in c++')
-                    error = True
-                    continue
+                if segment.getterOnly:
+                    if propertyName not in cppGetters:
+                        print(className + ': Getter property ' + propertyName + ' does not exist in c++')
+                        error = True
+                        continue
+                    if propertyName in cppProperties:
+                        print(className + ': Getter property ' + propertyName + ' also has a setter in c++')
+                        error = True
+                        continue
+                else:
+                    if propertyName not in cppProperties:
+                        print(className + ': Property ' + propertyName + ' does not exist in c++')
+                        error = True
+                        continue
 
                 if segment.getterUsesIsPrefix and propertyName not in cppBoolIsGetters:
                     print(className + ': Property ' + propertyName + ' does not use "is" prefix in c++')
@@ -241,8 +256,9 @@ for subfolder in ['Widgets', 'Renderers', '.']:
 
                 matchedCppProperties.add(propertyName)
 
+                # TODO: Also check that the property typ is correct on getter-only properties (we currently only parse type in setters)
                 validCppTypes = VALID_CPP_TYPES[propertyType] if propertyType not in cppEnums else [propertyType]
-                if cppPropertyTypes[propertyName] not in validCppTypes:
+                if not segment.getterOnly and cppPropertyTypes[propertyName] not in validCppTypes:
                     print(className + ': Type mismatch for property ' + propertyName)
                     error = True
                     continue

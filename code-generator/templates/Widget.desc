@@ -1,18 +1,12 @@
-function void setPosition(Vector2f position)
-function void setPositionFromLayout setPosition(Layout2d layout)
-const-function Vector2f getPosition()
 const-function Vector2f getAbsolutePosition()
 const-function Vector2f getAbsolutePositionWithOffset getAbsolutePosition(Vector2f offset)
-const-function Vector2f getWidgetOffset()
+get-property Vector2f WidgetOffset
 
 function void setWidth(float width)
 function void setWidthFromLayout setWidth(Layout layout)
 function void setHeight(float height)
 function void setHeightFromLayout setHeight(Layout layout)
-function void setSize(Vector2f size)
-function void setSizeFromLayout setSize(Layout2d layout)
-const-function Vector2f getSize()
-const-function Vector2f getFullSize()
+get-property Vector2f FullSize
 
 property Vector2f Origin
 
@@ -31,7 +25,7 @@ property-bool-is Enabled
 property-bool-is Focused
 property-bool-is Focusable
 
-const-function string getWidgetType()
+get-property string WidgetType
 
 function void moveToFront()
 function void moveToBack()

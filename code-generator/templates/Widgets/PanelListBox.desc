@@ -12,19 +12,19 @@ function bool setSelectedItemByIndex(size_t index)
 function bool removeItemById(string id)
 function bool removeItemByIndex(size_t index)
 
-const-function string getSelectedItemId()
-const-function int getSelectedItemIndex()
-const-function int getHoveredItemIndex()
+get-property string SelectedItemId
+get-property int SelectedItemIndex
+get-property int HoveredItemIndex
 
-const-function size_t getItemCount()
+get-property size_t ItemCount
 
-const-function List<string> getItemIds()
+get-property List<string> ItemIds
 
 property size_t MaximumItems
 
 const-function bool containsId(string id)
 
-const-function Layout getItemsWidth()
+get-property Layout ItemsWidth
 
 property Layout ItemsHeight
 

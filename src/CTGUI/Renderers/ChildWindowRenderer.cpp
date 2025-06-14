@@ -36,6 +36,18 @@ const tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* thisRe
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiChildWindowRenderer_setClientPadding(tguiRenderer* thisRenderer, const tguiOutline* value)
+{
+    DOWNCAST(thisRenderer->This)->setClientPadding(value->This);
+}
+
+const tguiOutline* tguiChildWindowRenderer_getClientPadding(const tguiRenderer* thisRenderer)
+{
+    return new tguiOutline(DOWNCAST(thisRenderer->This)->getClientPadding());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* thisRenderer, tguiColor value)
 {
     DOWNCAST(thisRenderer->This)->setTitleBarColor(ctgui::toCppColor(value));

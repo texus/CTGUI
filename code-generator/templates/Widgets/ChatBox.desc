@@ -15,7 +15,7 @@ const-function TextStyle getLineTextStyle(size_t lineIndex)
 function bool removeLine(size_t lineIndex)
 function void removeAllLines()
 
-const-function size_t getLineAmount()
+get-property size_t LineAmount
 
 property size_t LineLimit
 property Color TextColor

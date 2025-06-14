@@ -16,4 +16,7 @@ CTGUI_API tguiUtf32 tguiRadioButton_getText(const tguiWidget* thisWidget);
 CTGUI_API void tguiRadioButton_setTextClickable(tguiWidget* thisWidget, tguiBool value);
 CTGUI_API tguiBool tguiRadioButton_isTextClickable(const tguiWidget* thisWidget);
 
+CTGUI_API void tguiRadioButton_setMaxWidth(tguiWidget* thisWidget, float value);
+CTGUI_API float tguiRadioButton_getMaxWidth(const tguiWidget* thisWidget);
+
 #endif // CTGUI_RADIOBUTTON_H

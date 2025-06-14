@@ -2,8 +2,8 @@ property uint Value
 property uint ScrollAmount
 property ScrollbarPolicy Policy
 
-const-function uint getMaximum()
-const-function uint getViewportSize()
-const-function uint getMaxValue()
-const-function bool isShown()
-const-function float getWidth()
+get-property uint Maximum
+get-property uint ViewportSize
+get-property uint MaxValue
+get-property-bool-is Shown
+get-property float Width

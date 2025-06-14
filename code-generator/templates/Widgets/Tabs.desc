@@ -13,11 +13,11 @@ function bool changeText(size_t index, string text)
 function void deselect()
 function void removeAll()
 
-const-function string getSelected()
-const-function int getSelectedIndex()
-const-function int getHoveredIndex()
+get-property string Selected
+get-property int SelectedIndex
+get-property int HoveredIndex
 
-const-function size_t getTabsCount()
+get-property size_t TabsCount
 
 function void setTabVisible(size_t index, bool visible)
 const-function bool getTabVisible(size_t index)

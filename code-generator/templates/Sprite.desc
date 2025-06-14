@@ -10,4 +10,4 @@ property FloatRect VisibleRect
 property float Rotation
 
 const-function bool isTransparentPixel(Vector2f pos)
-const-function ScalingType getScalingType()
+get-property ScalingType ScalingType

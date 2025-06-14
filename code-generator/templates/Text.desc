@@ -7,7 +7,7 @@ static-function float getStaticLineWidth getLineWidth(string text, Font font, ui
 static-function uint findBestTextSize(Font font, float height, int fit = 0)
 static-function string wordWrap(float maxWidth, string text, Font font, uint textSize, bool bold)
 
-const-function Vector2f getSize()
+get-property Vector2f Size
 
 property Vector2f Position
 property string String
@@ -21,7 +21,7 @@ property float OutlineThickness
 
 const-function Vector2f findCharacterPos(size_t index)
 
-const-function float getExtraHorizontalPadding()
-const-function float getExtraHorizontalOffset()
-const-function float getLineHeight()
-const-function float getLineWidth()
+get-property float ExtraHorizontalPadding
+get-property float ExtraHorizontalOffset
+get-property float LineHeight
+get-property float LineWidth

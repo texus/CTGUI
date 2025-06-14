@@ -24,11 +24,11 @@ const-function bool getColumnExpanded(size_t index)
 
 function void removeAllColumns()
 
-const-function size_t getColumnCount()
+get-property size_t ColumnCount
 
 property bool HeaderVisible
 property float HeaderHeight
-const-function float getCurrentHeaderHeight()
+get-property float CurrentHeaderHeight
 
 function size_t addItem(string text)
 function size_t addItemRow addItem(List<string> item)
@@ -44,9 +44,9 @@ function void removeAllItems()
 
 function void setSelectedItem(size_t index)
 function void setSelectedItems(Set<size_t> indices)
-const-function int getSelectedItemIndex()
-const-function int getHoveredItemIndex()
-const-function Set<size_t> getSelectedItemIndices()
+get-property int SelectedItemIndex
+get-property int HoveredItemIndex
+get-property Set<size_t> SelectedItemIndices
 function void deselectItems()
 
 property bool MultiSelect
@@ -56,12 +56,12 @@ const-function AnyObject getItemData(size_t index)
 
 function void setItemIcon(size_t index, Texture texture)
 
-const-function size_t getItemCount()
+get-property size_t ItemCount
 
 const-function string getItem(size_t index)
 const-function string getItemCell(size_t rowIndex, size_t columnIndex)
 const-function List<string> getItemRow(size_t index)
-const-function List<string> getItems()
+get-property List<string> Items
 
 property uint ItemHeight
 property uint HeaderTextSize

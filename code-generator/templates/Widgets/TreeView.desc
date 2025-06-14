@@ -18,8 +18,8 @@ function void collapseAll()
 function void deselectItem()
 function void removeAllItems()
 
-const-function List<string> getSelectedItem()
-const-function List<string> getHoveredItem()
+get-property List<string> SelectedItem
+get-property List<string> HoveredItem
 
 function bool setItemIndexInParent(List<string> hierarchy, size_t index)
 const-function int getItemIndexInParent(List<string> hierarchy)

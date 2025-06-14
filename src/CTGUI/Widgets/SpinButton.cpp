@@ -40,6 +40,18 @@ float tguiSpinButton_getMaximum(const tguiWidget* thisWidget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiSpinButton_setOrientation(tguiWidget* thisWidget, tguiOrientation value)
+{
+    DOWNCAST(thisWidget->This)->setOrientation(static_cast<tgui::Orientation>(value));
+}
+
+tguiOrientation tguiSpinButton_getOrientation(const tguiWidget* thisWidget)
+{
+    return static_cast<tguiOrientation>(DOWNCAST(thisWidget->This)->getOrientation());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiSpinButton_setValue(tguiWidget* thisWidget, float value)
 {
     DOWNCAST(thisWidget->This)->setValue(value);
@@ -61,17 +73,3 @@ float tguiSpinButton_getStep(const tguiWidget* thisWidget)
 {
     return DOWNCAST(thisWidget->This)->getStep();
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiSpinButton_setOrientation(tguiWidget* thisWidget, tguiOrientation value)
-{
-    DOWNCAST(thisWidget->This)->setOrientation(static_cast<tgui::Orientation>(value));
-}
-
-tguiOrientation tguiSpinButton_getOrientation(const tguiWidget* thisWidget)
-{
-    return static_cast<tguiOrientation>(DOWNCAST(thisWidget->This)->getOrientation());
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

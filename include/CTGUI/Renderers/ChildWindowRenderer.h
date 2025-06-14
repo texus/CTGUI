@@ -11,6 +11,9 @@ CTGUI_API tguiRenderer* tguiChildWindowRenderer_copy(const tguiRenderer* other);
 CTGUI_API void tguiChildWindowRenderer_setBorders(tguiRenderer* thisRenderer, const tguiOutline* value);
 CTGUI_API const tguiOutline* tguiChildWindowRenderer_getBorders(const tguiRenderer* thisRenderer);
 
+CTGUI_API void tguiChildWindowRenderer_setClientPadding(tguiRenderer* thisRenderer, const tguiOutline* value);
+CTGUI_API const tguiOutline* tguiChildWindowRenderer_getClientPadding(const tguiRenderer* thisRenderer);
+
 CTGUI_API void tguiChildWindowRenderer_setTitleBarColor(tguiRenderer* thisRenderer, tguiColor value);
 CTGUI_API tguiColor tguiChildWindowRenderer_getTitleBarColor(const tguiRenderer* thisRenderer);
 

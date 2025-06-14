@@ -113,6 +113,56 @@ tguiWidget* tguiWidget_addPointerReference(tguiWidget* widget)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void tguiWidget_setPosition(tguiWidget* thisWidget, tguiVector2f position)
+{
+    thisWidget->This->setPosition({position.x, position.y});
+}
+
+tguiVector2f tguiWidget_getPosition(const tguiWidget* thisWidget)
+{
+    const auto value = thisWidget->This->getPosition();
+    return {value.x, value.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_setPositionLayout(tguiWidget* thisWidget, const tguiLayout2d* layout)
+{
+    thisWidget->This->setPosition(layout->This);
+}
+
+tguiLayout2d* tguiWidget_getPositionLayout(const tguiWidget* thisWidget)
+{
+    return new tguiLayout2d(thisWidget->This->getPositionLayout());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_setSize(tguiWidget* thisWidget, tguiVector2f size)
+{
+    thisWidget->This->setSize({size.x, size.y});
+}
+
+tguiVector2f tguiWidget_getSize(const tguiWidget* thisWidget)
+{
+    const auto value = thisWidget->This->getSize();
+    return {value.x, value.y};
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiWidget_setSizeLayout(tguiWidget* thisWidget, const tguiLayout2d* layout)
+{
+    thisWidget->This->setSize(layout->This);
+}
+
+tguiLayout2d* tguiWidget_getSizeLayout(const tguiWidget* thisWidget)
+{
+    return new tguiLayout2d(thisWidget->This->getSizeLayout());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void tguiWidget_setAutoLayout(const tguiWidget* widget, tguiAutoLayout layout)
 {
     widget->This->setAutoLayout(static_cast<tgui::AutoLayout>(layout));
@@ -446,28 +496,6 @@ void tguiWidget_updateTime(tguiWidget* widget, tguiDuration duration)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidget_setPosition(tguiWidget* thisWidget, tguiVector2f position)
-{
-    thisWidget->This->setPosition({position.x, position.y});
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidget_setPositionFromLayout(tguiWidget* thisWidget, const tguiLayout2d* layout)
-{
-    thisWidget->This->setPosition(layout->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiVector2f tguiWidget_getPosition(const tguiWidget* thisWidget)
-{
-    const auto value = thisWidget->This->getPosition();
-    return {value.x, value.y};
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 tguiVector2f tguiWidget_getAbsolutePosition(const tguiWidget* thisWidget)
 {
     const auto value = thisWidget->This->getAbsolutePosition();
@@ -516,28 +544,6 @@ void tguiWidget_setHeight(tguiWidget* thisWidget, float height)
 void tguiWidget_setHeightFromLayout(tguiWidget* thisWidget, const tguiLayout* layout)
 {
     thisWidget->This->setHeight(layout->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidget_setSize(tguiWidget* thisWidget, tguiVector2f size)
-{
-    thisWidget->This->setSize({size.x, size.y});
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiWidget_setSizeFromLayout(tguiWidget* thisWidget, const tguiLayout2d* layout)
-{
-    thisWidget->This->setSize(layout->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiVector2f tguiWidget_getSize(const tguiWidget* thisWidget)
-{
-    const auto value = thisWidget->This->getSize();
-    return {value.x, value.y};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

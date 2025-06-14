@@ -1,10 +1,11 @@
 property Color Color
 property UIntRect MiddleRect
+property bool ScaledNineSlice
 
-const-function string getId()
-const-function Vector2u getImageSize()
-const-function UIntRect getPartRect()
-const-function bool isSmooth()
+get-property string Id
+get-property Vector2u ImageSize
+get-property UIntRect PartRect
+get-property-bool-is Smooth
 
 const-function bool isTransparentPixel(Vector2u pos)
 

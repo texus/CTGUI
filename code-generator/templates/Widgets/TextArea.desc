@@ -11,22 +11,22 @@ function void addText(string text)
 property string DefaultText
 
 function void setSelectedText(size_t selectionStartIndex, size_t selectionEndIndex)
-const-function string getSelectedText()
-const-function size_t getSelectionStart()
-const-function size_t getSelectionEnd()
+get-property string SelectedText
+get-property size_t SelectionStart
+get-property size_t SelectionEnd
 
 property size_t MaximumCharacters
 property string TabString
 property size_t CaretPosition
 
-const-function size_t getCaretLine()
-const-function size_t getCaretColumn()
+get-property size_t CaretLine
+get-property size_t CaretColumn
 
 property-bool-is ReadOnly
 
 function void enableMonospacedFontOptimization(bool enable = true)
 
-const-function size_t getLinesCount()
+get-property size_t LinesCount
 
 signal String(text) TextChange TextChanged
 signal SelectionChange SelectionChanged
