@@ -272,6 +272,8 @@ namespace ctgui
 
     public:
 
+        void* widgetData = nullptr;
+
         std::function<void(tgui::Vector2f)>                 implPositionChanged;
         std::function<void(tgui::Vector2f)>                 implSizeChanged;
         std::function<void(bool)>                           implVisibleChanged;

@@ -41,150 +41,162 @@ tguiWidget* tguiCustomWidget_create(void)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiCustomWidget_setPositionChangedCallback(tguiWidget* widget, void (*function)(tguiVector2f))
+void tguiCustomWidget_setWidgetData(tguiWidget* widget, void* data)
 {
-    DOWNCAST(widget->This)->implPositionChanged = [function](tgui::Vector2f pos){ function({pos.x, pos.y}); };
+    DOWNCAST(widget->This)->widgetData = data;
 }
 
-void tguiCustomWidget_setSizeChangedCallback(tguiWidget* widget, void (*function)(tguiVector2f))
+void* tguiCustomWidget_getWidgetData(tguiWidget* widget)
 {
-    DOWNCAST(widget->This)->implSizeChanged = [function](tgui::Vector2f size){ function({size.x, size.y}); };
+    return DOWNCAST(widget->This)->widgetData;
 }
 
-void tguiCustomWidget_setVisibleChangedCallback(tguiWidget* widget, void (*function)(tguiBool))
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiCustomWidget_setPositionChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implVisibleChanged = [function](bool visible){ function(visible); };
+    DOWNCAST(widget->This)->implPositionChanged = [function,widget](tgui::Vector2f pos){ function(widget, {pos.x, pos.y}); };
 }
 
-void tguiCustomWidget_setEnableChangedCallback(tguiWidget* widget, void (*function)(tguiBool))
+void tguiCustomWidget_setSizeChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implEnableChanged = [function](bool enabled){ function(enabled); };
+    DOWNCAST(widget->This)->implSizeChanged = [function,widget](tgui::Vector2f size){ function(widget, {size.x, size.y}); };
 }
 
-void tguiCustomWidget_setFocusChangedCallback(tguiWidget* widget, void (*function)(tguiBool))
+void tguiCustomWidget_setVisibleChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBool))
 {
-    DOWNCAST(widget->This)->implFocusChanged = [function](bool focused){ function(focused); };
+    DOWNCAST(widget->This)->implVisibleChanged = [function,widget](bool visible){ function(widget, visible); };
 }
 
-void tguiCustomWidget_setCanGainFocusCallback(tguiWidget* widget, tguiBool (*function)(void))
+void tguiCustomWidget_setEnableChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBool))
 {
-    DOWNCAST(widget->This)->implCanGainFocus = [function]{ return function() != 0; };
+    DOWNCAST(widget->This)->implEnableChanged = [function,widget](bool enabled){ function(widget, enabled); };
 }
 
-void tguiCustomWidget_setGetFullSizeCallback(tguiWidget* widget, tguiVector2f (*function)(void))
+void tguiCustomWidget_setFocusChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBool))
 {
-    DOWNCAST(widget->This)->implGetFullSize = [function]{
-        const tguiVector2f size = function();
+    DOWNCAST(widget->This)->implFocusChanged = [function,widget](bool focused){ function(widget, focused); };
+}
+
+void tguiCustomWidget_setCanGainFocusCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*))
+{
+    DOWNCAST(widget->This)->implCanGainFocus = [function,widget]{ return function(widget) != 0; };
+}
+
+void tguiCustomWidget_setGetFullSizeCallback(tguiWidget* widget, tguiVector2f (*function)(tguiWidget*))
+{
+    DOWNCAST(widget->This)->implGetFullSize = [function,widget]{
+        const tguiVector2f size = function(widget);
         return tgui::Vector2f{size.x, size.y};
     };
 }
 
-void tguiCustomWidget_setGetWidgetOffsetCallback(tguiWidget* widget, tguiVector2f (*function)(void))
+void tguiCustomWidget_setGetWidgetOffsetCallback(tguiWidget* widget, tguiVector2f (*function)(tguiWidget*))
 {
-    DOWNCAST(widget->This)->implGetWidgetOffset = [function]{
-        const tguiVector2f offset = function();
+    DOWNCAST(widget->This)->implGetWidgetOffset = [function,widget]{
+        const tguiVector2f offset = function(widget);
         return tgui::Vector2f{offset.x, offset.y};
     };
 }
 
-void tguiCustomWidget_setUpdateTimeCallback(tguiWidget* widget, tguiBool (*function)(tguiDuration))
+void tguiCustomWidget_setUpdateTimeCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiDuration))
 {
-    DOWNCAST(widget->This)->implUpdateTimeFunction = [function](tgui::Duration duration){
+    DOWNCAST(widget->This)->implUpdateTimeFunction = [function,widget](tgui::Duration duration){
         tguiDuration cDuration;
         cDuration.nanoseconds = static_cast<tguiInt64>(std::chrono::nanoseconds(duration).count());
-        return function(cDuration);
+        return function(widget, cDuration);
     };
 }
 
-void tguiCustomWidget_setMouseOnWidgetCallback(tguiWidget* widget, tguiBool (*function)(tguiVector2f))
+void tguiCustomWidget_setMouseOnWidgetCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implMouseOnWidget = [function](tgui::Vector2f pos){ return function({pos.x, pos.y}) != 0; };
+    DOWNCAST(widget->This)->implMouseOnWidget = [function,widget](tgui::Vector2f pos){ return function(widget, {pos.x, pos.y}) != 0; };
 }
 
-void tguiCustomWidget_setLeftMousePressedCallback(tguiWidget* widget, tguiBool (*function)(tguiVector2f))
+void tguiCustomWidget_setLeftMousePressedCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implLeftMousePressed = [function](tgui::Vector2f pos){ return function({pos.x, pos.y}) != 0; };
+    DOWNCAST(widget->This)->implLeftMousePressed = [function,widget](tgui::Vector2f pos){ return function(widget, {pos.x, pos.y}) != 0; };
 }
 
-void tguiCustomWidget_setLeftMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiVector2f))
+void tguiCustomWidget_setLeftMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implLeftMouseReleased = [function](tgui::Vector2f pos){ function({pos.x, pos.y}); };
+    DOWNCAST(widget->This)->implLeftMouseReleased = [function,widget](tgui::Vector2f pos){ function(widget, {pos.x, pos.y}); };
 }
 
-void tguiCustomWidget_setRightMousePressedCallback(tguiWidget* widget, void (*function)(tguiVector2f))
+void tguiCustomWidget_setRightMousePressedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implRightMousePressed = [function](tgui::Vector2f pos){ function({pos.x, pos.y}); };
+    DOWNCAST(widget->This)->implRightMousePressed = [function,widget](tgui::Vector2f pos){ function(widget, {pos.x, pos.y}); };
 }
 
-void tguiCustomWidget_setRightMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiVector2f))
+void tguiCustomWidget_setRightMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implRightMouseReleased = [function](tgui::Vector2f pos){ function({pos.x, pos.y}); };
+    DOWNCAST(widget->This)->implRightMouseReleased = [function,widget](tgui::Vector2f pos){ function(widget, {pos.x, pos.y}); };
 }
 
-void tguiCustomWidget_setMouseMovedCallback(tguiWidget* widget, void (*function)(tguiVector2f))
+void tguiCustomWidget_setMouseMovedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f))
 {
-    DOWNCAST(widget->This)->implMouseMoved = [function](tgui::Vector2f pos){ function({pos.x, pos.y}); };
+    DOWNCAST(widget->This)->implMouseMoved = [function,widget](tgui::Vector2f pos){ function(widget, {pos.x, pos.y}); };
 }
 
-void tguiCustomWidget_setKeyPressedCallback(tguiWidget* widget, void (*function)(tguiKeyEvent))
+void tguiCustomWidget_setKeyPressedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiKeyEvent))
 {
-    DOWNCAST(widget->This)->implKeyPressed = [function](const tgui::Event::KeyEvent& event){
+    DOWNCAST(widget->This)->implKeyPressed = [function,widget](const tgui::Event::KeyEvent& event){
         tguiKeyEvent keyEvent;
         keyEvent.code = static_cast<tguiKeyboardKey>(event.code);
         keyEvent.alt = event.alt;
         keyEvent.control = event.control;
         keyEvent.shift = event.shift;
         keyEvent.system = event.system;
-        function(keyEvent);
+        function(widget, keyEvent);
     };
 }
 
-void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiChar32))
+void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiChar32))
 {
-    DOWNCAST(widget->This)->implTextEntered = [function](char32_t key){ function(static_cast<tguiChar32>(key)); };
+    DOWNCAST(widget->This)->implTextEntered = [function,widget](char32_t key){ function(widget, static_cast<tguiChar32>(key)); };
 }
 
-void tguiCustomWidget_setScrolledCallback(tguiWidget* widget, tguiBool (*function)(float, tguiVector2f, tguiBool))
+void tguiCustomWidget_setScrolledCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, float, tguiVector2f, tguiBool))
 {
-    DOWNCAST(widget->This)->implScrolled = [function](float delta, tgui::Vector2f pos, bool touch){
-        return function(delta, {pos.x, pos.y}, touch) != 0;
+    DOWNCAST(widget->This)->implScrolled = [function,widget](float delta, tgui::Vector2f pos, bool touch){
+        return function(widget, delta, {pos.x, pos.y}, touch) != 0;
     };
 }
 
-void tguiCustomWidget_setMouseNoLongerOnWidgetCallback(tguiWidget* widget, void (*function)(void))
+void tguiCustomWidget_setMouseNoLongerOnWidgetCallback(tguiWidget* widget, void (*function)(tguiWidget*))
 {
-    DOWNCAST(widget->This)->implMouseNoLongerOnWidget = function;
+    DOWNCAST(widget->This)->implMouseNoLongerOnWidget = [function,widget]{ function(widget); };
 }
 
-void tguiCustomWidget_setLeftMouseButtonNoLongerDownCallback(tguiWidget* widget, void (*function)(void))
+void tguiCustomWidget_setLeftMouseButtonNoLongerDownCallback(tguiWidget* widget, void (*function)(tguiWidget*))
 {
-    DOWNCAST(widget->This)->implLeftMouseButtonNoLongerDown = function;
+    DOWNCAST(widget->This)->implLeftMouseButtonNoLongerDown = [function,widget]{ function(widget); };
 }
 
-void tguiCustomWidget_setMouseEnteredWidgetCallback(tguiWidget* widget, void (*function)(void))
+void tguiCustomWidget_setMouseEnteredWidgetCallback(tguiWidget* widget, void (*function)(tguiWidget*))
 {
-    DOWNCAST(widget->This)->implMouseEnteredWidget = function;
+    DOWNCAST(widget->This)->implMouseEnteredWidget = [function,widget]{ function(widget); };
 }
 
-void tguiCustomWidget_setMouseLeftWidgetCallback(tguiWidget* widget, void (*function)(void))
+void tguiCustomWidget_setMouseLeftWidgetCallback(tguiWidget* widget, void (*function)(tguiWidget*))
 {
-    DOWNCAST(widget->This)->implMouseLeftWidget = function;
+    DOWNCAST(widget->This)->implMouseLeftWidget = [function,widget]{ function(widget); };
 }
 
-void tguiCustomWidget_setRendererChangedCallback(tguiWidget* widget, tguiBool (*function)(tguiUtf32))
+void tguiCustomWidget_setRendererChangedCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiUtf32))
 {
-    DOWNCAST(widget->This)->implRendererChanged = [function](const tgui::String& property){
-        return (function(ctgui::fromCppStr(property)) != 0);
+    DOWNCAST(widget->This)->implRendererChanged = [function,widget](const tgui::String& property){
+        return (function(widget, ctgui::fromCppStr(property)) != 0);
     };
 }
 
-void tguiCustomWidget_setDrawCallback(tguiWidget* widget, void (*function)(tguiBackendRenderTarget*, tguiRenderStates*))
+void tguiCustomWidget_setDrawCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBackendRenderTarget*, tguiRenderStates*))
 {
-    DOWNCAST(widget->This)->implDrawFunction = [function](tgui::BackendRenderTarget& cppTarget, tgui::RenderStates cppStates){
+    DOWNCAST(widget->This)->implDrawFunction = [function,widget](tgui::BackendRenderTarget& cppTarget, tgui::RenderStates cppStates){
         tguiBackendRenderTarget cTarget(&cppTarget);
         tguiRenderStates cStates;
         std::memcpy(cStates.transform.matrix, cppStates.transform.getMatrix().data(), 16*sizeof(float));
-        function(&cTarget, &cStates);
+        function(widget, &cTarget, &cStates);
     };
 }
 

@@ -33,30 +33,33 @@
 
 CTGUI_API tguiWidget* tguiCustomWidget_create(void);
 
-CTGUI_API void tguiCustomWidget_setPositionChangedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setSizeChangedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setVisibleChangedCallback(tguiWidget* widget, void (*function)(tguiBool));
-CTGUI_API void tguiCustomWidget_setEnableChangedCallback(tguiWidget* widget, void (*function)(tguiBool));
-CTGUI_API void tguiCustomWidget_setFocusChangedCallback(tguiWidget* widget, void (*function)(tguiBool));
-CTGUI_API void tguiCustomWidget_setCanGainFocusCallback(tguiWidget* widget, tguiBool (*function)(void));
-CTGUI_API void tguiCustomWidget_setGetFullSizeCallback(tguiWidget* widget, tguiVector2f (*function)(void));
-CTGUI_API void tguiCustomWidget_setGetWidgetOffsetCallback(tguiWidget* widget, tguiVector2f (*function)(void));
-CTGUI_API void tguiCustomWidget_setUpdateTimeCallback(tguiWidget* widget, tguiBool (*function)(tguiDuration));
-CTGUI_API void tguiCustomWidget_setMouseOnWidgetCallback(tguiWidget* widget, tguiBool (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setLeftMousePressedCallback(tguiWidget* widget, tguiBool (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setLeftMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setRightMousePressedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setRightMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setMouseMovedCallback(tguiWidget* widget, void (*function)(tguiVector2f));
-CTGUI_API void tguiCustomWidget_setKeyPressedCallback(tguiWidget* widget, void (*function)(tguiKeyEvent));
-CTGUI_API void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiChar32));
-CTGUI_API void tguiCustomWidget_setScrolledCallback(tguiWidget* widget, tguiBool (*function)(float, tguiVector2f, tguiBool));
-CTGUI_API void tguiCustomWidget_setMouseNoLongerOnWidgetCallback(tguiWidget* widget, void (*function)(void));
-CTGUI_API void tguiCustomWidget_setLeftMouseButtonNoLongerDownCallback(tguiWidget* widget, void (*function)(void));
-CTGUI_API void tguiCustomWidget_setMouseEnteredWidgetCallback(tguiWidget* widget, void (*function)(void));
-CTGUI_API void tguiCustomWidget_setMouseLeftWidgetCallback(tguiWidget* widget, void (*function)(void));
-CTGUI_API void tguiCustomWidget_setRendererChangedCallback(tguiWidget* widget, tguiBool (*function)(tguiUtf32));
-CTGUI_API void tguiCustomWidget_setDrawCallback(tguiWidget* widget, void (*function)(tguiBackendRenderTarget*, tguiRenderStates*)); // Parameters should NOT be freed inside callback function
+CTGUI_API void tguiCustomWidget_setWidgetData(tguiWidget* widget, void* data);
+CTGUI_API void* tguiCustomWidget_getWidgetData(tguiWidget* widget);
+
+CTGUI_API void tguiCustomWidget_setPositionChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setSizeChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setVisibleChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBool));
+CTGUI_API void tguiCustomWidget_setEnableChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBool));
+CTGUI_API void tguiCustomWidget_setFocusChangedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBool));
+CTGUI_API void tguiCustomWidget_setCanGainFocusCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setGetFullSizeCallback(tguiWidget* widget, tguiVector2f (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setGetWidgetOffsetCallback(tguiWidget* widget, tguiVector2f (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setUpdateTimeCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiDuration));
+CTGUI_API void tguiCustomWidget_setMouseOnWidgetCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setLeftMousePressedCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setLeftMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setRightMousePressedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setRightMouseReleasedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setMouseMovedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiVector2f));
+CTGUI_API void tguiCustomWidget_setKeyPressedCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiKeyEvent));
+CTGUI_API void tguiCustomWidget_setTextEnteredCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiChar32));
+CTGUI_API void tguiCustomWidget_setScrolledCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, float, tguiVector2f, tguiBool));
+CTGUI_API void tguiCustomWidget_setMouseNoLongerOnWidgetCallback(tguiWidget* widget, void (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setLeftMouseButtonNoLongerDownCallback(tguiWidget* widget, void (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setMouseEnteredWidgetCallback(tguiWidget* widget, void (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setMouseLeftWidgetCallback(tguiWidget* widget, void (*function)(tguiWidget*));
+CTGUI_API void tguiCustomWidget_setRendererChangedCallback(tguiWidget* widget, tguiBool (*function)(tguiWidget*, tguiUtf32));
+CTGUI_API void tguiCustomWidget_setDrawCallback(tguiWidget* widget, void (*function)(tguiWidget*, tguiBackendRenderTarget*, tguiRenderStates*)); // Parameters should NOT be freed inside callback function
 
 #endif // CTGUI_CUSTOM_WIDGET_FOR_BINDINGS_H
 
