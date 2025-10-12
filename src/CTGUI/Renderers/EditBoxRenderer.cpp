@@ -322,3 +322,15 @@ tguiUint32 tguiEditBoxRenderer_getDefaultTextStyle(const tguiRenderer* thisRende
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiEditBoxRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setRoundedBorderRadius(value);
+}
+
+float tguiEditBoxRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getRoundedBorderRadius();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

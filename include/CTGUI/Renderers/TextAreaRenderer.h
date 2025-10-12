@@ -47,4 +47,7 @@ CTGUI_API const tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRe
 CTGUI_API void tguiTextAreaRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiTextAreaRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);
 
+CTGUI_API void tguiTextAreaRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiTextAreaRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer);
+
 #endif // CTGUI_TEXTAREARENDERER_H

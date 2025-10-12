@@ -179,3 +179,15 @@ float tguiTextAreaRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTextAreaRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setRoundedBorderRadius(value);
+}
+
+float tguiTextAreaRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getRoundedBorderRadius();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

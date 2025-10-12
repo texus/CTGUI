@@ -274,3 +274,15 @@ float tguiTabsRenderer_getDistanceToSide(const tguiRenderer* thisRenderer)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTabsRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setRoundedBorderRadius(value);
+}
+
+float tguiTabsRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getRoundedBorderRadius();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

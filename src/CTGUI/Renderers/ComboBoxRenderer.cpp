@@ -287,3 +287,15 @@ const tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* this
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiComboBoxRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value)
+{
+    DOWNCAST(thisRenderer->This)->setRoundedBorderRadius(value);
+}
+
+float tguiComboBoxRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer)
+{
+    return DOWNCAST(thisRenderer->This)->getRoundedBorderRadius();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

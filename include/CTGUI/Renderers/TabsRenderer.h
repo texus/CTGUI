@@ -71,4 +71,7 @@ CTGUI_API const tguiTexture* tguiTabsRenderer_getTextureDisabledTab(const tguiRe
 CTGUI_API void tguiTabsRenderer_setDistanceToSide(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiTabsRenderer_getDistanceToSide(const tguiRenderer* thisRenderer);
 
+CTGUI_API void tguiTabsRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiTabsRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer);
+
 #endif // CTGUI_TABSRENDERER_H

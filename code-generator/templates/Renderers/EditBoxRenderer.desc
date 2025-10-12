@@ -29,3 +29,5 @@ property Texture TextureDisabled
 
 property TextStyle TextStyle
 property TextStyle DefaultTextStyle
+
+property float RoundedBorderRadius

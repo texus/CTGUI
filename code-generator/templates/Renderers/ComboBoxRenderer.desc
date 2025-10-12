@@ -30,3 +30,5 @@ property TextStyle TextStyle
 property TextStyle DefaultTextStyle
 
 property RendererData ListBox
+
+property float RoundedBorderRadius

@@ -83,4 +83,7 @@ CTGUI_API tguiUint32 tguiEditBoxRenderer_getTextStyle(const tguiRenderer* thisRe
 CTGUI_API void tguiEditBoxRenderer_setDefaultTextStyle(tguiRenderer* thisRenderer, tguiUint32 value);
 CTGUI_API tguiUint32 tguiEditBoxRenderer_getDefaultTextStyle(const tguiRenderer* thisRenderer);
 
+CTGUI_API void tguiEditBoxRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiEditBoxRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer);
+
 #endif // CTGUI_EDITBOXRENDERER_H

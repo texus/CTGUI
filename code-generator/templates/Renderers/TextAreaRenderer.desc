@@ -19,3 +19,4 @@ property float CaretWidth
 property RendererData Scrollbar
 
 property float ScrollbarWidth
+property float RoundedBorderRadius

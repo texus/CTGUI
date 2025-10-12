@@ -74,4 +74,7 @@ CTGUI_API tguiUint32 tguiComboBoxRenderer_getDefaultTextStyle(const tguiRenderer
 CTGUI_API void tguiComboBoxRenderer_setListBox(tguiRenderer* thisRenderer, const tguiRendererData* value);
 CTGUI_API const tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* thisRenderer);
 
+CTGUI_API void tguiComboBoxRenderer_setRoundedBorderRadius(tguiRenderer* thisRenderer, float value);
+CTGUI_API float tguiComboBoxRenderer_getRoundedBorderRadius(const tguiRenderer* thisRenderer);
+
 #endif // CTGUI_COMBOBOXRENDERER_H
