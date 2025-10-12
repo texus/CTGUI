@@ -29,6 +29,7 @@
 #include <CTGUI/Backend/CSFML-Graphics/BackendRenderer.inl>
 #include <CTGUI/Backend/CSFML-Graphics/BackendRenderTarget.inl>
 #include <CTGUI/Backend/CSFML-Graphics/Backend.inl>
+#include <CTGUI/Backend/CSFML-Graphics/Canvas.inl>
 #include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/GuiStruct.hpp>
 #include <TGUI/Backend/Window/BackendGui.hpp>

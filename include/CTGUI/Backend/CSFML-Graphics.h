@@ -43,9 +43,42 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CTGUI_API tguiGui* tguiGuiCSFMLGraphics_create(sfRenderWindow* window);
-CTGUI_API void tguiGuiCSFMLGraphics_destroy(tguiGui* gui);
+CTGUI_API void tguiGuiCSFMLGraphics_destroy(tguiGui* thisGui);
 
-CTGUI_API tguiBool tguiGuiCSFMLGraphics_handleEvent(tguiGui* gui, const sfEvent* event);
+CTGUI_API tguiBool tguiGuiCSFMLGraphics_handleEvent(tguiGui* thisGui, const sfEvent* event);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CTGUI_API tguiWidget* tguiCanvasCSFML_create(void);
+
+CTGUI_API void tguiCanvasCSFML_setView(tguiWidget* thisCanvas, const sfView* view);
+CTGUI_API const sfView* tguiCanvasCSFML_getView(const tguiWidget* thisCanvas); // Returned pointer must be freed with sfView_destroy
+CTGUI_API void tguiCanvasCSFML_resetView(tguiWidget* thisCanvas);
+CTGUI_API const sfView* tguiCanvasCSFML_getDefaultView(const tguiWidget* thisCanvas); // Returned pointer must be freed with sfView_destroy
+
+CTGUI_API tguiVector2f tguiCanvasCSFML_mapPixelToCoords(const tguiWidget* thisCanvas, tguiVector2f pixel);
+CTGUI_API tguiVector2f tguiCanvasCSFML_mapCoordsToPixel(const tguiWidget* thisCanvas, tguiVector2f coord);
+
+CTGUI_API void tguiCanvasCSFML_setSmooth(tguiWidget* thisCanvas, tguiBool smooth);
+CTGUI_API tguiBool tguiCanvasCSFML_isSmooth(const tguiWidget* thisCanvas);
+
+CTGUI_API void tguiCanvasCSFML_clear(tguiWidget* thisCanvas, tguiColor color);
+CTGUI_API void tguiCanvasCSFML_display(tguiWidget* thisCanvas);
+
+CTGUI_API void tguiCanvasCSFML_drawSprite(tguiWidget* thisCanvas, const sfSprite* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawText(tguiWidget* thisCanvas, const sfText* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawShape(tguiWidget* thisCanvas, const sfShape* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawCircleShape(tguiWidget* thisCanvas, const sfCircleShape* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawConvexShape(tguiWidget* thisCanvas, const sfConvexShape* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawRectangleShape(tguiWidget* thisCanvas, const sfRectangleShape* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawVertexArray(tguiWidget* thisCanvas, const sfVertexArray* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawVertexBuffer(tguiWidget* thisCanvas, const sfVertexBuffer* object, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawVertexBufferRange(tguiWidget* thisCanvas,
+                                                              const sfVertexBuffer* object, size_t firstVertex,
+                                                              size_t vertexCount, const sfRenderStates* states);
+CTGUI_API void tguiCanvasCSFML_drawPrimitives(tguiWidget* thisCanvas,
+                                                       const sfVertex* vertices, size_t vertexCount,
+                                                       sfPrimitiveType type, const sfRenderStates* states);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
