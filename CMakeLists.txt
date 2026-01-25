@@ -67,13 +67,13 @@ if (NOT TARGET TGUI::TGUI)
 endif()
 
 if(CTGUI_HAS_BACKEND_CSFML_GRAPHICS)
-    ctgui_set_option(CTGUI_USE_CSFML_VERSION 2 STRING "Select the CSFML version to search and link to")
+    ctgui_set_option(CTGUI_USE_CSFML_VERSION 3 STRING "Select the CSFML version to search and link to")
 
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules/")
     find_package(CSFML ${CTGUI_USE_CSFML_VERSION} REQUIRED)
 endif()
 if(CTGUI_HAS_BACKEND_SDL_RENDERER)
-    ctgui_set_option(CTGUI_USE_SDL_VERSION 2 STRING "Select the SDL version to search and link to")
+    ctgui_set_option(CTGUI_USE_SDL_VERSION 3 STRING "Select the SDL version to search and link to")
 
     if (CTGUI_USE_SDL_VERSION EQUAL 2)
         if (NOT TARGET SDL2::SDL2)
