@@ -249,11 +249,18 @@ if(CTGUI_HAS_BACKEND_SDL_RENDERER)
         ${SRCROOT}/Backend/SDL-Renderer.cpp
         ${INCROOT}/Backend/SDL-Renderer.h
     )
-    if (CTGUI_USE_SDL_VERSION EQUAL 2)
+    if(CTGUI_USE_SDL_VERSION EQUAL 2)
         target_link_libraries(ctgui PUBLIC SDL2::SDL2 SDL2_ttf::SDL2_ttf)
     elseif(CTGUI_USE_SDL_VERSION EQUAL 3)
         target_link_libraries(ctgui PUBLIC SDL3::SDL3-shared SDL3_ttf::SDL3_ttf-shared)
     endif()
+endif()
+if(CTGUI_HAS_BACKEND_SDL_GPU)
+    target_sources(ctgui PRIVATE
+        ${SRCROOT}/Backend/SDL-GPU.cpp
+        ${INCROOT}/Backend/SDL-GPU.h
+    )
+    target_link_libraries(ctgui PUBLIC SDL3::SDL3-shared SDL3_ttf::SDL3_ttf-shared)
 endif()
 
 target_link_libraries(ctgui PUBLIC TGUI::TGUI)
@@ -314,7 +321,7 @@ else()
     set_target_properties(ctgui PROPERTIES DEBUG_POSTFIX -d)
 endif()
 
-if (TGUI_OS_WINDOWS AND TGUI_COMPILER_GCC)
+if(TGUI_OS_WINDOWS AND TGUI_COMPILER_GCC)
     # On Windows/gcc get rid of "lib" prefix for shared libraries and transform the ".dll.a" suffix into ".a" for import libraries
     set_target_properties(ctgui PROPERTIES PREFIX "")
     set_target_properties(ctgui PROPERTIES IMPORT_SUFFIX ".a")

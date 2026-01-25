@@ -103,7 +103,9 @@ jobs:
           -DSDL3_ttf_ROOT="$GITHUB_WORKSPACE/SDL_TTF_INSTALL"
           -DBUILD_SHARED_LIBS=OFF
           -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-          -DTGUI_BACKEND=SDL_RENDERER
+          -DTGUI_BACKEND=Custom
+          -DTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DTGUI_HAS_BACKEND_SDL_GPU=ON
           -DCMAKE_BUILD_TYPE=Debug
           -DTGUI_CXX_STANDARD=23
           -DTGUI_BUILD_EXAMPLES=OFF
@@ -130,6 +132,7 @@ jobs:
           -DCTGUI_BUILD_EXAMPLE=ON
           -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
           -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DCTGUI_HAS_BACKEND_SDL_GPU=ON
 
           cmake --build build --config Debug
 
@@ -191,7 +194,9 @@ jobs:
           -DTGUI_BUILD_EXAMPLES=OFF
           -DTGUI_BUILD_GUI_BUILDER=OFF
           -DTGUI_BUILD_TESTS=OFF
-          -DTGUI_BACKEND=SDL_RENDERER
+          -DTGUI_BACKEND=Custom
+          -DTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DTGUI_HAS_BACKEND_SDL_GPU=ON
 
           cmake --build TGUI-build --config Release --target install
 
@@ -211,6 +216,7 @@ jobs:
           -DCTGUI_BUILD_EXAMPLE=ON
           -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
           -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DCTGUI_HAS_BACKEND_SDL_GPU=ON
 
           & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe" --build build --config Release
 
@@ -255,7 +261,9 @@ jobs:
           -DTGUI_BUILD_EXAMPLES=OFF
           -DTGUI_BUILD_GUI_BUILDER=OFF
           -DTGUI_BUILD_TESTS=OFF
-          -DTGUI_BACKEND=SDL_RENDERER
+          -DTGUI_BACKEND=Custom
+          -DTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DTGUI_HAS_BACKEND_SDL_GPU=ON
 
           cmake --build TGUI-build --config Debug --target install
 
@@ -270,5 +278,6 @@ jobs:
           -DCTGUI_BUILD_EXAMPLE=ON
           -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
           -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DCTGUI_HAS_BACKEND_SDL_GPU=ON
 
           cmake --build build --config Release

@@ -14,6 +14,7 @@ CTGUI provides multiple backends to choose from. One of multiple can be selected
 |:-------------------|:------------|
 | **CSFML_GRAPHICS** | Uses csfml-graphics (>= 2.6.1) for rendering and events. The c++ TGUI library can be built *without* any backends, as the CSFML\_GRAPHICS backend is implemented directly in CTGUI and is independent of the c++ SFML\_GRAPHICS backend. |
 | **SDL_RENDERER**   | Uses SDL (>= 2.24) and SDL\_ttf (>= 2.20) for rendering and events. The c++ TGUI library also needs to be built with the SDL\_RENDERER backend, as CTGUI uses it internally. |
+| **SDL_GPU**   | Uses SDL (>= 3.2) and SDL\_ttf (>= 3.2) for rendering and events. The c++ TGUI library also needs to be built with the SDL\_GPU backend, as CTGUI uses it internally. |
 
 Other important CMake options
 -----------------------------
