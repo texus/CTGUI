@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  linux-SFML3-SDL3:
+  linux-CSFML3-SDL3:
     runs-on: ubuntu-latest
     env:
       SFML_GITHUB_URL: https://github.com/SFML/SFML
@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get -y install xorg-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev libfreetype-dev ninja-build libwayland-dev libxkbcommon-dev
+          sudo apt-get -y install xorg-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev libfreetype-dev ninja-build libwayland-dev libxkbcommon-dev libmbedtls-dev libharfbuzz-dev
 
       - name: Build SFML
         if: steps.cache-sfml.outputs.cache-hit != 'true'
@@ -138,12 +138,12 @@ jobs:
 
   #----------------------------------------
 
-  windows:
+  windows-CSFML2-SDL3:
     runs-on: windows-latest
     env:
       CSFML_VERSION: 2.6.1
-      SDL_VERSION:  2.24.0
-      SDL_TTF_VERSION: 2.20.0
+      SDL_VERSION: 3.2.30
+      SDL_TTF_VERSION: 3.2.2
       MSVC_TOOLSET_VERSION: 143  # VS2022
       CMAKE_VERSION: 3.22
       CMAKE_VERSION_PATCH: 1
@@ -155,12 +155,12 @@ jobs:
         run: |
           C:\msys64\usr\bin\wget.exe -nv https://cmake.org/files/v${env:CMAKE_VERSION}/cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386.zip
           C:\msys64\usr\bin\wget.exe -nv https://github.com/SFML/CSFML/releases/download/${env:CSFML_VERSION}/CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
-          C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL/releases/download/release-${env:SDL_VERSION}/SDL2-devel-${env:SDL_VERSION}-VC.zip
-          C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL_ttf/releases/download/release-${env:SDL_TTF_VERSION}/SDL2_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
+          C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL/releases/download/release-${env:SDL_VERSION}/SDL3-devel-${env:SDL_VERSION}-VC.zip
+          C:\msys64\usr\bin\wget.exe -nv https://github.com/libsdl-org/SDL_ttf/releases/download/release-${env:SDL_TTF_VERSION}/SDL3_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
           7z x cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386.zip
           7z x CSFML-${env:CSFML_VERSION}-windows-32-bit.zip
-          7z x SDL2-devel-${env:SDL_VERSION}-VC.zip
-          7z x SDL2_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
+          7z x SDL3-devel-${env:SDL_VERSION}-VC.zip
+          7z x SDL3_ttf-devel-${env:SDL_TTF_VERSION}-VC.zip
 
       - name: Lookup TGUI version for cache
         id: find-dependencies
@@ -185,8 +185,8 @@ jobs:
           & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe"
           -S TGUI-1.x -B TGUI-build -T v${env:MSVC_TOOLSET_VERSION} -A Win32
           -DCMAKE_INSTALL_PREFIX=TGUI_INSTALL
-          -DSDL2_ROOT="${env:GITHUB_WORKSPACE}/SDL2-${env:SDL_VERSION}/"
-          -DSDL2_ttf_ROOT="${env:GITHUB_WORKSPACE}/SDL2_ttf-${env:SDL_TTF_VERSION}/"
+          -DSDL3_DIR="${env:GITHUB_WORKSPACE}/SDL3-${env:SDL_VERSION}/cmake/"
+          -DSDL3_ttf_DIR="${env:GITHUB_WORKSPACE}/SDL3_ttf-${env:SDL_TTF_VERSION}/cmake/"
           -DCMAKE_UNITY_BUILD=ON
           -DBUILD_SHARED_LIBS=ON
           -DCMAKE_BUILD_TYPE=Release
@@ -207,9 +207,11 @@ jobs:
           -DTGUI_ROOT="${env:GITHUB_WORKSPACE}/TGUI_INSTALL"
           -DCSFML_INCLUDE_DIR="${env:GITHUB_WORKSPACE}/CSFML/include"
           -DCSFML_LIBRARIES_DIR="${env:GITHUB_WORKSPACE}/CSFML/lib/msvc"
-          -DSDL2_ROOT="${env:GITHUB_WORKSPACE}/SDL2-${env:SDL_VERSION}/"
-          -DSDL2_ttf_ROOT="${env:GITHUB_WORKSPACE}/SDL2_ttf-${env:SDL_TTF_VERSION}/"
+          -DSDL3_DIR="${env:GITHUB_WORKSPACE}/SDL3-${env:SDL_VERSION}/cmake/"
+          -DSDL3_ttf_DIR="${env:GITHUB_WORKSPACE}/SDL3_ttf-${env:SDL_TTF_VERSION}/cmake/"
           -DBUILD_SHARED_LIBS=ON
+          -DCTGUI_USE_CSFML_VERSION=2
+          -DCTGUI_USE_SDL_VERSION=3
           -DCTGUI_LINK_TGUI_STATICALLY=OFF
           -DCMAKE_BUILD_TYPE=Release
           -DCTGUI_WARNINGS_AS_ERRORS=ON
@@ -222,7 +224,7 @@ jobs:
 
   #----------------------------------------
 
-  macos:
+  macos-CSFML3-SDL2:
     runs-on: macos-latest
     steps:
       - name: Checkout CTGUI
@@ -263,7 +265,6 @@ jobs:
           -DTGUI_BUILD_TESTS=OFF
           -DTGUI_BACKEND=Custom
           -DTGUI_HAS_BACKEND_SDL_RENDERER=ON
-          -DTGUI_HAS_BACKEND_SDL_GPU=ON
 
           cmake --build TGUI-build --config Debug --target install
 
@@ -272,12 +273,13 @@ jobs:
           cmake -B build -GNinja
           -DTGUI_ROOT="$GITHUB_WORKSPACE/TGUI_INSTALL"
           -DBUILD_SHARED_LIBS=ON
+          -DCTGUI_USE_CSFML_VERSION=3
+          -DCTGUI_USE_SDL_VERSION=2
           -DCTGUI_LINK_TGUI_STATICALLY=OFF
           -DCMAKE_BUILD_TYPE=Release
           -DCTGUI_WARNINGS_AS_ERRORS=ON
           -DCTGUI_BUILD_EXAMPLE=ON
           -DCTGUI_HAS_BACKEND_CSFML_GRAPHICS=ON
           -DCTGUI_HAS_BACKEND_SDL_RENDERER=ON
-          -DCTGUI_HAS_BACKEND_SDL_GPU=ON
 
           cmake --build build --config Release
