@@ -27,6 +27,7 @@
 #define CTGUI_EVENT_H
 
 #include <CTGUI/Config.h>
+#include <stdint.h>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -178,6 +179,13 @@ typedef struct
     int x;
     int y;
 } tguiMouseButtonEvent;
+
+typedef struct
+{
+    uintptr_t fingerId;
+    int   x;
+    int   y;
+} tguiFingerEvent;
 
 typedef struct
 {

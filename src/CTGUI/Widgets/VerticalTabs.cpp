@@ -1,0 +1,36 @@
+// This file is generated, it should not be edited directly.
+
+#include <CTGUI/Widgets/VerticalTabs.h>
+#include <CTGUI/WidgetStruct.hpp>
+
+#include <TGUI/Widgets/VerticalTabs.hpp>
+
+#define DOWNCAST(x) std::static_pointer_cast<tgui::VerticalTabs>(x)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiWidget* tguiVerticalTabs_create(void)
+{
+    return ctgui::addWidgetRef(tgui::VerticalTabs::create());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiVerticalTabs_setTabWidth(tguiWidget* thisWidget, float width)
+{
+    DOWNCAST(thisWidget->This)->setTabWidth(width);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiVerticalTabs_setTabHeight(tguiWidget* thisWidget, float value)
+{
+    DOWNCAST(thisWidget->This)->setTabHeight(value);
+}
+
+float tguiVerticalTabs_getTabHeight(const tguiWidget* thisWidget)
+{
+    return DOWNCAST(thisWidget->This)->getTabHeight();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

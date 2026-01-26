@@ -45,7 +45,8 @@ typedef enum
 	tguiCursorTypeSizeVertical,     //!< Vertical double arrow cursor
 	tguiCursorTypeCrosshair,        //!< Crosshair cursor
 	tguiCursorTypeHelp,             //!< Help cursor
-	tguiCursorTypeNotAllowed        //!< Action not allowed cursor
+	tguiCursorTypeNotAllowed,       //!< Action not allowed cursor
+	tguiCursorTypeMove,             //!< Move cursor / omnidirectional resize cursor. Usually displayed as a grabbing hand on macOS.
 } tguiCursorType;
 
 CTGUI_API void tguiCursor_setStyle(tguiCursorType type, const tguiUint8* pixels, tguiVector2u size, tguiVector2u hotspot);

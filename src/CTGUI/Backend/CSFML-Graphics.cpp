@@ -210,46 +210,10 @@ namespace ctgui
 
         bool handleEvent(const sfEvent& sfmlEvent)
         {
-            // Detect scrolling with two fingers by examining touch events
-            if ((sfmlEvent.type == sfEvtTouchBegan) || (sfmlEvent.type == sfEvtTouchEnded) || (sfmlEvent.type == sfEvtTouchMoved))
-            {
-                const bool wasScrolling = m_twoFingerScroll.isScrolling();
-
-                const auto fingerId = static_cast<std::intptr_t>(sfmlEvent.touch.finger);
-#if CTGUI_USE_CSFML_VERSION >= 3
-                const float x = static_cast<float>(sfmlEvent.touch.position.x);
-                const float y = static_cast<float>(sfmlEvent.touch.position.y);
-#else
-                const float x = static_cast<float>(sfmlEvent.touch.x);
-                const float y = static_cast<float>(sfmlEvent.touch.y);
-#endif
-                if (sfmlEvent.type == sfEvtTouchBegan)
-                    m_twoFingerScroll.reportFingerDown(fingerId, x, y);
-                else if (sfmlEvent.type == sfEvtTouchEnded)
-                    m_twoFingerScroll.reportFingerUp(fingerId);
-                else if (sfmlEvent.type == sfEvtTouchMoved)
-                {
-                    m_twoFingerScroll.reportFingerMotion(fingerId, x, y);
-                    if (m_twoFingerScroll.isScrolling())
-                        return handleTwoFingerScroll(wasScrolling);
-                }
-            }
-
             // Convert the event to our own type so that we can process it in a backend-independent way afterwards
             tgui::Event event;
             if (!convertEvent(sfmlEvent, event))
                 return false; // We don't process this type of event
-
-            if ((event.type == tgui::Event::Type::MouseButtonPressed) && (sfmlEvent.type == sfEvtTouchBegan))
-            {
-                // For touches, always send a mouse move event before the mouse press,
-                // because widgets may assume that the mouse had to move to the clicked location first
-                tgui::Event mouseMoveEvent;
-                mouseMoveEvent.type = tgui::Event::Type::MouseMoved;
-                mouseMoveEvent.mouseMove.x = event.mouseButton.x;
-                mouseMoveEvent.mouseMove.y = event.mouseButton.y;
-                tgui::BackendGui::handleEvent(mouseMoveEvent);
-            }
 
             return tgui::BackendGui::handleEvent(event);
         }
@@ -454,30 +418,23 @@ namespace ctgui
                 }
                 case sfEvtTouchMoved:
                 {
-                    if (eventSFML.touch.finger != 0)
-                        return false; // Only the first finger is handled
-
-                    // Simulate a MouseMoved event
-                    eventTGUI.type = tgui::Event::Type::MouseMoved;
-                    eventTGUI.mouseMove.x = eventSFML.touch.position.x;
-                    eventTGUI.mouseMove.y = eventSFML.touch.position.y;
+                    eventTGUI.type = tgui::Event::Type::FingerMoved;
+                    eventTGUI.touch.fingerId = static_cast<std::uintptr_t>(eventSFML.touch.finger) + 1;
+                    eventTGUI.touch.x = eventSFML.touch.position.x;
+                    eventTGUI.touch.y = eventSFML.touch.position.y;
                     return true;
                 }
                 case sfEvtTouchBegan:
                 case sfEvtTouchEnded:
                 {
-                    if (eventSFML.touch.finger != 0)
-                        return false; // Only the first finger is handled
-
-                    // Simulate a MouseButtonPressed or MouseButtonReleased event
                     if (eventSFML.type == sfEvtTouchBegan)
-                        eventTGUI.type = tgui::Event::Type::MouseButtonPressed;
+                        eventTGUI.type = tgui::Event::Type::FingerDown;
                     else
-                        eventTGUI.type = tgui::Event::Type::MouseButtonReleased;
+                        eventTGUI.type = tgui::Event::Type::FingerUp;
 
-                    eventTGUI.mouseButton.button = tgui::Event::MouseButton::Left;
-                    eventTGUI.mouseButton.x = eventSFML.touch.position.x;
-                    eventTGUI.mouseButton.y = eventSFML.touch.position.y;
+                    eventTGUI.touch.fingerId = static_cast<std::uintptr_t>(eventSFML.touch.finger) + 1;
+                    eventTGUI.touch.x = eventSFML.touch.position.x;
+                    eventTGUI.touch.y = eventSFML.touch.position.y;
                     return true;
                 }
     #else
@@ -545,30 +502,23 @@ namespace ctgui
                 }
                 case sfEvtTouchMoved:
                 {
-                    if (eventSFML.touch.finger != 0)
-                        return false; // Only the first finger is handled
-
-                    // Simulate a MouseMoved event
-                    eventTGUI.type = tgui::Event::Type::MouseMoved;
-                    eventTGUI.mouseMove.x = eventSFML.touch.x;
-                    eventTGUI.mouseMove.y = eventSFML.touch.y;
+                    eventTGUI.type = tgui::Event::Type::FingerMoved;
+                    eventTGUI.touch.fingerId = static_cast<std::uintptr_t>(eventSFML.touch.finger) + 1;
+                    eventTGUI.touch.x = eventSFML.touch.x;
+                    eventTGUI.touch.y = eventSFML.touch.y;
                     return true;
                 }
                 case sfEvtTouchBegan:
                 case sfEvtTouchEnded:
                 {
-                    if (eventSFML.touch.finger != 0)
-                        return false; // Only the first finger is handled
-
-                    // Simulate a MouseButtonPressed or MouseButtonReleased event
                     if (eventSFML.type == sfEvtTouchBegan)
-                        eventTGUI.type = tgui::Event::Type::MouseButtonPressed;
+                        eventTGUI.type = tgui::Event::Type::FingerDown;
                     else
-                        eventTGUI.type = tgui::Event::Type::MouseButtonReleased;
+                        eventTGUI.type = tgui::Event::Type::FingerUp;
 
-                    eventTGUI.mouseButton.button = tgui::Event::MouseButton::Left;
-                    eventTGUI.mouseButton.x = eventSFML.touch.x;
-                    eventTGUI.mouseButton.y = eventSFML.touch.y;
+                    eventTGUI.touch.fingerId = static_cast<std::uintptr_t>(eventSFML.touch.finger) + 1;
+                    eventTGUI.touch.x = eventSFML.touch.x;
+                    eventTGUI.touch.y = eventSFML.touch.y;
                     return true;
                 }
     #endif

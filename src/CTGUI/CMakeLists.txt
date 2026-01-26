@@ -222,6 +222,8 @@ set(SRC
     ${SRCROOT}/Widgets/SpinControl.cpp
     ${INCROOT}/Widgets/Tabs.h
     ${SRCROOT}/Widgets/Tabs.cpp
+    ${INCROOT}/Widgets/TabsBase.h
+    ${SRCROOT}/Widgets/TabsBase.cpp
     ${INCROOT}/Widgets/TabContainer.h
     ${SRCROOT}/Widgets/TabContainer.cpp
     ${INCROOT}/Widgets/TextArea.h
@@ -232,6 +234,8 @@ set(SRC
     ${SRCROOT}/Widgets/TreeView.cpp
     ${INCROOT}/Widgets/VerticalLayout.h
     ${SRCROOT}/Widgets/VerticalLayout.cpp
+    ${INCROOT}/Widgets/VerticalTabs.h
+    ${SRCROOT}/Widgets/VerticalTabs.cpp
 )
 
 add_library(ctgui SHARED ${SRC})

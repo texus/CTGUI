@@ -95,6 +95,7 @@
 #include <CTGUI/Widgets/ToggleButton.h>
 #include <CTGUI/Widgets/TreeView.h>
 #include <CTGUI/Widgets/VerticalLayout.h>
+#include <CTGUI/Widgets/VerticalTabs.h>
 
 #include <CTGUI/Renderers/BoxLayoutRenderer.h>
 #include <CTGUI/Renderers/ButtonRenderer.h>

@@ -96,6 +96,36 @@ tguiBool tguiGui_handleEventMouseLeft(tguiGui* gui)
     return gui->This->handleEvent(event);
 }
 
+tguiBool tguiGui_handleEventFingerDown(tguiGui* gui, tguiFingerEvent fingerEvent)
+{
+    tgui::Event event;
+    event.type = tgui::Event::Type::FingerDown;
+    event.touch.fingerId = fingerEvent.fingerId;
+    event.touch.x = fingerEvent.x;
+    event.touch.y = fingerEvent.y;
+    return gui->This->handleEvent(event);
+}
+
+tguiBool tguiGui_handleEventFingerMoved(tguiGui* gui, tguiFingerEvent fingerEvent)
+{
+    tgui::Event event;
+    event.type = tgui::Event::Type::FingerMoved;
+    event.touch.fingerId = fingerEvent.fingerId;
+    event.touch.x = fingerEvent.x;
+    event.touch.y = fingerEvent.y;
+    return gui->This->handleEvent(event);
+}
+
+tguiBool tguiGui_handleEventFingerUp(tguiGui* gui, tguiFingerEvent fingerEvent)
+{
+    tgui::Event event;
+    event.type = tgui::Event::Type::FingerUp;
+    event.touch.fingerId = fingerEvent.fingerId;
+    event.touch.x = fingerEvent.x;
+    event.touch.y = fingerEvent.y;
+    return gui->This->handleEvent(event);
+}
+
 tguiBool tguiGui_handleEventResized(tguiGui* gui, tguiSizeEvent sizeEvent)
 {
     tgui::Event event;

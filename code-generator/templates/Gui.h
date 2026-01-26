@@ -19,6 +19,9 @@ CTGUI_API tguiBool tguiGui_handleEventMouseButtonReleased(tguiGui* gui, tguiMous
 CTGUI_API tguiBool tguiGui_handleEventMouseMoved(tguiGui* gui, tguiMouseMoveEvent mouseMoveEvent);
 CTGUI_API tguiBool tguiGui_handleEventMouseEntered(tguiGui* gui);
 CTGUI_API tguiBool tguiGui_handleEventMouseLeft(tguiGui* gui);
+CTGUI_API tguiBool tguiGui_handleEventFingerDown(tguiGui* gui, tguiFingerEvent fingerEvent);
+CTGUI_API tguiBool tguiGui_handleEventFingerMoved(tguiGui* gui, tguiFingerEvent fingerEvent);
+CTGUI_API tguiBool tguiGui_handleEventFingerUp(tguiGui* gui, tguiFingerEvent fingerEvent);
 CTGUI_API tguiBool tguiGui_handleEventResized(tguiGui* gui, tguiSizeEvent sizeEvent);
 CTGUI_API tguiBool tguiGui_handleEventClosed(tguiGui* gui);
 

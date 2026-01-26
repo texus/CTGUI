@@ -195,6 +195,14 @@ namespace ctgui
                 return sfCursor_createFromSystem(sfCursorHelp);
             case tgui::Cursor::Type::NotAllowed:
                 return sfCursor_createFromSystem(sfCursorNotAllowed);
+            case tgui::Cursor::Type::Move:
+#ifdef TGUI_SYSTEM_MACOS
+                // SFML does not support the SizeAll cursor on macOS. Other backends use a grabbing hand cursor on macOS,
+                // but SFML does not support this so we fall back to the crosshair cursor to at least show something.
+                return sfCursor_createFromSystem(sfCursorCross);
+#else
+                return sfCursor_createFromSystem(sfCursorSizeAll);
+#endif
             }
 
             return sfCursor_createFromSystem(sfCursorArrow);

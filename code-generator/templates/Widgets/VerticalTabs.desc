@@ -1,0 +1,5 @@
+inherits TabsBase
+
+function void setTabWidth(float width)
+
+property float TabHeight
