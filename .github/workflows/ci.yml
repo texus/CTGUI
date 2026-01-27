@@ -232,7 +232,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install csfml sdl2 sdl2_ttf ninja wget2
+          brew update
+          brew install csfml sdl2 sdl2_ttf wget2
 
       - name: Lookup TGUI version for cache
         id: find-dependencies
