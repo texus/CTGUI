@@ -38,7 +38,7 @@ namespace ctgui
 {
     constexpr double pi = 3.14159265358979323846;
 
-    class TGUI_API CanvasCSFMLGraphics : public tgui::CanvasBase
+    class CanvasCSFMLGraphics : public tgui::CanvasBase
     {
     public:
 
