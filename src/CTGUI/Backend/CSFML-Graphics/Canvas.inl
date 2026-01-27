@@ -36,6 +36,8 @@
 
 namespace ctgui
 {
+    constexpr double pi = 3.14159265358979323846;
+
     class TGUI_API CanvasCSFMLGraphics : public tgui::CanvasBase
     {
     public:
@@ -277,7 +279,7 @@ namespace ctgui
             const sfVector2f viewCenter = sfView_getCenter(view);
             const sfVector2f viewSize = sfView_getSize(view);
 
-            const float angle  = sfView_getRotation(view) / 180.f * static_cast<float>(M_PI);
+            const float angle  = sfView_getRotation(view) / 180.f * static_cast<float>(pi);
             const float cosine = std::cos(angle);
             const float sine   = std::sin(angle);
             const float tx     = -viewCenter.x * cosine - viewCenter.y * sine + viewCenter.x;
@@ -324,7 +326,7 @@ namespace ctgui
             const sfVector2f viewCenter = sfView_getCenter(view);
             const sfVector2f viewSize = sfView_getSize(view);
 
-            const float angle  = sfView_getRotation(view) / 180.f * static_cast<float>(M_PI);
+            const float angle  = sfView_getRotation(view) / 180.f * static_cast<float>(pi);
             const float cosine = std::cos(angle);
             const float sine   = std::sin(angle);
             const float tx     = -viewCenter.x * cosine - viewCenter.y * sine + viewCenter.x;
