@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get -y install xorg-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev libfreetype-dev ninja-build libwayland-dev libxkbcommon-dev libmbedtls-dev libharfbuzz-dev
+          sudo apt-get -y install xorg-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev libfreetype-dev ninja-build libwayland-dev libxkbcommon-dev libmbedtls-dev libharfbuzz-dev libssh2-1-dev
 
       - name: Build SFML
         if: steps.cache-sfml.outputs.cache-hit != 'true'
