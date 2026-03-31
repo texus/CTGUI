@@ -21,7 +21,7 @@ Other important CMake options
 
 | Option                     | Description |
 |:---------------------------|:------------|
-| CTGUI_LINK_TGUI_STATICALLY | Set this to TRUE if the c++ TGUI library is linked statically, and FALSE if the TGUI library is linked dynamically. |
+| CTGUI_LINK_TGUI_STATICALLY | Set this to TRUE if the c++ TGUI library is linked statically, and FALSE if the TGUI library is linked dynamically. When CTGUI is a dynamic library (default) and this option is set to TRUE, then TGUI must have been built with CMAKE_POSITION_INDEPENDENT_CODE set to ON. |
 
 Documentation
 -------------
