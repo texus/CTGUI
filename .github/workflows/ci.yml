@@ -266,6 +266,7 @@ jobs:
           -DTGUI_BUILD_TESTS=OFF
           -DTGUI_BACKEND=Custom
           -DTGUI_HAS_BACKEND_SDL_RENDERER=ON
+          -DTGUI_USE_SDL3=FALSE
 
           cmake --build TGUI-build --config Debug --target install
 
