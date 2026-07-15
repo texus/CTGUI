@@ -24,6 +24,9 @@ set(SRC
     ${SRCROOT}/Font.cpp
     ${SRCROOT}/FontStruct.hpp
     ${INCROOT}/Font.h
+    ${SRCROOT}/FormLoadOptions.cpp
+    ${SRCROOT}/FormLoadOptionsStruct.hpp
+    ${INCROOT}/FormLoadOptions.h
     ${SRCROOT}/Global.cpp
     ${INCROOT}/Global.h
     ${SRCROOT}/Gui.cpp

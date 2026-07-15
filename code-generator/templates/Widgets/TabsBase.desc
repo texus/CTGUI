@@ -8,12 +8,17 @@ function size_t add(string text, bool select = true)
 function void insert(size_t index, string text, bool select = true)
 const-function string getText(size_t index)
 function bool changeText(size_t index, string text)
+function bool changeTextById(string id, string text)
+function void setTabId(size_t index, string id)
+const-function string getTabId(size_t index)
+const-function int getIndexById(string id)
 
 function void deselect()
 function void removeAll()
 
 get-property string Selected
 get-property int SelectedIndex
+get-property string SelectedId
 get-property int HoveredIndex
 
 get-property size_t TabsCount
@@ -26,9 +31,11 @@ const-function bool getTabEnabled(size_t index)
 
 function bool selectByText select(string text)
 function bool selectByIndex select(size_t index)
+function bool selectById(string id)
 
 function bool removeByText remove(string text)
 function bool removeByIndex remove(size_t index)
+function bool removeById(string id)
 
 signal String(tabText) TabSelect TabSelected
 signal String(tabText) TabRightClick TabRightClicked

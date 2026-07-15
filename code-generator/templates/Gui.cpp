@@ -1,5 +1,6 @@
 #include <CTGUI/Gui.h>
 #include <CTGUI/GuiStruct.hpp>
+#include <CTGUI/FormLoadOptionsStruct.hpp>
 #include <CTGUI/InternalGlobal.hpp>
 
 @TGUI_GENERATED_HEAD@
@@ -150,11 +151,11 @@ void tguiGui_draw(tguiGui* gui)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiBool replaceExisting)
+tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiFormLoadOptions *loadOptions)
 {
     try
     {
-        gui->This->loadWidgetsFromFile(ctgui::toCppStr(filename), replaceExisting);
+        gui->This->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
         return true;
     }
     catch (const tgui::Exception& e)

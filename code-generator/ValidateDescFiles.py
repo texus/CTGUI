@@ -102,14 +102,23 @@ for subfolder in ['Widgets', 'Renderers', '.']:
         cppInherits = None
         cppInheritsScrollbarChildInterface = False
         cppInheritsDualScrollbarChildInterface = False
+        cppDeprecateNextLine = False
         for line in open(cppFile, 'r').readlines():
             line = line.strip()
             if line.startswith('//') or line.startswith('#'):
                 continue
 
             deprecatedProperty = False
+            if cppDeprecateNextLine:
+                deprecatedProperty = True
+                cppDeprecateNextLine = False
             if line.startswith('TGUI_DEPRECATED'):
                 line = line[line.find('")')+2:].lstrip()
+                deprecatedProperty = True
+                if len(line) == 0:
+                    cppDeprecateNextLine = True
+            if line.startswith('[[deprecated'):
+                line = line[line.find(']]')+2:].lstrip()
                 deprecatedProperty = True
 
             # Look for enums
@@ -139,10 +148,10 @@ for subfolder in ['Widgets', 'Renderers', '.']:
             if match:
                 propertyName = match.group(1)
                 cppGetters.add(propertyName)
-                assert('TGUI_DEPRECATED' not in line)
+                assert('TGUI_DEPRECATED' not in line and '[[deprecated' not in line)
                 if deprecatedProperty:
                     cppDeprecated.add(propertyName)
-                if 'TGUI_NODISCARD' not in line:
+                if 'TGUI_NODISCARD' not in line and '[[nodiscard]]' not in line:
                     print(className + ': C++ getter "get' + propertyName + '" is missing [[nodiscard]] attribute')
                 if ' const' not in line and not ' static ' in line and not 'ScrollbarAccessor' in line and not propertyName.endswith('Renderer'):
                     print(className + ': C++ getter "get' + propertyName + '" is missing const modifier')
@@ -153,7 +162,7 @@ for subfolder in ['Widgets', 'Renderers', '.']:
                 propertyName = match.group(1)
                 cppGetters.add(propertyName)
                 cppBoolIsGetters.add(propertyName)
-                if 'TGUI_NODISCARD' not in line:
+                if 'TGUI_NODISCARD' not in line and '[[nodiscard]]' not in line:
                     print(className + ': C++ getter "is' + propertyName + '" is missing [[nodiscard]] attribute')
                 if ' const' not in line and not ' static ' in line:
                     print(className + ': C++ getter "is' + propertyName + '" is missing const modifier')
@@ -175,7 +184,9 @@ for subfolder in ['Widgets', 'Renderers', '.']:
                 returnType = line[:line.rfind('(')-len(functionName)].strip()
                 if returnType.startswith('TGUI_DEPRECATED'):
                     returnType = returnType[returnType.find('")')+2:].strip()
-                returnType = ' '.join([part for part in returnType.split(' ') if part != 'static' and part != 'virtual' and part != 'TGUI_NODISCARD' and not part.startswith('TGUI_DEPRECATED')])
+                elif returnType.startswith('[[deprecated'):
+                    returnType = returnType[returnType.find(']]')+2:].strip()
+                returnType = ' '.join([part for part in returnType.split(' ') if part != 'static' and part != 'virtual' and part != 'TGUI_NODISCARD' and part != '[[nodiscard]]' and not part.startswith('TGUI_DEPRECATED') and not part.startswith('[[deprecated')])
                 isConst = line.endswith(' const;') or line.endswith(' const noexcept;') or line.endswith(' const override;') or line.endswith(' const noexcept override;') \
                           or line.endswith(' const') or line.endswith(' const noexcept') or line.endswith(' const override') or line.endswith(' const noexcept override') \
                           or line.endswith('const = 0;')

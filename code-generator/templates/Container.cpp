@@ -1,4 +1,5 @@
 #include <CTGUI/Container.h>
+#include <CTGUI/FormLoadOptionsStruct.hpp>
 
 #include <TGUI/Container.hpp>
 
@@ -8,11 +9,11 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* filename, tguiBool replaceExisting)
+tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, tguiUtf32 filename, tguiFormLoadOptions *loadOptions)
 {
     try
     {
-        DOWNCAST(container->This)->loadWidgetsFromFile(filename, replaceExisting);
+        DOWNCAST(container->This)->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
         return true;
     }
     catch (const tgui::Exception& e)
@@ -22,11 +23,11 @@ tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, const char* fi
     }
 }
 
-tguiBool tguiContainer_saveWidgetsToFile(tguiWidget* container, const char* filename)
+tguiBool tguiContainer_saveWidgetsToFile(tguiWidget* container, tguiUtf32 filename)
 {
     try
     {
-        DOWNCAST(container->This)->saveWidgetsToFile(filename);
+        DOWNCAST(container->This)->saveWidgetsToFile(ctgui::toCppStr(filename));
         return true;
     }
     catch (const tgui::Exception& e)

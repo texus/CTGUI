@@ -32,6 +32,9 @@
 #include <CTGUI/Rect.h>
 #include <CTGUI/Vector2.h>
 
+CTGUI_API void tgui_setTextInputUsesTextCursorByDefault(tguiBool useIBeam);
+CTGUI_API tguiBool tgui_getTextInputUsesTextCursorByDefault(void);
+
 CTGUI_API void tgui_setGlobalTextSize(unsigned int textSize);
 CTGUI_API unsigned int tgui_getGlobalTextSize(void);
 

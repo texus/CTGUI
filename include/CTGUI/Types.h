@@ -37,6 +37,7 @@ typedef struct tguiLayout2d tguiLayout2d;
 typedef struct tguiOutline tguiOutline;
 typedef struct tguiRenderer tguiRenderer;
 typedef struct tguiRendererData tguiRendererData;
+typedef struct tguiFormLoadOptions tguiFormLoadOptions;
 typedef struct tguiScrollbarAccessor tguiScrollbarAccessor;
 typedef struct tguiBackendRenderTarget tguiBackendRenderTarget;
 typedef struct tguiSprite tguiSprite;

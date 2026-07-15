@@ -38,6 +38,7 @@
 #include <CTGUI/Event.h>
 #include <CTGUI/Filesystem.h>
 #include <CTGUI/Font.h>
+#include <CTGUI/FormLoadOptions.h>
 #include <CTGUI/Gui.h>
 #include <CTGUI/Layout.h>
 #include <CTGUI/Outline.h>
