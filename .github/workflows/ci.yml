@@ -139,7 +139,7 @@ jobs:
   #----------------------------------------
 
   windows-CSFML2-SDL3:
-    runs-on: windows-latest
+    runs-on: windows-2022
     env:
       CSFML_VERSION: 2.6.1
       SDL_VERSION: 3.2.30
