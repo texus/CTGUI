@@ -183,7 +183,7 @@ jobs:
           7z x "1.x.zip"
 
           & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe"
-          -S TGUI-1.x -B TGUI-build -T v${env:MSVC_TOOLSET_VERSION} -A Win32
+          -S TGUI-1.x -B TGUI-build -G "Visual Studio 17 2022" -T v${env:MSVC_TOOLSET_VERSION} -A Win32
           -DCMAKE_INSTALL_PREFIX=TGUI_INSTALL
           -DSDL3_DIR="${env:GITHUB_WORKSPACE}/SDL3-${env:SDL_VERSION}/cmake/"
           -DSDL3_ttf_DIR="${env:GITHUB_WORKSPACE}/SDL3_ttf-${env:SDL_TTF_VERSION}/cmake/"
@@ -203,7 +203,7 @@ jobs:
       - name: Build CTGUI
         run: >
           & "cmake-${env:CMAKE_VERSION}.${env:CMAKE_VERSION_PATCH}-windows-i386/bin/cmake.exe"
-          -B build -T v${env:MSVC_TOOLSET_VERSION} -A Win32
+          -B build -G "Visual Studio 17 2022" -T v${env:MSVC_TOOLSET_VERSION} -A Win32
           -DTGUI_ROOT="${env:GITHUB_WORKSPACE}/TGUI_INSTALL"
           -DCSFML_INCLUDE_DIR="${env:GITHUB_WORKSPACE}/CSFML/include"
           -DCSFML_LIBRARIES_DIR="${env:GITHUB_WORKSPACE}/CSFML/lib/msvc"
