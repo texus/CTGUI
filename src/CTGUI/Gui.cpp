@@ -168,20 +168,6 @@ tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiFormL
     }
 }
 
-tguiBool tguiGui_saveWidgetsToFile(tguiGui* gui, tguiUtf32 filename)
-{
-    try
-    {
-        gui->This->saveWidgetsToFile(ctgui::toCppStr(filename));
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiGui_setViewChangeCallback(tguiGui* gui, void (*function)(tguiGui*))
@@ -387,6 +373,22 @@ tguiBool tguiGui_focusPreviousWidget(tguiGui* thisGui, tguiBool recursive)
 void tguiGui_unfocusAllWidgets(tguiGui* thisGui)
 {
     thisGui->This->unfocusAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiGui_saveWidgetsToFile(const tguiGui* thisGui, tguiUtf32 filename)
+{
+    try
+    {
+        thisGui->This->saveWidgetsToFile(ctgui::toCppStr(filename));
+        return true;
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

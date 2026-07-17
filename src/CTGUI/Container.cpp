@@ -25,20 +25,6 @@ tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, tguiUtf32 file
     }
 }
 
-tguiBool tguiContainer_saveWidgetsToFile(tguiWidget* container, tguiUtf32 filename)
-{
-    try
-    {
-        DOWNCAST(container->This)->saveWidgetsToFile(ctgui::toCppStr(filename));
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiContainer_add(tguiWidget* thisContainer, tguiWidget* widget, tguiUtf32 widgetName)
@@ -85,6 +71,22 @@ tguiBool tguiContainer_remove(tguiWidget* thisContainer, tguiWidget* widget)
 void tguiContainer_removeAllWidgets(tguiWidget* thisContainer)
 {
     DOWNCAST(thisContainer->This)->removeAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiContainer_saveWidgetsToFile(const tguiWidget* thisContainer, tguiUtf32 filename)
+{
+    try
+    {
+        DOWNCAST(thisContainer->This)->saveWidgetsToFile(ctgui::toCppStr(filename));
+        return true;
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

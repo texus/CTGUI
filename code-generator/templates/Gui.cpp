@@ -165,20 +165,6 @@ tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiFormL
     }
 }
 
-tguiBool tguiGui_saveWidgetsToFile(tguiGui* gui, tguiUtf32 filename)
-{
-    try
-    {
-        gui->This->saveWidgetsToFile(ctgui::toCppStr(filename));
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tguiGui_setViewChangeCallback(tguiGui* gui, void (*function)(tguiGui*))

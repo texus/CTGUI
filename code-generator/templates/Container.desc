@@ -6,6 +6,8 @@ const-function List<Widget> getWidgets()
 function bool remove(Widget widget)
 function void removeAllWidgets()
 
+const-throwing-function void saveWidgetsToFile(string filename)
+
 function void moveWidgetToFront(Widget widget)
 function void moveWidgetToBack(Widget widget)
 function size_t moveWidgetForward(Widget widget)

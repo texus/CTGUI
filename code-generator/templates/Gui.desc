@@ -26,6 +26,8 @@ function bool focusPreviousWidget(bool recursive = true)
 
 function void unfocusAllWidgets()
 
+const-throwing-function void saveWidgetsToFile(string filename)
+
 function void moveWidgetToFront(Widget widget)
 function void moveWidgetToBack(Widget widget)
 function size_t moveWidgetForward(Widget widget)

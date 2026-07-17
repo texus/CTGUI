@@ -28,7 +28,6 @@ CTGUI_API tguiBool tguiGui_handleEventClosed(tguiGui* gui);
 CTGUI_API void tguiGui_draw(tguiGui* gui);
 
 CTGUI_API tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiFormLoadOptions *loadOptions);
-CTGUI_API tguiBool tguiGui_saveWidgetsToFile(tguiGui* gui, tguiUtf32 filename);
 
 CTGUI_API void tguiGui_setViewChangeCallback(tguiGui* gui, void (*function)(tguiGui*));
 CTGUI_API void tguiGui_setWindowFocusCallback(tguiGui* gui, void (*function)(tguiGui*));

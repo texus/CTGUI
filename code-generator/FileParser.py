@@ -52,13 +52,14 @@ class SegmentPropertyWidgetRenderer(Segment):
         self.prefix = namePrefix
 
 class SegmentFunction(Segment):
-    def __init__(self, nameC, name, returnType, params, const, static):
+    def __init__(self, nameC, name, returnType, params, const, static, throws):
         self.nameC = nameC
         self.name = name
         self.returnType = returnType
         self.params = params # List of tuples containing type, name and default value
         self.const = const
         self.static = static
+        self.throws = throws
 
 class SegmentEnum(Segment):
     def __init__(self, enumName, enumValues):
@@ -154,12 +155,14 @@ def parseDescriptionFile(descFileName):
                     else:
                         raise RuntimeError('"property-bool-is" instruction should be followed by a name')
 
-                elif parts[0] == 'function' or parts[0] == 'const-function' or parts[0] == 'static-function':
+                elif parts[0] == 'function' or parts[0] == 'const-function' or parts[0] == 'static-function' \
+                or parts[0] == 'throwing-function' or parts[0] == 'const-throwing-function':
                     if len(parts) < 3:
                         raise RuntimeError('"function" instruction should have format "function returnValue name(params)"')
 
-                    const = (parts[0] == 'const-function')
+                    const = (parts[0] == 'const-function') or (parts[0] == 'const-throwing-function')
                     static = (parts[0] == 'static-function')
+                    throws = (parts[0] == 'throwing-function') or (parts[0] == 'const-throwing-function')
                     returnType = parts[1]
 
                     functionPart = ' '.join(parts[2:])
@@ -196,7 +199,7 @@ def parseDescriptionFile(descFileName):
                     else:
                         nameC = name
 
-                    segments.append(SegmentFunction(nameC, name, returnType, params, const, static))
+                    segments.append(SegmentFunction(nameC, name, returnType, params, const, static, throws))
 
                 elif parts[0] == 'enum':
                     openBracePos = line.find('{')

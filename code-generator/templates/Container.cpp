@@ -23,20 +23,6 @@ tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, tguiUtf32 file
     }
 }
 
-tguiBool tguiContainer_saveWidgetsToFile(tguiWidget* container, tguiUtf32 filename)
-{
-    try
-    {
-        DOWNCAST(container->This)->saveWidgetsToFile(ctgui::toCppStr(filename));
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @TGUI_GENERATED_BODY@
