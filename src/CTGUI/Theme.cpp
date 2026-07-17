@@ -1,9 +1,7 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Theme.h>
-#include <CTGUI/ThemeStruct.hpp>
 #include <CTGUI/RendererStruct.hpp>
-#include <CTGUI/RendererDataStruct.hpp>
 #include <CTGUI/TextureStruct.hpp>
 #include <CTGUI/OutlineStruct.hpp>
 #include <CTGUI/FontStruct.hpp>
@@ -12,6 +10,7 @@
 #include <TGUI/Exception.hpp>
 
 #include <CTGUI/RendererDataStruct.hpp>
+#include <CTGUI/ThemeStruct.hpp>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -28,60 +27,6 @@ tguiTheme* tguiTheme_copy(const tguiTheme* theme)
 void tguiTheme_destroy(tguiTheme* theme)
 {
     delete theme;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiTheme_load(tguiTheme* theme, tguiUtf32 filename)
-{
-    try
-    {
-        theme->This->load(ctgui::toCppStr(filename));
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTheme_replace(tguiTheme* theme, tguiTheme* otherTheme)
-{
-    theme->This->replace(*otherTheme->This);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, tguiUtf32 id)
-{
-    try
-    {
-        std::shared_ptr<tgui::RendererData> data = theme->This->getRenderer(ctgui::toCppStr(id));
-        return new tguiRendererData(data);
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return nullptr;
-    }
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTheme_setDefault(tguiTheme* defaultTheme)
-{
-    if (defaultTheme)
-        tgui::Theme::setDefault(defaultTheme->This);
-    else
-        tgui::Theme::setDefault(nullptr);
-}
-
-tguiTheme* tguiTheme_getDefault(void)
-{
-    return new tguiTheme{tgui::Theme::getDefault()};
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -212,22 +157,12 @@ tguiBool tguiTheme_getGlobalPropertyRendererData(const tguiTheme* theme, tguiUtf
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTheme_addRendererDefaultSubwidget(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 propertyWidgetType)
-{
-    tgui::Theme::addRendererDefaultSubwidget(ctgui::toCppStr(widgetType), ctgui::toCppStr(property), ctgui::toCppStr(propertyWidgetType));
-}
-
 tguiUtf32 tguiTheme_getRendererDefaultSubwidget(tguiUtf32 widgetType, tguiUtf32 property)
 {
     return ctgui::fromCppStr(tgui::Theme::getRendererDefaultSubwidgets(ctgui::toCppStr(widgetType))[ctgui::toCppStr(property)]);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void tguiTheme_addRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 globalProperty)
-{
-    tgui::Theme::addRendererInheritedGlobalProperty(ctgui::toCppStr(widgetType), ctgui::toCppStr(property), ctgui::toCppStr(globalProperty));
-}
 
 tguiUtf32 tguiTheme_getRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property)
 {
@@ -236,7 +171,7 @@ tguiUtf32 tguiTheme_getRendererInheritedGlobalProperty(tguiUtf32 widgetType, tgu
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTheme_addRenderer(tguiTheme* thisTheme, tguiUtf32 id, const tguiRendererData* renderer)
+void tguiTheme_addRenderer(tguiTheme* thisTheme, tguiUtf32 id, tguiRendererData* renderer)
 {
     thisTheme->This->addRenderer(ctgui::toCppStr(id), renderer->This);
 }
@@ -267,6 +202,72 @@ void tguiTheme_addRendererInheritanceParent(tguiUtf32 widgetType, tguiUtf32 pare
 tguiUtf32 tguiTheme_getRendererInheritanceParent(tguiUtf32 widgetType)
 {
     return ctgui::fromCppStr(tgui::Theme::getRendererInheritanceParent(ctgui::toCppStr(widgetType)));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiTheme_load(tguiTheme* thisTheme, tguiUtf32 filename)
+{
+    try
+    {
+        thisTheme->This->load(ctgui::toCppStr(filename));
+        return true;
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTheme_replace(tguiTheme* thisTheme, tguiTheme* otherTheme)
+{
+    thisTheme->This->replace(*otherTheme->This);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTheme_setDefault(const tguiTheme* defaultTheme)
+{
+    tgui::Theme::setDefault(defaultTheme ? defaultTheme->This : nullptr);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiTheme* tguiTheme_getDefault(void)
+{
+    return new tguiTheme(tgui::Theme::getDefault());
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiRendererData* tguiTheme_getRenderer(tguiTheme* thisTheme, tguiUtf32 id)
+{
+    try
+    {
+        return new tguiRendererData(thisTheme->This->getRenderer(ctgui::toCppStr(id)));
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return nullptr;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTheme_addRendererDefaultSubwidget(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 propertyWidgetType)
+{
+    tgui::Theme::addRendererDefaultSubwidget(ctgui::toCppStr(widgetType), ctgui::toCppStr(property), ctgui::toCppStr(propertyWidgetType));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tguiTheme_addRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 globalProperty)
+{
+    tgui::Theme::addRendererInheritedGlobalProperty(ctgui::toCppStr(widgetType), ctgui::toCppStr(property), ctgui::toCppStr(globalProperty));
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

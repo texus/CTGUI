@@ -23,8 +23,8 @@ CTGUI_API unsigned int tguiWidgetRenderer_getTextSize(const tguiRenderer* thisRe
 CTGUI_API void tguiWidgetRenderer_setTransparentTexture(tguiRenderer* thisRenderer, tguiBool value);
 CTGUI_API tguiBool tguiWidgetRenderer_getTransparentTexture(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiWidgetRenderer_setData(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiWidgetRenderer_setData(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiWidgetRenderer_setPropertyBool(tguiRenderer* thisRenderer, tguiUtf32 property, tguiBool value);
 
@@ -42,7 +42,7 @@ CTGUI_API void tguiWidgetRenderer_setPropertyTexture(tguiRenderer* thisRenderer,
 
 CTGUI_API void tguiWidgetRenderer_setPropertyTextStyle(tguiRenderer* thisRenderer, tguiUtf32 property, tguiUint32 value);
 
-CTGUI_API void tguiWidgetRenderer_setPropertyRendererData(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiRendererData* value);
+CTGUI_API void tguiWidgetRenderer_setPropertyRendererData(tguiRenderer* thisRenderer, tguiUtf32 property, tguiRendererData* value);
 
 CTGUI_API tguiBool tguiWidgetRenderer_hasProperty(const tguiRenderer* renderer, tguiUtf32 property);
 

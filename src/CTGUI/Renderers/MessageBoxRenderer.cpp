@@ -34,12 +34,12 @@ tguiColor tguiMessageBoxRenderer_getTextColor(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiMessageBoxRenderer_setButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiMessageBoxRenderer_setButton(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setButton(value->This);
 }
 
-const tguiRendererData* tguiMessageBoxRenderer_getButton(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiMessageBoxRenderer_getButton(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getButton());
 }

@@ -53,8 +53,8 @@ CTGUI_API const tguiTexture* tguiTreeViewRenderer_getTextureBranchCollapsed(cons
 CTGUI_API void tguiTreeViewRenderer_setTextureLeaf(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiTreeViewRenderer_getTextureLeaf(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTreeViewRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTreeViewRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiTreeViewRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiTreeViewRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);

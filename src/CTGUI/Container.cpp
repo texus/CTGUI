@@ -1,29 +1,11 @@
 // This file is generated, it should not be edited directly.
 
 #include <CTGUI/Container.h>
-#include <CTGUI/FormLoadOptionsStruct.hpp>
-
-#include <TGUI/Container.hpp>
 
 #include <CTGUI/WidgetStruct.hpp>
+#include <CTGUI/FormLoadOptionsStruct.hpp>
 
 #define DOWNCAST(x) std::static_pointer_cast<tgui::Container>(x)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, tguiUtf32 filename, tguiFormLoadOptions *loadOptions)
-{
-    try
-    {
-        DOWNCAST(container->This)->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -71,6 +53,22 @@ tguiBool tguiContainer_remove(tguiWidget* thisContainer, tguiWidget* widget)
 void tguiContainer_removeAllWidgets(tguiWidget* thisContainer)
 {
     DOWNCAST(thisContainer->This)->removeAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* thisContainer, tguiUtf32 filename, const tguiFormLoadOptions* loadOptions)
+{
+    try
+    {
+        DOWNCAST(thisContainer->This)->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
+        return true;
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

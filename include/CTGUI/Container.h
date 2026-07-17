@@ -6,8 +6,6 @@
 #include <CTGUI/Global.h>
 
 
-CTGUI_API tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, tguiUtf32 filename, tguiFormLoadOptions *loadOptions);
-
 CTGUI_API void tguiContainer_add(tguiWidget* thisContainer, tguiWidget* widget, tguiUtf32 widgetName);
 
 CTGUI_API tguiWidget* tguiContainer_get(const tguiWidget* thisContainer, tguiUtf32 widgetName);
@@ -17,6 +15,8 @@ CTGUI_API tguiWidget** tguiContainer_getWidgets(const tguiWidget* thisContainer,
 CTGUI_API tguiBool tguiContainer_remove(tguiWidget* thisContainer, tguiWidget* widget);
 
 CTGUI_API void tguiContainer_removeAllWidgets(tguiWidget* thisContainer);
+
+CTGUI_API tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* thisContainer, tguiUtf32 filename, const tguiFormLoadOptions* loadOptions);
 
 CTGUI_API tguiBool tguiContainer_saveWidgetsToFile(const tguiWidget* thisContainer, tguiUtf32 filename);
 

@@ -156,12 +156,12 @@ float tguiTextAreaRenderer_getCaretWidth(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTextAreaRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiTextAreaRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

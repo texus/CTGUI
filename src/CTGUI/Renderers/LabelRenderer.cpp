@@ -120,12 +120,12 @@ tguiUint32 tguiLabelRenderer_getTextStyle(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiLabelRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiLabelRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiLabelRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

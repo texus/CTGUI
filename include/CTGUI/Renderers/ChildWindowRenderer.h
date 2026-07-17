@@ -53,13 +53,13 @@ CTGUI_API const tguiTexture* tguiChildWindowRenderer_getTextureTitleBar(const tg
 CTGUI_API void tguiChildWindowRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiChildWindowRenderer_getTextureBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setCloseButton(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiChildWindowRenderer_getCloseButton(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setCloseButton(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiChildWindowRenderer_getCloseButton(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setMaximizeButton(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiChildWindowRenderer_getMaximizeButton(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setMaximizeButton(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiChildWindowRenderer_getMaximizeButton(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChildWindowRenderer_setMinimizeButton(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiChildWindowRenderer_getMinimizeButton(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChildWindowRenderer_setMinimizeButton(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiChildWindowRenderer_getMinimizeButton(const tguiRenderer* thisRenderer);
 
 #endif // CTGUI_CHILDWINDOWRENDERER_H

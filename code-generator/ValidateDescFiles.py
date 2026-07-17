@@ -38,6 +38,8 @@ VALID_CPP_TYPES = {
     'string' : ['String', 'const String&'],
     'Color' : ['Color', 'const Color&'],
     'Font' : ['Font', 'const Font&'],
+    'Theme' : ['const Theme&'],
+    'ThemePtr' : ['std::shared_ptr<Theme>'],
     'Texture' : ['const Texture&'],
     'TextStyle' : ['TextStyles'],
     'RendererData' : ['std::shared_ptr<RendererData>'],
@@ -63,6 +65,8 @@ VALID_CPP_TYPES = {
     'Set<size_t>' : ['std::set<std::size_t>', 'const std::set<std::size_t>&'],
     'AnyObject' : ['Any', 'DataType'],
     'Widget' : ['Widget::Ptr', 'const Widget::Ptr&'],
+    'Optional<FormLoadOptions>' : ['const FormLoadOptions&'],
+    'Optional<Theme>' : ['std::shared_ptr<Theme>'],
 }
 
 IGNORE_MISSING_PROPERTIES = {

@@ -84,12 +84,12 @@ const tguiTexture* tguiChatBoxRenderer_getTextureBackground(const tguiRenderer* 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChatBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiChatBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

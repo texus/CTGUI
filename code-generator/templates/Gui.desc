@@ -26,6 +26,7 @@ function bool focusPreviousWidget(bool recursive = true)
 
 function void unfocusAllWidgets()
 
+throwing-function void loadWidgetsFromFile(string filename, Optional<FormLoadOptions> loadOptions = null)
 const-throwing-function void saveWidgetsToFile(string filename)
 
 function void moveWidgetToFront(Widget widget)

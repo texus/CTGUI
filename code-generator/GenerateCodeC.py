@@ -91,6 +91,10 @@ def generateAdditionalIncludesInSourceFile(segments):
         generatedLines.append('#include <CTGUI/FontStruct.hpp>')
     if 'Layout' in usedTypes or 'Layout2d' in usedTypes:
         generatedLines.append('#include <CTGUI/LayoutStruct.hpp>')
+    if 'Optional<FormLoadOptions>' in usedTypes:
+        generatedLines.append('#include <CTGUI/FormLoadOptionsStruct.hpp>')
+    if 'Theme' in usedTypes or 'ThemePtr' in usedTypes or 'Optional<Theme>' in usedTypes:
+        generatedLines.append('#include <CTGUI/ThemeStruct.hpp>')
 
     if usesRenderer:
         generatedLines.append('#include <CTGUI/RendererStruct.hpp>')
@@ -156,7 +160,9 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'Layout' : 'const tguiLayout*',
         'Layout2d' : 'const tguiLayout2d*',
         'Font' : 'const tguiFont*',
-        'RendererData' : 'const tguiRendererData*',
+        'Theme' : 'tguiTheme*',
+        'ThemePtr' : 'tguiTheme*',
+        'RendererData' : 'tguiRendererData*',
         'Widget' : 'tguiWidget*',
         'ConstWidget' : 'const tguiWidget*',
         'Vector2f' : 'tguiVector2f',
@@ -175,6 +181,8 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
         'Orientation': 'tguiOrientation',
         'CursorType': 'tguiCursorType',
         'Duration': 'tguiDuration',
+        'Optional<FormLoadOptions>': 'const tguiFormLoadOptions*',
+        'Optional<Theme>': 'const tguiTheme*',
     }
 
     params = selfType + '* ' + selfName
@@ -205,8 +213,9 @@ def generateFunctionSignatureC(className, funcName, funcParams, returnType, cons
             params = 'void'
 
     if throwingFunc:
-      assert(returnType == 'void')
-      returnType = 'bool'
+      assert(returnType == 'void' or returnType == 'RendererData')
+      if returnType == 'void':
+          returnType = 'bool'
 
     if returnType in enums:
         return 'tgui' + className + returnType + ' tgui' + className + '_' + funcName + '(' + params + ')'
@@ -231,10 +240,10 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             funcCallParams.append('ctgui::toCppStr(' + paramName + ')')
         elif paramType == 'Color':
             funcCallParams.append('ctgui::toCppColor(' + paramName + ')')
-        elif paramType == 'Texture' or paramType == 'Font':
+        elif paramType == 'Texture' or paramType == 'Font' or paramType == 'Theme':
             funcCallParams.append('*' + paramName + '->This')
         elif paramType == 'Widget' or  paramType == 'ConstWidget' or paramType == 'Outline' \
-        or paramType == 'Layout' or paramType == 'Layout2d' or paramType == 'RendererData':
+        or paramType == 'Layout' or paramType == 'Layout2d' or paramType == 'RendererData' or paramType == 'ThemePtr':
             funcCallParams.append(paramName + '->This')
         elif paramType == 'Vector2f' or paramType == 'Vector2u' or paramType == 'Vector2i':
             funcCallParams.append('{' + paramName + '.x, ' + paramName + '.y}')
@@ -267,6 +276,10 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
             generatedLines.append('        ' + localVariableName + '.insert(' + paramName + '[i]);')
             generatedLines.append('')
             funcCallParams.append('std::move(' + localVariableName + ')')
+        elif paramType == 'Optional<FormLoadOptions>':
+            funcCallParams.append(paramName + ' ? ' + paramName + '->This : tgui::FormLoadOptions()')
+        elif paramType == 'Optional<Theme>':
+            funcCallParams.append(paramName + ' ? ' + paramName + '->This : nullptr')
         else:
             raise RuntimeError('Type ' + paramType + ' is not supported as function parameter')
 
@@ -316,6 +329,8 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         generatedLines.append('    return new tguiTexture(std::make_unique<tgui::Texture>(' + funcCall + '));')
     elif returnType == 'Font':
         generatedLines.append('    return new tguiFont(std::make_unique<tgui::Font>(' + funcCall + '));')
+    elif returnType == 'ThemePtr':
+        generatedLines.append('    return new tguiTheme(' + funcCall + ');')
     elif returnType == 'RendererData':
         generatedLines.append('    return new tguiRendererData(' + funcCall + ');')
     elif returnType == 'VerticalAlignment':
@@ -390,22 +405,33 @@ def generateFunctionCallC(className, funcName, funcParams, returnType, staticFun
         raise RuntimeError('function return type ' + returnType + ' is not supported')
 
     if throwingFunc:
-      assert(returnType == 'void')
-      bodyLines = ['    ' + line for line in generatedLines]
-      generatedLines = [
-        '    try',
-        '    {'
-      ]
-      generatedLines.extend(bodyLines)
-      generatedLines.extend([
-        '        return true;',
-        '    }',
-        '    catch (const tgui::Exception& e)',
-        '    {',
-        '        ctgui::tguiErrorMessage = e.what();',
-        '        return false;',
-        '    }'
-      ])
+        bodyLines = ['    ' + line for line in generatedLines]
+        generatedLines = [
+            '    try',
+            '    {'
+        ]
+        generatedLines.extend(bodyLines)
+        if returnType == 'void':
+            generatedLines.extend([
+                '        return true;',
+                '    }',
+                '    catch (const tgui::Exception& e)',
+                '    {',
+                '        ctgui::tguiErrorMessage = e.what();',
+                '        return false;',
+                '    }'
+            ])
+        elif returnType == 'RendererData':
+            generatedLines.extend([
+                '    }',
+                '    catch (const tgui::Exception& e)',
+                '    {',
+                '        ctgui::tguiErrorMessage = e.what();',
+                '        return nullptr;',
+                '    }'
+            ])
+        else:
+            raise RuntimeError('function return type "' + returnType + '" is not supported for throwing functions')
 
     return generatedLines
 

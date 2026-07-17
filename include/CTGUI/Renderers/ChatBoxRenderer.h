@@ -23,8 +23,8 @@ CTGUI_API tguiColor tguiChatBoxRenderer_getBorderColor(const tguiRenderer* thisR
 CTGUI_API void tguiChatBoxRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiChatBoxRenderer_getTextureBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiChatBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiChatBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiChatBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiChatBoxRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiChatBoxRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);

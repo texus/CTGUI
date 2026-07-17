@@ -192,12 +192,12 @@ tguiUint32 tguiListBoxRenderer_getSelectedTextStyle(const tguiRenderer* thisRend
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiListBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

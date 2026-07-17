@@ -204,36 +204,36 @@ const tguiTexture* tguiChildWindowRenderer_getTextureBackground(const tguiRender
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setCloseButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiChildWindowRenderer_setCloseButton(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setCloseButton(value->This);
 }
 
-const tguiRendererData* tguiChildWindowRenderer_getCloseButton(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiChildWindowRenderer_getCloseButton(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getCloseButton());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setMaximizeButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiChildWindowRenderer_setMaximizeButton(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setMaximizeButton(value->This);
 }
 
-const tguiRendererData* tguiChildWindowRenderer_getMaximizeButton(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiChildWindowRenderer_getMaximizeButton(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getMaximizeButton());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiChildWindowRenderer_setMinimizeButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiChildWindowRenderer_setMinimizeButton(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setMinimizeButton(value->This);
 }
 
-const tguiRendererData* tguiChildWindowRenderer_getMinimizeButton(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiChildWindowRenderer_getMinimizeButton(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getMinimizeButton());
 }

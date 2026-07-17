@@ -2,11 +2,11 @@
 
 #include <CTGUI/Gui.h>
 #include <CTGUI/GuiStruct.hpp>
-#include <CTGUI/FormLoadOptionsStruct.hpp>
 #include <CTGUI/InternalGlobal.hpp>
 
 #include <CTGUI/WidgetStruct.hpp>
 #include <CTGUI/FontStruct.hpp>
+#include <CTGUI/FormLoadOptionsStruct.hpp>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -150,22 +150,6 @@ void tguiGui_draw(tguiGui* gui)
     gui->This->draw();
 
     ctgui::cleanupWidgets(); // Fully destroy widgets that no longer exist
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiFormLoadOptions *loadOptions)
-{
-    try
-    {
-        gui->This->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -373,6 +357,22 @@ tguiBool tguiGui_focusPreviousWidget(tguiGui* thisGui, tguiBool recursive)
 void tguiGui_unfocusAllWidgets(tguiGui* thisGui)
 {
     thisGui->This->unfocusAllWidgets();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tguiBool tguiGui_loadWidgetsFromFile(tguiGui* thisGui, tguiUtf32 filename, const tguiFormLoadOptions* loadOptions)
+{
+    try
+    {
+        thisGui->This->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
+        return true;
+    }
+    catch (const tgui::Exception& e)
+    {
+        ctgui::tguiErrorMessage = e.what();
+        return false;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

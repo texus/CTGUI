@@ -59,8 +59,8 @@ CTGUI_API const tguiTexture* tguiListViewRenderer_getTextureHeaderBackground(con
 CTGUI_API void tguiListViewRenderer_setTextureBackground(tguiRenderer* thisRenderer, const tguiTexture* value);
 CTGUI_API const tguiTexture* tguiListViewRenderer_getTextureBackground(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListViewRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListViewRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiListViewRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiListViewRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);

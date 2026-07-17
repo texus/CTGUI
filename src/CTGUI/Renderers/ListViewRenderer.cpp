@@ -228,12 +228,12 @@ const tguiTexture* tguiListViewRenderer_getTextureBackground(const tguiRenderer*
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiListViewRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiListViewRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiListViewRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

@@ -8,8 +8,8 @@
 CTGUI_API tguiRenderer* tguiScrollablePanelRenderer_create(void);
 CTGUI_API tguiRenderer* tguiScrollablePanelRenderer_copy(const tguiRenderer* other);
 
-CTGUI_API void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiScrollablePanelRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiScrollablePanelRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);

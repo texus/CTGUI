@@ -41,8 +41,8 @@ CTGUI_API const tguiTexture* tguiTextAreaRenderer_getTextureBackground(const tgu
 CTGUI_API void tguiTextAreaRenderer_setCaretWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiTextAreaRenderer_getCaretWidth(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiTextAreaRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiTextAreaRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiTextAreaRenderer_getScrollbar(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiTextAreaRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiTextAreaRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);

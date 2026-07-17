@@ -1,6 +1,5 @@
 #include <CTGUI/Gui.h>
 #include <CTGUI/GuiStruct.hpp>
-#include <CTGUI/FormLoadOptionsStruct.hpp>
 #include <CTGUI/InternalGlobal.hpp>
 
 @TGUI_GENERATED_HEAD@
@@ -147,22 +146,6 @@ void tguiGui_draw(tguiGui* gui)
     gui->This->draw();
 
     ctgui::cleanupWidgets(); // Fully destroy widgets that no longer exist
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-tguiBool tguiGui_loadWidgetsFromFile(tguiGui* gui, tguiUtf32 filename, tguiFormLoadOptions *loadOptions)
-{
-    try
-    {
-        gui->This->loadWidgetsFromFile(ctgui::toCppStr(filename), loadOptions ? loadOptions->This : tgui::FormLoadOptions());
-        return true;
-    }
-    catch (const tgui::Exception& e)
-    {
-        ctgui::tguiErrorMessage = e.what();
-        return false;
-    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

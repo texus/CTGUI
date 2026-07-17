@@ -204,12 +204,12 @@ const tguiTexture* tguiTreeViewRenderer_getTextureLeaf(const tguiRenderer* thisR
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiTreeViewRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiTreeViewRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiTreeViewRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

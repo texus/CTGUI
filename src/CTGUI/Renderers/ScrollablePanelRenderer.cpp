@@ -22,12 +22,12 @@ tguiRenderer* tguiScrollablePanelRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiScrollablePanelRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setScrollbar(value->This);
 }
 
-const tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiScrollablePanelRenderer_getScrollbar(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getScrollbar());
 }

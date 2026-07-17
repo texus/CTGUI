@@ -22,48 +22,48 @@ tguiRenderer* tguiColorPickerRenderer_copy(const tguiRenderer* thisRenderer)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPickerRenderer_setButton(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiColorPickerRenderer_setButton(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setButton(value->This);
 }
 
-const tguiRendererData* tguiColorPickerRenderer_getButton(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiColorPickerRenderer_getButton(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getButton());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPickerRenderer_setLabel(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiColorPickerRenderer_setLabel(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setLabel(value->This);
 }
 
-const tguiRendererData* tguiColorPickerRenderer_getLabel(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiColorPickerRenderer_getLabel(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getLabel());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPickerRenderer_setSlider(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiColorPickerRenderer_setSlider(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setSlider(value->This);
 }
 
-const tguiRendererData* tguiColorPickerRenderer_getSlider(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiColorPickerRenderer_getSlider(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getSlider());
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiColorPickerRenderer_setEditBox(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiColorPickerRenderer_setEditBox(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setEditBox(value->This);
 }
 
-const tguiRendererData* tguiColorPickerRenderer_getEditBox(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiColorPickerRenderer_getEditBox(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getEditBox());
 }

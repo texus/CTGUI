@@ -5,8 +5,6 @@
 
 @TGUI_GENERATED_HEAD@
 
-CTGUI_API tguiBool tguiContainer_loadWidgetsFromFile(tguiWidget* container, tguiUtf32 filename, tguiFormLoadOptions *loadOptions);
-
 @TGUI_GENERATED_BODY@
 
 #endif // CTGUI_CONTAINER_H

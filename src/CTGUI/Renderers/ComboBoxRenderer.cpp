@@ -276,12 +276,12 @@ tguiUint32 tguiComboBoxRenderer_getDefaultTextStyle(const tguiRenderer* thisRend
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiComboBoxRenderer_setListBox(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiComboBoxRenderer_setListBox(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setListBox(value->This);
 }
 
-const tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiComboBoxRenderer_getListBox(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getListBox());
 }

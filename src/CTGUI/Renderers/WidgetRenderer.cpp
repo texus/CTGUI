@@ -85,12 +85,12 @@ tguiBool tguiWidgetRenderer_getTransparentTexture(const tguiRenderer* thisRender
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setData(tguiRenderer* thisRenderer, const tguiRendererData* value)
+void tguiWidgetRenderer_setData(tguiRenderer* thisRenderer, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setData(value->This);
 }
 
-const tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* thisRenderer)
+tguiRendererData* tguiWidgetRenderer_getData(const tguiRenderer* thisRenderer)
 {
     return new tguiRendererData(DOWNCAST(thisRenderer->This)->getData());
 }
@@ -153,7 +153,7 @@ void tguiWidgetRenderer_setPropertyTextStyle(tguiRenderer* thisRenderer, tguiUtf
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tguiWidgetRenderer_setPropertyRendererData(tguiRenderer* thisRenderer, tguiUtf32 property, const tguiRendererData* value)
+void tguiWidgetRenderer_setPropertyRendererData(tguiRenderer* thisRenderer, tguiUtf32 property, tguiRendererData* value)
 {
     DOWNCAST(thisRenderer->This)->setProperty(ctgui::toCppStr(property), value->This);
 }

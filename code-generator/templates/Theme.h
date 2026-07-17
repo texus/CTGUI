@@ -11,13 +11,6 @@ CTGUI_API void tguiTheme_destroy(tguiTheme* theme);
 
 CTGUI_API tguiBool tguiTheme_load(tguiTheme* theme, tguiUtf32 filename);
 
-CTGUI_API void tguiTheme_replace(tguiTheme* theme, tguiTheme* otherTheme);
-
-CTGUI_API tguiRendererData* tguiTheme_getRenderer(tguiTheme* theme, tguiUtf32 id);
-
-CTGUI_API void tguiTheme_setDefault(tguiTheme* defaultTheme);
-CTGUI_API tguiTheme* tguiTheme_getDefault(void);
-
 CTGUI_API tguiBool tguiTheme_hasGlobalProperty(const tguiTheme* theme, tguiUtf32 property);
 
 CTGUI_API tguiBool tguiTheme_getGlobalPropertyBool(const tguiTheme* theme, tguiUtf32 property, tguiBool* value);
@@ -30,10 +23,8 @@ CTGUI_API tguiBool tguiTheme_getGlobalPropertyTexture(const tguiTheme* theme, tg
 CTGUI_API tguiBool tguiTheme_getGlobalPropertyTextStyle(const tguiTheme* theme, tguiUtf32 property, tguiUint32* value);
 CTGUI_API tguiBool tguiTheme_getGlobalPropertyRendererData(const tguiTheme* theme, tguiUtf32 property, tguiRendererData** value);
 
-CTGUI_API void tguiTheme_addRendererDefaultSubwidget(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 propertyWidgetType);
 CTGUI_API tguiUtf32 tguiTheme_getRendererDefaultSubwidget(tguiUtf32 widgetType, tguiUtf32 property);
 
-CTGUI_API void tguiTheme_addRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property, tguiUtf32 globalProperty);
 CTGUI_API tguiUtf32 tguiTheme_getRendererInheritedGlobalProperty(tguiUtf32 widgetType, tguiUtf32 property);
 
 @TGUI_GENERATED_BODY@

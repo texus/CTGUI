@@ -5,3 +5,16 @@ const-function string getPrimary()
 
 static-function void addRendererInheritanceParent(string widgetType, string parentType)
 static-function string getRendererInheritanceParent(string widgetType)
+
+throwing-function void load(string filename)
+
+function void replace(Theme otherTheme)
+
+static-function void setDefault(Optional<Theme> defaultTheme)
+static-function ThemePtr getDefault(void)
+
+throwing-function RendererData getRenderer(string id)
+
+static-function void addRendererDefaultSubwidget(string widgetType, string property, string propertyWidgetType)
+
+static-function void addRendererInheritedGlobalProperty(string widgetType, string property, string globalProperty)

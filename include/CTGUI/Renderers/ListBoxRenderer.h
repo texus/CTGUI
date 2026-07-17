@@ -50,8 +50,8 @@ CTGUI_API tguiUint32 tguiListBoxRenderer_getTextStyle(const tguiRenderer* thisRe
 CTGUI_API void tguiListBoxRenderer_setSelectedTextStyle(tguiRenderer* thisRenderer, tguiUint32 value);
 CTGUI_API tguiUint32 tguiListBoxRenderer_getSelectedTextStyle(const tguiRenderer* thisRenderer);
 
-CTGUI_API void tguiListBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, const tguiRendererData* value);
-CTGUI_API const tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer);
+CTGUI_API void tguiListBoxRenderer_setScrollbar(tguiRenderer* thisRenderer, tguiRendererData* value);
+CTGUI_API tguiRendererData* tguiListBoxRenderer_getScrollbar(const tguiRenderer* thisRenderer);
 
 CTGUI_API void tguiListBoxRenderer_setScrollbarWidth(tguiRenderer* thisRenderer, float value);
 CTGUI_API float tguiListBoxRenderer_getScrollbarWidth(const tguiRenderer* thisRenderer);
